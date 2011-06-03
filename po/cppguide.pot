@@ -1,0 +1,4048 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-05-28 14:30+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cppguide.xml:5(p) cppguide.xml:4552(p)
+msgid "Revision 3.188"
+msgstr ""
+
+#: cppguide.xml:12(address) cppguide.xml:4558(address)
+msgid "Benjy Weinberger<br/> Craig Silverstein<br/> Gregory Eitzmann<br/> Mark Mentovai<br/> Tashana Landray"
+msgstr ""
+
+#: cppguide.xml:23(SUMMARY)
+msgid "This style guide contains many details that are initially hidden from view. They are marked by the triangle icon, which you see here on your left. Click it now. You should see \"Hooray\" appear below."
+msgstr ""
+
+#: cppguide.xml:30(p)
+msgid "Hooray! Now you know you can expand points to get more details. Alternatively, there's an \"expand all\" at the top of this document."
+msgstr ""
+
+#: cppguide.xml:39(p)
+msgid "C++ is the main development language used by many of Google's open-source projects. As every C++ programmer knows, the language has many powerful features, but this power brings with it complexity, which in turn can make code more bug-prone and harder to read and maintain."
+msgstr ""
+
+#: cppguide.xml:48(p)
+msgid "The goal of this guide is to manage this complexity by describing in detail the dos and don'ts of writing C++ code. These rules exist to keep the code base manageable while still allowing coders to use C++ language features productively."
+msgstr ""
+
+#: cppguide.xml:59(em)
+msgid "Style"
+msgstr ""
+
+#: cppguide.xml:58(p)
+msgid "<placeholder-1/>, also known as readability, is what we call the conventions that govern our C++ code. The term Style is a bit of a misnomer, since these conventions cover far more than just source file formatting."
+msgstr ""
+
+#: cppguide.xml:66(em) cppguide.xml:4429(em)
+msgid "consistency"
+msgstr ""
+
+#: cppguide.xml:64(p)
+msgid "One way in which we keep the code base manageable is by enforcing <placeholder-1/>. It is very important that any programmer be able to look at another's code and quickly understand it. Maintaining a uniform style and following conventions means that we can more easily use \"pattern-matching\" to infer what various symbols are and what invariants are true about them. Creating common, required idioms and patterns makes code much easier to understand. In some cases there might be good arguments for changing certain style rules, but we nonetheless keep things as they are in order to preserve consistency."
+msgstr ""
+
+#: cppguide.xml:80(p)
+msgid "Another issue this guide addresses is that of C++ feature bloat. C++ is a huge language with many advanced features. In some cases we constrain, or even ban, use of certain features. We do this to keep code simple and to avoid the various common errors and problems that these features can cause. This guide lists these features and explains why their use is restricted."
+msgstr ""
+
+#: cppguide.xml:88(p)
+msgid "Open-source projects developed by Google conform to the requirements in this guide."
+msgstr ""
+
+#: cppguide.xml:94(p)
+msgid "Note that this guide is not a C++ tutorial: we assume that the reader is familiar with the language."
+msgstr ""
+
+#: cppguide.xml:105(code) cppguide.xml:109(code) cppguide.xml:208(code) cppguide.xml:288(code) cppguide.xml:390(code) cppguide.xml:430(code) cppguide.xml:476(code) cppguide.xml:540(code) cppguide.xml:580(code) cppguide.xml:590(code) cppguide.xml:660(code) cppguide.xml:718(code) cppguide.xml:1407(code) cppguide.xml:2769(code) cppguide.xml:3143(code) cppguide.xml:3149(code) cppguide.xml:3154(code) cppguide.xml:4454(code)
+msgid ".cc"
+msgstr ""
+
+#: cppguide.xml:106(code) cppguide.xml:289(code) cppguide.xml:295(code) cppguide.xml:297(code) cppguide.xml:299(code) cppguide.xml:350(code) cppguide.xml:352(code) cppguide.xml:380(code) cppguide.xml:383(code) cppguide.xml:389(code) cppguide.xml:498(code) cppguide.xml:581(code) cppguide.xml:591(code) cppguide.xml:2469(code) cppguide.xml:2770(code) cppguide.xml:2785(code) cppguide.xml:2787(code) cppguide.xml:3141(code) cppguide.xml:3147(code) cppguide.xml:3150(code) cppguide.xml:3153(code) cppguide.xml:3288(code)
+msgid ".h"
+msgstr ""
+
+#: cppguide.xml:109(code) cppguide.xml:877(code)
+msgid "main()"
+msgstr ""
+
+#: cppguide.xml:104(p)
+msgid "In general, every <placeholder-1/> file should have an associated <placeholder-2/> file. There are some common exceptions, such as unittests and small <placeholder-3/> files containing just a <placeholder-4/> function."
+msgstr ""
+
+#: cppguide.xml:112(p)
+msgid "Correct use of header files can make a huge difference to the readability, size and performance of your code."
+msgstr ""
+
+#: cppguide.xml:116(p)
+msgid "The following rules will guide you through the various pitfalls of using header files."
+msgstr ""
+
+#: cppguide.xml:123(code) cppguide.xml:312(code) cppguide.xml:2452(code) cppguide.xml:2471(code)
+msgid "#define"
+msgstr ""
+
+#: cppguide.xml:126(i)
+msgid "&lt;PROJECT&gt;"
+msgstr ""
+
+#: cppguide.xml:126(i)
+msgid "&lt;PATH&gt;"
+msgstr ""
+
+#: cppguide.xml:126(i)
+msgid "&lt;FILE&gt;"
+msgstr ""
+
+#: cppguide.xml:126(code)
+msgid "<placeholder-1/>_<placeholder-2/>_<placeholder-3/>_H_"
+msgstr ""
+
+#: cppguide.xml:122(SUMMARY)
+msgid "All header files should have <placeholder-1/> guards to prevent multiple inclusion. The format of the symbol name should be <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:133(code)
+msgid "foo/src/bar/baz.h"
+msgstr ""
+
+#: cppguide.xml:133(code)
+msgid "foo"
+msgstr ""
+
+#: cppguide.xml:130(p)
+msgid "To guarantee uniqueness, they should be based on the full path in a project's source tree. For example, the file <placeholder-1/> in project <placeholder-2/> should have the following guard:"
+msgstr ""
+
+#: cppguide.xml:136(CODE_SNIPPET)
+msgid "#ifndef FOO_BAR_BAZ_H_ #define FOO_BAR_BAZ_H_ ... #endif // FOO_BAR_BAZ_H_"
+msgstr ""
+
+#: cppguide.xml:150(code) cppguide.xml:389(code) cppguide.xml:3602(code)
+msgid "#include"
+msgstr ""
+
+#: cppguide.xml:149(SUMMARY)
+msgid "Don't use an <placeholder-1/> when a forward declaration would suffice."
+msgstr ""
+
+#: cppguide.xml:154(p)
+msgid "When you include a header file you introduce a dependency that will cause your code to be recompiled whenever the header file changes. If your header file includes other header files, any change to those files will cause any code that includes your header to be recompiled. Therefore, we prefer to minimize includes, particularly includes of header files in other header files."
+msgstr ""
+
+#: cppguide.xml:167(code) cppguide.xml:168(code)
+msgid "File"
+msgstr ""
+
+#: cppguide.xml:169(code)
+msgid "class File;"
+msgstr ""
+
+#: cppguide.xml:170(code)
+msgid "#include \"file/base/file.h\""
+msgstr ""
+
+#: cppguide.xml:163(p)
+msgid "You can significantly reduce the number of header files you need to include in your own header files by using forward declarations. For example, if your header file uses the <placeholder-1/> class in ways that do not require access to the declaration of the <placeholder-2/> class, your header file can just forward declare <placeholder-3/> instead of having to <placeholder-4/>."
+msgstr ""
+
+#: cppguide.xml:173(code) cppguide.xml:181(code) cppguide.xml:182(code) cppguide.xml:190(code) cppguide.xml:196(code) cppguide.xml:196(code) cppguide.xml:197(code) cppguide.xml:214(code) cppguide.xml:215(code) cppguide.xml:218(code) cppguide.xml:220(code) cppguide.xml:450(code) cppguide.xml:669(code) cppguide.xml:948(code) cppguide.xml:949(code) cppguide.xml:950(code) cppguide.xml:1149(code) cppguide.xml:1150(code) cppguide.xml:1714(code) cppguide.xml:1715(code)
+msgid "Foo"
+msgstr ""
+
+#: cppguide.xml:172(p)
+msgid "How can we use a class <placeholder-1/> in a header file without access to its definition?"
+msgstr ""
+
+#: cppguide.xml:177(code)
+msgid "Foo*"
+msgstr ""
+
+#: cppguide.xml:178(code)
+msgid "Foo&amp;"
+msgstr ""
+
+#: cppguide.xml:177(li)
+msgid "We can declare data members of type <placeholder-1/> or <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:183(code)
+msgid "const Foo&amp;"
+msgstr ""
+
+#: cppguide.xml:184(code) cppguide.xml:940(code) cppguide.xml:953(code) cppguide.xml:965(code) cppguide.xml:972(code)
+msgid "explicit"
+msgstr ""
+
+#: cppguide.xml:180(li)
+msgid "We can declare (but not define) functions with arguments, and/or return values, of type <placeholder-1/>. (One exception is if an argument <placeholder-2/> or <placeholder-3/> has a non-<placeholder-4/>, one-argument constructor, in which case we need the full definition to support automatic type conversion.)"
+msgstr ""
+
+#: cppguide.xml:189(li)
+msgid "We can declare static data members of type <placeholder-1/>. This is because static data members are defined outside the class definition."
+msgstr ""
+
+#: cppguide.xml:194(p)
+msgid "On the other hand, you must include the header file for <placeholder-1/> if your class subclasses <placeholder-2/> or has a data member of type <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:201(code) cppguide.xml:1465(code) cppguide.xml:1493(code) cppguide.xml:1698(code)
+msgid "scoped_ptr"
+msgstr ""
+
+#: cppguide.xml:199(p)
+msgid "Sometimes it makes sense to have pointer (or better, <placeholder-1/>) members instead of object members. However, this complicates code readability and imposes a performance penalty, so avoid doing this transformation if the only purpose is to minimize includes in header files."
+msgstr ""
+
+#: cppguide.xml:207(p)
+msgid "Of course, <placeholder-1/> files typically do require the definitions of the classes they use, and usually have to include several header files."
+msgstr ""
+
+#: cppguide.xml:219(code) cppguide.xml:221(code)
+msgid "myfile.cc"
+msgstr ""
+
+#: cppguide.xml:220(code)
+msgid "myfile.h"
+msgstr ""
+
+#: cppguide.xml:213(SUBSECTION)
+msgid "If you use a symbol <placeholder-1/> in your source file, you should bring in a definition for <placeholder-2/> yourself, either via an #include or via a forward declaration. Do not depend on the symbol being brought in transitively via headers not directly included. One exception is if <placeholder-3/> is used in <placeholder-4/>, it's ok to #include (or forward-declare) <placeholder-5/> in <placeholder-6/>, instead of <placeholder-7/>."
+msgstr ""
+
+#: cppguide.xml:227(SUMMARY)
+msgid "Define functions inline only when they are small, say, 10 lines or less."
+msgstr ""
+
+#: cppguide.xml:232(DEFINITION)
+msgid "You can declare functions in a way that allows the compiler to expand them inline rather than calling them through the usual function call mechanism."
+msgstr ""
+
+#: cppguide.xml:237(PROS)
+msgid "Inlining a function can generate more efficient object code, as long as the inlined function is small. Feel free to inline accessors and mutators, and other short, performance-critical functions."
+msgstr ""
+
+#: cppguide.xml:243(CONS)
+msgid "Overuse of inlining can actually make programs slower. Depending on a function's size, inlining it can cause the code size to increase or decrease. Inlining a very small accessor function will usually decrease code size while inlining a very large function can dramatically increase code size. On modern processors smaller code usually runs faster due to better use of the instruction cache."
+msgstr ""
+
+#: cppguide.xml:253(p)
+msgid "A decent rule of thumb is to not inline a function if it is more than 10 lines long. Beware of destructors, which are often longer than they appear because of implicit member- and base-destructor calls!"
+msgstr ""
+
+#: cppguide.xml:259(p)
+msgid "Another useful rule of thumb: it's typically not cost effective to inline functions with loops or switch statements (unless, in the common case, the loop or switch statement is never executed)."
+msgstr ""
+
+#: cppguide.xml:265(p)
+msgid "It is important to know that functions are not always inlined even if they are declared as such; for example, virtual and recursive functions are not normally inlined. Usually recursive functions should not be inline. The main reason for making a virtual function inline is to place its definition in the class, either for convenience or to document its behavior, e.g., for accessors and mutators."
+msgstr ""
+
+#: cppguide.xml:280(code) cppguide.xml:300(code) cppguide.xml:306(code) cppguide.xml:311(code) cppguide.xml:2789(code)
+msgid "-inl.h"
+msgstr ""
+
+#: cppguide.xml:279(SUMMARY)
+msgid "You may use file names with a <placeholder-1/> suffix to define complex inline functions when needed."
+msgstr ""
+
+#: cppguide.xml:284(p)
+msgid "The definition of an inline function needs to be in a header file, so that the compiler has the definition available for inlining at the call sites. However, implementation code properly belongs in <placeholder-1/> files, and we do not like to have much actual code in <placeholder-2/> files unless there is a readability or performance advantage."
+msgstr ""
+
+#: cppguide.xml:292(p)
+msgid "If an inline function definition is short, with very little, if any, logic in it, you should put the code in your <placeholder-1/> file. For example, accessors and mutators should certainly be inside a class definition. More complex inline functions may also be put in a <placeholder-2/> file for the convenience of the implementer and callers, though if this makes the <placeholder-3/> file too unwieldy you can instead put that code in a separate <placeholder-4/> file. This separates the implementation from the class definition, while still allowing the implementation to be included where necessary."
+msgstr ""
+
+#: cppguide.xml:305(p)
+msgid "Another use of <placeholder-1/> files is for definitions of function templates. This can be used to keep your template definitions easy to read."
+msgstr ""
+
+#: cppguide.xml:312(a)
+msgid "<placeholder-1/> guard"
+msgstr ""
+
+#: cppguide.xml:310(p)
+msgid "Do not forget that a <placeholder-1/> file requires a <placeholder-2/> just like any other header file."
+msgstr ""
+
+#: cppguide.xml:320(SUMMARY)
+msgid "When defining a function, parameter order is: inputs, then outputs."
+msgstr ""
+
+#: cppguide.xml:328(code) cppguide.xml:329(code) cppguide.xml:1541(code) cppguide.xml:1564(code) cppguide.xml:1571(code) cppguide.xml:1573(code) cppguide.xml:1574(code) cppguide.xml:1578(code) cppguide.xml:1935(code) cppguide.xml:1936(a) cppguide.xml:2102(code) cppguide.xml:2108(code) cppguide.xml:2110(code) cppguide.xml:2125(code) cppguide.xml:2125(code) cppguide.xml:2126(code) cppguide.xml:2133(code) cppguide.xml:2137(code) cppguide.xml:2142(code) cppguide.xml:2144(code) cppguide.xml:2146(code) cppguide.xml:2148(code) cppguide.xml:2149(code) cppguide.xml:2149(code) cppguide.xml:2152(code) cppguide.xml:2158(code) cppguide.xml:2175(code) cppguide.xml:2180(code) cppguide.xml:2182(code) cppguide.xml:2185(code) cppguide.xml:2436(code) cppguide.xml:2448(code) cppguide.xml:3730(code) cppguide.xml:3730(code)
+msgid "const"
+msgstr ""
+
+#: cppguide.xml:325(p)
+msgid "Parameters to C/C++ functions are either input to the function, output from the function, or both. Input parameters are usually values or <placeholder-1/> references, while output and input/output parameters will be non-<placeholder-2/> pointers. When ordering function parameters, put all input-only parameters before any output parameters. In particular, do not add new parameters to the end of the function just because they are new; place new input-only parameters before the output parameters."
+msgstr ""
+
+#: cppguide.xml:336(p)
+msgid "This is not a hard-and-fast rule. Parameters that are both input and output (often classes/structs) muddy the waters, and, as always, consistency with related functions may require you to bend the rule."
+msgstr ""
+
+#: cppguide.xml:346(SUMMARY)
+msgid "Use standard order for readability and to avoid hidden dependencies: C library, C++ library, other libraries' <placeholder-1/>, your project's <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:359(code)
+msgid "."
+msgstr ""
+
+#: cppguide.xml:360(code)
+msgid ".."
+msgstr ""
+
+#: cppguide.xml:363(code)
+msgid "google-awesome-project/src/base/logging.h"
+msgstr ""
+
+#: cppguide.xml:355(p)
+msgid "All of a project's header files should be listed as descendants of the project's source directory without use of UNIX directory shortcuts <placeholder-1/> (the current directory) or <placeholder-2/> (the parent directory). For example, <placeholder-3/> should be included as"
+msgstr ""
+
+#: cppguide.xml:366(CODE_SNIPPET)
+msgid "#include \"base/logging.h\""
+msgstr ""
+
+#: cppguide.xml:370(var) cppguide.xml:393(var)
+msgid "dir/foo"
+msgstr ""
+
+#: cppguide.xml:370(code) cppguide.xml:370(code) cppguide.xml:393(code)
+msgid "<placeholder-1/>.cc"
+msgstr ""
+
+#: cppguide.xml:370(var)
+msgid "dir/foo_test"
+msgstr ""
+
+#: cppguide.xml:372(var) cppguide.xml:376(var) cppguide.xml:394(var)
+msgid "dir2/foo2"
+msgstr ""
+
+#: cppguide.xml:372(code) cppguide.xml:376(code) cppguide.xml:394(code)
+msgid "<placeholder-1/>.h"
+msgstr ""
+
+#: cppguide.xml:369(p)
+msgid "In <placeholder-1/> or <placeholder-2/>, whose main purpose is to implement or test the stuff in <placeholder-3/>, order your includes as follows:"
+msgstr ""
+
+#: cppguide.xml:376(li)
+msgid "<placeholder-1/> (preferred location - see details below)."
+msgstr ""
+
+#: cppguide.xml:378(li)
+msgid "C system files."
+msgstr ""
+
+#: cppguide.xml:379(li)
+msgid "C++ system files."
+msgstr ""
+
+#: cppguide.xml:380(li)
+msgid "Other libraries' <placeholder-1/> files."
+msgstr ""
+
+#: cppguide.xml:381(li)
+msgid "Your project's <placeholder-1/> files."
+msgstr ""
+
+#: cppguide.xml:385(p)
+msgid "The preferred ordering reduces hidden dependencies. We want every header file to be compilable on its own. The easiest way to achieve this is to make sure that every one of them is the first <placeholder-1/> file <placeholder-2/>d in some <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:395(code)
+msgid "base/basictypes_test.cc"
+msgstr ""
+
+#: cppguide.xml:396(code)
+msgid "base/basictypes.h"
+msgstr ""
+
+#: cppguide.xml:392(p)
+msgid "<placeholder-1/> and <placeholder-2/> are often in the same directory (e.g. <placeholder-3/> and <placeholder-4/>), but can be in different directories too."
+msgstr ""
+
+#: cppguide.xml:400(p)
+msgid "Within each section it is nice to order the includes alphabetically."
+msgstr ""
+
+#: cppguide.xml:407(code)
+msgid "google-awesome-project/src/foo/internal/fooserver.cc"
+msgstr ""
+
+#: cppguide.xml:404(p)
+msgid "For example, the includes in <placeholder-1/> might look like this:"
+msgstr ""
+
+#: cppguide.xml:410(CODE_SNIPPET)
+msgid "#include \"foo/public/fooserver.h\" // Preferred location. #include &lt;sys/types.h&gt; #include &lt;unistd.h&gt; #include &lt;hash_map&gt; #include &lt;vector&gt; #include \"base/basictypes.h\" #include \"base/commandlineflags.h\" #include \"foo/public/bar.h\""
+msgstr ""
+
+#: cppguide.xml:434(SYNTAX) cppguide.xml:571(SYNTAX)
+msgid "using-directive"
+msgstr ""
+
+#: cppguide.xml:429(SUMMARY)
+msgid "Unnamed namespaces in <placeholder-1/> files are encouraged. With named namespaces, choose the name based on the project, and possibly its path. Do not use a <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:437(DEFINITION)
+msgid "Namespaces subdivide the global scope into distinct, named scopes, and so are useful for preventing name collisions in the global scope."
+msgstr ""
+
+#: cppguide.xml:443(p)
+msgid "Namespaces provide a (hierarchical) axis of naming, in addition to the (also hierarchical) name axis provided by classes."
+msgstr ""
+
+#: cppguide.xml:452(code)
+msgid "project1::Foo"
+msgstr ""
+
+#: cppguide.xml:453(code)
+msgid "project2::Foo"
+msgstr ""
+
+#: cppguide.xml:448(p)
+msgid "For example, if two different projects have a class <placeholder-1/> in the global scope, these symbols may collide at compile time or at runtime. If each project places their code in a namespace, <placeholder-2/> and <placeholder-3/> are now distinct symbols that do not collide."
+msgstr ""
+
+#: cppguide.xml:458(p)
+msgid "Namespaces can be confusing, because they provide an additional (hierarchical) axis of naming, in addition to the (also hierarchical) name axis provided by classes."
+msgstr ""
+
+#: cppguide.xml:463(p)
+msgid "Use of unnamed spaces in header files can easily cause violations of the C++ One Definition Rule (ODR)."
+msgstr ""
+
+#: cppguide.xml:469(p)
+msgid "Use namespaces according to the policy described below."
+msgstr ""
+
+#: cppguide.xml:478(CODE_SNIPPET)
+msgid "namespace { // This is in a .cc file. // The content of a namespace is not indented enum { kUnused, kEOF, kError }; // Commonly used tokens. bool AtEof() { return pos_ == kEOF; } // Uses our namespace's EOF. } // namespace"
+msgstr ""
+
+#: cppguide.xml:494(code)
+msgid "// namespace"
+msgstr ""
+
+#: cppguide.xml:488(p)
+msgid "However, file-scope declarations that are associated with a particular class may be declared in that class as types, static data members or static member functions rather than as members of an unnamed namespace. Terminate the unnamed namespace as shown, with a comment <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:475(li)
+msgid "Unnamed namespaces are allowed and even encouraged in <placeholder-1/> files, to avoid runtime naming conflicts: <placeholder-2/><placeholder-3/>"
+msgstr ""
+
+#: cppguide.xml:498(li)
+msgid "Do not use unnamed namespaces in <placeholder-1/> files."
+msgstr ""
+
+#: cppguide.xml:505(p)
+msgid "Named namespaces should be used as follows:"
+msgstr ""
+
+#: cppguide.xml:511(a) cppguide.xml:880(a)
+msgid "gflags"
+msgstr ""
+
+#: cppguide.xml:514(CODE_SNIPPET)
+msgid "// In the .h file namespace mynamespace { // All declarations are within the namespace scope. // Notice the lack of indentation. class MyClass { public: ... void Foo(); }; } // namespace mynamespace"
+msgstr ""
+
+#: cppguide.xml:528(CODE_SNIPPET)
+msgid "// In the .cc file namespace mynamespace { // Definition of functions is within scope of the namespace. void MyClass::Foo() { ... } } // namespace mynamespace"
+msgstr ""
+
+#: cppguide.xml:539(p)
+msgid "The typical <placeholder-1/> file might have more complex detail, including the need to reference classes in other namespaces."
+msgstr ""
+
+#: cppguide.xml:544(CODE_SNIPPET)
+msgid "#include \"a.h\" DEFINE_bool(someflag, false, \"dummy flag\"); class C; // Forward declaration of class C in the global namespace. namespace a { class A; } // Forward declaration of a::A. namespace b { ...code for b... // Code goes against the left margin. } // namespace b"
+msgstr ""
+
+#: cppguide.xml:509(li)
+msgid "Namespaces wrap the entire source file after includes, <placeholder-1/> definitions/declarations, and forward declarations of classes from other namespaces: <placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/>"
+msgstr ""
+
+#: cppguide.xml:563(code) cppguide.xml:565(code)
+msgid "std"
+msgstr ""
+
+#: cppguide.xml:562(li)
+msgid "Do not declare anything in namespace <placeholder-1/>, not even forward declarations of standard library classes. Declaring entities in namespace <placeholder-2/> is undefined behavior, i.e., not portable. To declare entities from the standard library, include the appropriate header file."
+msgstr ""
+
+#: cppguide.xml:573(BAD_CODE_SNIPPET)
+msgid "// Forbidden -- This pollutes the namespace. using namespace foo;"
+msgstr ""
+
+#: cppguide.xml:571(li)
+msgid "You may not use a <placeholder-1/> to make all names from a namespace available. <placeholder-2/>"
+msgstr ""
+
+#: cppguide.xml:579(SYNTAX)
+msgid "using-declaration"
+msgstr ""
+
+#: cppguide.xml:582(CODE_SNIPPET)
+msgid "// OK in .cc files. // Must be in a function, method or class in .h files. using ::foo::bar;"
+msgstr ""
+
+#: cppguide.xml:579(li)
+msgid "You may use a <placeholder-1/> anywhere in a <placeholder-2/> file, and in functions, methods or classes in <placeholder-3/> files. <placeholder-4/>"
+msgstr ""
+
+#: cppguide.xml:593(CODE_SNIPPET)
+msgid "// Shorten access to some commonly used names in .cc files. namespace fbz = ::foo::bar::baz; // Shorten access to some commonly used names (in a .h file). namespace librarian { // The following alias is available to all files including // this header (in namespace librarian): // alias names should therefore be chosen consistently // within a project. namespace pd_s = ::pipeline_diagnostics::sidetable; inline void my_inline_function() { // namespace alias local to a function (or method). namespace fbz = ::foo::bar::baz; ... } } // namespace librarian"
+msgstr ""
+
+#: cppguide.xml:612(p)
+msgid "Note that an alias in a .h file is visible to everyone #including that file, so public headers (those available outside a project) and headers transitively #included by them, should avoid defining aliases, as part of the general goal of keeping public APIs as small as possible."
+msgstr ""
+
+#: cppguide.xml:589(li)
+msgid "Namespace aliases are allowed anywhere in a <placeholder-1/> file, anywhere inside the named namespace that wraps an entire <placeholder-2/> file, and in functions and methods. <placeholder-3/><placeholder-4/>"
+msgstr ""
+
+#: cppguide.xml:635(a) cppguide.xml:719(a)
+msgid "namespace"
+msgstr ""
+
+#: cppguide.xml:633(SUMMARY)
+msgid "Although you may use public nested classes when they are part of an interface, consider a <placeholder-1/> to keep declarations out of the global scope."
+msgstr ""
+
+#: cppguide.xml:641(SYNTAX)
+msgid "member class"
+msgstr ""
+
+#: cppguide.xml:642(CODE_SNIPPET)
+msgid "class Foo { private: // Bar is a member class, nested within Foo. class Bar { ... }; };"
+msgstr ""
+
+#: cppguide.xml:639(DEFINITION)
+msgid "A class can define another class within it; this is also called a <placeholder-1/>. <placeholder-2/>"
+msgstr ""
+
+#: cppguide.xml:654(PROS)
+msgid "This is useful when the nested (or member) class is only used by the enclosing class; making it a member puts it in the enclosing class scope rather than polluting the outer scope with the class name. Nested classes can be forward declared within the enclosing class and then defined in the <placeholder-1/> file to avoid including the nested class definition in the enclosing class declaration, since the nested class definition is usually only relevant to the implementation."
+msgstr ""
+
+#: cppguide.xml:668(code)
+msgid "Foo::Bar*"
+msgstr ""
+
+#: cppguide.xml:665(CONS)
+msgid "Nested classes can be forward-declared only within the definition of the enclosing class. Thus, any header file manipulating a <placeholder-1/> pointer will have to include the full class declaration for <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:671(DECISION)
+msgid "Do not make nested classes public unless they are actually part of the interface, e.g., a class that holds a set of options for some method."
+msgstr ""
+
+#: cppguide.xml:681(SUMMARY)
+msgid "Prefer nonmember functions within a namespace or static member functions to global functions; use completely global functions rarely."
+msgstr ""
+
+#: cppguide.xml:687(PROS)
+msgid "Nonmember and static member functions can be useful in some situations. Putting nonmember functions in a namespace avoids polluting the global namespace."
+msgstr ""
+
+#: cppguide.xml:692(CONS)
+msgid "Nonmember and static member functions may make more sense as members of a new class, especially if they access external resources or have significant dependencies."
+msgstr ""
+
+#: cppguide.xml:706(a)
+msgid "namespaces"
+msgstr ""
+
+#: cppguide.xml:698(p)
+msgid "Sometimes it is useful, or even necessary, to define a function not bound to a class instance. Such a function can be either a static member or a nonmember function. Nonmember functions should not depend on external variables, and should nearly always exist in a namespace. Rather than creating classes only to group static member functions which do not share static data, use <placeholder-1/> instead."
+msgstr ""
+
+#: cppguide.xml:708(p)
+msgid "Functions defined in the same compilation unit as production classes may introduce unnecessary coupling and link-time dependencies when directly called from other compilation units; static member functions are particularly susceptible to this. Consider extracting a new class, or placing the functions in a namespace possibly in a separate library."
+msgstr ""
+
+#: cppguide.xml:719(code)
+msgid "static"
+msgstr ""
+
+#: cppguide.xml:720(code)
+msgid "static int Foo() {...}"
+msgstr ""
+
+#: cppguide.xml:716(p)
+msgid "If you must define a nonmember function and it is only needed in its <placeholder-1/> file, use an unnamed <placeholder-2/> or <placeholder-3/> linkage (eg <placeholder-4/>) to limit its scope."
+msgstr ""
+
+#: cppguide.xml:728(SUMMARY)
+msgid "Place a function's variables in the narrowest scope possible, and initialize variables in the declaration."
+msgstr ""
+
+#: cppguide.xml:733(p)
+msgid "C++ allows you to declare variables anywhere in a function. We encourage you to declare them in as local a scope as possible, and as close to the first use as possible. This makes it easier for the reader to find the declaration and see what type the variable is and what it was initialized to. In particular, initialization should be used instead of declaration and assignment, e.g."
+msgstr ""
+
+#: cppguide.xml:742(BAD_CODE_SNIPPET)
+msgid "int i; i = f(); // Bad -- initialization separate from declaration."
+msgstr ""
+
+#: cppguide.xml:746(CODE_SNIPPET)
+msgid "int j = g(); // Good -- declaration has initialization."
+msgstr ""
+
+#: cppguide.xml:750(code)
+msgid "for (int i = 0; i &lt; 10; ++i)"
+msgstr ""
+
+#: cppguide.xml:751(code) cppguide.xml:753(code) cppguide.xml:2079(code) cppguide.xml:2080(code) cppguide.xml:2081(code) cppguide.xml:2089(code)
+msgid "i"
+msgstr ""
+
+#: cppguide.xml:752(code) cppguide.xml:753(code) cppguide.xml:2087(code)
+msgid "for"
+msgstr ""
+
+#: cppguide.xml:755(code) cppguide.xml:3865(code) cppguide.xml:3903(CODE) cppguide.xml:3915(code) cppguide.xml:4529(code)
+msgid "if"
+msgstr ""
+
+#: cppguide.xml:755(code)
+msgid "while"
+msgstr ""
+
+#: cppguide.xml:749(p)
+msgid "Note that gcc implements <placeholder-1/> correctly (the scope of <placeholder-2/> is only the scope of the <placeholder-3/> loop), so you can then reuse <placeholder-4/> in another <placeholder-5/> loop in the same scope. It also correctly scopes declarations in <placeholder-6/> and <placeholder-7/> statements, e.g."
+msgstr ""
+
+#: cppguide.xml:757(CODE_SNIPPET)
+msgid "while (const char* p = strchr(str, '/')) str = p + 1;"
+msgstr ""
+
+#: cppguide.xml:760(p)
+msgid "There is one caveat: if the variable is an object, its constructor is invoked every time it enters scope and is created, and its destructor is invoked every time it goes out of scope."
+msgstr ""
+
+#: cppguide.xml:766(BAD_CODE_SNIPPET)
+msgid "// Inefficient implementation: for (int i = 0; i &lt; 1000000; ++i) { Foo f; // My ctor and dtor get called 1000000 times each. f.DoSomething(i); }"
+msgstr ""
+
+#: cppguide.xml:773(p)
+msgid "It may be more efficient to declare such a variable used in a loop outside that loop:"
+msgstr ""
+
+#: cppguide.xml:777(CODE_SNIPPET)
+msgid "Foo f; // My ctor and dtor get called once each. for (int i = 0; i &lt; 1000000; ++i) { f.DoSomething(i); }"
+msgstr ""
+
+#: cppguide.xml:787(SUMMARY)
+msgid "Static or global variables of class type are forbidden: they cause hard-to-find bugs due to indeterminate order of construction and destruction."
+msgstr ""
+
+#: cppguide.xml:793(p)
+msgid "Objects with static storage duration, including global variables, static variables, static class member variables, and function static variables, must be Plain Old Data (POD): only ints, chars, floats, or pointers, or arrays/structs of POD."
+msgstr ""
+
+#: cppguide.xml:799(p)
+msgid "The order in which class constructors and initializers for static variables are called is only partially specified in C++ and can even change from build to build, which can cause bugs that are difficult to find. Therefore in addition to banning globals of class type, we do not allow static POD variables to be initialized with the result of a function, unless that function (such as getenv(), or getpid()) does not itself depend on any other globals."
+msgstr ""
+
+#: cppguide.xml:808(p)
+msgid "Likewise, the order in which destructors are called is defined to be the reverse of the order in which the constructors were called. Since constructor order is indeterminate, so is destructor order. For example, at program-end time a static variable might have been destroyed, but code still running -- perhaps in another thread -- tries to access it and fails. Or the destructor for a static 'string' variable might be run prior to the destructor for another variable that contains a reference to that string."
+msgstr ""
+
+#: cppguide.xml:820(code)
+msgid "vector"
+msgstr ""
+
+#: cppguide.xml:821(code)
+msgid "string"
+msgstr ""
+
+#: cppguide.xml:821(code)
+msgid "const char []"
+msgstr ""
+
+#: cppguide.xml:818(p)
+msgid "As a result we only allow static variables to contain POD data. This rule completely disallows <placeholder-1/> (use C arrays instead), or <placeholder-2/> (use <placeholder-3/>)."
+msgstr ""
+
+#: cppguide.xml:824(p)
+msgid "If you need a static or global variable of a class type, consider initializing a pointer (which will never be freed), from either your main() function or from pthread_once(). Note that this must be a raw pointer, not a \"smart\" pointer, since the smart pointer's destructor will have the order-of-destructor issue that we are trying to avoid."
+msgstr ""
+
+#: cppguide.xml:846(code) cppguide.xml:887(code) cppguide.xml:1753(code)
+msgid "Init()"
+msgstr ""
+
+#: cppguide.xml:843(SUMMARY)
+msgid "In general, constructors should merely set member variables to their initial values. Any complex initialization should go in an explicit <placeholder-1/> method."
+msgstr ""
+
+#: cppguide.xml:849(DEFINITION)
+msgid "It is possible to perform initialization in the body of the constructor."
+msgstr ""
+
+#: cppguide.xml:853(PROS)
+msgid "Convenience in typing. No need to worry about whether the class has been initialized or not."
+msgstr ""
+
+#: cppguide.xml:862(a)
+msgid "forbidden"
+msgstr ""
+
+#: cppguide.xml:860(li)
+msgid "There is no easy way for constructors to signal errors, short of using exceptions (which are <placeholder-1/>)."
+msgstr ""
+
+#: cppguide.xml:864(li)
+msgid "If the work fails, we now have an object whose initialization code failed, so it may be an indeterminate state."
+msgstr ""
+
+#: cppguide.xml:868(li)
+msgid "If the work calls virtual functions, these calls will not get dispatched to the subclass implementations. Future modification to your class can quietly introduce this problem even if your class is not currently subclassed, causing much confusion."
+msgstr ""
+
+#: cppguide.xml:874(li)
+msgid "If someone creates a global variable of this type (which is against the rules, but still), the constructor code will be called before <placeholder-1/>, possibly breaking some implicit assumptions in the constructor code. For instance, <placeholder-2/> will not yet have been initialized."
+msgstr ""
+
+#: cppguide.xml:857(CONS)
+msgid "The problems with doing work in constructors are: <ul><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></ul>"
+msgstr ""
+
+#: cppguide.xml:885(DECISION)
+msgid "If your object requires non-trivial initialization, consider having an explicit <placeholder-1/> method. In particular, constructors should not call virtual functions, attempt to raise errors, access potentially uninitialized global variables, etc."
+msgstr ""
+
+#: cppguide.xml:895(SUMMARY)
+msgid "You must define a default constructor if your class defines member variables and has no other constructors. Otherwise the compiler will do it for you, badly."
+msgstr ""
+
+#: cppguide.xml:902(code)
+msgid "new"
+msgstr ""
+
+#: cppguide.xml:904(code)
+msgid "new[]"
+msgstr ""
+
+#: cppguide.xml:901(DEFINITION)
+msgid "The default constructor is called when we <placeholder-1/> a class object with no arguments. It is always called when calling <placeholder-2/> (for arrays)."
+msgstr ""
+
+#: cppguide.xml:906(PROS)
+msgid "Initializing structures by default, to hold \"impossible\" values, makes debugging much easier."
+msgstr ""
+
+#: cppguide.xml:910(CONS)
+msgid "Extra work for you, the code writer."
+msgstr ""
+
+#: cppguide.xml:914(p)
+msgid "If your class defines member variables and has no other constructors you must define a default constructor (one that takes no arguments). It should preferably initialize the object in such a way that its internal state is consistent and valid."
+msgstr ""
+
+#: cppguide.xml:921(p)
+msgid "The reason for this is that if you have no other constructors and do not define a default constructor, the compiler will generate one for you. This compiler generated constructor may not initialize your object sensibly."
+msgstr ""
+
+#: cppguide.xml:928(p)
+msgid "If your class inherits from an existing class but you add no new member variables, you are not required to have a default constructor."
+msgstr ""
+
+#: cppguide.xml:939(SUMMARY)
+msgid "Use the C++ keyword <placeholder-1/> for constructors with one argument."
+msgstr ""
+
+#: cppguide.xml:947(code)
+msgid "Foo::Foo(string name)"
+msgstr ""
+
+#: cppguide.xml:944(DEFINITION)
+msgid "Normally, if a constructor takes one argument, it can be used as a conversion. For instance, if you define <placeholder-1/> and then pass a string to a function that expects a <placeholder-2/>, the constructor will be called to convert the string into a <placeholder-3/> and will pass the <placeholder-4/> to your function for you. This can be convenient but is also a source of trouble when things get converted and new objects created without you meaning them to. Declaring a constructor <placeholder-5/> prevents it from being invoked implicitly as a conversion."
+msgstr ""
+
+#: cppguide.xml:956(PROS)
+msgid "Avoids undesirable conversions."
+msgstr ""
+
+#: cppguide.xml:959(CONS)
+msgid "None."
+msgstr ""
+
+#: cppguide.xml:967(code)
+msgid "explicit Foo(string name);"
+msgstr ""
+
+#: cppguide.xml:963(p)
+msgid "We require all single argument constructors to be explicit. Always put <placeholder-1/> in front of one-argument constructors in the class definition: <placeholder-2/>"
+msgstr ""
+
+#: cppguide.xml:969(p)
+msgid "The exception is copy constructors, which, in the rare cases when we allow them, should probably not be <placeholder-1/>. Classes that are intended to be transparent wrappers around other classes are also exceptions. Such exceptions should be clearly marked with comments."
+msgstr ""
+
+#: cppguide.xml:986(code) cppguide.xml:1038(code) cppguide.xml:1402(code)
+msgid "DISALLOW_COPY_AND_ASSIGN"
+msgstr ""
+
+#: cppguide.xml:984(SUMMARY)
+msgid "Provide a copy constructor and assignment operator only when necessary. Otherwise, disable them with <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:989(DEFINITION)
+msgid "The copy constructor and assignment operator are used to create copies of objects. The copy constructor is implicitly invoked by the compiler in some situations, e.g. passing objects by value."
+msgstr ""
+
+#: cppguide.xml:998(code) cppguide.xml:1020(code) cppguide.xml:1318(code)
+msgid "CopyFrom()"
+msgstr ""
+
+#: cppguide.xml:994(PROS)
+msgid "Copy constructors make it easy to copy objects. STL containers require that all contents be copyable and assignable. Copy constructors can be more efficient than <placeholder-1/>-style workarounds because they combine construction with copying, the compiler can elide them in some contexts, and they make it easier to avoid heap allocation."
+msgstr ""
+
+#: cppguide.xml:1002(CONS)
+msgid "Implicit copying of objects in C++ is a rich source of bugs and of performance problems. It also reduces readability, as it becomes hard to track which objects are being passed around by value as opposed to by reference, and therefore where changes to an object are reflected."
+msgstr ""
+
+#: cppguide.xml:1010(p)
+msgid "Few classes need to be copyable. Most should have neither a copy constructor nor an assignment operator. In many situations, a pointer or reference will work just as well as a copied value, with better performance. For example, you can pass function parameters by reference or pointer instead of by value, and you can store pointers rather than objects in an STL container."
+msgstr ""
+
+#: cppguide.xml:1020(code)
+msgid "Clone()"
+msgstr ""
+
+#: cppguide.xml:1018(p)
+msgid "If your class needs to be copyable, prefer providing a copy method, such as <placeholder-1/> or <placeholder-2/>, rather than a copy constructor, because such methods cannot be invoked implicitly. If a copy method is insufficient in your situation (e.g. for performance reasons, or because your class needs to be stored by value in an STL container), provide both a copy constructor and assignment operator."
+msgstr ""
+
+#: cppguide.xml:1033(code) cppguide.xml:1378(code) cppguide.xml:1385(code) cppguide.xml:1403(code) cppguide.xml:4200(code)
+msgid "private:"
+msgstr ""
+
+#: cppguide.xml:1027(p)
+msgid "If your class does not need a copy constructor or assignment operator, you must explicitly disable them. To do so, add dummy declarations for the copy constructor and assignment operator in the <placeholder-1/> section of your class, but do not provide any corresponding definition (so that any attempt to use them results in a link error)."
+msgstr ""
+
+#: cppguide.xml:1037(p)
+msgid "For convenience, a <placeholder-1/> macro can be used:"
+msgstr ""
+
+#: cppguide.xml:1041(CODE_SNIPPET)
+msgid "// A macro to disallow the copy constructor and operator= functions // This should be used in the private: declarations for a class #define DISALLOW_COPY_AND_ASSIGN(TypeName) \\ TypeName(const TypeName&amp;); \\ void operator=(const TypeName&amp;)"
+msgstr ""
+
+#: cppguide.xml:1049(code)
+msgid "class Foo"
+msgstr ""
+
+#: cppguide.xml:1048(p)
+msgid "Then, in <placeholder-1/>:"
+msgstr ""
+
+#: cppguide.xml:1051(CODE_SNIPPET)
+msgid "class Foo { public: Foo(int f); ~Foo(); private: DISALLOW_COPY_AND_ASSIGN(Foo); };"
+msgstr ""
+
+#: cppguide.xml:1070(code) cppguide.xml:1075(code) cppguide.xml:1096(code) cppguide.xml:3058(code)
+msgid "struct"
+msgstr ""
+
+#: cppguide.xml:1071(code) cppguide.xml:1075(code) cppguide.xml:1092(code) cppguide.xml:1093(code) cppguide.xml:1097(code) cppguide.xml:3058(code)
+msgid "class"
+msgstr ""
+
+#: cppguide.xml:1069(SUMMARY)
+msgid "Use a <placeholder-1/> only for passive objects that carry data; everything else is a <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1074(p)
+msgid "The <placeholder-1/> and <placeholder-2/> keywords behave almost identically in C++. We add our own semantic meanings to each keyword, so you should use the appropriate keyword for the data-type you're defining."
+msgstr ""
+
+#: cppguide.xml:1081(code)
+msgid "structs"
+msgstr ""
+
+#: cppguide.xml:1088(code)
+msgid "Initialize()"
+msgstr ""
+
+#: cppguide.xml:1088(code)
+msgid "Reset()"
+msgstr ""
+
+#: cppguide.xml:1089(code)
+msgid "Validate()"
+msgstr ""
+
+#: cppguide.xml:1080(p)
+msgid "<placeholder-1/> should be used for passive objects that carry data, and may have associated constants, but lack any functionality other than access/setting the data members. The accessing/setting of fields is done by directly accessing the fields rather than through method invocations. Methods should not provide behavior but should only be used to set up the data members, e.g., constructor, destructor, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>."
+msgstr ""
+
+#: cppguide.xml:1091(p)
+msgid "If more functionality is required, a <placeholder-1/> is more appropriate. If in doubt, make it a <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1095(p)
+msgid "For consistency with STL, you can use <placeholder-1/> instead of <placeholder-2/> for functors and traits."
+msgstr ""
+
+#: cppguide.xml:1101(a)
+msgid "different naming rules"
+msgstr ""
+
+#: cppguide.xml:1099(p)
+msgid "Note that member variables in structs and classes have <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:1109(code) cppguide.xml:1141(code) cppguide.xml:4161(code) cppguide.xml:4208(code)
+msgid "public"
+msgstr ""
+
+#: cppguide.xml:1107(SUMMARY)
+msgid "Composition is often more appropriate than inheritance. When using inheritance, make it <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:1117(A)
+msgid "interface inheritance"
+msgstr ""
+
+#: cppguide.xml:1112(DEFINITION)
+msgid "When a sub-class inherits from a base class, it includes the definitions of all the data and operations that the parent base class defines. In practice, inheritance is used in two major ways in C++: implementation inheritance, in which actual code is inherited by the child, and <placeholder-1/>, in which only method names are inherited."
+msgstr ""
+
+#: cppguide.xml:1120(PROS)
+msgid "Implementation inheritance reduces code size by re-using the base class code as it specializes an existing type. Because inheritance is a compile-time declaration, you and the compiler can understand the operation and detect errors. Interface inheritance can be used to programmatically enforce that a class expose a particular API. Again, the compiler can detect errors, in this case, when a class does not define a necessary method of the API."
+msgstr ""
+
+#: cppguide.xml:1130(CONS)
+msgid "For implementation inheritance, because the code implementing a sub-class is spread between the base and the sub-class, it can be more difficult to understand an implementation. The sub-class cannot override functions that are not virtual, so the sub-class cannot change implementation. The base class may also define some data members, so that specifies physical layout of the base class."
+msgstr ""
+
+#: cppguide.xml:1140(p)
+msgid "All inheritance should be <placeholder-1/>. If you want to do private inheritance, you should be including an instance of the base class as a member instead."
+msgstr ""
+
+#: cppguide.xml:1148(code) cppguide.xml:1150(code)
+msgid "Bar"
+msgstr ""
+
+#: cppguide.xml:1145(p)
+msgid "Do not overuse implementation inheritance. Composition is often more appropriate. Try to restrict use of inheritance to the \"is-a\" case: <placeholder-1/> subclasses <placeholder-2/> if it can reasonably be said that <placeholder-3/> \"is a kind of\" <placeholder-4/>."
+msgstr ""
+
+#: cppguide.xml:1153(code) cppguide.xml:1166(code) cppguide.xml:1167(code)
+msgid "virtual"
+msgstr ""
+
+#: cppguide.xml:1152(p)
+msgid "Make your destructor <placeholder-1/> if necessary. If your class has virtual methods, its destructor should be virtual."
+msgstr ""
+
+#: cppguide.xml:1159(code) cppguide.xml:1354(code) cppguide.xml:4161(code) cppguide.xml:4209(code)
+msgid "protected"
+msgstr ""
+
+#: cppguide.xml:1161(a)
+msgid "data members should be private"
+msgstr ""
+
+#: cppguide.xml:1158(p)
+msgid "Limit the use of <placeholder-1/> to those member functions that might need to be accessed from subclasses. Note that <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1164(p)
+msgid "When redefining an inherited virtual function, explicitly declare it <placeholder-1/> in the declaration of the derived class. Rationale: If <placeholder-2/> is omitted, the reader has to check all ancestors of the class in question to determine if the function is virtual or not."
+msgstr ""
+
+#: cppguide.xml:1181(A)
+msgid "pure interface"
+msgstr ""
+
+#: cppguide.xml:1182(code) cppguide.xml:1205(code) cppguide.xml:1217(code) cppguide.xml:1235(code) cppguide.xml:1249(code) cppguide.xml:1257(code) cppguide.xml:1263(code) cppguide.xml:1266(code)
+msgid "Interface"
+msgstr ""
+
+#: cppguide.xml:1177(SUMMARY)
+msgid "Only very rarely is multiple implementation inheritance actually useful. We allow multiple inheritance only when at most one of the base classes has an implementation; all other base classes must be <placeholder-1/> classes tagged with the <placeholder-2/> suffix."
+msgstr ""
+
+#: cppguide.xml:1188(em) cppguide.xml:1203(A)
+msgid "pure interfaces"
+msgstr ""
+
+#: cppguide.xml:1189(em) cppguide.xml:1196(em)
+msgid "implementation"
+msgstr ""
+
+#: cppguide.xml:1185(DEFINITION)
+msgid "Multiple inheritance allows a sub-class to have more than one base class. We distinguish between base classes that are <placeholder-1/> and those that have an <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1193(a) cppguide.xml:1370(a)
+msgid "Inheritance"
+msgstr ""
+
+#: cppguide.xml:1191(PROS)
+msgid "Multiple implementation inheritance may let you re-use even more code than single inheritance (see <placeholder-1/>)."
+msgstr ""
+
+#: cppguide.xml:1195(CONS)
+msgid "Only very rarely is multiple <placeholder-1/> inheritance actually useful. When multiple implementation inheritance seems like the solution, you can usually find a different, more explicit, and cleaner solution."
+msgstr ""
+
+#: cppguide.xml:1207(a) cppguide.xml:1836(a)
+msgid "exception"
+msgstr ""
+
+#: cppguide.xml:1206(SUBSECTION)
+msgid "There is an <placeholder-1/> to this rule on Windows."
+msgstr ""
+
+#: cppguide.xml:1201(DECISION)
+msgid "Multiple inheritance is allowed only when all superclasses, with the possible exception of the first one, are <placeholder-1/>. In order to ensure that they remain pure interfaces, they must end with the <placeholder-2/> suffix. <placeholder-3/>"
+msgstr ""
+
+#: cppguide.xml:1215(SUMMARY)
+msgid "Classes that satisfy certain conditions are allowed, but not required, to end with an <placeholder-1/> suffix."
+msgstr ""
+
+#: cppguide.xml:1221(p)
+msgid "A class is a pure interface if it meets the following requirements:"
+msgstr ""
+
+#: cppguide.xml:1225(code)
+msgid "= 0"
+msgstr ""
+
+#: cppguide.xml:1225(li)
+msgid "It has only public pure virtual (\"<placeholder-1/>\") methods and static methods (but see below for destructor)."
+msgstr ""
+
+#: cppguide.xml:1228(li)
+msgid "It may not have non-static data members."
+msgstr ""
+
+#: cppguide.xml:1230(li)
+msgid "It need not have any constructors defined. If a constructor is provided, it must take no arguments and it must be protected."
+msgstr ""
+
+#: cppguide.xml:1233(li)
+msgid "If it is a subclass, it may only be derived from classes that satisfy these conditions and are tagged with the <placeholder-1/> suffix."
+msgstr ""
+
+#: cppguide.xml:1244(cite)
+msgid "The C++ Programming Language"
+msgstr ""
+
+#: cppguide.xml:1238(p)
+msgid "An interface class can never be directly instantiated because of the pure virtual method(s) it declares. To make sure all implementations of the interface can be destroyed correctly, they must also declare a virtual destructor (in an exception to the first rule, this should not be pure). See Stroustrup, <placeholder-1/>, 3rd edition, section 12.4 for details."
+msgstr ""
+
+#: cppguide.xml:1252(A)
+msgid "multiple inheritance"
+msgstr ""
+
+#: cppguide.xml:1248(PROS)
+msgid "Tagging a class with the <placeholder-1/> suffix lets others know that they must not add implemented methods or non static data members. This is particularly important in the case of <placeholder-2/>. Additionally, the interface concept is already well-understood by Java programmers."
+msgstr ""
+
+#: cppguide.xml:1256(CONS)
+msgid "The <placeholder-1/> suffix lengthens the class name, which can make it harder to read and understand. Also, the interface property may be considered an implementation detail that shouldn't be exposed to clients."
+msgstr ""
+
+#: cppguide.xml:1262(DECISION)
+msgid "A class may end with <placeholder-1/> only if it meets the above requirements. We do not require the converse, however: classes that meet the above requirements are not required to end with <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1272(SUMMARY)
+msgid "Do not overload operators except in rare, special circumstances."
+msgstr ""
+
+#: cppguide.xml:1277(code)
+msgid "+"
+msgstr ""
+
+#: cppguide.xml:1278(code)
+msgid "/"
+msgstr ""
+
+#: cppguide.xml:1276(DEFINITION)
+msgid "A class can define that operators such as <placeholder-1/> and <placeholder-2/> operate on the class as if it were a built-in type."
+msgstr ""
+
+#: cppguide.xml:1284(code) cppguide.xml:2182(code) cppguide.xml:2197(code) cppguide.xml:2207(code) cppguide.xml:2226(code) cppguide.xml:2231(code) cppguide.xml:2233(code) cppguide.xml:2234(code)
+msgid "int"
+msgstr ""
+
+#: cppguide.xml:1286(code) cppguide.xml:1298(code) cppguide.xml:1318(code)
+msgid "Equals()"
+msgstr ""
+
+#: cppguide.xml:1286(code)
+msgid "Add()"
+msgstr ""
+
+#: cppguide.xml:1281(PROS)
+msgid "Can make code appear more intuitive because a class will behave in the same way as built-in types (such as <placeholder-1/>). Overloaded operators are more playful names for functions that are less-colorfully named, such as <placeholder-2/> or <placeholder-3/>. For some template functions to work correctly, you may need to define operators."
+msgstr ""
+
+#: cppguide.xml:1294(li)
+msgid "It can fool our intuition into thinking that expensive operations are cheap, built-in operations."
+msgstr ""
+
+#: cppguide.xml:1300(code)
+msgid "=="
+msgstr ""
+
+#: cppguide.xml:1297(li)
+msgid "It is much harder to find the call sites for overloaded operators. Searching for <placeholder-1/> is much easier than searching for relevant invocations of <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1303(code)
+msgid "Foo + 4"
+msgstr ""
+
+#: cppguide.xml:1304(code)
+msgid "&amp;Foo + 4"
+msgstr ""
+
+#: cppguide.xml:1302(li)
+msgid "Some operators work on pointers too, making it easy to introduce bugs. <placeholder-1/> may do one thing, while <placeholder-2/> does something totally different. The compiler does not complain for either of these, making this very hard to debug."
+msgstr ""
+
+#: cppguide.xml:1310(code) cppguide.xml:1320(code)
+msgid "operator&amp;"
+msgstr ""
+
+#: cppguide.xml:1290(CONS)
+msgid "While operator overloading can make code more intuitive, it has several drawbacks: <ul><placeholder-1/><placeholder-2/><placeholder-3/></ul> Overloading also has surprising ramifications. For instance, if a class overloads unary <placeholder-4/>, it cannot safely be forward-declared."
+msgstr ""
+
+#: cppguide.xml:1316(code)
+msgid "operator="
+msgstr ""
+
+#: cppguide.xml:1314(p)
+msgid "In general, do not overload operators. The assignment operator (<placeholder-1/>), in particular, is insidious and should be avoided. You can define functions like <placeholder-2/> and <placeholder-3/> if you need them. Likewise, avoid the dangerous unary <placeholder-4/> at all costs, if there's any possibility the class might be forward-declared."
+msgstr ""
+
+#: cppguide.xml:1326(code)
+msgid "operator&lt;&lt;(ostream&amp;, const T&amp;)"
+msgstr ""
+
+#: cppguide.xml:1329(code) cppguide.xml:1337(code)
+msgid "operator=="
+msgstr ""
+
+#: cppguide.xml:1330(code)
+msgid "operator&lt;"
+msgstr ""
+
+#: cppguide.xml:1323(p)
+msgid "However, there may be rare cases where you need to overload an operator to interoperate with templates or \"standard\" C++ classes (such as <placeholder-1/> for logging). These are acceptable if fully justified, but you should try to avoid these whenever possible. In particular, do not overload <placeholder-2/> or <placeholder-3/> just so that your class can be used as a key in an STL container; instead, you should create equality and comparison functor types when declaring the container."
+msgstr ""
+
+#: cppguide.xml:1335(p)
+msgid "Some of the STL algorithms do require you to overload <placeholder-1/>, and you may do so in these cases, provided you document why."
+msgstr ""
+
+#: cppguide.xml:1341(a) cppguide.xml:1404(a)
+msgid "Copy Constructors"
+msgstr ""
+
+#: cppguide.xml:1342(a)
+msgid "Function Overloading"
+msgstr ""
+
+#: cppguide.xml:1340(p) cppguide.xml:1369(p)
+msgid "See also <placeholder-1/> and <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1351(code) cppguide.xml:1362(code) cppguide.xml:4162(code) cppguide.xml:4210(code)
+msgid "private"
+msgstr ""
+
+#: cppguide.xml:1356(A)
+msgid "Google Test"
+msgstr ""
+
+#: cppguide.xml:1358(code)
+msgid "foo_"
+msgstr ""
+
+#: cppguide.xml:1359(code)
+msgid "foo()"
+msgstr ""
+
+#: cppguide.xml:1360(code)
+msgid "set_foo()"
+msgstr ""
+
+#: cppguide.xml:1361(code) cppguide.xml:1394(code) cppguide.xml:1398(code)
+msgid "static const"
+msgstr ""
+
+#: cppguide.xml:1362(code)
+msgid "kFoo"
+msgstr ""
+
+#: cppguide.xml:1350(SUMMARY)
+msgid "Make data members <placeholder-1/>, and provide access to them through accessor functions as needed (for technical reasons, we allow data members of a test fixture class to be <placeholder-2/> when using <placeholder-3/>). Typically a variable would be called <placeholder-4/> and the accessor function <placeholder-5/>. You may also want a mutator function <placeholder-6/>. Exception: <placeholder-7/> data members (typically called <placeholder-8/>) need not be <placeholder-9/>."
+msgstr ""
+
+#: cppguide.xml:1365(p)
+msgid "The definitions of accessors are usually inlined in the header file."
+msgstr ""
+
+#: cppguide.xml:1370(a) cppguide.xml:2712(a)
+msgid "Function Names"
+msgstr ""
+
+#: cppguide.xml:1378(code) cppguide.xml:1383(code) cppguide.xml:4199(code)
+msgid "public:"
+msgstr ""
+
+#: cppguide.xml:1376(SUMMARY)
+msgid "Use the specified order of declarations within a class: <placeholder-1/> before <placeholder-2/>, methods before data members (variables), etc."
+msgstr ""
+
+#: cppguide.xml:1384(code) cppguide.xml:4199(code)
+msgid "protected:"
+msgstr ""
+
+#: cppguide.xml:1382(p)
+msgid "Your class definition should start with its <placeholder-1/> section, followed by its <placeholder-2/> section and then its <placeholder-3/> section. If any of these sections are empty, omit them."
+msgstr ""
+
+#: cppguide.xml:1388(p)
+msgid "Within each section, the declarations generally should be in the following order:"
+msgstr ""
+
+#: cppguide.xml:1393(li)
+msgid "Typedefs and Enums"
+msgstr ""
+
+#: cppguide.xml:1394(li)
+msgid "Constants (<placeholder-1/> data members)"
+msgstr ""
+
+#: cppguide.xml:1395(li)
+msgid "Constructors"
+msgstr ""
+
+#: cppguide.xml:1396(li)
+msgid "Destructor"
+msgstr ""
+
+#: cppguide.xml:1397(li)
+msgid "Methods, including static methods"
+msgstr ""
+
+#: cppguide.xml:1398(li)
+msgid "Data Members (except <placeholder-1/> data members)"
+msgstr ""
+
+#: cppguide.xml:1400(p)
+msgid "Friend declarations should always be in the private section, and the <placeholder-1/> macro invocation should be at the end of the <placeholder-2/> section. It should be the last thing in the class. See <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:1406(p)
+msgid "Method definitions in the corresponding <placeholder-1/> file should be the same as the declaration order, as much as possible."
+msgstr ""
+
+#: cppguide.xml:1413(a)
+msgid "Inline Functions"
+msgstr ""
+
+#: cppguide.xml:1410(p)
+msgid "Do not put large method definitions inline in the class definition. Usually, only trivial or performance-critical, and very short, methods may be defined inline. See <placeholder-1/> for more details."
+msgstr ""
+
+#: cppguide.xml:1420(SUMMARY)
+msgid "Prefer small and focused functions."
+msgstr ""
+
+#: cppguide.xml:1424(p)
+msgid "We recognize that long functions are sometimes appropriate, so no hard limit is placed on functions length. If a function exceeds about 40 lines, think about whether it can be broken up without harming the structure of the program."
+msgstr ""
+
+#: cppguide.xml:1430(p)
+msgid "Even if your long function works perfectly now, someone modifying it in a few months may add new behavior. This could result in bugs that are hard to find. Keeping your functions short and simple makes it easier for other people to read and modify your code."
+msgstr ""
+
+#: cppguide.xml:1437(p)
+msgid "You could find long and complicated functions when working with some code. Do not be intimidated by modifying existing code: if working with such a function proves to be difficult, you find that errors are hard to debug, or you want to use a piece of it in several different contexts, consider breaking up the function into smaller and more manageable pieces."
+msgstr ""
+
+#: cppguide.xml:837(CATEGORY)
+msgid "Classes are the fundamental unit of code in C++. Naturally, we use them extensively. This section lists the main dos and don'ts you should follow when writing a class. <STYLEPOINT title=\"Doing Work in Constructors\"><placeholder-1/><BODY><placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/></BODY></STYLEPOINT><STYLEPOINT title=\"Default Constructors\"><placeholder-6/><BODY><placeholder-7/><placeholder-8/><placeholder-9/><DECISION><placeholder-10/><placeholder-11/><placeholder-12/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Explicit Constructors\"><placeholder-13/><BODY><placeholder-14/><placeholder-15/><placeholder-16/><DECISION><placeholder-17/><placeholder-18/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Copy Constructors\"><placeholder-19/><BODY><placeholder-20/><placeholder-21/><placeholder-22/><DECISION><placeholder-23/><placeholder-24/><placeholder-25/><placeholder-26/><placeholder-27/><placeholder-28/><placeholder-29/><placeholder-30/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Structs vs. Classes\"><placeholder-31/><BODY><placeholder-32/><placeholder-33/><placeholder-34/><placeholder-35/><placeholder-36/></BODY></STYLEPOINT><STYLEPOINT title=\"Inheritance\"><placeholder-37/><BODY><placeholder-38/><placeholder-39/><placeholder-40/><DECISION><placeholder-41/><placeholder-42/><placeholder-43/><placeholder-44/><placeholder-45/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Multiple Inheritance\"><placeholder-46/><BODY><placeholder-47/><placeholder-48/><placeholder-49/><placeholder-50/></BODY></STYLEPOINT><STYLEPOINT title=\"Interfaces\"><placeholder-51/><BODY><DEFINITION><placeholder-52/><ul><placeholder-53/><placeholder-54/><placeholder-55/><placeholder-56/></ul><placeholder-57/></DEFINITION><placeholder-58/><placeholder-59/><placeholder-60/></BODY></STYLEPOINT><STYLEPOINT title=\"Operator Overloading\"><placeholder-61/><BODY><placeholder-62/><placeholder-63/><placeholder-64/><DECISION><placeholder-65/><placeholder-66/><placeholder-67/><placeholder-68/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Access Control\"><placeholder-69/><BODY><placeholder-70/><placeholder-71/></BODY></STYLEPOINT><STYLEPOINT title=\"Declaration Order\"><placeholder-72/><BODY><placeholder-73/><placeholder-74/><ul><placeholder-75/><placeholder-76/><placeholder-77/><placeholder-78/><placeholder-79/><placeholder-80/></ul><placeholder-81/><placeholder-82/><placeholder-83/></BODY></STYLEPOINT><STYLEPOINT title=\"Write Short Functions\"><placeholder-84/><BODY><placeholder-85/><placeholder-86/><placeholder-87/></BODY></STYLEPOINT>"
+msgstr ""
+
+#: cppguide.xml:1454(p)
+msgid "There are various tricks and utilities that we use to make C++ code more robust, and various ways we use C++ that may differ from what you see elsewhere."
+msgstr ""
+
+#: cppguide.xml:1466(code)
+msgid "std::tr1::shared_ptr"
+msgstr ""
+
+#: cppguide.xml:1469(code) cppguide.xml:1487(code) cppguide.xml:1495(code)
+msgid "auto_ptr"
+msgstr ""
+
+#: cppguide.xml:1464(SUMMARY)
+msgid "If you actually need pointer semantics, <placeholder-1/> is great. You should only use <placeholder-2/> with a non-const referent when it is truly necessary to share ownership of an object (e.g. inside an STL container). You should never use <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:1472(DEFINITION)
+msgid "\"Smart\" pointers are objects that act like pointers, but automate management of the underlying memory."
+msgstr ""
+
+#: cppguide.xml:1476(PROS)
+msgid "Smart pointers are extremely useful for preventing memory leaks, and are essential for writing exception-safe code. They also formalize and document the ownership of dynamically allocated memory."
+msgstr ""
+
+#: cppguide.xml:1481(CONS)
+msgid "We prefer designs in which objects have single, fixed owners. Smart pointers which enable sharing or transfer of ownership can act as a tempting alternative to a careful design of ownership semantics, leading to confusing code and even bugs in which memory is never deleted. The semantics of smart pointers (especially <placeholder-1/>) can be nonobvious and confusing. The exception-safety benefits of smart pointers are not decisive, since we do not allow exceptions."
+msgstr ""
+
+#: cppguide.xml:1494(dd)
+msgid "Straightforward and risk-free. Use wherever appropriate."
+msgstr ""
+
+#: cppguide.xml:1496(dd)
+msgid "Confusing and bug-prone ownership-transfer semantics. Do not use."
+msgstr ""
+
+#: cppguide.xml:1498(code)
+msgid "shared_ptr"
+msgstr ""
+
+#: cppguide.xml:1500(code)
+msgid "shared_ptr&lt;const T&gt;"
+msgstr ""
+
+#: cppguide.xml:1499(dd)
+msgid "Safe with const referents (i.e. <placeholder-1/>). Reference-counted pointers with non-const referents can occasionally be the best design, but try to rewrite with single owners where possible."
+msgstr ""
+
+#: cppguide.xml:1513(code) cppguide.xml:1518(code) cppguide.xml:1527(code) cppguide.xml:1529(code)
+msgid "cpplint.py"
+msgstr ""
+
+#: cppguide.xml:1511(SUMMARY)
+msgid "Use <placeholder-1/> to detect style errors."
+msgstr ""
+
+#: cppguide.xml:1522(code)
+msgid "// NOLINT"
+msgstr ""
+
+#: cppguide.xml:1517(p)
+msgid "<placeholder-1/> is a tool that reads a source file and identifies many style errors. It is not perfect, and has both false positives and false negatives, but it is still a valuable tool. False positives can be ignored by putting <placeholder-2/> at the end of the line."
+msgstr ""
+
+#: cppguide.xml:1526(p)
+msgid "Some projects have instructions on how to run <placeholder-1/> from their project tools. If the project you are contributing to does not, you can download <A HREF=\"http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py\"><placeholder-2/></A> separately."
+msgstr ""
+
+#: cppguide.xml:1539(SUMMARY)
+msgid "All parameters passed by reference must be labeled <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:1546(code)
+msgid "int foo(int *pval)"
+msgstr ""
+
+#: cppguide.xml:1548(code)
+msgid "int foo(int &amp;val)"
+msgstr ""
+
+#: cppguide.xml:1544(DEFINITION)
+msgid "In C, if a function needs to modify a variable, the parameter must use a pointer, eg <placeholder-1/>. In C++, the function can alternatively declare a reference parameter: <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1553(code)
+msgid "(*pval)++"
+msgstr ""
+
+#: cppguide.xml:1555(code) cppguide.xml:2491(code) cppguide.xml:2500(code) cppguide.xml:2501(code) cppguide.xml:2503(code) cppguide.xml:3224(code) cppguide.xml:3308(code) cppguide.xml:3388(code)
+msgid "NULL"
+msgstr ""
+
+#: cppguide.xml:1551(PROS)
+msgid "Defining a parameter as reference avoids ugly code like <placeholder-1/>. Necessary for some applications like copy constructors. Makes it clear, unlike with pointers, that <placeholder-2/> is not a possible value."
+msgstr ""
+
+#: cppguide.xml:1557(CONS)
+msgid "References can be confusing, as they have value syntax but pointer semantics."
+msgstr ""
+
+#: cppguide.xml:1562(p)
+msgid "Within function parameter lists all references must be <placeholder-1/>:"
+msgstr ""
+
+#: cppguide.xml:1566(CODE_SNIPPET)
+msgid "void Foo(const string &amp;in, string *out);"
+msgstr ""
+
+#: cppguide.xml:1569(p)
+msgid "In fact it is a very strong convention in Google code that input arguments are values or <placeholder-1/> references while output arguments are pointers. Input parameters may be <placeholder-2/> pointers, but we never allow non-<placeholder-3/> reference parameters."
+msgstr ""
+
+#: cppguide.xml:1581(code)
+msgid "bind2nd"
+msgstr ""
+
+#: cppguide.xml:1582(code)
+msgid "mem_fun"
+msgstr ""
+
+#: cppguide.xml:1576(p)
+msgid "One case when you might want an input parameter to be a <placeholder-1/> pointer is if you want to emphasize that the argument is not copied, so it must exist for the lifetime of the object; it is usually best to document this in comments as well. STL adapters such as <placeholder-2/> and <placeholder-3/> do not permit reference parameters, so you must declare functions with pointer parameters in these cases, too."
+msgstr ""
+
+#: cppguide.xml:1591(SUMMARY)
+msgid "Use overloaded functions (including constructors) only if a reader looking at a call site can get a good idea of what is happening without having to first figure out exactly which overload is being called."
+msgstr ""
+
+#: cppguide.xml:1601(code)
+msgid "const string&amp;"
+msgstr ""
+
+#: cppguide.xml:1602(code)
+msgid "const char*"
+msgstr ""
+
+#: cppguide.xml:1599(p)
+msgid "You may write a function that takes a <placeholder-1/> and overload it with another that takes <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1604(CODE_SNIPPET)
+msgid "class MyClass { public: void Analyze(const string &amp;text); void Analyze(const char *text, size_t textlen); };"
+msgstr ""
+
+#: cppguide.xml:1612(PROS)
+msgid "Overloading can make code more intuitive by allowing an identically-named function to take different arguments. It may be necessary for templatized code, and it can be convenient for Visitors."
+msgstr ""
+
+#: cppguide.xml:1618(CONS)
+msgid "If a function is overloaded by the argument types alone, a reader may have to understand C++'s complex matching rules in order to tell what's going on. Also many people are confused by the semantics of inheritance if a derived class overrides only some of the variants of a function."
+msgstr ""
+
+#: cppguide.xml:1628(code)
+msgid "AppendString()"
+msgstr ""
+
+#: cppguide.xml:1628(code)
+msgid "AppendInt()"
+msgstr ""
+
+#: cppguide.xml:1629(code)
+msgid "Append()"
+msgstr ""
+
+#: cppguide.xml:1625(DECISION)
+msgid "If you want to overload a function, consider qualifying the name with some information about the arguments, e.g., <placeholder-1/>, <placeholder-2/> rather than just <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:1636(SUMMARY)
+msgid "We do not allow default function parameters, except in a few uncommon situations explained below."
+msgstr ""
+
+#: cppguide.xml:1641(PROS)
+msgid "Often you have a function that uses lots of default values, but occasionally you want to override the defaults. Default parameters allow an easy way to do this without having to define many functions for the rare exceptions."
+msgstr ""
+
+#: cppguide.xml:1647(CONS)
+msgid "People often figure out how to use an API by looking at existing code that uses it. Default parameters are more difficult to maintain because copy-and-paste from previous code may not reveal all the parameters. Copy-and-pasting of code segments can cause major problems when the default arguments are not appropriate for the new code."
+msgstr ""
+
+#: cppguide.xml:1657(p)
+msgid "Except as described below, we require all arguments to be explicitly specified, to force programmers to consider the API and the values they are passing for each argument rather than silently accepting defaults they may not be aware of."
+msgstr ""
+
+#: cppguide.xml:1663(p)
+msgid "One specific exception is when default arguments are used to simulate variable-length argument lists."
+msgstr ""
+
+#: cppguide.xml:1667(CODE_SNIPPET)
+msgid "// Support up to 4 params by using a default empty AlphaNum. string StrCat(const AlphaNum &amp;a, const AlphaNum &amp;b = gEmptyAlphaNum, const AlphaNum &amp;c = gEmptyAlphaNum, const AlphaNum &amp;d = gEmptyAlphaNum);"
+msgstr ""
+
+#: cppguide.xml:1680(code) cppguide.xml:1685(code)
+msgid "alloca()"
+msgstr ""
+
+#: cppguide.xml:1679(SUMMARY)
+msgid "We do not allow variable-length arrays or <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:1683(PROS)
+msgid "Variable-length arrays have natural-looking syntax. Both variable-length arrays and <placeholder-1/> are very efficient."
+msgstr ""
+
+#: cppguide.xml:1688(CONS)
+msgid "Variable-length arrays and alloca are not part of Standard C++. More importantly, they allocate a data-dependent amount of stack space that can trigger difficult-to-find memory overwriting bugs: \"It ran fine on my machine, but dies mysteriously in production\"."
+msgstr ""
+
+#: cppguide.xml:1698(code)
+msgid "scoped_array"
+msgstr ""
+
+#: cppguide.xml:1696(DECISION)
+msgid "Use a safe allocator instead, such as <placeholder-1/>/<placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1705(code) cppguide.xml:1713(code)
+msgid "friend"
+msgstr ""
+
+#: cppguide.xml:1704(SUMMARY)
+msgid "We allow use of <placeholder-1/> classes and functions, within reason."
+msgstr ""
+
+#: cppguide.xml:1713(code)
+msgid "FooBuilder"
+msgstr ""
+
+#: cppguide.xml:1709(p)
+msgid "Friends should usually be defined in the same file so that the reader does not have to look in another file to find uses of the private members of a class. A common use of <placeholder-1/> is to have a <placeholder-2/> class be a friend of <placeholder-3/> so that it can construct the inner state of <placeholder-4/> correctly, without exposing this state to the world. In some cases it may be useful to make a unittest class a friend of the class it tests."
+msgstr ""
+
+#: cppguide.xml:1719(p)
+msgid "Friends extend, but do not break, the encapsulation boundary of a class. In some cases this is better than making a member public when you want to give only one other class access to it. However, most classes should interact with other classes solely through their public members."
+msgstr ""
+
+#: cppguide.xml:1730(SUMMARY)
+msgid "We do not use C++ exceptions."
+msgstr ""
+
+#: cppguide.xml:1736(li)
+msgid "Exceptions allow higher levels of an application to decide how to handle \"can't happen\" failures in deeply nested functions, without the obscuring and error-prone bookkeeping of error codes."
+msgstr ""
+
+#: cppguide.xml:1743(li)
+msgid "Exceptions are used by most other modern languages. Using them in C++ would make it more consistent with Python, Java, and the C++ that others are familiar with."
+msgstr ""
+
+#: cppguide.xml:1747(li)
+msgid "Some third-party C++ libraries use exceptions, and turning them off internally makes it harder to integrate with those libraries."
+msgstr ""
+
+#: cppguide.xml:1751(li)
+msgid "Exceptions are the only way for a constructor to fail. We can simulate this with a factory function or an <placeholder-1/> method, but these require heap allocation or a new \"invalid\" state, respectively."
+msgstr ""
+
+#: cppguide.xml:1756(li)
+msgid "Exceptions are really handy in testing frameworks."
+msgstr ""
+
+#: cppguide.xml:1761(code)
+msgid "throw"
+msgstr ""
+
+#: cppguide.xml:1766(code)
+msgid "f()"
+msgstr ""
+
+#: cppguide.xml:1766(code)
+msgid "g()"
+msgstr ""
+
+#: cppguide.xml:1767(code)
+msgid "h()"
+msgstr ""
+
+#: cppguide.xml:1767(code)
+msgid "h"
+msgstr ""
+
+#: cppguide.xml:1768(code)
+msgid "f"
+msgstr ""
+
+#: cppguide.xml:1768(code)
+msgid "g"
+msgstr ""
+
+#: cppguide.xml:1761(li)
+msgid "When you add a <placeholder-1/> statement to an existing function, you must examine all of its transitive callers. Either they must make at least the basic exception safety guarantee, or they must never catch the exception and be happy with the program terminating as a result. For instance, if <placeholder-2/> calls <placeholder-3/> calls <placeholder-4/>, and <placeholder-5/> throws an exception that <placeholder-6/> catches, <placeholder-7/> has to be careful or it may not clean up properly."
+msgstr ""
+
+#: cppguide.xml:1771(li)
+msgid "More generally, exceptions make the control flow of programs difficult to evaluate by looking at code: functions may return in places you don't expect. This causes maintainability and debugging difficulties. You can minimize this cost via some rules on how and where exceptions can be used, but at the cost of more that a developer needs to know and understand."
+msgstr ""
+
+#: cppguide.xml:1779(li)
+msgid "Exception safety requires both RAII and different coding practices. Lots of supporting machinery is needed to make writing correct exception-safe code easy. Further, to avoid requiring readers to understand the entire call graph, exception-safe code must isolate logic that writes to persistent state into a \"commit\" phase. This will have both benefits and costs (perhaps where you're forced to obfuscate code to isolate the commit). Allowing exceptions would force us to always pay those costs even when they're not worth it."
+msgstr ""
+
+#: cppguide.xml:1790(li)
+msgid "Turning on exceptions adds data to each binary produced, increasing compile time (probably slightly) and possibly increasing address space pressure."
+msgstr ""
+
+#: cppguide.xml:1795(li)
+msgid "The availability of exceptions may encourage developers to throw them when they are not appropriate or recover from them when it's not safe to do so. For example, invalid user input should not cause exceptions to be thrown. We would need to make the style guide even longer to document these restrictions!"
+msgstr ""
+
+#: cppguide.xml:1804(p)
+msgid "On their face, the benefits of using exceptions outweigh the costs, especially in new projects. However, for existing code, the introduction of exceptions has implications on all dependent code. If exceptions can be propagated beyond a new project, it also becomes problematic to integrate the new project into existing exception-free code. Because most existing C++ code at Google is not prepared to deal with exceptions, it is comparatively difficult to adopt new code that generates exceptions."
+msgstr ""
+
+#: cppguide.xml:1815(p)
+msgid "Given that Google's existing code is not exception-tolerant, the costs of using exceptions are somewhat greater than the costs in a new project. The conversion process would be slow and error-prone. We don't believe that the available alternatives to exceptions, such as error codes and assertions, introduce a significant burden."
+msgstr ""
+
+#: cppguide.xml:1824(p)
+msgid "Our advice against using exceptions is not predicated on philosophical or moral grounds, but practical ones. Because we'd like to use our open-source projects at Google and it's difficult to do so if those projects use exceptions, we need to advise against exceptions in Google open-source projects as well. Things would probably be different if we had to do it all over again from scratch."
+msgstr ""
+
+#: cppguide.xml:1835(p)
+msgid "There is an <placeholder-1/> to this rule (no pun intended) for Windows code."
+msgstr ""
+
+#: cppguide.xml:1844(SUMMARY)
+msgid "We do not use Run Time Type Information (RTTI)."
+msgstr ""
+
+#: cppguide.xml:1848(DEFINITION)
+msgid "RTTI allows a programmer to query the C++ class of an object at run time."
+msgstr ""
+
+#: cppguide.xml:1853(p)
+msgid "It is useful in some unittests. For example, it is useful in tests of factory classes where the test has to verify that a newly created object has the expected dynamic type."
+msgstr ""
+
+#: cppguide.xml:1858(p)
+msgid "In rare circumstances, it is useful even outside of tests."
+msgstr ""
+
+#: cppguide.xml:1863(CONS)
+msgid "A query of type during run-time typically means a design problem. If you need to know the type of an object at runtime, that is often an indication that you should reconsider the design of your class."
+msgstr ""
+
+#: cppguide.xml:1870(p)
+msgid "Do not use RTTI, except in unittests. If you find yourself in need of writing code that behaves differently based on the class of an object, consider one of the alternatives to querying the type."
+msgstr ""
+
+#: cppguide.xml:1876(p)
+msgid "Virtual methods are the preferred way of executing different code paths depending on a specific subclass type. This puts the work within the object itself."
+msgstr ""
+
+#: cppguide.xml:1881(p)
+msgid "If the work belongs outside the object and instead in some processing code, consider a double-dispatch solution, such as the Visitor design pattern. This allows a facility outside the object itself to determine the type of class using the built-in type system."
+msgstr ""
+
+#: cppguide.xml:1888(p)
+msgid "If you think you truly cannot use those ideas, you may use RTTI. But think twice about it. :-) Then think twice again. Do not hand-implement an RTTI-like workaround. The arguments against RTTI apply just as much to workarounds like class hierarchies with type tags."
+msgstr ""
+
+#: cppguide.xml:1903(code)
+msgid "static_cast&lt;&gt;()"
+msgstr ""
+
+#: cppguide.xml:1904(code)
+msgid "int y = (int)x;"
+msgstr ""
+
+#: cppguide.xml:1905(code)
+msgid "int y = int(x);"
+msgstr ""
+
+#: cppguide.xml:1902(SUMMARY)
+msgid "Use C++ casts like <placeholder-1/>. Do not use other cast formats like <placeholder-2/> or <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:1908(DEFINITION)
+msgid "C++ introduced a different cast system from C that distinguishes the types of cast operations."
+msgstr ""
+
+#: cppguide.xml:1914(em)
+msgid "conversion"
+msgstr ""
+
+#: cppguide.xml:1915(code)
+msgid "(int)3.5"
+msgstr ""
+
+#: cppguide.xml:1916(em)
+msgid "cast"
+msgstr ""
+
+#: cppguide.xml:1916(code)
+msgid "(int)\"hello\""
+msgstr ""
+
+#: cppguide.xml:1912(PROS)
+msgid "The problem with C casts is the ambiguity of the operation; sometimes you are doing a <placeholder-1/> (e.g., <placeholder-2/>) and sometimes you are doing a <placeholder-3/> (e.g., <placeholder-4/>); C++ casts avoid this. Additionally C++ casts are more visible when searching for them."
+msgstr ""
+
+#: cppguide.xml:1920(CONS)
+msgid "The syntax is nasty."
+msgstr ""
+
+#: cppguide.xml:1924(p)
+msgid "Do not use C-style casts. Instead, use these C++-style casts."
+msgstr ""
+
+#: cppguide.xml:1931(code)
+msgid "static_cast"
+msgstr ""
+
+#: cppguide.xml:1931(li)
+msgid "Use <placeholder-1/> as the equivalent of a C-style cast that does value conversion, or when you need to explicitly up-cast a pointer from a class to its superclass."
+msgstr ""
+
+#: cppguide.xml:1935(code) cppguide.xml:2128(code)
+msgid "const_cast"
+msgstr ""
+
+#: cppguide.xml:1935(li)
+msgid "Use <placeholder-1/> to remove the <placeholder-2/> qualifier (see <placeholder-3/>)."
+msgstr ""
+
+#: cppguide.xml:1940(code)
+msgid "reinterpret_cast"
+msgstr ""
+
+#: cppguide.xml:1940(li)
+msgid "Use <placeholder-1/> to do unsafe conversions of pointer types to and from integer and other pointer types. Use this only if you know what you are doing and you understand the aliasing issues."
+msgstr ""
+
+#: cppguide.xml:1946(code)
+msgid "dynamic_cast"
+msgstr ""
+
+#: cppguide.xml:1948(A)
+msgid "design flaw"
+msgstr ""
+
+#: cppguide.xml:1946(li)
+msgid "Do not use <placeholder-1/> except in test code. If you need to know type information at runtime in this way outside of a unittest, you probably have a <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1957(SUMMARY)
+msgid "Use streams only for logging."
+msgstr ""
+
+#: cppguide.xml:1962(code) cppguide.xml:2297(code)
+msgid "printf()"
+msgstr ""
+
+#: cppguide.xml:1963(code)
+msgid "scanf()"
+msgstr ""
+
+#: cppguide.xml:1961(DEFINITION)
+msgid "Streams are a replacement for <placeholder-1/> and <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:1969(code) cppguide.xml:1978(code) cppguide.xml:1986(code) cppguide.xml:2002(code) cppguide.xml:2028(code) cppguide.xml:2054(code)
+msgid "printf"
+msgstr ""
+
+#: cppguide.xml:1965(PROS)
+msgid "With streams, you do not need to know the type of the object you are printing. You do not have problems with format strings not matching the argument list. (Though with gcc, you do not have that problem with <placeholder-1/> either.) Streams have automatic constructors and destructors that open and close the relevant files."
+msgstr ""
+
+#: cppguide.xml:1975(code)
+msgid "pread()"
+msgstr ""
+
+#: cppguide.xml:1976(code)
+msgid "%.*s"
+msgstr ""
+
+#: cppguide.xml:1979(code)
+msgid "%1s"
+msgstr ""
+
+#: cppguide.xml:1973(CONS)
+msgid "Streams make it difficult to do functionality like <placeholder-1/>. Some formatting (particularly the common format string idiom <placeholder-2/>) is difficult if not impossible to do efficiently using streams without using <placeholder-3/>-like hacks. Streams do not support operator reordering (the <placeholder-4/> directive), which is helpful for internationalization."
+msgstr ""
+
+#: cppguide.xml:1984(p)
+msgid "Do not use streams, except where required by a logging interface. Use <placeholder-1/>-like routines instead."
+msgstr ""
+
+#: cppguide.xml:1988(p)
+msgid "There are various pros and cons to using streams, but in this case, as in many other cases, consistency trumps the debate. Do not use streams in your code."
+msgstr ""
+
+#: cppguide.xml:1995(p)
+msgid "There has been debate on this issue, so this explains the reasoning in greater depth. Recall the Only One Way guiding principle: we want to make sure that whenever we do a certain type of I/O, the code looks the same in all those places. Because of this, we do not want to allow users to decide between using streams or using <placeholder-1/> plus Read/Write/etc. Instead, we should settle on one or the other. We made an exception for logging because it is a pretty specialized application, and for historical reasons."
+msgstr ""
+
+#: cppguide.xml:2007(p)
+msgid "Proponents of streams have argued that streams are the obvious choice of the two, but the issue is not actually so clear. For every advantage of streams they point out, there is an equivalent disadvantage. The biggest advantage is that you do not need to know the type of the object to be printing. This is a fair point. But, there is a downside: you can easily use the wrong type, and the compiler will not warn you. It is easy to make this kind of mistake without knowing when using streams."
+msgstr ""
+
+#: cppguide.xml:2018(CODE_SNIPPET)
+msgid "cout &lt;&lt; this; // Prints the address cout &lt;&lt; *this; // Prints the contents"
+msgstr ""
+
+#: cppguide.xml:2024(code)
+msgid "&lt;&lt;"
+msgstr ""
+
+#: cppguide.xml:2022(p)
+msgid "The compiler does not generate an error because <placeholder-1/> has been overloaded. We discourage overloading for just this reason."
+msgstr ""
+
+#: cppguide.xml:2027(p)
+msgid "Some say <placeholder-1/> formatting is ugly and hard to read, but streams are often no better. Consider the following two fragments, both with the same typo. Which is easier to discover?"
+msgstr ""
+
+#: cppguide.xml:2033(CODE_SNIPPET)
+msgid "cerr &lt;&lt; \"Error connecting to '\" &lt;&lt; foo-&gt;bar()-&gt;hostname.first &lt;&lt; \":\" &lt;&lt; foo-&gt;bar()-&gt;hostname.second &lt;&lt; \": \" &lt;&lt; strerror(errno); fprintf(stderr, \"Error connecting to '%s:%u: %s\", foo-&gt;bar()-&gt;hostname.first, foo-&gt;bar()-&gt;hostname.second, strerror(errno));"
+msgstr ""
+
+#: cppguide.xml:2041(p)
+msgid "And so on and so forth for any issue you might bring up. (You could argue, \"Things would be better with the right wrappers,\" but if it is true for one scheme, is it not also true for the other? Also, remember the goal is to make the language smaller, not add yet more machinery that someone has to learn.)"
+msgstr ""
+
+#: cppguide.xml:2054(code)
+msgid "read"
+msgstr ""
+
+#: cppguide.xml:2054(code)
+msgid "write"
+msgstr ""
+
+#: cppguide.xml:2049(p)
+msgid "Either path would yield different advantages and disadvantages, and there is not a clearly superior solution. The simplicity doctrine mandates we settle on one of them though, and the majority decision was on <placeholder-1/> + <placeholder-2/>/<placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:2063(code) cppguide.xml:2068(code) cppguide.xml:2076(code)
+msgid "++i"
+msgstr ""
+
+#: cppguide.xml:2062(SUMMARY)
+msgid "Use prefix form (<placeholder-1/>) of the increment and decrement operators with iterators and other template objects."
+msgstr ""
+
+#: cppguide.xml:2069(code) cppguide.xml:2077(code)
+msgid "i++"
+msgstr ""
+
+#: cppguide.xml:2069(code)
+msgid "--i"
+msgstr ""
+
+#: cppguide.xml:2070(code)
+msgid "i--"
+msgstr ""
+
+#: cppguide.xml:2067(DEFINITION)
+msgid "When a variable is incremented (<placeholder-1/> or <placeholder-2/>) or decremented (<placeholder-3/> or <placeholder-4/>) and the value of the expression is not used, one must decide whether to preincrement (decrement) or postincrement (decrement)."
+msgstr ""
+
+#: cppguide.xml:2074(PROS)
+msgid "When the return value is ignored, the \"pre\" form (<placeholder-1/>) is never less efficient than the \"post\" form (<placeholder-2/>), and is often more efficient. This is because post-increment (or decrement) requires a copy of <placeholder-3/> to be made, which is the value of the expression. If <placeholder-4/> is an iterator or other non-scalar type, copying <placeholder-5/> could be expensive. Since the two types of increment behave the same when the value is ignored, why not just always pre-increment?"
+msgstr ""
+
+#: cppguide.xml:2089(code)
+msgid "++"
+msgstr ""
+
+#: cppguide.xml:2085(CONS)
+msgid "The tradition developed, in C, of using post-increment when the expression value is not used, especially in <placeholder-1/> loops. Some find post-increment easier to read, since the \"subject\" (<placeholder-2/>) precedes the \"verb\" (<placeholder-3/>), just like in English."
+msgstr ""
+
+#: cppguide.xml:2092(DECISION)
+msgid "For simple scalar (non-object) values there is no reason to prefer one form and we allow either. For iterators and other template types, use pre-increment."
+msgstr ""
+
+#: cppguide.xml:2101(SUMMARY)
+msgid "We strongly recommend that you use <placeholder-1/> whenever it makes sense to do so."
+msgstr ""
+
+#: cppguide.xml:2109(code)
+msgid "const int foo"
+msgstr ""
+
+#: cppguide.xml:2112(code)
+msgid "class Foo { int Bar(char c) const; };"
+msgstr ""
+
+#: cppguide.xml:2106(DEFINITION)
+msgid "Declared variables and parameters can be preceded by the keyword <placeholder-1/> to indicate the variables are not changed (e.g., <placeholder-2/>). Class functions can have the <placeholder-3/> qualifier to indicate the function does not change the state of the class member variables (e.g., <placeholder-4/>)."
+msgstr ""
+
+#: cppguide.xml:2115(PROS)
+msgid "Easier for people to understand how variables are being used. Allows the compiler to do better type checking, and, conceivably, generate better code. Helps people convince themselves of program correctness because they know the functions they call are limited in how they can modify your variables. Helps people know what functions are safe to use without locks in multi-threaded programs."
+msgstr ""
+
+#: cppguide.xml:2124(CONS)
+msgid "<placeholder-1/> is viral: if you pass a <placeholder-2/> variable to a function, that function must have <placeholder-3/> in its prototype (or the variable will need a <placeholder-4/>). This can be a particular problem when calling library functions."
+msgstr ""
+
+#: cppguide.xml:2132(p)
+msgid "<placeholder-1/> variables, data members, methods and arguments add a level of compile-time type checking; it is better to detect errors as soon as possible. Therefore we strongly recommend that you use <placeholder-2/> whenever it makes sense to do so:"
+msgstr ""
+
+#: cppguide.xml:2140(li)
+msgid "If a function does not modify an argument passed by reference or by pointer, that argument should be <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:2144(li)
+msgid "Declare methods to be <placeholder-1/> whenever possible. Accessors should almost always be <placeholder-2/>. Other methods should be const if they do not modify any data members, do not call any non-<placeholder-3/> methods, and do not return a non-<placeholder-4/> pointer or non-<placeholder-5/> reference to a data member."
+msgstr ""
+
+#: cppguide.xml:2152(li)
+msgid "Consider making data members <placeholder-1/> whenever they do not need to be modified after construction."
+msgstr ""
+
+#: cppguide.xml:2159(code)
+msgid "const int * const * const x;"
+msgstr ""
+
+#: cppguide.xml:2162(code)
+msgid "const int** x"
+msgstr ""
+
+#: cppguide.xml:2157(p)
+msgid "However, do not go crazy with <placeholder-1/>. Something like <placeholder-2/> is likely overkill, even if it accurately describes how const x is. Focus on what's really useful to know: in this case, <placeholder-3/> is probably sufficient."
+msgstr ""
+
+#: cppguide.xml:2165(code)
+msgid "mutable"
+msgstr ""
+
+#: cppguide.xml:2164(p)
+msgid "The <placeholder-1/> keyword is allowed but is unsafe when used with threads, so thread safety should be carefully considered first."
+msgstr ""
+
+#: cppguide.xml:2172(code)
+msgid "int const *foo"
+msgstr ""
+
+#: cppguide.xml:2173(code)
+msgid "const int* foo"
+msgstr ""
+
+#: cppguide.xml:2171(p)
+msgid "Some people favor the form <placeholder-1/> to <placeholder-2/>. They argue that this is more readable because it's more consistent: it keeps the rule that <placeholder-3/> always follows the object it's describing. However, this consistency argument doesn't apply in this case, because the \"don't go crazy\" dictum eliminates most of the uses you'd have to be consistent with. Putting the <placeholder-4/> first is arguably more readable, since it follows English in putting the \"adjective\" (<placeholder-5/>) before the \"noun\" (<placeholder-6/>)."
+msgstr ""
+
+#: cppguide.xml:2184(p)
+msgid "That said, while we encourage putting <placeholder-1/> first, we do not require it. But be consistent with the code around you!"
+msgstr ""
+
+#: cppguide.xml:2201(code) cppguide.xml:2220(code)
+msgid "&lt;stdint.h&gt;"
+msgstr ""
+
+#: cppguide.xml:2201(code) cppguide.xml:2221(code)
+msgid "int16_t"
+msgstr ""
+
+#: cppguide.xml:2194(SUMMARY)
+msgid "Of the built-in C++ integer types, the only one used is <placeholder-1/>. If a program needs a variable of a different size, use a precise-width integer type from <placeholder-2/>, such as <placeholder-3/>."
+msgstr ""
+
+#: cppguide.xml:2206(code) cppguide.xml:2224(code)
+msgid "short"
+msgstr ""
+
+#: cppguide.xml:2207(code)
+msgid "long"
+msgstr ""
+
+#: cppguide.xml:2208(code)
+msgid "long long"
+msgstr ""
+
+#: cppguide.xml:2204(DEFINITION)
+msgid "C++ does not specify the sizes of its integer types. Typically people assume that <placeholder-1/> is 16 bits, <placeholder-2/> is 32 bits, <placeholder-3/> is 32 bits and <placeholder-4/> is 64 bits."
+msgstr ""
+
+#: cppguide.xml:2210(PROS)
+msgid "Uniformity of declaration."
+msgstr ""
+
+#: cppguide.xml:2213(CONS)
+msgid "The sizes of integral types in C++ can vary based on compiler and architecture."
+msgstr ""
+
+#: cppguide.xml:2221(code) cppguide.xml:2250(code)
+msgid "uint32_t"
+msgstr ""
+
+#: cppguide.xml:2222(code) cppguide.xml:2239(code) cppguide.xml:2245(code) cppguide.xml:2341(code) cppguide.xml:2400(code)
+msgid "int64_t"
+msgstr ""
+
+#: cppguide.xml:2224(code)
+msgid "unsigned long long"
+msgstr ""
+
+#: cppguide.xml:2228(code) cppguide.xml:2359(code)
+msgid "size_t"
+msgstr ""
+
+#: cppguide.xml:2228(code) cppguide.xml:2366(code)
+msgid "ptrdiff_t"
+msgstr ""
+
+#: cppguide.xml:2218(p)
+msgid "<placeholder-1/> defines types like <placeholder-2/>, <placeholder-3/>, <placeholder-4/>, etc. You should always use those in preference to <placeholder-5/>, <placeholder-6/> and the like, when you need a guarantee on the size of an integer. Of the C integer types, only <placeholder-7/> should be used. When appropriate, you are welcome to use standard types like <placeholder-8/> and <placeholder-9/>."
+msgstr ""
+
+#: cppguide.xml:2240(code) cppguide.xml:2349(code) cppguide.xml:2400(code)
+msgid "uint64_t"
+msgstr ""
+
+#: cppguide.xml:2230(p)
+msgid "We use <placeholder-1/> very often, for integers we know are not going to be too big, e.g., loop counters. Use plain old <placeholder-2/> for such things. You should assume that an <placeholder-3/> is at least 32 bits, but don't assume that it has more than 32 bits. If you need a 64-bit integer type, use <placeholder-4/> or <placeholder-5/>."
+msgstr ""
+
+#: cppguide.xml:2242(p)
+msgid "For integers we know can be \"big\", use <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:2248(p)
+msgid "You should not use the unsigned integer types such as <placeholder-1/>, unless the quantity you are representing is really a bit pattern rather than a number, or unless you need defined twos-complement overflow. In particular, do not use unsigned types to say a number will never be negative. Instead, use assertions for this."
+msgstr ""
+
+#: cppguide.xml:2262(p)
+msgid "Some people, including some textbook authors, recommend using unsigned types to represent numbers that are never negative. This is intended as a form of self-documentation. However, in C, the advantages of such documentation are outweighed by the real bugs it can introduce. Consider:"
+msgstr ""
+
+#: cppguide.xml:2269(CODE_SNIPPET)
+msgid "for (unsigned int i = foo.Length()-1; i &gt;= 0; --i) ..."
+msgstr ""
+
+#: cppguide.xml:2272(p)
+msgid "This code will never terminate! Sometimes gcc will notice this bug and warn you, but often it will not. Equally bad bugs can occur when comparing signed and unsigned variables. Basically, C's type-promotion scheme causes unsigned types to behave differently than one might expect."
+msgstr ""
+
+#: cppguide.xml:2279(p)
+msgid "So, document that a variable is non-negative using assertions. Don't use an unsigned type."
+msgstr ""
+
+#: cppguide.xml:2289(SUMMARY)
+msgid "Code should be 64-bit and 32-bit friendly. Bear in mind problems of printing, comparisons, and structure alignment."
+msgstr ""
+
+#: cppguide.xml:2304(code)
+msgid "inttypes.h"
+msgstr ""
+
+#: cppguide.xml:2296(p)
+msgid "<placeholder-1/> specifiers for some types are not cleanly portable between 32-bit and 64-bit systems. C99 defines some portable format specifiers. Unfortunately, MSVC 7.1 does not understand some of these specifiers and the standard is missing a few, so we have to define our own ugly versions in some cases (in the style of the standard include file <placeholder-2/>):"
+msgstr ""
+
+#: cppguide.xml:2306(CODE_SNIPPET)
+msgid "// printf macros for size_t, in the style of inttypes.h #ifdef _LP64 #define __PRIS_PREFIX \"z\" #else #define __PRIS_PREFIX #endif // Use these macros after a % in a printf format string // to get correct 32/64 bit behavior, like this: // size_t size = records.size(); // printf(\"%\"PRIuS\"\\n\", size); #define PRIdS __PRIS_PREFIX \"d\" #define PRIxS __PRIS_PREFIX \"x\" #define PRIuS __PRIS_PREFIX \"u\" #define PRIXS __PRIS_PREFIX \"X\" #define PRIoS __PRIS_PREFIX \"o\""
+msgstr ""
+
+#: cppguide.xml:2328(th)
+msgid "Type"
+msgstr ""
+
+#: cppguide.xml:2329(th)
+msgid "DO NOT use"
+msgstr ""
+
+#: cppguide.xml:2330(th)
+msgid "DO use"
+msgstr ""
+
+#: cppguide.xml:2331(th)
+msgid "Notes"
+msgstr ""
+
+#: cppguide.xml:2334(code)
+msgid "void *"
+msgstr ""
+
+#: cppguide.xml:2334(td)
+msgid "<placeholder-1/> (or any pointer)"
+msgstr ""
+
+#: cppguide.xml:2335(code)
+msgid "%lx"
+msgstr ""
+
+#: cppguide.xml:2336(code)
+msgid "%p"
+msgstr ""
+
+#: cppguide.xml:2342(code)
+msgid "%qd"
+msgstr ""
+
+#: cppguide.xml:2343(code)
+msgid "%lld"
+msgstr ""
+
+#: cppguide.xml:2342(td) cppguide.xml:2353(td) cppguide.xml:2361(td)
+msgid "<placeholder-1/>, <placeholder-2/>"
+msgstr ""
+
+#: cppguide.xml:2344(code)
+msgid "%\"PRId64\""
+msgstr ""
+
+#: cppguide.xml:2350(code)
+msgid "%qu"
+msgstr ""
+
+#: cppguide.xml:2351(code)
+msgid "%llu"
+msgstr ""
+
+#: cppguide.xml:2352(code)
+msgid "%llx"
+msgstr ""
+
+#: cppguide.xml:2350(td)
+msgid "<placeholder-1/>, <placeholder-2/>, <placeholder-3/>"
+msgstr ""
+
+#: cppguide.xml:2353(code)
+msgid "%\"PRIu64\""
+msgstr ""
+
+#: cppguide.xml:2354(code)
+msgid "%\"PRIx64\""
+msgstr ""
+
+#: cppguide.xml:2360(code)
+msgid "%u"
+msgstr ""
+
+#: cppguide.xml:2361(code)
+msgid "%\"PRIuS\""
+msgstr ""
+
+#: cppguide.xml:2362(code)
+msgid "%\"PRIxS\""
+msgstr ""
+
+#: cppguide.xml:2363(code)
+msgid "%zu"
+msgstr ""
+
+#: cppguide.xml:2363(td) cppguide.xml:2369(td)
+msgid "C99 specifies <placeholder-1/>"
+msgstr ""
+
+#: cppguide.xml:2367(code)
+msgid "%d"
+msgstr ""
+
+#: cppguide.xml:2368(code)
+msgid "%\"PRIdS\""
+msgstr ""
+
+#: cppguide.xml:2369(code)
+msgid "%zd"
+msgstr ""
+
+#: cppguide.xml:2375(code) cppguide.xml:2381(code)
+msgid "PRI*"
+msgstr ""
+
+#: cppguide.xml:2381(code)
+msgid "%"
+msgstr ""
+
+#: cppguide.xml:2382(code)
+msgid "printf(\"x = %30\"PRIuS\"\\n\", x)"
+msgstr ""
+
+#: cppguide.xml:2384(code)
+msgid "printf(\"x = %30\" \"u\" \"\\n\", x)"
+msgstr ""
+
+#: cppguide.xml:2385(code)
+msgid "printf(\"x = %30u\\n\", x)"
+msgstr ""
+
+#: cppguide.xml:2374(p)
+msgid "Note that the <placeholder-1/> macros expand to independent strings which are concatenated by the compiler. Hence if you are using a non-constant format string, you need to insert the value of the macro into the format, rather than the name. It is still possible, as usual, to include length specifiers, etc., after the <placeholder-2/> when using the <placeholder-3/> macros. So, e.g. <placeholder-4/> would expand on 32-bit Linux to <placeholder-5/>, which the compiler will treat as <placeholder-6/>."
+msgstr ""
+
+#: cppguide.xml:2391(code)
+msgid "sizeof(void *)"
+msgstr ""
+
+#: cppguide.xml:2392(code)
+msgid "sizeof(int)"
+msgstr ""
+
+#: cppguide.xml:2392(code)
+msgid "intptr_t"
+msgstr ""
+
+#: cppguide.xml:2391(li)
+msgid "Remember that <placeholder-1/> != <placeholder-2/>. Use <placeholder-3/> if you want a pointer-sized integer."
+msgstr ""
+
+#: cppguide.xml:2408(code)
+msgid "__attribute__((packed))"
+msgstr ""
+
+#: cppguide.xml:2409(code)
+msgid "#pragma pack()"
+msgstr ""
+
+#: cppguide.xml:2410(code)
+msgid "__declspec(align())"
+msgstr ""
+
+#: cppguide.xml:2396(li)
+msgid "You may need to be careful with structure alignments, particularly for structures being stored on disk. Any class/structure with a <placeholder-1/>/<placeholder-2/> member will by default end up being 8-byte aligned on a 64-bit system. If you have such structures being shared on disk between 32-bit and 64-bit code, you will need to ensure that they are packed the same on both architectures. Most compilers offer a way to alter structure alignment. For gcc, you can use <placeholder-3/>. MSVC offers <placeholder-4/> and <placeholder-5/>."
+msgstr ""
+
+#: cppguide.xml:2415(code)
+msgid "LL"
+msgstr ""
+
+#: cppguide.xml:2415(code)
+msgid "ULL"
+msgstr ""
+
+#: cppguide.xml:2418(CODE_SNIPPET)
+msgid "int64_t my_value = 0x123456789LL; uint64_t my_mask = 3ULL &lt;&lt; 48;"
+msgstr ""
+
+#: cppguide.xml:2413(li)
+msgid "Use the <placeholder-1/> or <placeholder-2/> suffixes as needed to create 64-bit constants. For example: <placeholder-3/>"
+msgstr ""
+
+#: cppguide.xml:2425(code)
+msgid "#ifdef _LP64"
+msgstr ""
+
+#: cppguide.xml:2424(li)
+msgid "If you really need different code on 32-bit and 64-bit systems, use <placeholder-1/> to choose between the code variants. (But please avoid this if possible, and keep any such changes localized.)"
+msgstr ""
+
+#: cppguide.xml:2434(SUMMARY)
+msgid "Be very cautious with macros. Prefer inline functions, enums, and <placeholder-1/> variables to macros."
+msgstr ""
+
+#: cppguide.xml:2439(p)
+msgid "Macros mean that the code you see is not the same as the code the compiler sees. This can introduce unexpected behavior, especially since macros have global scope."
+msgstr ""
+
+#: cppguide.xml:2444(p)
+msgid "Luckily, macros are not nearly as necessary in C++ as they are in C. Instead of using a macro to inline performance-critical code, use an inline function. Instead of using a macro to store a constant, use a <placeholder-1/> variable. Instead of using a macro to \"abbreviate\" a long variable name, use a reference. Instead of using a macro to conditionally compile code ... well, don't do that at all (except, of course, for the <placeholder-2/> guards to prevent double inclusion of header files). It makes testing much more difficult."
+msgstr ""
+
+#: cppguide.xml:2455(p)
+msgid "Macros can do things these other techniques cannot, and you do see them in the codebase, especially in the lower-level libraries. And some of their special features (like stringifying, concatenation, and so forth) are not available through the language proper. But before using a macro, consider carefully whether there's a non-macro way to achieve the same result."
+msgstr ""
+
+#: cppguide.xml:2464(p)
+msgid "The following usage pattern will avoid many problems with macros; if you use macros, follow it whenever possible:"
+msgstr ""
+
+#: cppguide.xml:2469(li)
+msgid "Don't define macros in a <placeholder-1/> file."
+msgstr ""
+
+#: cppguide.xml:2472(code) cppguide.xml:2474(code)
+msgid "#undef"
+msgstr ""
+
+#: cppguide.xml:2471(li)
+msgid "<placeholder-1/> macros right before you use them, and <placeholder-2/> them right after."
+msgstr ""
+
+#: cppguide.xml:2474(li)
+msgid "Do not just <placeholder-1/> an existing macro before replacing it with your own; instead, pick a name that's likely to be unique."
+msgstr ""
+
+#: cppguide.xml:2478(li)
+msgid "Try not to use macros that expand to unbalanced C++ constructs, or at least document that behavior well."
+msgstr ""
+
+#: cppguide.xml:2481(code)
+msgid "##"
+msgstr ""
+
+#: cppguide.xml:2481(li)
+msgid "Prefer not using <placeholder-1/> to generate function/class/variable names."
+msgstr ""
+
+#: cppguide.xml:2490(code) cppguide.xml:2495(code) cppguide.xml:2499(code) cppguide.xml:2501(code)
+msgid "0"
+msgstr ""
+
+#: cppguide.xml:2490(code) cppguide.xml:2495(code)
+msgid "0.0"
+msgstr ""
+
+#: cppguide.xml:2491(code) cppguide.xml:2508(code)
+msgid "'\\0'"
+msgstr ""
+
+#: cppguide.xml:2489(SUMMARY)
+msgid "Use <placeholder-1/> for integers, <placeholder-2/> for reals, <placeholder-3/> for pointers, and <placeholder-4/> for chars."
+msgstr ""
+
+#: cppguide.xml:2494(p)
+msgid "Use <placeholder-1/> for integers and <placeholder-2/> for reals. This is not controversial."
+msgstr ""
+
+#: cppguide.xml:2504(code)
+msgid "sizeof(NULL)"
+msgstr ""
+
+#: cppguide.xml:2505(code)
+msgid "sizeof(0)"
+msgstr ""
+
+#: cppguide.xml:2498(p)
+msgid "For pointers (address values), there is a choice between <placeholder-1/> and <placeholder-2/>. Bjarne Stroustrup prefers an unadorned <placeholder-3/>. We prefer <placeholder-4/> because it looks like a pointer. In fact, some C++ compilers, such as gcc 4.1.0, provide special definitions of <placeholder-5/> which enable them to give useful warnings, particularly in situations where <placeholder-6/> is not equal to <placeholder-7/>."
+msgstr ""
+
+#: cppguide.xml:2507(p)
+msgid "Use <placeholder-1/> for chars. This is the correct type and also makes code more readable."
+msgstr ""
+
+#: cppguide.xml:2516(var) cppguide.xml:2521(var)
+msgid "varname"
+msgstr ""
+
+#: cppguide.xml:2516(code) cppguide.xml:2517(code) cppguide.xml:2521(code) cppguide.xml:2523(code)
+msgid "sizeof(<placeholder-1/>)"
+msgstr ""
+
+#: cppguide.xml:2517(var) cppguide.xml:2523(var)
+msgid "type"
+msgstr ""
+
+#: cppguide.xml:2515(SUMMARY)
+msgid "Use <placeholder-1/> instead of <placeholder-2/> whenever possible."
+msgstr ""
+
+#: cppguide.xml:2520(p)
+msgid "Use <placeholder-1/> because it will update appropriately if the type of the variable changes. <placeholder-2/> may make sense in some cases, but should generally be avoided because it can fall out of sync if the variable's type changes."
+msgstr ""
+
+#: cppguide.xml:2528(CODE_SNIPPET)
+msgid "Struct data; memset(&amp;data, 0, sizeof(data));"
+msgstr ""
+
+#: cppguide.xml:2532(BAD_CODE_SNIPPET)
+msgid "memset(&amp;data, 0, sizeof(Struct));"
+msgstr ""
+
+#: cppguide.xml:2540(SUMMARY)
+msgid "Use only approved libraries from the Boost library collection."
+msgstr ""
+
+#: cppguide.xml:2545(a)
+msgid "Boost library collection"
+msgstr ""
+
+#: cppguide.xml:2544(DEFINITION)
+msgid "The <placeholder-1/> is a popular collection of peer-reviewed, free, open-source C++ libraries."
+msgstr ""
+
+#: cppguide.xml:2548(PROS)
+msgid "Boost code is generally very high-quality, is widely portable, and fills many important gaps in the C++ standard library, such as type traits, better binders, and better smart pointers. It also provides an implementation of the TR1 extension to the standard library."
+msgstr ""
+
+#: cppguide.xml:2554(CONS)
+msgid "Some Boost libraries encourage coding practices which can hamper readability, such as metaprogramming and other advanced template techniques, and an excessively \"functional\" style of programming."
+msgstr ""
+
+#: cppguide.xml:2568(a)
+msgid "Call Traits"
+msgstr ""
+
+#: cppguide.xml:2569(code)
+msgid "boost/call_traits.hpp"
+msgstr ""
+
+#: cppguide.xml:2568(li) cppguide.xml:2571(li) cppguide.xml:2580(li)
+msgid "<placeholder-1/> from <placeholder-2/>"
+msgstr ""
+
+#: cppguide.xml:2571(a)
+msgid "Compressed Pair"
+msgstr ""
+
+#: cppguide.xml:2572(code)
+msgid "boost/compressed_pair.hpp"
+msgstr ""
+
+#: cppguide.xml:2574(a)
+msgid "Pointer Container"
+msgstr ""
+
+#: cppguide.xml:2575(code)
+msgid "boost/ptr_container"
+msgstr ""
+
+#: cppguide.xml:2577(code)
+msgid "ptr_circular_buffer.hpp"
+msgstr ""
+
+#: cppguide.xml:2578(code)
+msgid "ptr_unordered*"
+msgstr ""
+
+#: cppguide.xml:2574(li)
+msgid "<placeholder-1/> from <placeholder-2/> except serialization and wrappers for containers not in the C++03 standard (<placeholder-3/> and <placeholder-4/>)"
+msgstr ""
+
+#: cppguide.xml:2580(a)
+msgid "Array"
+msgstr ""
+
+#: cppguide.xml:2581(code)
+msgid "boost/array.hpp"
+msgstr ""
+
+#: cppguide.xml:2583(a)
+msgid "The Boost Graph Library (BGL)"
+msgstr ""
+
+#: cppguide.xml:2584(code)
+msgid "boost/graph"
+msgstr ""
+
+#: cppguide.xml:2585(code)
+msgid "adj_list_serialize.hpp"
+msgstr ""
+
+#: cppguide.xml:2587(code)
+msgid "boost/graph/parallel/*"
+msgstr ""
+
+#: cppguide.xml:2588(code)
+msgid "boost/graph/distributed/*"
+msgstr ""
+
+#: cppguide.xml:2583(li)
+msgid "<placeholder-1/> from <placeholder-2/>, except serialization (<placeholder-3/>) and parallel/distributed algorithms and data structures (<placeholder-4/> and <placeholder-5/>)."
+msgstr ""
+
+#: cppguide.xml:2590(a)
+msgid "Property Map"
+msgstr ""
+
+#: cppguide.xml:2591(code)
+msgid "boost/property_map"
+msgstr ""
+
+#: cppguide.xml:2593(code)
+msgid "boost/property_map/parallel/*"
+msgstr ""
+
+#: cppguide.xml:2590(li)
+msgid "<placeholder-1/> from <placeholder-2/>, except parallel/distributed property maps (<placeholder-3/>)."
+msgstr ""
+
+#: cppguide.xml:2596(a)
+msgid "Iterator"
+msgstr ""
+
+#: cppguide.xml:2598(code)
+msgid "boost/iterator/iterator_adaptor.hpp"
+msgstr ""
+
+#: cppguide.xml:2599(code)
+msgid "boost/iterator/iterator_facade.hpp"
+msgstr ""
+
+#: cppguide.xml:2600(code)
+msgid "boost/function_output_iterator.hpp"
+msgstr ""
+
+#: cppguide.xml:2595(li)
+msgid "The part of <placeholder-1/> that deals with defining iterators: <placeholder-2/>, <placeholder-3/>, and <placeholder-4/>"
+msgstr ""
+
+#: cppguide.xml:2562(div)
+msgid "In order to maintain a high level of readability for all contributors who might read and maintain code, we only allow an approved subset of Boost features. Currently, the following libraries are permitted: <ul><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/><placeholder-7/></ul> We are actively considering adding other Boost features to the list, so this rule may be relaxed in the future."
+msgstr ""
+
+#: cppguide.xml:2610(SUMMARY)
+msgid "Use only approved libraries and language extensions from C++0x. Currently, none are approved."
+msgstr ""
+
+#: cppguide.xml:2617(a)
+msgid "final committee draft"
+msgstr ""
+
+#: cppguide.xml:2619(a)
+msgid "significant changes"
+msgstr ""
+
+#: cppguide.xml:2615(DEFINITION)
+msgid "C++0x is the next ISO C++ standard, currently in <placeholder-1/> form. It contains <placeholder-2/> both to the language and libraries."
+msgstr ""
+
+#: cppguide.xml:2622(PROS)
+msgid "We expect that C++0x will become the next standard, and eventually will be supported by most C++ compilers. It standardizes some common C++ extensions that we use already, allows shorthands for some operations, and has some safety improvements."
+msgstr ""
+
+#: cppguide.xml:2629(p)
+msgid "The C++0x standard is substantialy more complex than its predecessor (1,300 pages versus 800 pages), and is unfamilar to many developers. The long-term effects of some features on code readability and maintenance are unknown. We cannot predict when its various features will be implemented uniformly by tools that may be of interest (gcc, icc, clang, Eclipse, etc.)."
+msgstr ""
+
+#: cppguide.xml:2638(a)
+msgid "Boost"
+msgstr ""
+
+#: cppguide.xml:2637(p)
+msgid "As with <placeholder-1/>, some C++0x extensions encourage coding practices that hamper readability - for example by removing checked redundancy (such as type names) that may be helpful to readers, or by encouraging template metaprogramming. Other extensions duplicate functionality available through existing mechanisms, which may lead to confusion and conversion costs."
+msgstr ""
+
+#: cppguide.xml:2647(DECISION)
+msgid "Use only C++0x libraries and language features that have been approved for use. Currently, no such features are approved. Features will be approved individually as appropriate."
+msgstr ""
+
+#: cppguide.xml:2658(p)
+msgid "The most important consistency rules are those that govern naming. The style of a name immediately informs us what sort of thing the named entity is: a type, a variable, a function, a constant, a macro, etc., without requiring us to search for the declaration of that entity. The pattern-matching engine in our brains relies a great deal on these naming rules."
+msgstr ""
+
+#: cppguide.xml:2667(p)
+msgid "Naming rules are pretty arbitrary, but we feel that consistency is more important than individual preferences in this area, so regardless of whether you find them sensible or not, the rules are the rules."
+msgstr ""
+
+#: cppguide.xml:2676(SUMMARY)
+msgid "Function names, variable names, and filenames should be descriptive; eschew abbreviation. Types and variables should be nouns, while functions should be \"command\" verbs."
+msgstr ""
+
+#: cppguide.xml:2683(p)
+msgid "Give as descriptive a name as possible, within reason. Do not worry about saving horizontal space as it is far more important to make your code immediately understandable by a new reader. Examples of well-chosen names:"
+msgstr ""
+
+#: cppguide.xml:2689(CODE_SNIPPET)
+msgid "int num_errors; // Good. int num_completed_connections; // Good."
+msgstr ""
+
+#: cppguide.xml:2693(p)
+msgid "Poorly-chosen names use ambiguous abbreviations or arbitrary characters that do not convey meaning:"
+msgstr ""
+
+#: cppguide.xml:2697(BAD_CODE_SNIPPET)
+msgid "int n; // Bad - meaningless. int nerr; // Bad - ambiguous abbreviation. int n_comp_conns; // Bad - ambiguous abbreviation."
+msgstr ""
+
+#: cppguide.xml:2704(code)
+msgid "FileOpener"
+msgstr ""
+
+#: cppguide.xml:2706(code)
+msgid "num_errors"
+msgstr ""
+
+#: cppguide.xml:2702(p)
+msgid "Type and variable names should typically be nouns: e.g., <placeholder-1/>, <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:2710(code)
+msgid "OpenFile()"
+msgstr ""
+
+#: cppguide.xml:2711(code)
+msgid "set_num_errors()"
+msgstr ""
+
+#: cppguide.xml:2708(p)
+msgid "Function names should typically be imperative (that is they should be commands): e.g., <placeholder-1/>, <placeholder-2/>. There is an exception for accessors, which, described more completely in <placeholder-3/>, should be named the same as the variable they access."
+msgstr ""
+
+#: cppguide.xml:2718(p)
+msgid "Do not use abbreviations unless they are extremely well known outside your project. For example:"
+msgstr ""
+
+#: cppguide.xml:2722(CODE_SNIPPET)
+msgid "// Good // These show proper names with no abbreviations. int num_dns_connections; // Most people know what \"DNS\" stands for. int price_count_reader; // OK, price count. Makes sense."
+msgstr ""
+
+#: cppguide.xml:2728(BAD_CODE_SNIPPET)
+msgid "// Bad! // Abbreviations can be confusing or ambiguous outside a small group. int wgc_connections; // Only your group knows what this stands for. int pc_reader; // Lots of things can be abbreviated \"pc\"."
+msgstr ""
+
+#: cppguide.xml:2734(p)
+msgid "Never abbreviate by leaving out letters:"
+msgstr ""
+
+#: cppguide.xml:2737(CODE_SNIPPET)
+msgid "int error_count; // Good."
+msgstr ""
+
+#: cppguide.xml:2740(BAD_CODE_SNIPPET)
+msgid "int error_cnt; // Bad."
+msgstr ""
+
+#: cppguide.xml:2750(code)
+msgid "_"
+msgstr ""
+
+#: cppguide.xml:2750(code)
+msgid "-"
+msgstr ""
+
+#: cppguide.xml:2748(SUMMARY)
+msgid "Filenames should be all lowercase and can include underscores (<placeholder-1/>) or dashes (<placeholder-2/>). Follow the convention that your project uses. If there is no consistent local pattern to follow, prefer \"_\"."
+msgstr ""
+
+#: cppguide.xml:2757(p)
+msgid "Examples of acceptable file names:"
+msgstr ""
+
+#: cppguide.xml:2761(code)
+msgid "my_useful_class.cc<br/> my-useful-class.cc<br/> myusefulclass.cc<br/> myusefulclass_test.cc // _unittest and _regtest are deprecated.<br/>"
+msgstr ""
+
+#: cppguide.xml:2768(p)
+msgid "C++ files should end in <placeholder-1/> and header files should end in <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:2774(code)
+msgid "/usr/include"
+msgstr ""
+
+#: cppguide.xml:2774(code)
+msgid "db.h"
+msgstr ""
+
+#: cppguide.xml:2772(p)
+msgid "Do not use filenames that already exist in <placeholder-1/>, such as <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:2778(code)
+msgid "http_server_logs.h"
+msgstr ""
+
+#: cppguide.xml:2779(code)
+msgid "logs.h"
+msgstr ""
+
+#: cppguide.xml:2780(code)
+msgid "foo_bar.h"
+msgstr ""
+
+#: cppguide.xml:2781(code)
+msgid "foo_bar.cc"
+msgstr ""
+
+#: cppguide.xml:2782(code)
+msgid "FooBar"
+msgstr ""
+
+#: cppguide.xml:2776(p)
+msgid "In general, make your filenames very specific. For example, use <placeholder-1/> rather than <placeholder-2/>. A very common case is to have a pair of files called, e.g., <placeholder-3/> and <placeholder-4/>, defining a class called <placeholder-5/>."
+msgstr ""
+
+#: cppguide.xml:2784(p)
+msgid "Inline functions must be in a <placeholder-1/> file. If your inline functions are very short, they should go directly into your <placeholder-2/> file. However, if your inline functions include a lot of code, they may go into a third file that ends in <placeholder-3/>. In a class with a lot of inline code, your class could have three files:"
+msgstr ""
+
+#: cppguide.xml:2792(CODE_SNIPPET)
+msgid "url_table.h // The class declaration. url_table.cc // The class definition. url_table-inl.h // Inline functions that include lots of code."
+msgstr ""
+
+#: cppguide.xml:2798(a)
+msgid "-inl.h Files"
+msgstr ""
+
+#: cppguide.xml:2797(p)
+msgid "See also the section <placeholder-1/>"
+msgstr ""
+
+#: cppguide.xml:2807(code)
+msgid "MyExcitingClass"
+msgstr ""
+
+#: cppguide.xml:2807(code)
+msgid "MyExcitingEnum"
+msgstr ""
+
+#: cppguide.xml:2804(SUMMARY)
+msgid "Type names start with a capital letter and have a capital letter for each new word, with no underscores: <placeholder-1/>, <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:2810(p)
+msgid "The names of all types - classes, structs, typedefs, and enums - have the same naming convention. Type names should start with a capital letter and have a capital letter for each new word. No underscores. For example:"
+msgstr ""
+
+#: cppguide.xml:2816(CODE_SNIPPET)
+msgid "// classes and structs class UrlTable { ... class UrlTableTester { ... struct UrlTableProperties { ... // typedefs typedef hash_map&lt;UrlTableProperties *, string&gt; PropertiesMap; // enums enum UrlTableErrors { ..."
+msgstr ""
+
+#: cppguide.xml:2835(code)
+msgid "my_exciting_local_variable"
+msgstr ""
+
+#: cppguide.xml:2836(code)
+msgid "my_exciting_member_variable_"
+msgstr ""
+
+#: cppguide.xml:2832(SUMMARY)
+msgid "Variable names are all lowercase, with underscores between words. Class member variables have trailing underscores. For instance: <placeholder-1/>, <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:2840(p)
+msgid "For example:"
+msgstr ""
+
+#: cppguide.xml:2843(CODE_SNIPPET)
+msgid "string table_name; // OK - uses underscore. string tablename; // OK - all lowercase."
+msgstr ""
+
+#: cppguide.xml:2847(BAD_CODE_SNIPPET)
+msgid "string tableName; // Bad - mixed case."
+msgstr ""
+
+#: cppguide.xml:2853(p)
+msgid "Data members (also called instance variables or member variables) are lowercase with optional underscores like regular variable names, but always end with a trailing underscore."
+msgstr ""
+
+#: cppguide.xml:2859(CODE_SNIPPET)
+msgid "string table_name_; // OK - underscore at end. string tablename_; // OK."
+msgstr ""
+
+#: cppguide.xml:2866(p)
+msgid "Data members in structs should be named like regular variables without the trailing underscores that data members in classes have."
+msgstr ""
+
+#: cppguide.xml:2871(CODE_SNIPPET)
+msgid "struct UrlTableProperties { string name; int num_entries; }"
+msgstr ""
+
+#: cppguide.xml:2878(a)
+msgid "Structs vs. Classes"
+msgstr ""
+
+#: cppguide.xml:2877(p)
+msgid "See <placeholder-1/> for a discussion of when to use a struct versus a class."
+msgstr ""
+
+#: cppguide.xml:2887(code)
+msgid "g_"
+msgstr ""
+
+#: cppguide.xml:2884(p)
+msgid "There are no special requirements for global variables, which should be rare in any case, but if you use one, consider prefixing it with <placeholder-1/> or some other marker to easily distinguish it from local variables."
+msgstr ""
+
+#: cppguide.xml:2896(code) cppguide.xml:2903(code)
+msgid "k"
+msgstr ""
+
+#: cppguide.xml:2897(code)
+msgid "kDaysInAWeek"
+msgstr ""
+
+#: cppguide.xml:2895(SUMMARY)
+msgid "Use a <placeholder-1/> followed by mixed case: <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:2900(p)
+msgid "All compile-time constants, whether they are declared locally, globally, or as part of a class, follow a slightly different naming convention from other variables. Use a <placeholder-1/> followed by words with uppercase first letters:"
+msgstr ""
+
+#: cppguide.xml:2906(CODE_SNIPPET)
+msgid "const int kDaysInAWeek = 7;"
+msgstr ""
+
+#: cppguide.xml:2915(code)
+msgid "MyExcitingFunction()"
+msgstr ""
+
+#: cppguide.xml:2916(code)
+msgid "MyExcitingMethod()"
+msgstr ""
+
+#: cppguide.xml:2917(code)
+msgid "my_exciting_member_variable()"
+msgstr ""
+
+#: cppguide.xml:2918(code)
+msgid "set_my_exciting_member_variable()"
+msgstr ""
+
+#: cppguide.xml:2913(SUMMARY)
+msgid "Regular functions have mixed case; accessors and mutators match the name of the variable: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>."
+msgstr ""
+
+#: cppguide.xml:2922(p)
+msgid "Functions should start with a capital letter and have a capital letter for each new word. No underscores."
+msgstr ""
+
+#: cppguide.xml:2926(p)
+msgid "If your function crashes upon an error, you should append OrDie to the function name. This only applies to functions which could be used by production code and to errors that are reasonably likely to occur during normal operation."
+msgstr ""
+
+#: cppguide.xml:2932(CODE_SNIPPET)
+msgid "AddTableEntry() DeleteUrl() OpenFileOrDie()"
+msgstr ""
+
+#: cppguide.xml:2944(code)
+msgid "num_entries_"
+msgstr ""
+
+#: cppguide.xml:2940(p)
+msgid "Accessors and mutators (get and set functions) should match the name of the variable they are getting and setting. This shows an excerpt of a class whose instance variable is <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:2946(CODE_SNIPPET)
+msgid "class MyClass { public: ... int num_entries() const { return num_entries_; } void set_num_entries(int num_entries) { num_entries_ = num_entries; } private: int num_entries_; };"
+msgstr ""
+
+#: cppguide.xml:2957(p)
+msgid "You may also use lowercase letters for other very short inlined functions. For example if a function were so cheap you would not cache the value if you were calling it in a loop, then lowercase naming would be acceptable."
+msgstr ""
+
+#: cppguide.xml:2972(code)
+msgid "google_awesome_project"
+msgstr ""
+
+#: cppguide.xml:2969(SUMMARY)
+msgid "Namespace names are all lower-case, and based on project names and possibly their directory structure: <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:2976(a) cppguide.xml:4255(a)
+msgid "Namespaces"
+msgstr ""
+
+#: cppguide.xml:2975(p)
+msgid "See <placeholder-1/> for a discussion of namespaces and how to name them."
+msgstr ""
+
+#: cppguide.xml:2984(i)
+msgid "either"
+msgstr ""
+
+#: cppguide.xml:2985(A) cppguide.xml:2992(A)
+msgid "constants"
+msgstr ""
+
+#: cppguide.xml:2986(A) cppguide.xml:2993(A) cppguide.xml:3012(A)
+msgid "macros"
+msgstr ""
+
+#: cppguide.xml:2986(code)
+msgid "kEnumName"
+msgstr ""
+
+#: cppguide.xml:2987(code)
+msgid "ENUM_NAME"
+msgstr ""
+
+#: cppguide.xml:2983(SUMMARY)
+msgid "Enumerators should be named <placeholder-1/> like <placeholder-2/> or like <placeholder-3/>: either <placeholder-4/> or <placeholder-5/>."
+msgstr ""
+
+#: cppguide.xml:2994(code)
+msgid "UrlTableErrors"
+msgstr ""
+
+#: cppguide.xml:2995(code)
+msgid "AlternateUrlTableErrors"
+msgstr ""
+
+#: cppguide.xml:2990(p)
+msgid "Preferably, the individual enumerators should be named like <placeholder-1/>. However, it is also acceptable to name them like <placeholder-2/>. The enumeration name, <placeholder-3/> (and <placeholder-4/>), is a type, and therefore mixed case."
+msgstr ""
+
+#: cppguide.xml:2998(CODE_SNIPPET)
+msgid "enum UrlTableErrors { kOK = 0, kErrorOutOfMemory, kErrorMalformedInput, }; enum AlternateUrlTableErrors { OK = 0, OUT_OF_MEMORY = 1, MALFORMED_INPUT = 2, };"
+msgstr ""
+
+#: cppguide.xml:3010(p)
+msgid "Until January 2009, the style was to name enum values like <placeholder-1/>. This caused problems with name collisions between enum values and macros. Hence, the change to prefer constant-style naming was put in place. New code should prefer constant-style naming if possible. However, there is no reason to change old code to use constant-style names, unless the old names are actually causing a compile-time problem."
+msgstr ""
+
+#: cppguide.xml:3026(A)
+msgid "define a macro"
+msgstr ""
+
+#: cppguide.xml:3028(code)
+msgid "MY_MACRO_THAT_SCARES_SMALL_CHILDREN"
+msgstr ""
+
+#: cppguide.xml:3025(SUMMARY)
+msgid "You're not really going to <placeholder-1/>, are you? If you do, they're like this: <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:3032(a)
+msgid "description of macros"
+msgstr ""
+
+#: cppguide.xml:3033(em) cppguide.xml:3287(em)
+msgid "not"
+msgstr ""
+
+#: cppguide.xml:3031(p)
+msgid "Please see the <placeholder-1/>; in general macros should <placeholder-2/> be used. However, if they are absolutely needed, then they should be named with all capitals and underscores."
+msgstr ""
+
+#: cppguide.xml:3037(CODE_SNIPPET)
+msgid "#define ROUND(x) ... #define PI_ROUNDED 3.0"
+msgstr ""
+
+#: cppguide.xml:3045(SUMMARY)
+msgid "If you are naming something that is analogous to an existing C or C++ entity then you can follow the existing naming convention scheme."
+msgstr ""
+
+#: cppguide.xml:3053(code)
+msgid "bigopen()"
+msgstr ""
+
+#: cppguide.xml:3054(code)
+msgid "open()"
+msgstr ""
+
+#: cppguide.xml:3054(dd)
+msgid "function name, follows form of <placeholder-1/>"
+msgstr ""
+
+#: cppguide.xml:3055(code)
+msgid "uint"
+msgstr ""
+
+#: cppguide.xml:3056(code)
+msgid "typedef"
+msgstr ""
+
+#: cppguide.xml:3057(code)
+msgid "bigpos"
+msgstr ""
+
+#: cppguide.xml:3059(code)
+msgid "pos"
+msgstr ""
+
+#: cppguide.xml:3058(dd)
+msgid "<placeholder-1/> or <placeholder-2/>, follows form of <placeholder-3/>"
+msgstr ""
+
+#: cppguide.xml:3060(code)
+msgid "sparse_hash_map"
+msgstr ""
+
+#: cppguide.xml:3061(dd)
+msgid "STL-like entity; follows STL naming conventions"
+msgstr ""
+
+#: cppguide.xml:3062(code)
+msgid "LONGLONG_MAX"
+msgstr ""
+
+#: cppguide.xml:3063(code)
+msgid "INT_MAX"
+msgstr ""
+
+#: cppguide.xml:3063(dd)
+msgid "a constant, as in <placeholder-1/>"
+msgstr ""
+
+#: cppguide.xml:3071(p)
+msgid "Though a pain to write, comments are absolutely vital to keeping our code readable. The following rules describe what you should comment and where. But remember: while comments are very important, the best code is self-documenting. Giving sensible names to types and variables is much better than using obscure names that you must then explain through comments."
+msgstr ""
+
+#: cppguide.xml:3079(p)
+msgid "When writing your comments, write for your audience: the next contributor who will need to understand your code. Be generous - the next one may be you!"
+msgstr ""
+
+#: cppguide.xml:3091(code) cppguide.xml:3096(code) cppguide.xml:3097(code)
+msgid "//"
+msgstr ""
+
+#: cppguide.xml:3091(code) cppguide.xml:3096(code)
+msgid "/* */"
+msgstr ""
+
+#: cppguide.xml:3090(SUMMARY)
+msgid "Use either the <placeholder-1/> or <placeholder-2/> syntax, as long as you are consistent."
+msgstr ""
+
+#: cppguide.xml:3097(em)
+msgid "much"
+msgstr ""
+
+#: cppguide.xml:3095(p)
+msgid "You can use either the <placeholder-1/> or the <placeholder-2/> syntax; however, <placeholder-3/> is <placeholder-4/> more common. Be consistent with how you comment and what style you use where."
+msgstr ""
+
+#: cppguide.xml:3104(SUMMARY)
+msgid "Start each file with a copyright notice, followed by a description of the contents of the file."
+msgstr ""
+
+#: cppguide.xml:3116(code)
+msgid "Copyright 2008 Google Inc."
+msgstr ""
+
+#: cppguide.xml:3115(li)
+msgid "a copyright statement (for example, <placeholder-1/>)"
+msgstr ""
+
+#: cppguide.xml:3117(li)
+msgid "a license boilerplate. Choose the appropriate boilerplate for the license used by the project (for example, Apache 2.0, BSD, LGPL, GPL)"
+msgstr ""
+
+#: cppguide.xml:3120(li)
+msgid "an author line to identify the original author of the file"
+msgstr ""
+
+#: cppguide.xml:3112(p)
+msgid "Every file should contain the following items, in order: <ul><placeholder-1/><placeholder-2/><placeholder-3/></ul>"
+msgstr ""
+
+#: cppguide.xml:3124(p)
+msgid "If you make significant changes to a file that someone else originally wrote, add yourself to the author line. This can be very helpful when another contributor has questions about the file and needs to know whom to contact about it."
+msgstr ""
+
+#: cppguide.xml:3136(p)
+msgid "Every file should have a comment at the top, below the copyright notice and author line, that describes the contents of the file."
+msgstr ""
+
+#: cppguide.xml:3140(p)
+msgid "Generally a <placeholder-1/> file will describe the classes that are declared in the file with an overview of what they are for and how they are used. A <placeholder-2/> file should contain more information about implementation details or discussions of tricky algorithms. If you feel the implementation details or a discussion of the algorithms would be useful for someone reading the <placeholder-3/>, feel free to put it there instead, but mention in the <placeholder-4/> that the documentation is in the <placeholder-5/> file."
+msgstr ""
+
+#: cppguide.xml:3152(p)
+msgid "Do not duplicate comments in both the <placeholder-1/> and the <placeholder-2/>. Duplicated comments diverge."
+msgstr ""
+
+#: cppguide.xml:3161(SUMMARY)
+msgid "Every class definition should have an accompanying comment that describes what it is for and how it should be used."
+msgstr ""
+
+#: cppguide.xml:3166(CODE_SNIPPET)
+msgid "// Iterates over the contents of a GargantuanTable. Sample usage: // GargantuanTableIterator* iter = table-&gt;NewIterator(); // for (iter-&gt;Seek(\"foo\"); !iter-&gt;done(); iter-&gt;Next()) { // process(iter-&gt;key(), iter-&gt;value()); // } // delete iter; class GargantuanTableIterator { ... };"
+msgstr ""
+
+#: cppguide.xml:3177(p)
+msgid "If you have already described a class in detail in the comments at the top of your file feel free to simply state \"See comment at top of file for a complete description\", but be sure to have some sort of comment."
+msgstr ""
+
+#: cppguide.xml:3183(p)
+msgid "Document the synchronization assumptions the class makes, if any. If an instance of the class can be accessed by multiple threads, take extra care to document the rules and invariants surrounding multithreaded use."
+msgstr ""
+
+#: cppguide.xml:3193(SUMMARY)
+msgid "Declaration comments describe use of the function; comments at the definition of a function describe operation."
+msgstr ""
+
+#: cppguide.xml:3199(p)
+msgid "Every function declaration should have comments immediately preceding it that describe what the function does and how to use it. These comments should be descriptive (\"Opens the file\") rather than imperative (\"Open the file\"); the comment describes the function, it does not tell the function what to do. In general, these comments do not describe how the function performs its task. Instead, that should be left to comments in the function definition."
+msgstr ""
+
+#: cppguide.xml:3209(p)
+msgid "Types of things to mention in comments at the function declaration:"
+msgstr ""
+
+#: cppguide.xml:3214(li)
+msgid "What the inputs and outputs are."
+msgstr ""
+
+#: cppguide.xml:3216(li)
+msgid "For class member functions: whether the object remembers reference arguments beyond the duration of the method call, and whether it will free them or not."
+msgstr ""
+
+#: cppguide.xml:3221(li)
+msgid "If the function allocates memory that the caller must free."
+msgstr ""
+
+#: cppguide.xml:3224(li)
+msgid "Whether any of the arguments can be <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:3226(li)
+msgid "If there are any performance implications of how a function is used."
+msgstr ""
+
+#: cppguide.xml:3229(li)
+msgid "If the function is re-entrant. What are its synchronization assumptions?"
+msgstr ""
+
+#: cppguide.xml:3233(p)
+msgid "Here is an example:"
+msgstr ""
+
+#: cppguide.xml:3236(CODE_SNIPPET)
+msgid "// Returns an iterator for this table. It is the client's // responsibility to delete the iterator when it is done with it, // and it must not use the iterator once the GargantuanTable object // on which the iterator was created has been deleted. // // The iterator is initially positioned at the beginning of the table. // // This method is equivalent to: // Iterator* iter = table-&gt;NewIterator(); // iter-&gt;Seek(\"\"); // return iter; // If you are going to immediately seek to another place in the // returned iterator, it will be faster to use NewIterator() // and avoid the extra seek. Iterator* GetIterator() const;"
+msgstr ""
+
+#: cppguide.xml:3253(p)
+msgid "However, do not be unnecessarily verbose or state the completely obvious. Notice below that it is not necessary to say \"returns false otherwise\" because this is implied."
+msgstr ""
+
+#: cppguide.xml:3258(CODE_SNIPPET)
+msgid "// Returns true if the table cannot hold any more entries. bool IsTableFull();"
+msgstr ""
+
+#: cppguide.xml:3262(p)
+msgid "When commenting constructors and destructors, remember that the person reading your code knows what constructors and destructors are for, so comments that just say something like \"destroys this object\" are not useful. Document what constructors do with their arguments (for example, if they take ownership of pointers), and what cleanup the destructor does. If this is trivial, just skip the comment. It is quite common for destructors not to have a header comment."
+msgstr ""
+
+#: cppguide.xml:3275(p)
+msgid "Each function definition should have a comment describing what the function does if there's anything tricky about how it does its job. For example, in the definition comment you might describe any coding tricks you use, give an overview of the steps you go through, or explain why you chose to implement the function in the way you did rather than using a viable alternative. For instance, you might mention why it must acquire a lock for the first half of the function but why it is not needed for the second half."
+msgstr ""
+
+#: cppguide.xml:3286(p)
+msgid "Note you should <placeholder-1/> just repeat the comments given with the function declaration, in the <placeholder-2/> file or wherever. It's okay to recapitulate briefly what the function does, but the focus of the comments should be on how it does it."
+msgstr ""
+
+#: cppguide.xml:3297(SUMMARY)
+msgid "In general the actual name of the variable should be descriptive enough to give a good idea of what the variable is used for. In certain cases, more comments are required."
+msgstr ""
+
+#: cppguide.xml:3304(p)
+msgid "Each class data member (also called an instance variable or member variable) should have a comment describing what it is used for. If the variable can take sentinel values with special meanings, such as <placeholder-1/> or -1, document this. For example:"
+msgstr ""
+
+#: cppguide.xml:3311(CODE_SNIPPET)
+msgid "private: // Keeps track of the total number of entries in the table. // Used to ensure we do not go over the limit. -1 means // that we don't yet know how many entries the table has. int num_total_entries_;"
+msgstr ""
+
+#: cppguide.xml:3321(p)
+msgid "As with data members, all global variables should have a comment describing what they are and what they are used for. For example:"
+msgstr ""
+
+#: cppguide.xml:3326(CODE_SNIPPET)
+msgid "// The total number of tests cases that we run through in this regression test. const int kNumTestCases = 6;"
+msgstr ""
+
+#: cppguide.xml:3335(SUMMARY)
+msgid "In your implementation you should have comments in tricky, non-obvious, interesting, or important parts of your code."
+msgstr ""
+
+#: cppguide.xml:3341(p)
+msgid "Tricky or complicated code blocks should have comments before them. Example:"
+msgstr ""
+
+#: cppguide.xml:3345(CODE_SNIPPET)
+msgid "// Divide result by two, taking into account that x // contains the carry from the add. for (int i = 0; i &lt; result-&gt;size(); i++) { x = (x &lt;&lt; 8) + (*result)[i]; (*result)[i] = x &gt;&gt; 1; x &amp;= 1; }"
+msgstr ""
+
+#: cppguide.xml:3356(p)
+msgid "Also, lines that are non-obvious should get a comment at the end of the line. These end-of-line comments should be separated from the code by 2 spaces. Example:"
+msgstr ""
+
+#: cppguide.xml:3361(CODE_SNIPPET)
+msgid "// If we have enough memory, mmap the data portion too. mmap_budget = max&lt;int64&gt;(0, mmap_budget - index_-&gt;length()); if (mmap_budget &gt;= data_size_ &amp;&amp; !MmapData(mmap_chunk_bytes, mlock)) return; // Error already logged."
+msgstr ""
+
+#: cppguide.xml:3367(p)
+msgid "Note that there are both comments that describe what the code is doing, and comments that mention that an error has already been logged when the function returns."
+msgstr ""
+
+#: cppguide.xml:3372(p)
+msgid "If you have several comments on subsequent lines, it can often be more readable to line them up:"
+msgstr ""
+
+#: cppguide.xml:3376(CODE_SNIPPET)
+msgid "DoSomething(); // Comment here so the comments line up. DoSomethingElseThatIsLonger(); // Comment here so there are two spaces between // the code and the comment. { // One space before comment when opening a new scope is allowed, // thus the comment lines up with the following comments and code. DoSomethingElse(); // Two spaces before line comments normally. }"
+msgstr ""
+
+#: cppguide.xml:3387(p)
+msgid "When you pass in <placeholder-1/>, boolean, or literal integer values to functions, you should consider adding a comment about what they are, or make your code self-documenting by using constants. For example, compare:"
+msgstr ""
+
+#: cppguide.xml:3393(BAD_CODE_SNIPPET)
+msgid "bool success = CalculateSomething(interesting_value, 10, false, NULL); // What are these arguments??"
+msgstr ""
+
+#: cppguide.xml:3399(p)
+msgid "versus:"
+msgstr ""
+
+#: cppguide.xml:3402(CODE_SNIPPET)
+msgid "bool success = CalculateSomething(interesting_value, 10, // Default base value. false, // Not the first time we're calling this. NULL); // No callback."
+msgstr ""
+
+#: cppguide.xml:3408(p)
+msgid "Or alternatively, constants or self-describing variables:"
+msgstr ""
+
+#: cppguide.xml:3411(CODE_SNIPPET)
+msgid "const int kDefaultBaseValue = 10; const bool kFirstTimeCalling = false; Callback *null_callback = NULL; bool success = CalculateSomething(interesting_value, kDefaultBaseValue, kFirstTimeCalling, null_callback);"
+msgstr ""
+
+#: cppguide.xml:3424(em)
+msgid "never"
+msgstr ""
+
+#: cppguide.xml:3423(p)
+msgid "Note that you should <placeholder-1/> describe the code itself. Assume that the person reading the code knows C++ better than you do, even though he or she does not know what you are trying to do:"
+msgstr ""
+
+#: cppguide.xml:3429(BAD_CODE_SNIPPET)
+msgid "// Now go through the b array and make sure that if i occurs, // the next element is i+1. ... // Geez. What a useless comment."
+msgstr ""
+
+#: cppguide.xml:3439(SUMMARY)
+msgid "Pay attention to punctuation, spelling, and grammar; it is easier to read well-written comments than badly written ones."
+msgstr ""
+
+#: cppguide.xml:3444(p)
+msgid "Comments should usually be written as complete sentences with proper capitalization and periods at the end. Shorter comments, such as comments at the end of a line of code, can sometimes be less formal, but you should be consistent with your style. Complete sentences are more readable, and they provide some assurance that the comment is complete and not an unfinished thought."
+msgstr ""
+
+#: cppguide.xml:3453(p)
+msgid "Although it can be frustrating to have a code reviewer point out that you are using a comma when you should be using a semicolon, it is very important that source code maintain a high level of clarity and readability. Proper punctuation, spelling, and grammar help with that goal."
+msgstr ""
+
+#: cppguide.xml:3465(code) cppguide.xml:3470(code) cppguide.xml:3470(code) cppguide.xml:3476(code) cppguide.xml:3477(code) cppguide.xml:3479(code) cppguide.xml:3480(code) cppguide.xml:3492(code)
+msgid "TODO"
+msgstr ""
+
+#: cppguide.xml:3464(SUMMARY)
+msgid "Use <placeholder-1/> comments for code that is temporary, a short-term solution, or good-enough but not perfect."
+msgstr ""
+
+#: cppguide.xml:3469(p)
+msgid "<placeholder-1/>s should include the string <placeholder-2/> in all caps, followed by the name, e-mail address, or other identifier of the person who can best provide context about the problem referenced by the <placeholder-3/>. A colon is optional. The main purpose is to have a consistent <placeholder-4/> format that can be searched to find the person who can provide more details upon request. A <placeholder-5/> is not a commitment that the person referenced will fix the problem. Thus when you create a <placeholder-6/>, it is almost always your name that is given."
+msgstr ""
+
+#: cppguide.xml:3487(CODE_SNIPPET)
+msgid "// TODO(kl@gmail.com): Use a \"*\" here for concatenation operator. // TODO(Zeke) change this to use relations."
+msgstr ""
+
+#: cppguide.xml:3491(p)
+msgid "If your <placeholder-1/> is of the form \"At a future date do something\" make sure that you either include a very specific date (\"Fix by November 2005\") or a very specific event (\"Remove this code when all clients can handle XML responses.\")."
+msgstr ""
+
+#: cppguide.xml:3502(code) cppguide.xml:3507(code) cppguide.xml:3513(code) cppguide.xml:3522(code)
+msgid "DEPRECATED"
+msgstr ""
+
+#: cppguide.xml:3501(SUMMARY)
+msgid "Mark deprecated interface points with <placeholder-1/> comments."
+msgstr ""
+
+#: cppguide.xml:3505(p)
+msgid "You can mark an interface as deprecated by writing a comment containing the word <placeholder-1/> in all caps. The comment goes either before the declaration of the interface or on the same line as the declaration."
+msgstr ""
+
+#: cppguide.xml:3512(p)
+msgid "After the word <placeholder-1/>, write your name, e-mail address, or other identifier in parentheses."
+msgstr ""
+
+#: cppguide.xml:3516(p)
+msgid "A deprecation comment must include simple, clear directions for people to fix their callsites. In C++, you can implement a deprecated function as an inline function that calls the new interface point."
+msgstr ""
+
+#: cppguide.xml:3521(p)
+msgid "Marking an interface point <placeholder-1/> will not magically cause any callsites to change. If you want people to actually stop using the deprecated facility, you will have to fix the callsites yourself or recruit a crew to help you."
+msgstr ""
+
+#: cppguide.xml:3527(p)
+msgid "New code should not contain calls to deprecated interface points. Use the new interface point instead. If you cannot understand the directions, find the person who created the deprecation and ask them for help using the new interface point."
+msgstr ""
+
+#: cppguide.xml:3540(p)
+msgid "Coding style and formatting are pretty arbitrary, but a project is much easier to follow if everyone uses the same style. Individuals may not agree with every aspect of the formatting rules, and some of the rules may take some getting used to, but it is important that all project contributors follow the style rules so that they can all read and understand everyone's code easily."
+msgstr ""
+
+#: cppguide.xml:3556(A)
+msgid "settings file for emacs"
+msgstr ""
+
+#: cppguide.xml:3555(p)
+msgid "To help you format code correctly, we've created a <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:3561(SUMMARY)
+msgid "Each line of text in your code should be at most 80 characters long."
+msgstr ""
+
+#: cppguide.xml:3567(p)
+msgid "We recognize that this rule is controversial, but so much existing code already adheres to it, and we feel that consistency is important."
+msgstr ""
+
+#: cppguide.xml:3572(PROS)
+msgid "Those who favor this rule argue that it is rude to force them to resize their windows and there is no need for anything longer. Some folks are used to having several code windows side-by-side, and thus don't have room to widen their windows in any case. People set up their work environment assuming a particular maximum window width, and 80 columns has been the traditional standard. Why change it?"
+msgstr ""
+
+#: cppguide.xml:3583(CONS)
+msgid "Proponents of change argue that a wider line can make code more readable. The 80-column limit is an hidebound throwback to 1960s mainframes; modern equipment has wide screens that can easily show longer lines."
+msgstr ""
+
+#: cppguide.xml:3592(p)
+msgid "80 characters is the maximum."
+msgstr ""
+
+#: cppguide.xml:3596(p)
+msgid "Exception: if a comment line contains an example command or a literal URL longer than 80 characters, that line may be longer than 80 characters for ease of cut and paste."
+msgstr ""
+
+#: cppguide.xml:3601(p)
+msgid "Exception: an <placeholder-1/> statement with a long path may exceed 80 columns. Try to avoid situations where this becomes necessary."
+msgstr ""
+
+#: cppguide.xml:3608(a)
+msgid "header guards"
+msgstr ""
+
+#: cppguide.xml:3606(p)
+msgid "Exception: you needn't be concerned about <placeholder-1/> that exceed the maximum length."
+msgstr ""
+
+#: cppguide.xml:3617(SUMMARY)
+msgid "Non-ASCII characters should be rare, and must use UTF-8 formatting."
+msgstr ""
+
+#: cppguide.xml:3636(code)
+msgid "\"\\xEF\\xBB\\xBF\""
+msgstr ""
+
+#: cppguide.xml:3621(p)
+msgid "You shouldn't hard-code user-facing text in source, even English, so use of non-ASCII characters should be rare. However, in certain cases it is appropriate to include such words in your code. For example, if your code parses data files from foreign sources, it may be appropriate to hard-code the non-ASCII string(s) used in those data files as delimiters. More commonly, unittest code (which does not need to be localized) might contain non-ASCII strings. In such cases, you should use UTF-8, since that is an encoding understood by most tools able to handle more than just ASCII. Hex encoding is also OK, and encouraged where it enhances readability - for example, <placeholder-1/> is the Unicode zero-width no-break space character, which would be invisible if included in the source as straight UTF-8."
+msgstr ""
+
+#: cppguide.xml:3644(SUMMARY)
+msgid "Use only spaces, and indent 2 spaces at a time."
+msgstr ""
+
+#: cppguide.xml:3648(p)
+msgid "We use spaces for indentation. Do not use tabs in your code. You should set your editor to emit spaces when you hit the tab key."
+msgstr ""
+
+#: cppguide.xml:3657(SUMMARY)
+msgid "Return type on the same line as function name, parameters on the same line if they fit."
+msgstr ""
+
+#: cppguide.xml:3662(p)
+msgid "Functions look like this:"
+msgstr ""
+
+#: cppguide.xml:3665(CODE_SNIPPET)
+msgid "ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) { DoSomething(); ... }"
+msgstr ""
+
+#: cppguide.xml:3671(p)
+msgid "If you have too much text to fit on one line:"
+msgstr ""
+
+#: cppguide.xml:3674(CODE_SNIPPET)
+msgid "ReturnType ClassName::ReallyLongFunctionName(Type par_name1, Type par_name2, Type par_name3) { DoSomething(); ... }"
+msgstr ""
+
+#: cppguide.xml:3681(p)
+msgid "or if you cannot fit even the first parameter:"
+msgstr ""
+
+#: cppguide.xml:3684(CODE_SNIPPET)
+msgid "ReturnType LongClassName::ReallyReallyReallyLongFunctionName( Type par_name1, // 4 space indent Type par_name2, Type par_name3) { DoSomething(); // 2 space indent ... }"
+msgstr ""
+
+#: cppguide.xml:3693(p)
+msgid "Some points to note:"
+msgstr ""
+
+#: cppguide.xml:3697(li)
+msgid "The return type is always on the same line as the function name."
+msgstr ""
+
+#: cppguide.xml:3700(li)
+msgid "The open parenthesis is always on the same line as the function name."
+msgstr ""
+
+#: cppguide.xml:3703(li)
+msgid "There is never a space between the function name and the open parenthesis."
+msgstr ""
+
+#: cppguide.xml:3706(li)
+msgid "There is never a space between the parentheses and the parameters."
+msgstr ""
+
+#: cppguide.xml:3709(li)
+msgid "The open curly brace is always at the end of the same line as the last parameter."
+msgstr ""
+
+#: cppguide.xml:3712(li)
+msgid "The close curly brace is either on the last line by itself or (if other style rules permit) on the same line as the open curly brace."
+msgstr ""
+
+#: cppguide.xml:3716(li)
+msgid "There should be a space between the close parenthesis and the open curly brace."
+msgstr ""
+
+#: cppguide.xml:3719(li)
+msgid "All parameters should be named, with identical names in the declaration and implementation."
+msgstr ""
+
+#: cppguide.xml:3722(li)
+msgid "All parameters should be aligned if possible."
+msgstr ""
+
+#: cppguide.xml:3724(li)
+msgid "Default indentation is 2 spaces."
+msgstr ""
+
+#: cppguide.xml:3726(li)
+msgid "Wrapped parameters have a 4 space indent."
+msgstr ""
+
+#: cppguide.xml:3729(p)
+msgid "If your function is <placeholder-1/>, the <placeholder-2/> keyword should be on the same line as the last parameter:"
+msgstr ""
+
+#: cppguide.xml:3733(CODE_SNIPPET)
+msgid "// Everything in this function signature fits on a single line ReturnType FunctionName(Type par) const { ... } // This function signature requires multiple lines, but // the const keyword is on the line with the last parameter. ReturnType ReallyLongFunctionName(Type par1, Type par2) const { ... }"
+msgstr ""
+
+#: cppguide.xml:3746(p)
+msgid "If some parameters are unused, comment out the variable name in the function definition:"
+msgstr ""
+
+#: cppguide.xml:3750(CODE_SNIPPET)
+msgid "// Always have named parameters in interfaces. class Shape { public: virtual void Rotate(double radians) = 0; } // Always have named parameters in the declaration. class Circle : public Shape { public: virtual void Rotate(double radians); } // Comment out unused named parameters in definitions. void Circle::Rotate(double /*radians*/) {}"
+msgstr ""
+
+#: cppguide.xml:3766(BAD_CODE_SNIPPET)
+msgid "// Bad - if someone wants to implement later, it's not clear what the // variable means. void Circle::Rotate(double) {}"
+msgstr ""
+
+#: cppguide.xml:3775(SUMMARY)
+msgid "On one line if it fits; otherwise, wrap arguments at the parenthesis."
+msgstr ""
+
+#: cppguide.xml:3780(p)
+msgid "Function calls have the following format:"
+msgstr ""
+
+#: cppguide.xml:3783(CODE_SNIPPET)
+msgid "bool retval = DoSomething(argument1, argument2, argument3);"
+msgstr ""
+
+#: cppguide.xml:3786(p)
+msgid "If the arguments do not all fit on one line, they should be broken up onto multiple lines, with each subsequent line aligned with the first argument. Do not add spaces after the open paren or before the close paren:"
+msgstr ""
+
+#: cppguide.xml:3792(CODE_SNIPPET)
+msgid "bool retval = DoSomething(averyveryveryverylongargument1, argument2, argument3);"
+msgstr ""
+
+#: cppguide.xml:3796(p)
+msgid "If the function has many arguments, consider having one per line if this makes the code more readable:"
+msgstr ""
+
+#: cppguide.xml:3800(CODE_SNIPPET)
+msgid "bool retval = DoSomething(argument1, argument2, argument3, argument4);"
+msgstr ""
+
+#: cppguide.xml:3808(a)
+msgid "line length"
+msgstr ""
+
+#: cppguide.xml:3806(p)
+msgid "If the function signature is so long that it cannot fit within the maximum <placeholder-1/>, you may place all arguments on subsequent lines:"
+msgstr ""
+
+#: cppguide.xml:3811(CODE_SNIPPET)
+msgid "if (...) { ... ... if (...) { DoSomethingThatRequiresALongFunctionName( very_long_argument1, // 4 space indent argument2, argument3, argument4); }"
+msgstr ""
+
+#: cppguide.xml:3828(code) cppguide.xml:3881(code) cppguide.xml:3889(code) cppguide.xml:3915(code)
+msgid "else"
+msgstr ""
+
+#: cppguide.xml:3827(SUMMARY)
+msgid "Prefer no spaces inside parentheses. The <placeholder-1/> keyword belongs on a new line."
+msgstr ""
+
+#: cppguide.xml:3832(p)
+msgid "There are two acceptable formats for a basic conditional statement. One includes spaces between the parentheses and the condition, and one does not."
+msgstr ""
+
+#: cppguide.xml:3839(em)
+msgid "be consistent"
+msgstr ""
+
+#: cppguide.xml:3837(p)
+msgid "The most common form is without spaces. Either is fine, but <placeholder-1/>. If you are modifying a file, use the format that is already present. If you are writing new code, use the format that the other files in that directory or project use. If in doubt and you have no personal preference, do not add the spaces."
+msgstr ""
+
+#: cppguide.xml:3845(CODE_SNIPPET)
+msgid "if (condition) { // no spaces inside parentheses ... // 2 space indent. } else { // The else goes on the same line as the closing brace. ... }"
+msgstr ""
+
+#: cppguide.xml:3852(p)
+msgid "If you prefer you may add spaces inside the parentheses:"
+msgstr ""
+
+#: cppguide.xml:3856(CODE_SNIPPET)
+msgid "if ( condition ) { // spaces inside parentheses - rare ... // 2 space indent. } else { // The else goes on the same line as the closing brace. ... }"
+msgstr ""
+
+#: cppguide.xml:3863(p)
+msgid "Note that in all cases you must have a space between the <placeholder-1/> and the open parenthesis. You must also have a space between the close parenthesis and the curly brace, if you're using one."
+msgstr ""
+
+#: cppguide.xml:3869(BAD_CODE_SNIPPET)
+msgid "if(condition) // Bad - space missing after IF. if (condition){ // Bad - space missing before {. if(condition){ // Doubly bad."
+msgstr ""
+
+#: cppguide.xml:3874(CODE_SNIPPET)
+msgid "if (condition) { // Good - proper space after IF and before {."
+msgstr ""
+
+#: cppguide.xml:3877(p)
+msgid "Short conditional statements may be written on one line if this enhances readability. You may use this only when the line is brief and the statement does not use the <placeholder-1/> clause."
+msgstr ""
+
+#: cppguide.xml:3883(CODE_SNIPPET)
+msgid "if (x == kFoo) return new Foo(); if (x == kBar) return new Bar();"
+msgstr ""
+
+#: cppguide.xml:3887(p)
+msgid "This is not allowed when the if statement has an <placeholder-1/>:"
+msgstr ""
+
+#: cppguide.xml:3891(BAD_CODE_SNIPPET)
+msgid "// Not allowed - IF statement on one line when there is an ELSE clause if (x) DoThis(); else DoThat();"
+msgstr ""
+
+#: cppguide.xml:3896(p)
+msgid "In general, curly braces are not required for single-line statements, but they are allowed if you like them; conditional or loop statements with complex conditions or statements may be more readable with curly braces. Some projects require that an <placeholder-1/> must always always have an accompanying brace."
+msgstr ""
+
+#: cppguide.xml:3906(CODE_SNIPPET)
+msgid "if (condition) DoSomething(); // 2 space indent. if (condition) { DoSomething(); // 2 space indent. }"
+msgstr ""
+
+#: cppguide.xml:3914(p)
+msgid "However, if one part of an <placeholder-1/>-<placeholder-2/> statement uses curly braces, the other part must too:"
+msgstr ""
+
+#: cppguide.xml:3918(BAD_CODE_SNIPPET)
+msgid "// Not allowed - curly on IF but not ELSE if (condition) { foo; } else bar; // Not allowed - curly on ELSE but not IF if (condition) foo; else { bar; }"
+msgstr ""
+
+#: cppguide.xml:3932(CODE_SNIPPET)
+msgid "// Curly braces around both IF and ELSE required because // one of the clauses used braces. if (condition) { foo; } else { bar; }"
+msgstr ""
+
+#: cppguide.xml:3947(code) cppguide.xml:3980(code)
+msgid "{}"
+msgstr ""
+
+#: cppguide.xml:3947(code) cppguide.xml:3981(code)
+msgid "continue"
+msgstr ""
+
+#: cppguide.xml:3945(SUMMARY)
+msgid "Switch statements may use braces for blocks. Empty loop bodies should use <placeholder-1/> or <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:3951(code)
+msgid "case"
+msgstr ""
+
+#: cppguide.xml:3951(code)
+msgid "switch"
+msgstr ""
+
+#: cppguide.xml:3950(p)
+msgid "<placeholder-1/> blocks in <placeholder-2/> statements can have curly braces or not, depending on your preference. If you do include curly braces they should be placed as shown below."
+msgstr ""
+
+#: cppguide.xml:3957(code)
+msgid "default"
+msgstr ""
+
+#: cppguide.xml:3961(code)
+msgid "assert"
+msgstr ""
+
+#: cppguide.xml:3955(p)
+msgid "If not conditional on an enumerated value, switch statements should always have a <placeholder-1/> case (in the case of an enumerated value, the compiler will warn you if any values are not handled). If the default case should never execute, simply <placeholder-2/>:"
+msgstr ""
+
+#: cppguide.xml:3964(CODE_SNIPPET)
+msgid "switch (var) { case 0: { // 2 space indent ... // 4 space indent break; } case 1: { ... break; } default: { assert(false); } }"
+msgstr ""
+
+#: cppguide.xml:3979(p)
+msgid "Empty loop bodies should use <placeholder-1/> or <placeholder-2/>, but not a single semicolon."
+msgstr ""
+
+#: cppguide.xml:3983(CODE_SNIPPET)
+msgid "while (condition) { // Repeat test until it returns false. } for (int i = 0; i &lt; kSomeNumber; ++i) {} // Good - empty body. while (condition) continue; // Good - continue indicates no logic."
+msgstr ""
+
+#: cppguide.xml:3990(BAD_CODE_SNIPPET)
+msgid "while (condition); // Bad - looks like part of do/while loop."
+msgstr ""
+
+#: cppguide.xml:3997(SUMMARY)
+msgid "No spaces around period or arrow. Pointer operators do not have trailing spaces."
+msgstr ""
+
+#: cppguide.xml:4002(p)
+msgid "The following are examples of correctly-formatted pointer and reference expressions:"
+msgstr ""
+
+#: cppguide.xml:4006(CODE_SNIPPET)
+msgid "x = *p; p = &amp;x; x = r.y; x = r-&gt;y;"
+msgstr ""
+
+#: cppguide.xml:4012(p)
+msgid "Note that:"
+msgstr ""
+
+#: cppguide.xml:4016(li)
+msgid "There are no spaces around the period or arrow when accessing a member."
+msgstr ""
+
+#: cppguide.xml:4019(code)
+msgid "*"
+msgstr ""
+
+#: cppguide.xml:4020(code)
+msgid "&amp;"
+msgstr ""
+
+#: cppguide.xml:4019(li)
+msgid "Pointer operators have no space after the <placeholder-1/> or <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:4023(p)
+msgid "When declaring a pointer variable or argument, you may place the asterisk adjacent to either the type or to the variable name:"
+msgstr ""
+
+#: cppguide.xml:4028(CODE_SNIPPET)
+msgid "// These are fine, space preceding. char *c; const string &amp;str; // These are fine, space following. char* c; // but remember to do \"char* c, *d, *e, ...;\"! const string&amp; str;"
+msgstr ""
+
+#: cppguide.xml:4037(BAD_CODE_SNIPPET)
+msgid "char * c; // Bad - spaces on both sides of * const string &amp; str; // Bad - spaces on both sides of &amp;"
+msgstr ""
+
+#: cppguide.xml:4041(p)
+msgid "You should do this consistently within a single file, so, when modifying an existing file, use the style in that file."
+msgstr ""
+
+#: cppguide.xml:4052(a)
+msgid "standard line length"
+msgstr ""
+
+#: cppguide.xml:4051(SUMMARY)
+msgid "When you have a boolean expression that is longer than the <placeholder-1/>, be consistent in how you break up the lines."
+msgstr ""
+
+#: cppguide.xml:4056(p)
+msgid "In this example, the logical AND operator is always at the end of the lines:"
+msgstr ""
+
+#: cppguide.xml:4060(CODE_SNIPPET)
+msgid "if (this_one_thing &gt; this_other_thing &amp;&amp; a_third_thing == a_fourth_thing &amp;&amp; yet_another &amp;&amp; last_one) { ... }"
+msgstr ""
+
+#: cppguide.xml:4069(code) cppguide.xml:4075(code)
+msgid "&amp;&amp;"
+msgstr ""
+
+#: cppguide.xml:4076(code)
+msgid "~"
+msgstr ""
+
+#: cppguide.xml:4076(code)
+msgid "and"
+msgstr ""
+
+#: cppguide.xml:4077(code)
+msgid "compl"
+msgstr ""
+
+#: cppguide.xml:4067(p)
+msgid "Note that when the code wraps in this example, both of the <placeholder-1/> logical AND operators are at the end of the line. This is more common in Google code, though wrapping all operators at the beginning of the line is also allowed. Feel free to insert extra parentheses judiciously, because they can be very helpful in increasing readability when used appropriately. Also note that you should always use the punctuation operators, such as <placeholder-2/> and <placeholder-3/>, rather than the word operators, such as <placeholder-4/> and <placeholder-5/>."
+msgstr ""
+
+#: cppguide.xml:4084(code)
+msgid "return"
+msgstr ""
+
+#: cppguide.xml:4083(SUMMARY)
+msgid "Do not needlessly surround the <placeholder-1/> expression with parentheses."
+msgstr ""
+
+#: cppguide.xml:4089(code)
+msgid "return expr;"
+msgstr ""
+
+#: cppguide.xml:4090(code)
+msgid "x = expr;"
+msgstr ""
+
+#: cppguide.xml:4088(p)
+msgid "Use parentheses in <placeholder-1/> only where you would use them in <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:4092(CODE_SNIPPET)
+msgid "return result; // No parentheses in the simple case. return (some_long_condition &amp;&amp; // Parentheses ok to make a complex another_condition); // expression more readable."
+msgstr ""
+
+#: cppguide.xml:4097(BAD_CODE_SNIPPET)
+msgid "return (value); // You wouldn't write var = (value); return(result); // return is not a function!"
+msgstr ""
+
+#: cppguide.xml:4108(code) cppguide.xml:4112(code)
+msgid "="
+msgstr ""
+
+#: cppguide.xml:4108(code) cppguide.xml:4112(code)
+msgid "()"
+msgstr ""
+
+#: cppguide.xml:4107(SUMMARY)
+msgid "Your choice of <placeholder-1/> or <placeholder-2/>."
+msgstr ""
+
+#: cppguide.xml:4111(p)
+msgid "You may choose between <placeholder-1/> and <placeholder-2/>; the following are all correct:"
+msgstr ""
+
+#: cppguide.xml:4115(CODE_SNIPPET)
+msgid "int x = 3; int x(3); string name(\"Some Name\"); string name = \"Some Name\";"
+msgstr ""
+
+#: cppguide.xml:4125(SUMMARY)
+msgid "The hash mark that starts a preprocessor directive should always be at the beginning of the line."
+msgstr ""
+
+#: cppguide.xml:4130(p)
+msgid "Even when preprocessor directives are within the body of indented code, the directives should start at the beginning of the line."
+msgstr ""
+
+#: cppguide.xml:4135(CODE_SNIPPET)
+msgid "// Good - directives at beginning of line if (lopsided_score) { #if DISASTER_PENDING // Correct -- Starts at beginning of line DropEverything(); # if NOTIFY // OK but not required -- Spaces after # NotifyClient(); # endif #endif BackToNormal(); }"
+msgstr ""
+
+#: cppguide.xml:4147(BAD_CODE_SNIPPET)
+msgid "// Bad - indented directives if (lopsided_score) { #if DISASTER_PENDING // Wrong! The \"#if\" should be at beginning of line DropEverything(); #endif // Wrong! Do not indent \"#endif\" BackToNormal(); }"
+msgstr ""
+
+#: cppguide.xml:4160(SUMMARY)
+msgid "Sections in <placeholder-1/>, <placeholder-2/> and <placeholder-3/> order, each indented one space."
+msgstr ""
+
+#: cppguide.xml:4167(a)
+msgid "Class Comments"
+msgstr ""
+
+#: cppguide.xml:4165(p)
+msgid "The basic format for a class declaration (lacking the comments, see <placeholder-1/> for a discussion of what comments are needed) is:"
+msgstr ""
+
+#: cppguide.xml:4170(CODE_SNIPPET)
+msgid "class MyClass : public OtherClass { public: // Note the 1 space indent! MyClass(); // Regular 2 space indent. explicit MyClass(int var); ~MyClass() {} void SomeFunction(); void SomeFunctionThatDoesNothing() { } void set_some_var(int var) { some_var_ = var; } int some_var() const { return some_var_; } private: bool SomeInternalFunction(); int some_var_; int some_other_var_; DISALLOW_COPY_AND_ASSIGN(MyClass); };"
+msgstr ""
+
+#: cppguide.xml:4192(p)
+msgid "Things to note:"
+msgstr ""
+
+#: cppguide.xml:4196(li)
+msgid "Any base class name should be on the same line as the subclass name, subject to the 80-column limit."
+msgstr ""
+
+#: cppguide.xml:4199(li)
+msgid "The <placeholder-1/>, <placeholder-2/>, and <placeholder-3/> keywords should be indented one space."
+msgstr ""
+
+#: cppguide.xml:4203(li)
+msgid "Except for the first instance, these keywords should be preceded by a blank line. This rule is optional in small classes."
+msgstr ""
+
+#: cppguide.xml:4206(li)
+msgid "Do not leave a blank line after these keywords."
+msgstr ""
+
+#: cppguide.xml:4208(li)
+msgid "The <placeholder-1/> section should be first, followed by the <placeholder-2/> and finally the <placeholder-3/> section."
+msgstr ""
+
+#: cppguide.xml:4212(a)
+msgid "Declaration Order"
+msgstr ""
+
+#: cppguide.xml:4212(li)
+msgid "See <placeholder-1/> for rules on ordering declarations within each of these sections."
+msgstr ""
+
+#: cppguide.xml:4220(SUMMARY)
+msgid "Constructor initializer lists can be all on one line or with subsequent lines indented four spaces."
+msgstr ""
+
+#: cppguide.xml:4225(p)
+msgid "There are two acceptable formats for initializer lists:"
+msgstr ""
+
+#: cppguide.xml:4228(CODE_SNIPPET)
+msgid "// When it all fits on one line: MyClass::MyClass(int var) : some_var_(var), some_other_var_(var + 1) {}"
+msgstr ""
+
+#: cppguide.xml:4232(p)
+msgid "or"
+msgstr ""
+
+#: cppguide.xml:4235(CODE_SNIPPET)
+msgid "// When it requires multiple lines, indent 4 spaces, putting the colon on // the first initializer line: MyClass::MyClass(int var) : some_var_(var), // 4 space indent some_other_var_(var + 1) { // lined up ... DoSomething(); ... }"
+msgstr ""
+
+#: cppguide.xml:4250(SUMMARY)
+msgid "The contents of namespaces are not indented."
+msgstr ""
+
+#: cppguide.xml:4254(p)
+msgid "<placeholder-1/> do not add an extra level of indentation. For example, use:"
+msgstr ""
+
+#: cppguide.xml:4258(CODE_SNIPPET)
+msgid "namespace { void foo() { // Correct. No extra indentation within namespace. ... } } // namespace"
+msgstr ""
+
+#: cppguide.xml:4267(p)
+msgid "Do not indent within a namespace:"
+msgstr ""
+
+#: cppguide.xml:4270(BAD_CODE_SNIPPET)
+msgid "namespace { // Wrong. Indented when it should not be. void foo() { ... } } // namespace"
+msgstr ""
+
+#: cppguide.xml:4280(p)
+msgid "When declaring nested namespaces, put each namespace on its own line."
+msgstr ""
+
+#: cppguide.xml:4283(CODE_SNIPPET)
+msgid "namespace foo { namespace bar {"
+msgstr ""
+
+#: cppguide.xml:4291(SUMMARY)
+msgid "Use of horizontal whitespace depends on location. Never put trailing whitespace at the end of a line."
+msgstr ""
+
+#: cppguide.xml:4297(CODE_SNIPPET)
+msgid "void f(bool b) { // Open braces should always have a space before them. ... int i = 0; // Semicolons usually have no space before them. int x[] = { 0 }; // Spaces inside braces for array initialization are int x[] = {0}; // optional. If you use them, put them on both sides! // Spaces around the colon in inheritance and initializer lists. class Foo : public Bar { public: // For inline function implementations, put spaces between the braces // and the implementation itself. Foo(int b) : Bar(), baz_(b) {} // No spaces inside empty braces. void Reset() { baz_ = 0; } // Spaces separating braces from implementation. ..."
+msgstr ""
+
+#: cppguide.xml:4312(p)
+msgid "Adding trailing whitespace can cause extra work for others editing the same file, when they merge, as can removing existing trailing whitespace. So: Don't introduce trailing whitespace. Remove it if you're already changing that line, or do it in a separate clean-up operation (preferably when no-one else is working on the file)."
+msgstr ""
+
+#: cppguide.xml:4324(CODE_SNIPPET)
+msgid "if (b) { // Space after the keyword in conditions and loops. } else { // Spaces around else. } while (test) {} // There is usually no space inside parentheses. switch (i) { for (int i = 0; i &lt; 5; ++i) { switch ( i ) { // Loops and conditions may have spaces inside if ( test ) { // parentheses, but this is rare. Be consistent. for ( int i = 0; i &lt; 5; ++i ) { for ( ; i &lt; 5 ; ++i) { // For loops always have a space after the ... // semicolon, and may have a space before the // semicolon. switch (i) { case 1: // No space before colon in a switch case. ... case 2: break; // Use a space after a colon if there's code after it."
+msgstr ""
+
+#: cppguide.xml:4344(CODE_SNIPPET)
+msgid "x = 0; // Assignment operators always have spaces around // them. x = -5; // No spaces separating unary operators and their ++x; // arguments. if (x &amp;&amp; !y) ... v = w * x + y / z; // Binary operators usually have spaces around them, v = w*x + y/z; // but it's okay to remove spaces around factors. v = w * (x + z); // Parentheses should have no spaces inside them."
+msgstr ""
+
+#: cppguide.xml:4357(CODE_SNIPPET)
+msgid "vector&lt;string&gt; x; // No spaces inside the angle y = static_cast&lt;char*&gt;(x); // brackets (&lt; and &gt;), before // &lt;, or between &gt;( in a cast. vector&lt;char *&gt; x; // Spaces between type and pointer are // okay, but be consistent. set&lt;list&lt;string&gt; &gt; x; // C++ requires a space in &gt; &gt;. set&lt; list&lt;string&gt; &gt; x; // You may optionally use // symmetric spacing in &lt; &lt;."
+msgstr ""
+
+#: cppguide.xml:4373(SUMMARY)
+msgid "Minimize use of vertical whitespace."
+msgstr ""
+
+#: cppguide.xml:4377(p)
+msgid "This is more a principle than a rule: don't use blank lines when you don't have to. In particular, don't put more than one or two blank lines between functions, resist starting functions with a blank line, don't end functions with a blank line, and be discriminating with your use of blank lines inside functions."
+msgstr ""
+
+#: cppguide.xml:4385(p)
+msgid "The basic principle is: The more code that fits on one screen, the easier it is to follow and understand the control flow of the program. Of course, readability can suffer from code being too dense as well as too spread out, so use your judgement. But in general, minimize use of vertical whitespace."
+msgstr ""
+
+#: cppguide.xml:4393(p)
+msgid "Some rules of thumb to help when blank lines may be useful:"
+msgstr ""
+
+#: cppguide.xml:4397(li)
+msgid "Blank lines at the beginning or end of a function very rarely help readability."
+msgstr ""
+
+#: cppguide.xml:4400(li)
+msgid "Blank lines inside a chain of if-else blocks may well help readability."
+msgstr ""
+
+#: cppguide.xml:4409(p)
+msgid "The coding conventions described above are mandatory. However, like all good rules, these sometimes have exceptions, which we discuss here."
+msgstr ""
+
+#: cppguide.xml:4418(SUMMARY)
+msgid "You may diverge from the rules when dealing with code that does not conform to this style guide."
+msgstr ""
+
+#: cppguide.xml:4423(p)
+msgid "If you find yourself modifying code that was written to specifications other than those presented by this guide, you may have to diverge from these rules in order to stay consistent with the local conventions in that code. If you are in doubt about how to do this, ask the original author or the person currently responsible for the code. Remember that <placeholder-1/> includes local consistency, too."
+msgstr ""
+
+#: cppguide.xml:4438(SUMMARY)
+msgid "Windows programmers have developed their own set of coding conventions, mainly derived from the conventions in Windows headers and other Microsoft code. We want to make it easy for anyone to understand your code, so we have a single set of guidelines for everyone writing C++ on any platform."
+msgstr ""
+
+#: cppguide.xml:4447(p)
+msgid "It is worth reiterating a few of the guidelines that you might forget if you are used to the prevalent Windows style:"
+msgstr ""
+
+#: cppguide.xml:4453(code)
+msgid "iNum"
+msgstr ""
+
+#: cppguide.xml:4452(li)
+msgid "Do not use Hungarian notation (for example, naming an integer <placeholder-1/>). Use the Google naming conventions, including the <placeholder-2/> extension for source files."
+msgstr ""
+
+#: cppguide.xml:4457(code)
+msgid "DWORD"
+msgstr ""
+
+#: cppguide.xml:4457(code)
+msgid "HANDLE"
+msgstr ""
+
+#: cppguide.xml:4461(code)
+msgid "const TCHAR *"
+msgstr ""
+
+#: cppguide.xml:4461(code)
+msgid "LPCTSTR"
+msgstr ""
+
+#: cppguide.xml:4456(li)
+msgid "Windows defines many of its own synonyms for primitive types, such as <placeholder-1/>, <placeholder-2/>, etc. It is perfectly acceptable, and encouraged, that you use these types when calling Windows API functions. Even so, keep as close as you can to the underlying C++ types. For example, use <placeholder-3/> instead of <placeholder-4/>."
+msgstr ""
+
+#: cppguide.xml:4463(li)
+msgid "When compiling with Microsoft Visual C++, set the compiler to warning level 3 or higher, and treat all warnings as errors."
+msgstr ""
+
+#: cppguide.xml:4467(code)
+msgid "#pragma once"
+msgstr ""
+
+#: cppguide.xml:4467(li)
+msgid "Do not use <placeholder-1/>; instead use the standard Google include guards. The path in the include guards should be relative to the top of your project tree."
+msgstr ""
+
+#: cppguide.xml:4473(code)
+msgid "#pragma"
+msgstr ""
+
+#: cppguide.xml:4473(code)
+msgid "__declspec"
+msgstr ""
+
+#: cppguide.xml:4474(code)
+msgid "__declspec(dllimport)"
+msgstr ""
+
+#: cppguide.xml:4475(code)
+msgid "__declspec(dllexport)"
+msgstr ""
+
+#: cppguide.xml:4476(code)
+msgid "DLLIMPORT"
+msgstr ""
+
+#: cppguide.xml:4477(code)
+msgid "DLLEXPORT"
+msgstr ""
+
+#: cppguide.xml:4472(li)
+msgid "In fact, do not use any nonstandard extensions, like <placeholder-1/> and <placeholder-2/>, unless you absolutely must. Using <placeholder-3/> and <placeholder-4/> is allowed; however, you must use them through macros such as <placeholder-5/> and <placeholder-6/>, so that someone can easily disable the extensions if they share the code."
+msgstr ""
+
+#: cppguide.xml:4481(p)
+msgid "However, there are just a few rules that we occasionally need to break on Windows:"
+msgstr ""
+
+#: cppguide.xml:4486(a)
+msgid "forbid the use of multiple implementation inheritance"
+msgstr ""
+
+#: cppguide.xml:4486(li)
+msgid "Normally we <placeholder-1/>; however, it is required when using COM and some ATL/WTL classes. You may use multiple implementation inheritance to implement COM or ATL/WTL classes and interfaces."
+msgstr ""
+
+#: cppguide.xml:4495(code)
+msgid "_ATL_NO_EXCEPTIONS"
+msgstr ""
+
+#: cppguide.xml:4492(li)
+msgid "Although you should not use exceptions in your own code, they are used extensively in the ATL and some STLs, including the one that comes with Visual C++. When using the ATL, you should define <placeholder-1/> to disable exceptions. You should investigate whether you can also disable exceptions in your STL, but if not, it is OK to turn on exceptions in the compiler. (Note that this is only to get the STL to compile. You should still not write exception handling code yourself.)"
+msgstr ""
+
+#: cppguide.xml:4504(code)
+msgid "StdAfx.h"
+msgstr ""
+
+#: cppguide.xml:4505(code)
+msgid "precompile.h"
+msgstr ""
+
+#: cppguide.xml:4507(code)
+msgid "precompile.cc"
+msgstr ""
+
+#: cppguide.xml:4508(code)
+msgid "/FI"
+msgstr ""
+
+#: cppguide.xml:4502(li)
+msgid "The usual way of working with precompiled headers is to include a header file at the top of each source file, typically with a name like <placeholder-1/> or <placeholder-2/>. To make your code easier to share with other projects, avoid including this file explicitly (except in <placeholder-3/>), and use the <placeholder-4/> compiler option to include the file automatically."
+msgstr ""
+
+#: cppguide.xml:4512(code)
+msgid "resource.h"
+msgstr ""
+
+#: cppguide.xml:4511(li)
+msgid "Resource headers, which are usually named <placeholder-1/> and contain only macros, do not need to conform to these style guidelines."
+msgstr ""
+
+#: cppguide.xml:4524(em)
+msgid "BE CONSISTENT"
+msgstr ""
+
+#: cppguide.xml:4523(p)
+msgid "Use common sense and <placeholder-1/>."
+msgstr ""
+
+#: cppguide.xml:4526(p)
+msgid "If you are editing code, take a few minutes to look at the code around you and determine its style. If they use spaces around their <placeholder-1/> clauses, you should, too. If their comments have little boxes of stars around them, make your comments have little boxes of stars around them too."
+msgstr ""
+
+#: cppguide.xml:4533(p)
+msgid "The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But local style is also important. If code you add to a file looks drastically different from the existing code around it, the discontinuity throws readers out of their rhythm when they go to read it. Try to avoid this."
+msgstr ""
+
+#: cppguide.xml:4544(p)
+msgid "OK, enough writing about writing code; the code itself is much more interesting. Have fun!"
+msgstr ""
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: cppguide.xml:0(None)
+msgid "translator-credits"
+msgstr ""
+
