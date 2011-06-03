@@ -878,23 +878,23 @@ msgstr "기본 생성자는 아규먼트 없이 클래스 오브젝트를 <place
 
 #: cppguide.xml:906(PROS)
 msgid "Initializing structures by default, to hold \"impossible\" values, makes debugging much easier."
-msgstr ""
+msgstr "기본적으로 \"불가능한\" 값으로 초기화 시키는 것은 디버깅을 윌씬 더 쉽게 만듭니다."
 
 #: cppguide.xml:910(CONS)
 msgid "Extra work for you, the code writer."
-msgstr ""
+msgstr "코드를 작성해야만 합니다."
 
 #: cppguide.xml:914(p)
 msgid "If your class defines member variables and has no other constructors you must define a default constructor (one that takes no arguments). It should preferably initialize the object in such a way that its internal state is consistent and valid."
-msgstr ""
+msgstr "클래스가 멤버 변수를 정의하고 다른 생성자가 없다면, 기본 생성자(파라메트를 가지지 않는)를 정의해야만 합니다. 기본 생성자는 되도록이면 객체의 내부 상태를 일관되고 유효하도록 초기화해야 합니다."
 
 #: cppguide.xml:921(p)
 msgid "The reason for this is that if you have no other constructors and do not define a default constructor, the compiler will generate one for you. This compiler generated constructor may not initialize your object sensibly."
-msgstr ""
+msgstr "기본 생성자를 정의해야하는 이유는 다른 생성자가 없고, 기본 생성자를 정의하지 않았다면, 컴파일러가 기본 생성자를 생성할 것이기 때문입니다. 컴파일러가 생성하는 생성자는 객체를 올바르게 초기화하지 않을지도 모릅니다."
 
 #: cppguide.xml:928(p)
 msgid "If your class inherits from an existing class but you add no new member variables, you are not required to have a default constructor."
-msgstr ""
+msgstr "클래스가 존재하는 클래스로부터 상속되었지만 새로운 멤버 변수를 추가하지 않았다면, 기본 생성자를 가질 필요는 없습니다."
 
 #: cppguide.xml:939(SUMMARY)
 msgid "Use the C++ keyword <placeholder-1/> for constructors with one argument."
