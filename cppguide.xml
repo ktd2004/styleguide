@@ -374,7 +374,7 @@ Tashana Landray
       </p>
       <ol>
         <li> <code><var>dir2/foo2</var>.h</code> (preferred location
-          &#8212; see details below).</li>
+          - see details below).</li>
         <li> C system files.</li>
         <li> C++ system files.</li>
         <li> Other libraries' <code>.h</code> files.</li>
@@ -2636,7 +2636,7 @@ Tashana Landray
       </p>
       <p>
         As with <a href="#Boost">Boost</a>, some C++0x extensions encourage
-        coding practices that hamper readability&#8212;for example by removing
+        coding practices that hamper readability - for example by removing
         checked redundancy (such as type names) that may be helpful to readers,
         or by encouraging template metaprogramming.  Other extensions
         duplicate functionality available through existing
@@ -2808,8 +2808,8 @@ Tashana Landray
     </SUMMARY>
     <BODY>
       <p>
-        The names of all types &#8212; classes, structs, typedefs, and enums
-        &#8212; have the same naming convention.  Type names should start
+        The names of all types - classes, structs, typedefs, and enums
+        - have the same naming convention.  Type names should start
         with a capital letter and have a capital letter for each new
         word.  No underscores.  For example:
       </p>
@@ -3080,7 +3080,7 @@ Tashana Landray
     When writing your comments, write for your audience: the next
     
     contributor
-    who will need to understand your code.  Be generous &#8212; the next
+    who will need to understand your code.  Be generous - the next
     one may be you!
   </p>
 
@@ -3633,7 +3633,7 @@ Tashana Landray
         an encoding understood by most tools able
         to handle more than just ASCII.
         Hex encoding is also OK, and encouraged where it enhances
-        readability &#8212; for example, <code>"\xEF\xBB\xBF"</code> is the
+        readability - for example, <code>"\xEF\xBB\xBF"</code> is the
         Unicode zero-width no-break space character, which would be
         invisible if included in the source as straight UTF-8.
       </p>
