@@ -3140,7 +3140,7 @@ msgstr "2009년 1월까지는, 열거형 값을 <placeholder-1/>처럼 이름을
 
 #: cppguide.xml:3026(A)
 msgid "define a macro"
-msgstr ""
+msgstr "매크로 정의"
 
 #: cppguide.xml:3028(code)
 msgid "MY_MACRO_THAT_SCARES_SMALL_CHILDREN"
@@ -3148,11 +3148,11 @@ msgstr ""
 
 #: cppguide.xml:3025(SUMMARY)
 msgid "You're not really going to <placeholder-1/>, are you? If you do, they're like this: <placeholder-2/>."
-msgstr ""
+msgstr "정말로는 <placeholder-1/>를 하지 않을 것입니다. 그렇지 않습니까? 만약 매크로를 정의한다면, 다음과 같이 하십시오: <placeholder-2/>."
 
 #: cppguide.xml:3032(a)
 msgid "description of macros"
-msgstr ""
+msgstr "매크로 설정"
 
 #: cppguide.xml:3033(em)
 #: cppguide.xml:3287(em)
@@ -3161,7 +3161,7 @@ msgstr ""
 
 #: cppguide.xml:3031(p)
 msgid "Please see the <placeholder-1/>; in general macros should <placeholder-2/> be used. However, if they are absolutely needed, then they should be named with all capitals and underscores."
-msgstr ""
+msgstr "<placeholder-1/>을 보십시오; 일반적으로 매크로는 사용되지 말아야만 합니다(<placeholder-2/>). 그러나, 만약 절대적으로 필요하다면, 모두 대문자와 언더스코어 문자로 이름지어져야만 합니다."
 
 #: cppguide.xml:3037(CODE_SNIPPET)
 msgid "#define ROUND(x) ... #define PI_ROUNDED 3.0"
