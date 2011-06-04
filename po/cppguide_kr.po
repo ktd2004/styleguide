@@ -3044,7 +3044,7 @@ msgstr "set_my_exciting_member_variable()"
 
 #: cppguide.xml:2913(SUMMARY)
 msgid "Regular functions have mixed case; accessors and mutators match the name of the variable: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>."
-msgstr "일반 함수들은 대소문자가 섞인 이름을 가집니다. 접근자와 수정자는 변수 이름과일치하는 이름을 가집니다: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>."
+msgstr "일반 함수들은 대소문자가 섞인 이름을 가집니다. 접근자와 수정자는 변수 이름과 일치하는 이름을 가집니다: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>."
 
 #: cppguide.xml:2922(p)
 msgid "Functions should start with a capital letter and have a capital letter for each new word. No underscores."
@@ -3052,7 +3052,7 @@ msgstr "함수는 대문자로 시작해야만 합니다. 그리고 각각의 �
 
 #: cppguide.xml:2926(p)
 msgid "If your function crashes upon an error, you should append OrDie to the function name. This only applies to functions which could be used by production code and to errors that are reasonably likely to occur during normal operation."
-msgstr "만약 함수가 에러가 발생했을 때 크래쉬된다면, 함수 이름에 OnDie를 추가해야만 합니다. 이것은 프러덕션 코드에 의해서 사용될 수 있고 일반적인 동작중에 발생하는 합당한 에러에 대해서만 적용됩니다."
+msgstr "만약 함수가 에러가 발생했을 때 크래쉬 된다면, 함수 이름에 OnDie를 추가해야만 합니다. 이것은 프러덕션 코드에 의해서 사용될 수 있고 일반적인 동작중에 발생하는 합당한 에러에 대해서만 적용됩니다."
 
 #: cppguide.xml:2932(CODE_SNIPPET)
 msgid "AddTableEntry() DeleteUrl() OpenFileOrDie()"
