@@ -317,7 +317,7 @@ msgstr "또 다른 유용한 경험은, 루프나 switch 구문과 함께 함수
 
 #: cppguide.xml:265(p)
 msgid "It is important to know that functions are not always inlined even if they are declared as such; for example, virtual and recursive functions are not normally inlined. Usually recursive functions should not be inline. The main reason for making a virtual function inline is to place its definition in the class, either for convenience or to document its behavior, e.g., for accessors and mutators."
-msgstr "함수가 인라인으로 선언되었어도 항상 인라인되지는 않는다는 것을 아는 것은 중요합니다; for example, virtual and recursive functions are not normally inlined. Usually recursive functions should not be inline. The main reason for making a virtual function inline is to place its definition in the class, either for convenience or to document its behavior, e.g., for accessors and mutators."
+msgstr "함수가 인라인으로 선언되었어도 항상 인라인되지는 않는다는 것을 아는 것은 중요합니다; 예를 들면, 가상 함수와 재귀함수는 통상적으로 인라인화되지 않습니다. 일반적으로 재귀 함수는 인라이되어서는 않됩니다. 가상 함수를 인라인으로 만드는 주된 이유는 편리함과 접근자와 수정자처럼 그것의 행동을 문서화하기 위해 클래스에 그것의 정의를 위치시키기 위해서입니다."
 
 #: cppguide.xml:280(code)
 #: cppguide.xml:300(code)
@@ -337,7 +337,7 @@ msgstr "호출하는 쪽에서 컴파일러가 inline하기 위해 사용할 정
 
 #: cppguide.xml:292(p)
 msgid "If an inline function definition is short, with very little, if any, logic in it, you should put the code in your <placeholder-1/> file. For example, accessors and mutators should certainly be inside a class definition. More complex inline functions may also be put in a <placeholder-2/> file for the convenience of the implementer and callers, though if this makes the <placeholder-3/> file too unwieldy you can instead put that code in a separate <placeholder-4/> file. This separates the implementation from the class definition, while still allowing the implementation to be included where necessary."
-msgstr ""
+msgstr "만약 인라인 함수의 정의가 매우 짧다면, <placeholder-1/> 파일에 코드를 넣어야만 합니다. 예를 들면, 접근자와 수정자는 확실히 클래스 정의내에 있어야만 합니다. 더 복잡한 인라인 함수는 구현과 호출시의 편리함을 위해서 <placeholder-2/> 파일에 들어갈 수 있습니다. 하지만 이게 <placeholder-3/> 파일을 비대하게 만든다면, 대신에 별도의 <placeholder-4/> 파일에 코드를 추가할 수 있습니다. 이것이 필요한 곳에서 구현을 include할 수 있게 하면서, 클래스 정의로부터 구현을 분리해 줍니다."
 
 #: cppguide.xml:305(p)
 msgid "Another use of <placeholder-1/> files is for definitions of function templates. This can be used to keep your template definitions easy to read."
