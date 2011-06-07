@@ -1830,7 +1830,7 @@ msgstr "Run Time Type Infomation(RTTI)를 사용하지 않을 것 입니다."
 
 #: cppguide.xml:1848(DEFINITION)
 msgid "RTTI allows a programmer to query the C++ class of an object at run time."
-msgstr ""
+msgstr "RTTI는 런타임시에 프로그래머가 객체의 C++ 클래스가 무엇인지를 질의하는 것을 허용합니다."
 
 #: cppguide.xml:1853(p)
 msgid "It is useful in some unittests. For example, it is useful in tests of factory classes where the test has to verify that a newly created object has the expected dynamic type."
@@ -3541,7 +3541,7 @@ msgstr ""
 
 #: cppguide.xml:3555(p)
 msgid "To help you format code correctly, we've created a <placeholder-1/>."
-msgstr ""
+msgstr "정확하게 코드를 포멧팅하는 것을 돕기 위해서 <placeholder-1/>를 만들어 두었습니다."
 
 #: cppguide.xml:3561(SUMMARY)
 msgid "Each line of text in your code should be at most 80 characters long."
