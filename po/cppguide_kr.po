@@ -3400,7 +3400,7 @@ msgstr "구현에서 코드가 까다롭거나, 명백하지 않거나, 흥미�
 
 #: cppguide.xml:3341(p)
 msgid "Tricky or complicated code blocks should have comments before them. Example:"
-msgstr ""
+msgstr "까다롭거나 복잡한 코드 블럭은 그 전에 주석을 가져야만 합니다. 예를 들면:"
 
 #: cppguide.xml:3345(CODE_SNIPPET)
 msgid "// Divide result by two, taking into account that x // contains the carry from the add. for (int i = 0; i &lt; result-&gt;size(); i++) { x = (x &lt;&lt; 8) + (*result)[i]; (*result)[i] = x &gt;&gt; 1; x &amp;= 1; }"
@@ -3408,7 +3408,7 @@ msgstr ""
 
 #: cppguide.xml:3356(p)
 msgid "Also, lines that are non-obvious should get a comment at the end of the line. These end-of-line comments should be separated from the code by 2 spaces. Example:"
-msgstr ""
+msgstr "또한, 명확하지 않은 라인들은 라인 끝에 주석을 가져야만 합니다. 이 라인-끝 주석은 코드에서 두개의 스페이스로 분리되어있어야만 합니다. 예를 들면:"
 
 #: cppguide.xml:3361(CODE_SNIPPET)
 msgid "// If we have enough memory, mmap the data portion too. mmap_budget = max&lt;int64&gt;(0, mmap_budget - index_-&gt;length()); if (mmap_budget &gt;= data_size_ &amp;&amp; !MmapData(mmap_chunk_bytes, mlock)) return; // Error already logged."
@@ -3416,11 +3416,11 @@ msgstr ""
 
 #: cppguide.xml:3367(p)
 msgid "Note that there are both comments that describe what the code is doing, and comments that mention that an error has already been logged when the function returns."
-msgstr ""
+msgstr "코드가 무엇을 하고 있는지를 설명하는 주석과, 함수가 반환할 때 에러가 이미 로그되었음을 설명하는 주석, 둘 다 있다는 것을 주의하십시오."
 
 #: cppguide.xml:3372(p)
 msgid "If you have several comments on subsequent lines, it can often be more readable to line them up:"
-msgstr ""
+msgstr "연속된 줄에 몇개의 주석이 있을 때, 줄을 맞추면 종종 가독성이 더 좋아진다:"
 
 #: cppguide.xml:3376(CODE_SNIPPET)
 msgid "DoSomething(); // Comment here so the comments line up. DoSomethingElseThatIsLonger(); // Comment here so there are two spaces between // the code and the comment. { // One space before comment when opening a new scope is allowed, // thus the comment lines up with the following comments and code. DoSomethingElse(); // Two spaces before line comments normally. }"
