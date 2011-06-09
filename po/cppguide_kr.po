@@ -3549,7 +3549,7 @@ msgstr "코드의 텍스트의 각 라인은 많아야 80 문자 길이여야 �
 
 #: cppguide.xml:3567(p)
 msgid "We recognize that this rule is controversial, but so much existing code already adheres to it, and we feel that consistency is important."
-msgstr ""
+msgstr "이 규칙의 논쟁의 여지가 있다는 것을 알고 있습니다. 하지만 기존에 존재하던 많은 코드가 이미 이 규칙을 따르고 있고, 일관성을 유지하는 것은 중요하다고 생각합니다."
 
 #: cppguide.xml:3572(PROS)
 msgid "Those who favor this rule argue that it is rude to force them to resize their windows and there is no need for anything longer. Some folks are used to having several code windows side-by-side, and thus don't have room to widen their windows in any case. People set up their work environment assuming a particular maximum window width, and 80 columns has been the traditional standard. Why change it?"
@@ -3561,23 +3561,23 @@ msgstr ""
 
 #: cppguide.xml:3592(p)
 msgid "80 characters is the maximum."
-msgstr ""
+msgstr "80개의 문자가 최대값입니다."
 
 #: cppguide.xml:3596(p)
 msgid "Exception: if a comment line contains an example command or a literal URL longer than 80 characters, that line may be longer than 80 characters for ease of cut and paste."
-msgstr ""
+msgstr "예외: 주석이 80 문자보다 큰 예제 명령이나 URL을 포함하고 있다면, 해당 라인은 복사/붙여넣기가 쉽도록 80 문자 이상이 될 수도 있습니다."
 
 #: cppguide.xml:3601(p)
 msgid "Exception: an <placeholder-1/> statement with a long path may exceed 80 columns. Try to avoid situations where this becomes necessary."
-msgstr ""
+msgstr "예외: 80열을 넘을지도 모를 긴 경로를 가지는 <placeholder-1/> 문의 경우. 이러한 것이 필요한 상황을 피하도록 하십시오."
 
 #: cppguide.xml:3608(a)
 msgid "header guards"
-msgstr ""
+msgstr "헤더 가드"
 
 #: cppguide.xml:3606(p)
 msgid "Exception: you needn't be concerned about <placeholder-1/> that exceed the maximum length."
-msgstr ""
+msgstr "예외: 최대 길이를 넘는 <placeholder-1/>에 대해서는 고려할 필요가 없습니다."
 
 #: cppguide.xml:3617(SUMMARY)
 msgid "Non-ASCII characters should be rare, and must use UTF-8 formatting."
@@ -3585,7 +3585,7 @@ msgstr "Non-ASCII 문자는 적게 사용해야 하고, UTF-8 포멧팅을 사�
 
 #: cppguide.xml:3636(code)
 msgid "\"\\xEF\\xBB\\xBF\""
-msgstr ""
+msgstr "\"\\xEF\\xBB\\xBF\""
 
 #: cppguide.xml:3621(p)
 msgid "You shouldn't hard-code user-facing text in source, even English, so use of non-ASCII characters should be rare. However, in certain cases it is appropriate to include such words in your code. For example, if your code parses data files from foreign sources, it may be appropriate to hard-code the non-ASCII string(s) used in those data files as delimiters. More commonly, unittest code (which does not need to be localized) might contain non-ASCII strings. In such cases, you should use UTF-8, since that is an encoding understood by most tools able to handle more than just ASCII. Hex encoding is also OK, and encouraged where it enhances readability - for example, <placeholder-1/> is the Unicode zero-width no-break space character, which would be invisible if included in the source as straight UTF-8."
