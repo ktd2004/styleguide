@@ -550,11 +550,11 @@ msgstr ""
 
 #: cppguide.xml:494(code)
 msgid "// namespace"
-msgstr ""
+msgstr "// namespace"
 
 #: cppguide.xml:488(p)
 msgid "However, file-scope declarations that are associated with a particular class may be declared in that class as types, static data members or static member functions rather than as members of an unnamed namespace. Terminate the unnamed namespace as shown, with a comment <placeholder-1/>."
-msgstr ""
+msgstr "하지만, 특정 클래스와 연결된 파일-범위의 선언은 이름없는 네임스페이스의 멤버보다는 types, 정적 데이타 멤버 혹은 정적 멤버 함수로써 해당 클래스 내에 선언될지도 모릅니다. 이름없는 네임스페이스는 보이는 것처럼 <placeholder-1/> 주석으로 끝나도록 하십시오."
 
 #: cppguide.xml:475(li)
 msgid "Unnamed namespaces are allowed and even encouraged in <placeholder-1/> files, to avoid runtime naming conflicts: <placeholder-2/><placeholder-3/>"
@@ -583,7 +583,7 @@ msgstr ""
 
 #: cppguide.xml:539(p)
 msgid "The typical <placeholder-1/> file might have more complex detail, including the need to reference classes in other namespaces."
-msgstr ""
+msgstr "전형적인 <placeholder-1/> 파일은 다른 네임스페이스에 있는 클래스를 참조하는데 필요한 것을 포함하므로 상세 내용은 더 복잡할 수 있습니다."
 
 #: cppguide.xml:544(CODE_SNIPPET)
 msgid "#include \"a.h\" DEFINE_bool(someflag, false, \"dummy flag\"); class C; // Forward declaration of class C in the global namespace. namespace a { class A; } // Forward declaration of a::A. namespace b { ...code for b... // Code goes against the left margin. } // namespace b"
@@ -591,7 +591,7 @@ msgstr ""
 
 #: cppguide.xml:509(li)
 msgid "Namespaces wrap the entire source file after includes, <placeholder-1/> definitions/declarations, and forward declarations of classes from other namespaces: <placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/>"
-msgstr ""
+msgstr "네임스테이스는 include, <placeholder-1/> 정의/선언, 그리고 다른 네임스페이스의 클래스의 전방선언후에 전체 소스 파일을 감쌉니다. <placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/>"
 
 #: cppguide.xml:563(code)
 #: cppguide.xml:565(code)
@@ -600,7 +600,7 @@ msgstr "std"
 
 #: cppguide.xml:562(li)
 msgid "Do not declare anything in namespace <placeholder-1/>, not even forward declarations of standard library classes. Declaring entities in namespace <placeholder-2/> is undefined behavior, i.e., not portable. To declare entities from the standard library, include the appropriate header file."
-msgstr ""
+msgstr "<placeholder-1/> 네임스페이스에는 아무것도 선언하지 않으며, 심지어 표준 라이브러리 클래스에 대한 전방 선언일지라도 마찬가지입니다. <placeholder-2/> 네임스페이스에 요소를 선언하는 것은 정의되지 않은 동작입니다. 즉 이식성이 없습니다. 표준 라이브러리에 있는 요소를 선언하려면 적절한 헤더 파일을 include 하십시오." 
 
 #: cppguide.xml:573(BAD_CODE_SNIPPET)
 msgid "// Forbidden -- This pollutes the namespace. using namespace foo;"
@@ -608,11 +608,11 @@ msgstr ""
 
 #: cppguide.xml:571(li)
 msgid "You may not use a <placeholder-1/> to make all names from a namespace available. <placeholder-2/>"
-msgstr ""
+msgstr "네임스페이스에서 모든 이름을 사용하기 위해서 <placeholder-1/> 지시자를 사용하지 말아야 합니다. <placeholder-2/>"
 
 #: cppguide.xml:579(SYNTAX)
 msgid "using-declaration"
-msgstr ""
+msgstr "using-선언"
 
 #: cppguide.xml:582(CODE_SNIPPET)
 msgid "// OK in .cc files. // Must be in a function, method or class in .h files. using ::foo::bar;"
@@ -620,7 +620,7 @@ msgstr ""
 
 #: cppguide.xml:579(li)
 msgid "You may use a <placeholder-1/> anywhere in a <placeholder-2/> file, and in functions, methods or classes in <placeholder-3/> files. <placeholder-4/>"
-msgstr ""
+msgstr "<placeholder-1/> 선언은 <placeholder-2/> 파일, <placeholder-3/> 파일에 있는 함수, 메소드 또는 클래스 등 어디서든 사용해도 좋습니다."
 
 #: cppguide.xml:593(CODE_SNIPPET)
 msgid "// Shorten access to some commonly used names in .cc files. namespace fbz = ::foo::bar::baz; // Shorten access to some commonly used names (in a .h file). namespace librarian { // The following alias is available to all files including // this header (in namespace librarian): // alias names should therefore be chosen consistently // within a project. namespace pd_s = ::pipeline_diagnostics::sidetable; inline void my_inline_function() { // namespace alias local to a function (or method). namespace fbz = ::foo::bar::baz; ... } } // namespace librarian"
@@ -628,16 +628,16 @@ msgstr ""
 
 #: cppguide.xml:612(p)
 msgid "Note that an alias in a .h file is visible to everyone #including that file, so public headers (those available outside a project) and headers transitively #included by them, should avoid defining aliases, as part of the general goal of keeping public APIs as small as possible."
-msgstr ""
+msgstr ".h 파일에서의 별칭은 그 파일을 #include하는 모든 이들에게 보여집니다. 따라서 공용 API는 가능한한 작게 유지한다는 일반적인 목적으로 일환으로, 공용 헤더 파일(프로젝트 외부에서 이용할 수 있는)과 그 파일을 간접적으로 #include하는 헤더 파일들은 별칭을 정의하는 것을 피해야만 합니다."
 
 #: cppguide.xml:589(li)
 msgid "Namespace aliases are allowed anywhere in a <placeholder-1/> file, anywhere inside the named namespace that wraps an entire <placeholder-2/> file, and in functions and methods. <placeholder-3/><placeholder-4/>"
-msgstr ""
+msgstr "네임스페이스 별칭은 <placeholder-1/> 파일내 어디든지에서, 전체 <placeholder-2/> 파일을 감싸는 이름있는 네임스페이스내 어디든지에서, 그리고 함수와 메소드내 어디든지에서 사용할 수 있습니다.<placeholder-3/><placeholder-4/>"
 
 #: cppguide.xml:635(a)
 #: cppguide.xml:719(a)
 msgid "namespace"
-msgstr ""
+msgstr "namespace"
 
 #: cppguide.xml:633(SUMMARY)
 msgid "Although you may use public nested classes when they are part of an interface, consider a <placeholder-1/> to keep declarations out of the global scope."
@@ -645,7 +645,7 @@ msgstr "public 중첩 클래스가 인터페이스의 일부분 일 때, 그것�
 
 #: cppguide.xml:641(SYNTAX)
 msgid "member class"
-msgstr ""
+msgstr "member class"
 
 #: cppguide.xml:642(CODE_SNIPPET)
 msgid "class Foo { private: // Bar is a member class, nested within Foo. class Bar { ... }; };"
@@ -1506,11 +1506,11 @@ msgstr "실제로 포인터가 필요하다면, <placeholder-1/>가 좋습니다
 
 #: cppguide.xml:1472(DEFINITION)
 msgid "\"Smart\" pointers are objects that act like pointers, but automate management of the underlying memory."
-msgstr ""
+msgstr "\"Smart\" 포인터는 포인터처럼 동작하는 객체지만, 뒤쪽의 메모리 관리를 자동화합니다."
 
 #: cppguide.xml:1476(PROS)
 msgid "Smart pointers are extremely useful for preventing memory leaks, and are essential for writing exception-safe code. They also formalize and document the ownership of dynamically allocated memory."
-msgstr ""
+msgstr "Smart 포인터는 메모리 릭을 방지하는데 극단적으로 유용합니다. 예외에 안전한 코드를 작성하는데 반드시 필요합니다. 또한 동적으로 할당된 메모리를 정규화하고 문서화합니다."
 
 #: cppguide.xml:1481(CONS)
 msgid "We prefer designs in which objects have single, fixed owners. Smart pointers which enable sharing or transfer of ownership can act as a tempting alternative to a careful design of ownership semantics, leading to confusing code and even bugs in which memory is never deleted. The semantics of smart pointers (especially <placeholder-1/>) can be nonobvious and confusing. The exception-safety benefits of smart pointers are not decisive, since we do not allow exceptions."
@@ -1518,11 +1518,11 @@ msgstr ""
 
 #: cppguide.xml:1494(dd)
 msgid "Straightforward and risk-free. Use wherever appropriate."
-msgstr ""
+msgstr "직관적이며 안전합니다. 사용할 수 있는 곳은 어디서나 사용하십시오."
 
 #: cppguide.xml:1496(dd)
 msgid "Confusing and bug-prone ownership-transfer semantics. Do not use."
-msgstr ""
+msgstr "혼란스럽고 버그를 발생하기 쉬운 소유권 이전 방법입니다. 사용하지 마십시오."
 
 #: cppguide.xml:1498(code)
 msgid "shared_ptr"
@@ -1534,7 +1534,7 @@ msgstr "shared_ptr&lt;const T&gt;"
 
 #: cppguide.xml:1499(dd)
 msgid "Safe with const referents (i.e. <placeholder-1/>). Reference-counted pointers with non-const referents can occasionally be the best design, but try to rewrite with single owners where possible."
-msgstr ""
+msgstr "const 레퍼런스에 대해서 안전합니다 (예를 들면. <placeholder-1/>). const가 아닌 레퍼런트에서 레퍼런스-카운트된 포인터를 가끔 최고의 설계가 될 수 있습니다. 하지만 가능한한 하나의 소유자를 가지도록 새롭게 작성하도록 노력하십시오."
 
 #: cppguide.xml:1513(code)
 #: cppguide.xml:1518(code)
@@ -1549,7 +1549,7 @@ msgstr "스타일 에러를 검출하기 위해서 <placeholder-1/>를 사용하
 
 #: cppguide.xml:1522(code)
 msgid "// NOLINT"
-msgstr ""
+msgstr "// NOLINT"
 
 #: cppguide.xml:1517(p)
 msgid "<placeholder-1/> is a tool that reads a source file and identifies many style errors. It is not perfect, and has both false positives and false negatives, but it is still a valuable tool. False positives can be ignored by putting <placeholder-2/> at the end of the line."
