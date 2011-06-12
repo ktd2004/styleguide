@@ -713,7 +713,7 @@ msgstr "함수의 변수는 가능한한 작은 범위에 위치시키십시오.
 
 #: cppguide.xml:733(p)
 msgid "C++ allows you to declare variables anywhere in a function. We encourage you to declare them in as local a scope as possible, and as close to the first use as possible. This makes it easier for the reader to find the declaration and see what type the variable is and what it was initialized to. In particular, initialization should be used instead of declaration and assignment, e.g."
-msgstr ""
+msgstr "C++은 함수내 어디에서든 변수를 선언할 수 있게 합니다. 가능한한 지역 범위내에서 그리고 가능한한 처음으로 사용되는 곳에 가깝게 선언하도록 하십시오. 이것은 코드를 읽는 사람이 선언한 곳을 더 쉽게 찾고, 변수가 어떤 타입인지, 무엇으로 초기화했는지를 쉽게 알 수 있게 합니다. 특히 선언과 대입 대신에 초기화가 사용되어야만 합니다. 예를 들면."
 
 #: cppguide.xml:742(BAD_CODE_SNIPPET)
 msgid "int i; i = f(); // Bad -- initialization separate from declaration."
@@ -927,7 +927,7 @@ msgstr "하나의 아규먼트를 가진 모든 생성자가 explicit로 선언�
 
 #: cppguide.xml:969(p)
 msgid "The exception is copy constructors, which, in the rare cases when we allow them, should probably not be <placeholder-1/>. Classes that are intended to be transparent wrappers around other classes are also exceptions. Such exceptions should be clearly marked with comments."
-msgstr ""
+msgstr "The exception is copy constructors, which, in the rare cases when we allow them, should probably not be <placeholder-1/>. 다른 클래스를 두명하게 감쌀 의도의 클래스들도 예외입니다. 그러한 예외들은 명백하게 주석으로 명확하게 설명해야 합니다."
 
 #: cppguide.xml:986(code)
 #: cppguide.xml:1038(code)
@@ -951,15 +951,15 @@ msgstr "CopyFrom()"
 
 #: cppguide.xml:994(PROS)
 msgid "Copy constructors make it easy to copy objects. STL containers require that all contents be copyable and assignable. Copy constructors can be more efficient than <placeholder-1/>-style workarounds because they combine construction with copying, the compiler can elide them in some contexts, and they make it easier to avoid heap allocation."
-msgstr ""
+msgstr "복사 생성자는 객체를 복사하기 쉽게 합니다. STL 컨테이너에서는 복사할 수 있고 대입할 수 있는 것을 필요로 합니다. 복사 생성자는 차선책인 <placeholder-1/>-스타일 보다 더 효과적일 수 있습니다. 복사하면서 생성하고 어떤 상황에서는 컴파일러에서 이 과정을 건너 뛸 수 있으며, 힙을 할당하지 않도록 하는 것도 더 쉽기 때문이다."
 
 #: cppguide.xml:1002(CONS)
 msgid "Implicit copying of objects in C++ is a rich source of bugs and of performance problems. It also reduces readability, as it becomes hard to track which objects are being passed around by value as opposed to by reference, and therefore where changes to an object are reflected."
-msgstr ""
+msgstr "C++에서 객체를 암시적으로 복사하는 것은 많은 버그와 성능 문제를 만들 수 있습니다. 또한 가독성을 떨어뜨리고 참조에 비해 값으로 전달할 때 어떤 객체를 전달하는지 추적하기 어려워, 객체가 어디서 바뀌는지 알기 어렵습니다."
 
 #: cppguide.xml:1010(p)
 msgid "Few classes need to be copyable. Most should have neither a copy constructor nor an assignment operator. In many situations, a pointer or reference will work just as well as a copied value, with better performance. For example, you can pass function parameters by reference or pointer instead of by value, and you can store pointers rather than objects in an STL container."
-msgstr ""
+msgstr "복사할 수 있어야 하는 클래스는 적습니다. 대부분은 복사 생성자와 대입 연산자가 없어도 됩니다. 많은 경우에 포인터나 참조는 값을 복사하는 것 만큼 잘 동작하고 성능도 더욱 좋습니다. 예를 들어 함수 매개변수를 값 대신 참조나 포인터로 전달 할 수 있고 STL 컨테이너에 객체 대신 포인터를 저장할 수도 있습니다."
 
 #: cppguide.xml:1020(code)
 msgid "Clone()"
@@ -967,7 +967,7 @@ msgstr "Clone()"
 
 #: cppguide.xml:1018(p)
 msgid "If your class needs to be copyable, prefer providing a copy method, such as <placeholder-1/> or <placeholder-2/>, rather than a copy constructor, because such methods cannot be invoked implicitly. If a copy method is insufficient in your situation (e.g. for performance reasons, or because your class needs to be stored by value in an STL container), provide both a copy constructor and assignment operator."
-msgstr ""
+msgstr "클래스를 복사할 수 있어야 한다면 복사 생성자보다 <placeholder-1/>이나 <placeholder-2/>과 같은 복사 메소드를 제공하는게 더 좋습니다. 이런 메소드는 암시적으로 호출할 수 없기 때문입니다.(성능 문제나 클래스를 STL 컨테이너에 값으로 저장해야 하는 등의 이유로) 복사 메소드가 적합하지 않으면 복사 생성자와 대입 연산자 모두를 제공합니다."
 
 #: cppguide.xml:1033(code)
 #: cppguide.xml:1378(code)
@@ -979,11 +979,11 @@ msgstr "private:"
 
 #: cppguide.xml:1027(p)
 msgid "If your class does not need a copy constructor or assignment operator, you must explicitly disable them. To do so, add dummy declarations for the copy constructor and assignment operator in the <placeholder-1/> section of your class, but do not provide any corresponding definition (so that any attempt to use them results in a link error)."
-msgstr ""
+msgstr "복사 생성자나 대입 연산자가 필요없으면 명시적으로 비활성해야 합니다. 그렇게 하려면 클래스의 <placeholder-1/> 섹션에 더미의 복사 생성자와 대입 연산자 선언을 추가하고 정의는 하지 않도록 합니다.(그래서 사용하려고 시도하면 링크에러가 발생하게 합니다.)"
 
 #: cppguide.xml:1037(p)
 msgid "For convenience, a <placeholder-1/> macro can be used:"
-msgstr ""
+msgstr "편리하게, <placeholder-1/> 사용할 수 있습니다:"
 
 #: cppguide.xml:1041(CODE_SNIPPET)
 msgid "// A macro to disallow the copy constructor and operator= functions // This should be used in the private: declarations for a class #define DISALLOW_COPY_AND_ASSIGN(TypeName) \\ TypeName(const TypeName&amp;); \\ void operator=(const TypeName&amp;)"
@@ -995,7 +995,7 @@ msgstr "class Foo"
 
 #: cppguide.xml:1048(p)
 msgid "Then, in <placeholder-1/>:"
-msgstr ""
+msgstr "그런 다음, <placeholder-1/>에서:"
 
 #: cppguide.xml:1051(CODE_SNIPPET)
 msgid "class Foo { public: Foo(int f); ~Foo(); private: DISALLOW_COPY_AND_ASSIGN(Foo); };"
@@ -1023,7 +1023,7 @@ msgstr "데이타를 전달하는 passive 객체에 대해서만 <placeholder-1/
 
 #: cppguide.xml:1074(p)
 msgid "The <placeholder-1/> and <placeholder-2/> keywords behave almost identically in C++. We add our own semantic meanings to each keyword, so you should use the appropriate keyword for the data-type you're defining."
-msgstr ""
+msgstr "C++에서 <placeholder-1/>와 <placeholder-2/> 키워드는 거의 동일하게 동작합니다. 따라서 각 키워드에 내포된 의미를 추가해 정의하는 데이터 타입에 따라 적절한 키워드를 사용합니다."
 
 #: cppguide.xml:1081(code)
 msgid "structs"
