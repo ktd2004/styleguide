@@ -1625,7 +1625,7 @@ msgstr ""
 
 #: cppguide.xml:1591(SUMMARY)
 msgid "Use overloaded functions (including constructors) only if a reader looking at a call site can get a good idea of what is happening without having to first figure out exactly which overload is being called."
-msgstr ""
+msgstr "함수를 호출하는 쪽에서 오버로드된 함수중 어떤 것이 호출될지 정확히 몰라도 무슨일이 일어나는 지를 알 수 있을 때만 오버로드된 함수(생성자를 포함해서)를 사용하십시오."
 
 #: cppguide.xml:1601(code)
 msgid "const string&amp;"
@@ -2780,11 +2780,11 @@ msgstr ""
 
 #: cppguide.xml:2658(p)
 msgid "The most important consistency rules are those that govern naming. The style of a name immediately informs us what sort of thing the named entity is: a type, a variable, a function, a constant, a macro, etc., without requiring us to search for the declaration of that entity. The pattern-matching engine in our brains relies a great deal on these naming rules."
-msgstr ""
+msgstr "가장 중요한 일관성 규칙은 이름을 짓는 것입니다. 이름을 짓는 스타일은 이름 붙은 존재(타입, 변수, 함수, 상수, 매크로 등)의 선언을 찾지 않고도, 해당 타입의 종류를 바로 알 수 있게 해줍니다. 우리 머리속에 있는 패턴-일치 엔진은 이러한 이름 규칙에 매우 많이 의존하고 있습니다."
 
 #: cppguide.xml:2667(p)
 msgid "Naming rules are pretty arbitrary, but we feel that consistency is more important than individual preferences in this area, so regardless of whether you find them sensible or not, the rules are the rules."
-msgstr ""
+msgstr "이름 규칙은 꽤 임의적이지만 개인적인 선호보다는 일관성이 더 중료하다고 생각합니다. 그러므로 그것이 합리적이라고 생각하든 그렇지 않든 규칙은 규칙입니다."
 
 #: cppguide.xml:2676(SUMMARY)
 msgid "Function names, variable names, and filenames should be descriptive; eschew abbreviation. Types and variables should be nouns, while functions should be \"command\" verbs."
@@ -3226,11 +3226,11 @@ msgstr ""
 
 #: cppguide.xml:3071(p)
 msgid "Though a pain to write, comments are absolutely vital to keeping our code readable. The following rules describe what you should comment and where. But remember: while comments are very important, the best code is self-documenting. Giving sensible names to types and variables is much better than using obscure names that you must then explain through comments."
-msgstr ""
+msgstr "글 쓰는게 고통스러울지라도 주석문은 코드 가독성을 좋게 유지하는데 절대적으로 중요합니다. 다음 규칙에서는 무엇을, 어디에 적어야 하는지 설명합니다. 하지만 기억해 둘 것은, 주석문이 아무리 중요할지라도 좋은 코드는 그 자체로 문서라는 점입니다. 타입과 변수에 적절한 이름을 사용하는 것이 불명확한 이름을 사용해 그에 대한 설명을 해야 하는 것보다는 더 좋습니다."
 
 #: cppguide.xml:3079(p)
 msgid "When writing your comments, write for your audience: the next contributor who will need to understand your code. Be generous - the next one may be you!"
-msgstr ""
+msgstr "주석문을 적을 때는 청중, 즉, 코드를 이해할 필요가 있는 다음 기여자를 위해서 작성하십시오. 관대해지십시오 - 다음이 자신일 수 있습니다."
 
 #: cppguide.xml:3091(code)
 #: cppguide.xml:3096(code)
@@ -3534,11 +3534,11 @@ msgstr ""
 
 #: cppguide.xml:3540(p)
 msgid "Coding style and formatting are pretty arbitrary, but a project is much easier to follow if everyone uses the same style. Individuals may not agree with every aspect of the formatting rules, and some of the rules may take some getting used to, but it is important that all project contributors follow the style rules so that they can all read and understand everyone's code easily."
-msgstr ""
+msgstr "코드 스타일과 형식은 꽤 임의적이지만 모든 이가 같은 스타일을 사용하면 프로젝트는 훨씬 쉬워진다. 모든 이가 모든 형식 규칙에 동의하지 않을 수 있고 규칙 중 일부는 다소 익숙할 수도 있다. 하지만 중요한 것은 프로젝트의 모든 기여자가 같은 스타일을 따라야 다른 이가 만든 코드를 쉽게 읽고 이해할 수 있다는 점이다."
 
 #: cppguide.xml:3556(A)
 msgid "settings file for emacs"
-msgstr ""
+msgstr "emacs를 위한 설정 파일"
 
 #: cppguide.xml:3555(p)
 msgid "To help you format code correctly, we've created a <placeholder-1/>."
@@ -4182,7 +4182,7 @@ msgstr ""
 
 #: cppguide.xml:4438(SUMMARY)
 msgid "Windows programmers have developed their own set of coding conventions, mainly derived from the conventions in Windows headers and other Microsoft code. We want to make it easy for anyone to understand your code, so we have a single set of guidelines for everyone writing C++ on any platform."
-msgstr "윈도우 프로그래머들은 주로 윈도우 헤더와 다른 Microsoft 코드에서부터 나온 그들만의 코딩 관례들을 만들었습니다. We want to make it easy for anyone to understand your code, so we have a single set of guidelines for everyone writing C++ on any platform."
+msgstr "윈도우 프로그래머들은 주로 윈도우 헤더와 다른 Microsoft 코드에서부터 나온 그들만의 코딩 관례들을 만들었습니다. 자신이 만든 코드를 다른 이가 쉽게 이해할 수 있게 하길 원하므로 어느 플랫폼에서든 C++로 만드는 모든 이가 따를 안내문을 만들었다."
 
 #: cppguide.xml:4447(p)
 msgid "It is worth reiterating a few of the guidelines that you might forget if you are used to the prevalent Windows style:"
@@ -4306,23 +4306,23 @@ msgstr "일반적으로 <placeholder-1/>라는 파일 이름을 가지고 있고
 
 #: cppguide.xml:4524(em)
 msgid "BE CONSISTENT"
-msgstr ""
+msgstr "일관성을 유지하십시오"
 
 #: cppguide.xml:4523(p)
 msgid "Use common sense and <placeholder-1/>."
-msgstr ""
+msgstr "상식에 따르고 <placeholder-1/>."
 
 #: cppguide.xml:4526(p)
 msgid "If you are editing code, take a few minutes to look at the code around you and determine its style. If they use spaces around their <placeholder-1/> clauses, you should, too. If their comments have little boxes of stars around them, make your comments have little boxes of stars around them too."
-msgstr ""
+msgstr "코드를 수정할 때는 주위 내용을 몇 분간 살펴보고 스타일을 결정한다. <placeholder-1/> 절 주위에서 빈 칸을 사용하면 그렇게 한다. 주석문을 별로 만든 상자로 감쌌으면 마찬가지로 그렇게 한다."
 
 #: cppguide.xml:4533(p)
 msgid "The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But local style is also important. If code you add to a file looks drastically different from the existing code around it, the discontinuity throws readers out of their rhythm when they go to read it. Try to avoid this."
-msgstr ""
+msgstr "스타일 안내문에서는 코딩할 때 사용하는 공통 단어를 제시하므로 사람들이 말하는 방법이 아닌 무엇을 말하는지에 집중할 수 있다. 여기서는 전역 스타일 규칙을 제시하므로 사람들은 그 단어를 알 수 있다. 하지만 지역 스타일 또한 중요하다. 만약 기존 코드와 매우 다르게 보이는 코드를 추가하면 그런 단절된 내용 때문에 다른 이가 그 것을 읽을 때 리듬을 깨뜨린다."
 
 #: cppguide.xml:4544(p)
 msgid "OK, enough writing about writing code; the code itself is much more interesting. Have fun!"
-msgstr ""
+msgstr "자 코드를 작성하는 방법에 대해 충분히 썼다. 코드 그 자체는 훨씬 더 흥미롭다. 즐겨라!"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: cppguide.xml:0(None)
