@@ -29,11 +29,11 @@ msgstr "야호! 더 상세한 내용을 얻기 위해서 위치를 확장할 수
 
 #: cppguide.xml:39(p)
 msgid "C++ is the main development language used by many of Google's open-source projects. As every C++ programmer knows, the language has many powerful features, but this power brings with it complexity, which in turn can make code more bug-prone and harder to read and maintain."
-msgstr "C++은 Google의 많은 오픈소스 프로젝트에서 사용되는 주 개발 언어입니다. 모든 C++ 프로그래머가 알고 있듯이, C++ 언어는 많은 강력한 특징들을 가지고 있습니다. 하지만 이 강력함은 버그가 더 쉽게 발생하고 읽고 유지하기 더 어려운 복잡성을 야기합니다."
+msgstr "C++은 Google의 많은 오픈 소스 프로젝트에서 사용되는 주 개발 언어입니다. 모든 C++ 프로그래머가 알고 있듯이, C++ 언어는 많은 강력한 특징들을 가지고 있습니다. 하지만 이 강력함은 버그가 더 쉽게 발생하고 읽고 유지하기 더 어려운 복잡성을 야기합니다."
 
 #: cppguide.xml:48(p)
 msgid "The goal of this guide is to manage this complexity by describing in detail the dos and don'ts of writing C++ code. These rules exist to keep the code base manageable while still allowing coders to use C++ language features productively."
-msgstr "이 가이드의 목적은 C++ 코드를 작성하면서 해야할 것과 하지 말아야 할 것을 상세하게 설명해서 이 복잡성을 관리하기 위함입니다. 이러한 룰들은 코더들이 C++ 언어의 특징을 생산적으로 사용하면서 코드 기반의 관리성을 유지하기 위해서 존재합니다."
+msgstr "이 가이드의 목적은 C++ 코드를 작성하면서 해야할 것과 하지 말아야 할 것을 상세하게 설명해서 이 복잡성을 관리하기 위함입니다. 이러한 규칙들은 코더들이 C++ 언어의 특징을 생산적으로 사용하면서 코드 기반의 관리성을 유지하기 위해서 존재합니다."
 
 #: cppguide.xml:59(em)
 msgid "Style"
@@ -41,7 +41,7 @@ msgstr "스타일"
 
 #: cppguide.xml:58(p)
 msgid "<placeholder-1/>, also known as readability, is what we call the conventions that govern our C++ code. The term Style is a bit of a misnomer, since these conventions cover far more than just source file formatting."
-msgstr "<placeholder-1/>(또한 가독성으로 알려진)은 우리가 C++ 코드를 통제하는 관례라고 부르는 것입니다. 스타일 이라는 용어는 조금 잘못된 명칭입니다. 왜냐하면 이 관례는 단지 소스 파일 포멧팅 보다는 더 많은 것을 커버하기 때문입니다."
+msgstr "<placeholder-1/>(또한 가독성으로 알려진)은 우리가 C++ 코드를 통제하는 관례라고 부르는 것입니다. 스타일이라는 용어는 조금 잘못된 명칭입니다. 왜냐하면 이 관례는 단지 소스 파일 포멧팅 보다는 더 많은 것을 커버하기 때문입니다."
 
 #: cppguide.xml:66(em)
 #: cppguide.xml:4429(em)
@@ -50,7 +50,7 @@ msgstr "일관성"
 
 #: cppguide.xml:64(p)
 msgid "One way in which we keep the code base manageable is by enforcing <placeholder-1/>. It is very important that any programmer be able to look at another's code and quickly understand it. Maintaining a uniform style and following conventions means that we can more easily use \"pattern-matching\" to infer what various symbols are and what invariants are true about them. Creating common, required idioms and patterns makes code much easier to understand. In some cases there might be good arguments for changing certain style rules, but we nonetheless keep things as they are in order to preserve consistency."
-msgstr "코드 베이스를 관리 가능하도록 유지하는 하나의 방법은 <placeholder-1/>을 강제하는 것입니다. 어떤 프로그래머가 다른 사람의 코드를 볼 수 있게 하고 빨리 이해할 수 있게 하는 것은 매우 중요합니다. 통일된 스타일을 유지하고 관례를 따른다는 것은 다양한 심볼들이 무엇이고 그것에 대해서 불변인 것이 참인지를 추론하기 위해서 \"패턴-매칭\"을 더 쉽게 사용할 수 있다는 것을 의미합니다. 공통된 것, 요구되는 관용어법 그리고 패턴을 생성하는 것은 코드를 이해하기 더 쉽게 만듭니다. 일부 경우에는 특정 스타일 규칙에 대해서 좋은 논쟁이 있을지도 모릅니다. 그럼에도 불구하고 우리는 일관성을 유지하기 위해서 규칙을 준수할 것입니다."
+msgstr "코드 베이스를 관리 가능하도록 유지하는 하나의 방법은 <placeholder-1/>을 강제하는 것입니다. 어떤 프로그래머가 다른 사람의 코드를 볼 수 있고 빨리 이해할 수 있게 하는 것은 매우 중요합니다. 통일된 스타일을 유지하고 관례를 따른다는 것은 다양한 심볼들이 무엇이고 그것에 대해서 불변인 것이 참인지를 추론하기 위해서 \"패턴-매칭\"을 더 쉽게 사용할 수 있다는 것을 의미합니다. 공통된 것, 요구되는 관용어법 그리고 패턴을 생성하는 것은 코드를 이해하기 더 쉽게 만듭니다. 일부 경우에는 특정 스타일 규칙에 대해서 좋은 논쟁이 있을지도 모릅니다. 그럼에도 불구하고 우리는 일관성을 유지하기 위해서 규칙을 준수할 것입니다."
 
 #: cppguide.xml:80(p)
 msgid "Another issue this guide addresses is that of C++ feature bloat. C++ is a huge language with many advanced features. In some cases we constrain, or even ban, use of certain features. We do this to keep code simple and to avoid the various common errors and problems that these features can cause. This guide lists these features and explains why their use is restricted."
@@ -164,7 +164,7 @@ msgstr "foo"
 
 #: cppguide.xml:130(p)
 msgid "To guarantee uniqueness, they should be based on the full path in a project's source tree. For example, the file <placeholder-1/> in project <placeholder-2/> should have the following guard:"
-msgstr "유일함을 보증하기 위해서, 프로젝트 소스 트리의 전체 경로에 기반해야만 한다. 예를 들면, 프로젝트 <placeholder-2/>의 파일 <placeholder-1/>는 다음 형태의 가드를 가져야만 한다:"
+msgstr "유일함을 보장하기 위해서, 프로젝트 소스 트리의 전체 경로에 기반해야만 합니다. 예를 들면, 프로젝트 <placeholder-2/>의 파일 <placeholder-1/>는 다음 형태의 가드를 가져야만 합니다:"
 
 #: cppguide.xml:136(CODE_SNIPPET)
 msgid "#ifndef FOO_BAR_BAZ_H_ #define FOO_BAR_BAZ_H_ ... #endif // FOO_BAR_BAZ_H_"
@@ -182,7 +182,7 @@ msgstr "전방 선언으로 충분한 경우에는 <placeholder-1/>를 사용하
 
 #: cppguide.xml:154(p)
 msgid "When you include a header file you introduce a dependency that will cause your code to be recompiled whenever the header file changes. If your header file includes other header files, any change to those files will cause any code that includes your header to be recompiled. Therefore, we prefer to minimize includes, particularly includes of header files in other header files."
-msgstr "헤더 파일은 include 하면, 헤더 파일이 변경될 때마다 소스 코드가 재컴파일 되도록 하는 의존성이 생기게 된다. 만약 헤더 파일이 다른 헤더 파일을 include한다면, 그 파일들의 어떤 변경도 해당 헤더 파일을 include 하는 코드가 재컴파일되도록 만들 것이다. 그러므로 include, 특히 다른 헤더 파일에서의 헤더 파일의 include를 최소화하기를 원한다."
+msgstr "헤더 파일을 include 하면, 헤더 파일이 변경될 때마다 소스 코드가 재컴파일 되도록 하는 의존성이 생기게 됩니다. 만약 헤더 파일이 다른 헤더 파일을 include한다면, 그 파일들의 어떠한 변경도 해당 헤더 파일을 include 하는 코드가 재컴파일되도록 만들 것입니다. 그러므로 include, 특히 다른 헤더 파일에서의 헤더 파일의 include를 최소화하는 것을 권합니다."
 
 #: cppguide.xml:167(code)
 #: cppguide.xml:168(code)
@@ -199,7 +199,7 @@ msgstr "#include \"file/base/file.h\""
 
 #: cppguide.xml:163(p)
 msgid "You can significantly reduce the number of header files you need to include in your own header files by using forward declarations. For example, if your header file uses the <placeholder-1/> class in ways that do not require access to the declaration of the <placeholder-2/> class, your header file can just forward declare <placeholder-3/> instead of having to <placeholder-4/>."
-msgstr "전방 선언을 사용하면 헤더 파일에서 include할 필요가 있는 헤더 파일의 수를 많이 줄일 수 있습니다. 예를 들면, 헤더 파일에서 이 방법으로 <placeholder-1/> 클래스를 사용한다면, <placeholder-2/> 클래스의 선언에 접근할 필요가 없습니다. 헤더 파일에서는 <placeholder-4/>를 가지는 대신에 <placeholder-3/>처럼 전방 선언을 할 수 있습니다."
+msgstr "전방 선언을 사용하면 헤더 파일에서 include할 필요가 있는 헤더 파일의 수를 많이 줄일 수 있습니다. 예를 들면, 헤더 파일에서 전방 선언으로 <placeholder-1/> 클래스를 사용한다면, <placeholder-2/> 클래스의 선언에 접근할 필요가 없습니다. 헤더 파일에서는 <placeholder-4/>를 가지는 대신에 <placeholder-3/>처럼 전방 선언을 할 수 있습니다."
 
 #: cppguide.xml:173(code)
 #: cppguide.xml:181(code)
@@ -225,7 +225,7 @@ msgstr "Foo"
 
 #: cppguide.xml:172(p)
 msgid "How can we use a class <placeholder-1/> in a header file without access to its definition?"
-msgstr "클래스 정의에 접근하지 않고 헤더파일에서 어떻게 클래스 <placeholder-1/>를 사용할 수 있습니까?"
+msgstr "클래스 정의에 접근하지 않고 헤더파일에서 어떻게 클래스 <placeholder-1/>를 사용할 수 있을까요?"
 
 #: cppguide.xml:177(code)
 msgid "Foo*"
@@ -253,15 +253,15 @@ msgstr ""
 
 #: cppguide.xml:180(li)
 msgid "We can declare (but not define) functions with arguments, and/or return values, of type <placeholder-1/>. (One exception is if an argument <placeholder-2/> or <placeholder-3/> has a non-<placeholder-4/>, one-argument constructor, in which case we need the full definition to support automatic type conversion.)"
-msgstr "타입 <placeholder-1/>의 아큐먼트와 리턴값을 가지는 함수를 선언(정의가 아닌)할 수 있습니다. (한가지 예외는 아큐먼트 <placeholder-2/> 혹은 <placeholder-3/>가 <placeholder-4/>가 아닌 하나의 파라메터를 가지는 생성자를 가지는 경우입니다, 이 경우에는 자동 타입 변환을 지원하기 위해서 전체 정의가 필요합니다.)"
+msgstr "타입 <placeholder-1/>의 아큐먼트와 리턴값을 가지는 함수를 선언(정의가 아닌)할 수 있습니다. (한가지 예외는 아큐먼트인 <placeholder-2/> 혹은 <placeholder-3/>가 <placeholder-4/>가 아닌 하나의 파라메터를 가지는 생성자를 가지는 경우입니다, 이 경우에는 자동 타입 변환을 지원하기 위해서 전체 정의가 필요합니다.)"
 
 #: cppguide.xml:189(li)
 msgid "We can declare static data members of type <placeholder-1/>. This is because static data members are defined outside the class definition."
-msgstr "타입 <placeholder-1/>의 정적 데이타 멤버를 선언할 수 있습니다. 정적 데이타 멤버는 클래스 정의의 바깥쪽에 정의되기 때문이빈다."
+msgstr "타입 <placeholder-1/>의 정적 데이타 멤버를 선언할 수 있습니다. 정적 데이타 멤버는 클래스 정의의 바깥쪽에 정의되기 때문입니다."
 
 #: cppguide.xml:194(p)
 msgid "On the other hand, you must include the header file for <placeholder-1/> if your class subclasses <placeholder-2/> or has a data member of type <placeholder-3/>."
-msgstr "한편으로, 당신의 클래스가 <placeholder-2/>를 서브클래싱하거나 타입 <placeholder-3/>의 데이타 멤버를 가진다면 <placeholder-1/>에 대한 헤더파일을 include 해야만 합니다."
+msgstr "바꿔 말하면, 당신의 클래스가 <placeholder-2/> 클래스의 파생 클래스이거나 타입 <placeholder-3/>의 데이타 멤버를 가진다면 <placeholder-1/>에 대한 헤더파일을 include 해야만 합니다."
 
 #: cppguide.xml:201(code)
 #: cppguide.xml:1465(code)
@@ -289,7 +289,7 @@ msgstr "myfile.h"
 
 #: cppguide.xml:213(SUBSECTION)
 msgid "If you use a symbol <placeholder-1/> in your source file, you should bring in a definition for <placeholder-2/> yourself, either via an #include or via a forward declaration. Do not depend on the symbol being brought in transitively via headers not directly included. One exception is if <placeholder-3/> is used in <placeholder-4/>, it's ok to #include (or forward-declare) <placeholder-5/> in <placeholder-6/>, instead of <placeholder-7/>."
-msgstr "만약 소스 파일에서 심볼 <placeholder-1/>를 사용한다면, #include 하거나 전방선언을 사용해서 <placeholder-2/>의 정의를 가져와야만 합니다. 직접적으로 include되지 않는 헤더 파일의 통해서 가져오는 심볼에 의존하도록 하지 마십시오. 한가지 예외는 만약 <placeholder-3/>가 <placeholder-4/> 파일에서 사용되어진다면, <placeholder-7/> 대신에 <placeholder-6/> 파일에서 #include (혹은 전방선언) <placeholder-5/> 하는 것은 괜찮습니다."
+msgstr "만약 소스 파일에서 심볼 <placeholder-1/>를 사용한다면, #include 하거나 전방선언을 사용해서 <placeholder-2/>의 정의를 가져와야만 합니다. 직접적으로 include되지 않는 헤더 파일을 통해서 가져오는 심볼에 의존하도록 하지 마십시오. 한가지 예외는 만약 <placeholder-3/>가 <placeholder-4/> 파일에서 사용되어 진다면, <placeholder-7/> 대신에 <placeholder-6/> 파일에서 #include (혹은 전방선언) <placeholder-5/> 하는 것은 괜찮습니다."
 
 #: cppguide.xml:227(SUMMARY)
 msgid "Define functions inline only when they are small, say, 10 lines or less."
