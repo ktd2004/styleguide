@@ -657,7 +657,7 @@ msgstr "클래스는 클래스내에 다른 클래스를 정의할 수 있습니
 
 #: cppguide.xml:654(PROS)
 msgid "This is useful when the nested (or member) class is only used by the enclosing class; making it a member puts it in the enclosing class scope rather than polluting the outer scope with the class name. Nested classes can be forward declared within the enclosing class and then defined in the <placeholder-1/> file to avoid including the nested class definition in the enclosing class declaration, since the nested class definition is usually only relevant to the implementation."
-msgstr ""
+msgstr "이것은 중첩된(혹은 멤버) 클래스가 그것을 포함하고 있는 클래스 내부에서만 사용된다는 점에서 유용합니다; 즉, 중첩된 클래스 이름을 바깥에 드러내지 않으면서 그것을 포함하는 클래스 범위 안에 그 멤버를 둘 수 있습니다. 중첩된 클래스 정의를 그것을 포함하는 클래스 선안안에 두지 않기 위해서 중첩된 클래스를 그것을 포함하는 클래스 안에서 전방 선언한 후에 <placeholder-1/> 파일에서 정의할 수 있습니다. 흔히 중첩 클래스 정의는 구현 관련해서만 의미가 있기 때문입니다."
 
 #: cppguide.xml:668(code)
 msgid "Foo::Bar*"
@@ -665,7 +665,7 @@ msgstr "Foo::Bar*"
 
 #: cppguide.xml:665(CONS)
 msgid "Nested classes can be forward-declared only within the definition of the enclosing class. Thus, any header file manipulating a <placeholder-1/> pointer will have to include the full class declaration for <placeholder-2/>."
-msgstr ""
+msgstr "중첩된 클래스는 그것을 포함하는 클래스 정의 안에서만 전방 선언할 수 있습니다. 그러므로, <placeholder-1/> 포인터를 다루는 다른 헤더 파일에서는 <placeholder-2/>에 대한 전체 클래스 선언을 include 해야만 합니다."
 
 #: cppguide.xml:671(DECISION)
 msgid "Do not make nested classes public unless they are actually part of the interface, e.g., a class that holds a set of options for some method."
@@ -693,7 +693,7 @@ msgstr "때때로 함수를 클래스 인터페이스의 내부에 정의하지 
 
 #: cppguide.xml:708(p)
 msgid "Functions defined in the same compilation unit as production classes may introduce unnecessary coupling and link-time dependencies when directly called from other compilation units; static member functions are particularly susceptible to this. Consider extracting a new class, or placing the functions in a namespace possibly in a separate library."
-msgstr ""
+msgstr "프로덕션 클래스로써 같은 컴파일 단위에 정의된 함수들은 다른 컴파일 단위에서 직접적으로 호출될 때, 불필요한 결합과 링크-타임 의존성이 생길 수 있습니다. 특히 정적 멤버 함수는 더욱 그렇게 되기 쉽습니다. 새로운 클래스로 분리하거나, 별도의 라이브러리내의 네임스페이스내로 그런 함수를 옮기는 것을 고려하십시오."
 
 #: cppguide.xml:719(code)
 msgid "static"
@@ -705,7 +705,7 @@ msgstr "static int Foo() {...}"
 
 #: cppguide.xml:716(p)
 msgid "If you must define a nonmember function and it is only needed in its <placeholder-1/> file, use an unnamed <placeholder-2/> or <placeholder-3/> linkage (eg <placeholder-4/>) to limit its scope."
-msgstr ""
+msgstr "비멤버 함수를 정의해야 하고 <placeholder-1/> 파일에서만 필요하다면, 범위를 제한하기 위해서 이름없는 <placeholder-2/>나 <placeholder-3/> 링키지(예를 들면, <placeholder-4/>)를 사용하십시오."
 
 #: cppguide.xml:728(SUMMARY)
 msgid "Place a function's variables in the narrowest scope possible, and initialize variables in the declaration."
@@ -756,7 +756,7 @@ msgstr "while"
 
 #: cppguide.xml:749(p)
 msgid "Note that gcc implements <placeholder-1/> correctly (the scope of <placeholder-2/> is only the scope of the <placeholder-3/> loop), so you can then reuse <placeholder-4/> in another <placeholder-5/> loop in the same scope. It also correctly scopes declarations in <placeholder-6/> and <placeholder-7/> statements, e.g."
-msgstr ""
+msgstr "gcc에서는 <placeholder-1/> 를 올바르게 구현합니다 (<placeholder-2/>의 범위는 단지 <placeholder-3/> 루프의 범위입니다.). 그래서 같은 범위의 다른 <placeholder-5/> 루프에서 <placeholder-4/>를 다시 사용할 수 있습니다. 또한 <placeholder-6/>와 <placeholder-7/> 구문에서도 범위 선언은 마찬가지입니다. 예를 들면."
 
 #: cppguide.xml:757(CODE_SNIPPET)
 msgid "while (const char* p = strchr(str, '/')) str = p + 1;"
@@ -764,7 +764,8 @@ msgstr ""
 
 #: cppguide.xml:760(p)
 msgid "There is one caveat: if the variable is an object, its constructor is invoked every time it enters scope and is created, and its destructor is invoked every time it goes out of scope."
-msgstr ""
+msgstr "한가지 단서가 있습니다: 만약 변수가 객체라면, 범위에 들어갈 때마다 생성자가 호출되고 생성됩니다. 그리고 범위를 벗어날 때마다 소멸자가 호출됩니다."
+
 
 #: cppguide.xml:766(BAD_CODE_SNIPPET)
 msgid "// Inefficient implementation: for (int i = 0; i &lt; 1000000; ++i) { Foo f; // My ctor and dtor get called 1000000 times each. f.DoSomething(i); }"
@@ -772,7 +773,7 @@ msgstr ""
 
 #: cppguide.xml:773(p)
 msgid "It may be more efficient to declare such a variable used in a loop outside that loop:"
-msgstr ""
+msgstr "루프에서 사용되는 그러한 변수를 루프 바깥에서 선언하는 것이 더 효과적입니다."
 
 #: cppguide.xml:777(CODE_SNIPPET)
 msgid "Foo f; // My ctor and dtor get called once each. for (int i = 0; i &lt; 1000000; ++i) { f.DoSomething(i); }"
@@ -784,15 +785,15 @@ msgstr "클래스 타입의 Static 혹은 global 변수는 금지되어 있습�
 
 #: cppguide.xml:793(p)
 msgid "Objects with static storage duration, including global variables, static variables, static class member variables, and function static variables, must be Plain Old Data (POD): only ints, chars, floats, or pointers, or arrays/structs of POD."
-msgstr ""
+msgstr "전역 변수, 정적 변수, 정적 클래스 멤버 변수, 그리고 함수의 정적 변수를 포함해서 정적 저장 공간을 가지는 객체는 Plain Old Data(POD)여야만 합니다. 즉 int, char, float, 포인터, 혹은 POD의 배열이나 구조체."
 
 #: cppguide.xml:799(p)
 msgid "The order in which class constructors and initializers for static variables are called is only partially specified in C++ and can even change from build to build, which can cause bugs that are difficult to find. Therefore in addition to banning globals of class type, we do not allow static POD variables to be initialized with the result of a function, unless that function (such as getenv(), or getpid()) does not itself depend on any other globals."
-msgstr ""
+msgstr "정적 변수에 대한 클래스 생성자와 초기화 식을 호출하는 순서는 C++에서 단지 부분적으로만 정의되어있습니다. 심지어 빌드할 때마다 바뀔수도 있습니다. 따라서 찾아내기 힘든 버그를 야기할 수 있습니다. 그러므로 클래스 타입 전역 변수의 사용을 금지하는 것에 덧붙여서 함수(getenv()나 getpid()처럼)가 다른 전역변수에 의존한다면, 해당 함수의 결과를 가지고 초기화되는 정적 POD 변수의 사용을 허용하지 않습니다."
 
 #: cppguide.xml:808(p)
 msgid "Likewise, the order in which destructors are called is defined to be the reverse of the order in which the constructors were called. Since constructor order is indeterminate, so is destructor order. For example, at program-end time a static variable might have been destroyed, but code still running -- perhaps in another thread -- tries to access it and fails. Or the destructor for a static 'string' variable might be run prior to the destructor for another variable that contains a reference to that string."
-msgstr ""
+msgstr "소멸자의 호출 순서는 생성자가 호출되는 순서와 반대로 정의됩니다. 하지만 생성자의 순서가 정해지지 않았기 때문에, 소멸자의 순서도 마찬가지입니다. 예를 들면, 프로그램이 종료될 때 정적 변수는 소멸한 상태일 수 있지만 코드는 여전히 다른 스레드에서 실행중이어서 그 변수에 접근하다가 실패할 수도 있습니다. 혹은 정적 'string' 변수에 대한 소멸자가 해당 string의 참조자를 포함하는 다른 변수에 대한 소멸자 전에 호출될지도 모릅니다."
 
 #: cppguide.xml:820(code)
 msgid "vector"
@@ -808,11 +809,11 @@ msgstr "const char []"
 
 #: cppguide.xml:818(p)
 msgid "As a result we only allow static variables to contain POD data. This rule completely disallows <placeholder-1/> (use C arrays instead), or <placeholder-2/> (use <placeholder-3/>)."
-msgstr ""
+msgstr "이 때문에 POD 데이타를 포함한 정적 변수만을 허용합니다. 이 규칙은 <placeholder-1/>(대신 C 배열을 사용하십시오)나 <placeholder-2/>(<placeholder-3/>를 사용하십시오)의 사용을 완전히 허용하지 않습니다."
 
 #: cppguide.xml:824(p)
 msgid "If you need a static or global variable of a class type, consider initializing a pointer (which will never be freed), from either your main() function or from pthread_once(). Note that this must be a raw pointer, not a \"smart\" pointer, since the smart pointer's destructor will have the order-of-destructor issue that we are trying to avoid."
-msgstr ""
+msgstr "만약 클래스 타입의 정적 혹은 전역 변수가 필요하다면, main() 함수나 pthread_once()함수에서 초기화하는 포인터(절대 free되지 않는)를 고려해 보십시오. 이것은 \"smart\" 포인터가 아닌 기본형(raw) 포인터여야만 하는 것을 주의하십시오. 왜냐하면 smart 포인터의 소멸자는 우리가 피하려고 했던 소멸자-순서 문제를 가지고 있기 때문입니다."
 
 #: cppguide.xml:846(code)
 #: cppguide.xml:887(code)
@@ -846,11 +847,11 @@ msgstr "작업이 실패하면, 이제 초기화 코드가 실패한 객체를 �
 
 #: cppguide.xml:868(li)
 msgid "If the work calls virtual functions, these calls will not get dispatched to the subclass implementations. Future modification to your class can quietly introduce this problem even if your class is not currently subclassed, causing much confusion."
-msgstr ""
+msgstr "작업이 가상 함수를 호출한다면, 파생 클래스의 구현을 호출하지 못할 것입니다. 심지어 현재는 파생시키지 않았더라도, 나중에 클래스를 수정하게 되면, 모르는 사이에 이런 문제가 생겨서 매우 혼란스러울 수 있습니다."
 
 #: cppguide.xml:874(li)
 msgid "If someone creates a global variable of this type (which is against the rules, but still), the constructor code will be called before <placeholder-1/>, possibly breaking some implicit assumptions in the constructor code. For instance, <placeholder-2/> will not yet have been initialized."
-msgstr ""
+msgstr "다른 사람이 이 타입의 전역 변수를 생성한다면(규칙에는 위배되지만, 여전히 존재하는), 생성자 코드는 <placeholder-1/> 전에 호출될 것이고, 생성자 코드내에서 암시적으로 가정하고 있던 어떤 것을 깨뜨릴 가능성이 있습니다. 예를 들면 <placeholder-2/>는 아직 초기화되지 않았을 것입니다."
 
 #: cppguide.xml:857(CONS)
 msgid "The problems with doing work in constructors are: <ul><placeholder-1/><placeholder-2/><placeholder-3/><placeholder-4/></ul>"
