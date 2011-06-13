@@ -289,11 +289,11 @@ msgstr "myfile.h"
 
 #: cppguide.xml:213(SUBSECTION)
 msgid "If you use a symbol <placeholder-1/> in your source file, you should bring in a definition for <placeholder-2/> yourself, either via an #include or via a forward declaration. Do not depend on the symbol being brought in transitively via headers not directly included. One exception is if <placeholder-3/> is used in <placeholder-4/>, it's ok to #include (or forward-declare) <placeholder-5/> in <placeholder-6/>, instead of <placeholder-7/>."
-msgstr "만약 소스 파일에서 심볼 <placeholder-1/>를 사용한다면, #include 하거나 전방선언을 사용해서 <placeholder-2/>의 정의를 가져와야만 합니다. 직접적으로 include되지 않는 헤더 파일을 통해서 가져오는 심볼에 의존하도록 하지 마십시오. 한가지 예외는 만약 <placeholder-3/>가 <placeholder-4/> 파일에서 사용되어 진다면, <placeholder-7/> 대신에 <placeholder-6/> 파일에서 #include (혹은 전방선언) <placeholder-5/> 하는 것은 괜찮습니다."
+msgstr "만약 소스 파일에서 심볼 <placeholder-1/>를 사용한다면, #include 하거나 전방선언을 사용해서 <placeholder-2/>의 정의를 가져와야만 합니다. 직접적으로 include되지 않는 헤더 파일을 통해서 가져오는 심볼에 의존하도록 하지 마십시오. 한가지 예외는 만약 <placeholder-3/>가 <placeholder-4/> 파일에서 사용되어 진다면, <placeholder-7/> 대신에 <placeholder-6/> 파일에서 #include <placeholder-5/> (혹은 전방 선언)하는 것은 괜찮습니다."
 
 #: cppguide.xml:227(SUMMARY)
 msgid "Define functions inline only when they are small, say, 10 lines or less."
-msgstr "함수가 작을때만(10 라인보다 작을 때) 함수를 inline으로 정의하십시오."
+msgstr "함수가 작을 때만(10 라인보다 작을 때) 함수를 inline으로 정의하십시오."
 
 #: cppguide.xml:232(DEFINITION)
 msgid "You can declare functions in a way that allows the compiler to expand them inline rather than calling them through the usual function call mechanism."
@@ -301,19 +301,19 @@ msgstr "컴파일러가 보통의 함수 호출 메커니즘을 통해서 함수
 
 #: cppguide.xml:237(PROS)
 msgid "Inlining a function can generate more efficient object code, as long as the inlined function is small. Feel free to inline accessors and mutators, and other short, performance-critical functions."
-msgstr "함수를 인라인하는 것은 인라인되는 함수가 작으면 작을 수록 더 효과적인 오브젝트 코드를 만들수 있습니다. 접근자와 수정자, 그리고 성능에 민감한 함수들을 자유롭게 inline 함수로 하십시오."
+msgstr "함수를 인라인하는 것은 인라인되는 함수가 작으면 작을 수록 더 효과적인 오브젝트 코드를 만들 수 있습니다. 접근자와 수정자, 그리고 성능에 민감한 함수들을 자유롭게 inline 함수로 만드십시오."
 
 #: cppguide.xml:243(CONS)
 msgid "Overuse of inlining can actually make programs slower. Depending on a function's size, inlining it can cause the code size to increase or decrease. Inlining a very small accessor function will usually decrease code size while inlining a very large function can dramatically increase code size. On modern processors smaller code usually runs faster due to better use of the instruction cache."
-msgstr "인라인 함수를 과도하게 사용하는 실제적으로 프로그램을 더 느리게 만듭니다. 함수의 사이즈에 따라서, 해당 함수를 inline하는 것은 코드 사이즈를 증가시키거나 감소시킬 수 있습니다. 매우 큰 함수를 인라인하는 것은 코드 사이즈를 극단적으로 증가시키는 반면에 매우 작은 접근자 함수를 인라인하는 것은 일반적으로 코드 사이즈를 줄입니다. 현대의 프로세서에서는 더 작은 코드는 명령 캐시를 더 잘 사용함으로써 일반적으로 더 빨리 실행됩니다."
+msgstr "인라인 함수를 과도하게 사용하는 것은 실제적으로 프로그램을 더 느리게 만듭니다. 함수의 사이즈에 따라서, 해당 함수를 inline하는 것은 코드 사이즈를 증가시키거나 감소시킬 수 있습니다. 매우 큰 함수를 인라인하는 것은 코드 사이즈를 극단적으로 증가시키는 반면에 매우 작은 접근자 함수를 인라인하는 것은 일반적으로 코드 사이즈를 줄입니다. 현대의 프로세서에서는 더 작은 코드는 명령 캐시를 더 잘 사용함으로써 일반적으로 더 빨리 실행됩니다."
 
 #: cppguide.xml:253(p)
 msgid "A decent rule of thumb is to not inline a function if it is more than 10 lines long. Beware of destructors, which are often longer than they appear because of implicit member- and base-destructor calls!"
-msgstr "알맞은 경험은 함수가 10 라인보다 크면 함수를 인라인하지 않는 것이다. 소멸자의 경우에 암시적으로 멤버와 베이스 클래스의 소멸자를 호출하기 때문에 종종 보이는 것보다 더 크다는 것을 주의하십시오."
+msgstr "알맞은 경험은 함수가 10 라인보다 크면 함수를 인라인하지 않는 것입니다. 소멸자의 경우에 암시적으로 멤버와 베이스 클래스의 소멸자를 호출하기 때문에 종종 보이는 것보다 더 크다는 것을 주의하십시오."
 
 #: cppguide.xml:259(p)
 msgid "Another useful rule of thumb: it's typically not cost effective to inline functions with loops or switch statements (unless, in the common case, the loop or switch statement is never executed)."
-msgstr "또 다른 유용한 경험은, 루프나 switch 구문과 함께 함수를 인라인하는 것은 전형적으로 효과적이지 않다는 것이다.(일반적인 경우에, 루프 혹은 switch 구문은 결코 수행되지 않는다.)"
+msgstr "또 다른 유용한 경험은, 루프나 switch 구문과 함께 함수를 인라인하는 것은 전형적으로 효과적이지 않다는 것입니다. (일반적인 경우에, 루프 혹은 switch 구문은 결코 수행되지 않습니다.)"
 
 #: cppguide.xml:265(p)
 msgid "It is important to know that functions are not always inlined even if they are declared as such; for example, virtual and recursive functions are not normally inlined. Usually recursive functions should not be inline. The main reason for making a virtual function inline is to place its definition in the class, either for convenience or to document its behavior, e.g., for accessors and mutators."
@@ -333,7 +333,7 @@ msgstr "필요한 경우에 복잡한 인라인 함수를 정의하기 위해서
 
 #: cppguide.xml:284(p)
 msgid "The definition of an inline function needs to be in a header file, so that the compiler has the definition available for inlining at the call sites. However, implementation code properly belongs in <placeholder-1/> files, and we do not like to have much actual code in <placeholder-2/> files unless there is a readability or performance advantage."
-msgstr "호출하는 쪽에서 컴파일러가 inline하기 위해 사용할 정의를 가지기 위해서, inline 함수는 헤더파일에 있어야할 필요가 있습니다. 그러나 정확하게는 구현 코드는 <placeholder-1/> 파일에 속합니다. 그리고 가독성과 성능의 이점이 없다면, 많은 실제적인 코드들이 <placeholder-2/> 파일에 있기를 원하지 않습니다."
+msgstr "호출하는 쪽에서 컴파일러가 inline하기 위해 사용할 정의를 가지기 위해서, inline 함수는 헤더파일에 있어야 할 필요가 있습니다. 그러나 정확하게는 구현 코드는 <placeholder-1/> 파일에 속합니다. 그리고 가독성과 성능의 이점이 없다면, 많은 실제적인 코드들이 <placeholder-2/> 파일에 있기를 원하지 않습니다."
 
 #: cppguide.xml:292(p)
 msgid "If an inline function definition is short, with very little, if any, logic in it, you should put the code in your <placeholder-1/> file. For example, accessors and mutators should certainly be inside a class definition. More complex inline functions may also be put in a <placeholder-2/> file for the convenience of the implementer and callers, though if this makes the <placeholder-3/> file too unwieldy you can instead put that code in a separate <placeholder-4/> file. This separates the implementation from the class definition, while still allowing the implementation to be included where necessary."
@@ -349,11 +349,11 @@ msgstr "<placeholder-1/> 가드"
 
 #: cppguide.xml:310(p)
 msgid "Do not forget that a <placeholder-1/> file requires a <placeholder-2/> just like any other header file."
-msgstr "<placeholder-1/> 파일이 다른 헤더 파일들처럼 <placeholder-2/>를 필요로 하는 것을 잊지 마십시오."
+msgstr "<placeholder-1/> 파일이 다른 헤더 파일들처럼 <placeholder-2/>를 필요로 한다는 것을 잊지 마십시오."
 
 #: cppguide.xml:320(SUMMARY)
 msgid "When defining a function, parameter order is: inputs, then outputs."
-msgstr "함수를 정의할 때, 파라메터의 순서는: 입력들, 그리고 출력들."
+msgstr "함수를 정의할 때, 파라메터의 순서는: 입력들, 그리고 출력들입니다."
 
 #: cppguide.xml:328(code)
 #: cppguide.xml:329(code)
@@ -391,11 +391,11 @@ msgstr "const"
 
 #: cppguide.xml:325(p)
 msgid "Parameters to C/C++ functions are either input to the function, output from the function, or both. Input parameters are usually values or <placeholder-1/> references, while output and input/output parameters will be non-<placeholder-2/> pointers. When ordering function parameters, put all input-only parameters before any output parameters. In particular, do not add new parameters to the end of the function just because they are new; place new input-only parameters before the output parameters."
-msgstr "C/C++의 파라메터는 함수의 입력이기도 하고 함수로부터의 출력이기도 하고, 혹은 둘 다 이기도 하다. 입력 파라메터는 일반적으로 값이거나 <placeholder-1/> 레퍼런스입니다. 반면에 출력과 입/출력 파라메터는 <placeholder-2/>가 아닌 포인터일 것입니다. 함수 파라메터의 순서를 정렬할 때, 입력 전용의 파라메터를 다른 출력 파라메터 전에 넣으십시오. 특히 새로운 파라메터를 단지 새로운 파라메터기 때문에 함수 파라메터의 끝에 추가하지 마십시오. 새로운 입력 전용의 파라메터는 출력 파라메터 전에 넣으십시오."
+msgstr "C/C++의 파라메터는 함수의 입력이기도 하고 함수로부터의 출력이기도 하고, 혹은 둘 다 이기도 합니다. 입력 파라메터는 일반적으로 값이거나 <placeholder-1/> 레퍼런스입니다. 반면에 출력과 입/출력 파라메터는 <placeholder-2/>가 아닌 포인터일 것입니다. 함수 파라메터의 순서를 정렬할 때, 입력 전용의 파라메터를 다른 출력 파라메터 이전에 넣으십시오. 특히 새로운 파라메터를 단지 새로운 파라메터기 때문에 함수 파라메터의 끝에 추가하지 마십시오. 새로운 입력 전용의 파라메터는 출력 파라메터 이전에 넣으십시오."
 
 #: cppguide.xml:336(p)
 msgid "This is not a hard-and-fast rule. Parameters that are both input and output (often classes/structs) muddy the waters, and, as always, consistency with related functions may require you to bend the rule."
-msgstr "이것은 강력한 규칙은 아닙니다. 일돤성을 흐트리는 입력과 출력 둘 다의(종종 클래스/구조체) 파라메터는 규칙을 어기도록 할 것입니다."
+msgstr "이것은 강력한 규칙은 아닙니다. 일관성을 흐트리는 입력과 출력 둘 다의(종종 클래스/구조체) 파라메터는 이 규칙을 어길 것 입니다."
 
 #: cppguide.xml:346(SUMMARY)
 msgid "Use standard order for readability and to avoid hidden dependencies: C library, C++ library, other libraries' <placeholder-1/>, your project's <placeholder-2/>."
@@ -415,7 +415,7 @@ msgstr "google-awesome-project/src/base/logging.h"
 
 #: cppguide.xml:355(p)
 msgid "All of a project's header files should be listed as descendants of the project's source directory without use of UNIX directory shortcuts <placeholder-1/> (the current directory) or <placeholder-2/> (the parent directory). For example, <placeholder-3/> should be included as"
-msgstr "프로젝트의 모든 헤더 파일들은 UNIX 디렉토리 쇼트컷인 <placeholder-1/> (현재 디렉토리) 혹은 <placeholder-2/> (부모 디렉토리) 없는 프로젝트 소스 디렉토리의 내림차순으로 리스트되어야만 한다. 예를 들면, <placeholder-3/>는 다음과 같이 include 되어야만 합니다."
+msgstr "프로젝트의 모든 헤더 파일들은 UNIX 디렉토리 쇼트컷인 <placeholder-1/> (현재 디렉토리) 혹은 <placeholder-2/> (부모 디렉토리) 없는 프로젝트 소스 디렉토리의 내림차순으로 리스트되어야만 합니다. 예를 들면, <placeholder-3/>는 다음과 같이 include 되어야만 합니다."
 
 #: cppguide.xml:366(CODE_SNIPPET)
 msgid "#include \"base/logging.h\""
@@ -449,7 +449,7 @@ msgstr "<placeholder-1/>.h"
 
 #: cppguide.xml:369(p)
 msgid "In <placeholder-1/> or <placeholder-2/>, whose main purpose is to implement or test the stuff in <placeholder-3/>, order your includes as follows:"
-msgstr "주된 목적이 <placeholder-3/>에 대한 구현이나 스텁의 테스트인 <placeholder-1/> 혹은 <placeholder-2/>에서의 include 순서는 다음과 같다.:"
+msgstr "주된 목적이 <placeholder-3/>에 대한 구현이나 스텁의 테스트인 <placeholder-1/> 혹은 <placeholder-2/>에서의 include 순서는 다음과 같습니다.:"
 
 #: cppguide.xml:376(li)
 msgid "<placeholder-1/> (preferred location - see details below)."
@@ -473,7 +473,7 @@ msgstr "프로젝트의 <placeholder-1/> 파일들."
 
 #: cppguide.xml:385(p)
 msgid "The preferred ordering reduces hidden dependencies. We want every header file to be compilable on its own. The easiest way to achieve this is to make sure that every one of them is the first <placeholder-1/> file <placeholder-2/>d in some <placeholder-3/>."
-msgstr "선호되는 순서는 숨겨진 의존성을 감소시킵니다. 우리는 모든 헤더 파일이 그것 자체로 컴파일 될 수 있기를 원합니다. 이렇게 하는 가장 쉬운 방법은 어떤 <placeholder-3/> 파일에서 <placeholder-2/>되는 첫번째 <placeholder-1/> 파일이 해당 파일의 헤더 파일이도록 하는 것입니다."
+msgstr "선호되는 순서는 숨겨진 의존성을 감소시킵니다. 우리는 모든 헤더 파일이 그것 자체로 컴파일 될 수 있기를 원합니다. 이렇게 하는 가장 쉬운 방법은 어떤 <placeholder-3/> 파일에서 <placeholder-2/>되는 첫번째 <placeholder-1/> 파일이 해당 파일의 헤더 파일이 되도록 하는 것입니다."
 
 #: cppguide.xml:395(code)
 msgid "base/basictypes_test.cc"
@@ -510,7 +510,7 @@ msgstr ""
 
 #: cppguide.xml:429(SUMMARY)
 msgid "Unnamed namespaces in <placeholder-1/> files are encouraged. With named namespaces, choose the name based on the project, and possibly its path. Do not use a <placeholder-2/>."
-msgstr "<placeholder-1/> 파일에서의 이름없는 namespace는 추천됩니다. 이름있는 namespace에서는, 프로젝트와 그리고 가능한 한 그것의 경로에 기반한 이름을 선택하십시오. <placeholder-2/>를 사용하지 마십시오."
+msgstr "<placeholder-1/> 파일에서 이름없는 namespace는 추천됩니다. 이름있는 namespace에서는, 프로젝트와 그리고 가능한한 그것의 경로에 기반한 이름을 선택하십시오. <placeholder-2/>를 사용하지 마십시오."
 
 #: cppguide.xml:437(DEFINITION)
 msgid "Namespaces subdivide the global scope into distinct, named scopes, and so are useful for preventing name collisions in the global scope."
@@ -518,7 +518,7 @@ msgstr "namespace는 구별되고 이름있는 공간으로 전역 공간을 구
 
 #: cppguide.xml:443(p)
 msgid "Namespaces provide a (hierarchical) axis of naming, in addition to the (also hierarchical) name axis provided by classes."
-msgstr "네임스페이스는 클래스에 의해서 제공되는 (계층적인)이름 공간(axis)에 덧붙여서 (계층적인)이름 공간(axis)을 제공한다."
+msgstr "네임스페이스는 클래스에 의해서 제공되는 (계층적인)이름 공간(axis)에 덧붙여서 (계층적인)이름 공간(axis)을 제공합니다."
 
 #: cppguide.xml:452(code)
 msgid "project1::Foo"
@@ -530,7 +530,7 @@ msgstr "project2::Foo"
 
 #: cppguide.xml:448(p)
 msgid "For example, if two different projects have a class <placeholder-1/> in the global scope, these symbols may collide at compile time or at runtime. If each project places their code in a namespace, <placeholder-2/> and <placeholder-3/> are now distinct symbols that do not collide."
-msgstr "예를 들면, 두개의 다른 프로젝트가 전역 공간에서 클래스 <placeholder-1/>를 가진다면, 이 심볼들은 컴파일 타임 혹은 런타임에 이름이 충돌할지도 모릅니다. 만약 각 프로젝트들이 코드를 네임스페이스에 넣었다면, 이제 <placeholder-2/>와 <placeholder-3/>는 충돌을 일으키지 않는 구별되는 심볼입니다."
+msgstr "예를 들면, 두개의 다른 프로젝트가 전역 공간에서 클래스 <placeholder-1/>를 가진다면, 이 심볼들은 컴파일 타임 혹은 런타임에 이름이 충돌할지도 모릅니다. 만약 각 프로젝트들이 코드를 네임스페이스에 넣었다면, 이제 <placeholder-2/>와 <placeholder-3/>는 충돌을 일으키지 않는 구별되는 심볼이 됩니다."
 
 #: cppguide.xml:458(p)
 msgid "Namespaces can be confusing, because they provide an additional (hierarchical) axis of naming, in addition to the (also hierarchical) name axis provided by classes."
@@ -538,7 +538,7 @@ msgstr "네임스페이스는 혼란스러울 수 있습니다. 왜냐하면 클
 
 #: cppguide.xml:463(p)
 msgid "Use of unnamed spaces in header files can easily cause violations of the C++ One Definition Rule (ODR)."
-msgstr "헤더 파일에서 이름없는 네임스페이스를 사용하는 것은 C++ One Definition Rule(ODR)의 위반을 쉽게 야기할 수 있습니다."
+msgstr "헤더 파일에서 이름없는 네임스페이스를 사용하는 것은 C++의 One Definition Rule(ODR)의 위반을 쉽게 야기할 수 있습니다."
 
 #: cppguide.xml:469(p)
 msgid "Use namespaces according to the policy described below."
@@ -558,7 +558,7 @@ msgstr "하지만, 특정 클래스와 연결된 파일-범위의 선언은 이�
 
 #: cppguide.xml:475(li)
 msgid "Unnamed namespaces are allowed and even encouraged in <placeholder-1/> files, to avoid runtime naming conflicts: <placeholder-2/><placeholder-3/>"
-msgstr "이름없는 네임스페이스는 실행시간에 이름 충돌을 피하기 위해서 허용되며, <placeholder-1/> 파일에서 심지어 권장됩니다.: <placeholder-2/><placeholder-3/>"
+msgstr "이름없는 네임스페이스는 실행시간에 이름 충돌을 피하기 위해서 허용되며, <placeholder-1/> 파일에서는 심지어 권장됩니다.: <placeholder-2/><placeholder-3/>"
 
 #: cppguide.xml:498(li)
 msgid "Do not use unnamed namespaces in <placeholder-1/> files."
@@ -591,7 +591,7 @@ msgstr ""
 
 #: cppguide.xml:509(li)
 msgid "Namespaces wrap the entire source file after includes, <placeholder-1/> definitions/declarations, and forward declarations of classes from other namespaces: <placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/>"
-msgstr "네임스테이스는 include, <placeholder-1/> 정의/선언, 그리고 다른 네임스페이스의 클래스의 전방선언후에 전체 소스 파일을 감쌉니다. <placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/>"
+msgstr "네임스페이스는 include, <placeholder-1/> 정의/선언, 그리고 다른 네임스페이스의 클래스의 전방선언후에 전체 소스 파일을 감쌉니다. <placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/>"
 
 #: cppguide.xml:563(code)
 #: cppguide.xml:565(code)
@@ -608,11 +608,11 @@ msgstr ""
 
 #: cppguide.xml:571(li)
 msgid "You may not use a <placeholder-1/> to make all names from a namespace available. <placeholder-2/>"
-msgstr "네임스페이스에서 모든 이름을 사용하기 위해서 <placeholder-1/> 지시자를 사용하지 말아야 합니다. <placeholder-2/>"
+msgstr "네임스페이스에서 모든 이름을 사용하기 위해서 <placeholder-1/>를 사용하지 말아야 합니다. <placeholder-2/>"
 
 #: cppguide.xml:579(SYNTAX)
 msgid "using-declaration"
-msgstr "using-선언"
+msgstr "using-declaration"
 
 #: cppguide.xml:582(CODE_SNIPPET)
 msgid "// OK in .cc files. // Must be in a function, method or class in .h files. using ::foo::bar;"
@@ -620,7 +620,7 @@ msgstr ""
 
 #: cppguide.xml:579(li)
 msgid "You may use a <placeholder-1/> anywhere in a <placeholder-2/> file, and in functions, methods or classes in <placeholder-3/> files. <placeholder-4/>"
-msgstr "<placeholder-1/> 선언은 <placeholder-2/> 파일, <placeholder-3/> 파일에 있는 함수, 메소드 또는 클래스 등 어디서든 사용해도 좋습니다."
+msgstr "<placeholder-1/>은 <placeholder-2/> 파일, <placeholder-3/> 파일에 있는 함수, 메소드 또는 클래스 등 어디서든 사용해도 좋습니다."
 
 #: cppguide.xml:593(CODE_SNIPPET)
 msgid "// Shorten access to some commonly used names in .cc files. namespace fbz = ::foo::bar::baz; // Shorten access to some commonly used names (in a .h file). namespace librarian { // The following alias is available to all files including // this header (in namespace librarian): // alias names should therefore be chosen consistently // within a project. namespace pd_s = ::pipeline_diagnostics::sidetable; inline void my_inline_function() { // namespace alias local to a function (or method). namespace fbz = ::foo::bar::baz; ... } } // namespace librarian"
@@ -628,7 +628,7 @@ msgstr ""
 
 #: cppguide.xml:612(p)
 msgid "Note that an alias in a .h file is visible to everyone #including that file, so public headers (those available outside a project) and headers transitively #included by them, should avoid defining aliases, as part of the general goal of keeping public APIs as small as possible."
-msgstr ".h 파일에서의 별칭은 그 파일을 #include하는 모든 이들에게 보여집니다. 따라서 공용 API는 가능한한 작게 유지한다는 일반적인 목적으로 일환으로, 공용 헤더 파일(프로젝트 외부에서 이용할 수 있는)과 그 파일을 간접적으로 #include하는 헤더 파일들은 별칭을 정의하는 것을 피해야만 합니다."
+msgstr ".h 파일에서의 별칭은 그 파일을 #include하는 모든 이들에게 보여집니다. 따라서 공용 API는 가능한한 작게 유지한다는 일반적인 목적의 일환으로, 공용 헤더 파일(프로젝트 외부에서 이용할 수 있는)과 그 파일을 간접적으로 #include하는 헤더 파일들은 별칭을 정의하는 것을 피해야만 합니다."
 
 #: cppguide.xml:589(li)
 msgid "Namespace aliases are allowed anywhere in a <placeholder-1/> file, anywhere inside the named namespace that wraps an entire <placeholder-2/> file, and in functions and methods. <placeholder-3/><placeholder-4/>"
@@ -641,7 +641,7 @@ msgstr "namespace"
 
 #: cppguide.xml:633(SUMMARY)
 msgid "Although you may use public nested classes when they are part of an interface, consider a <placeholder-1/> to keep declarations out of the global scope."
-msgstr "public 중첩 클래스가 인터페이스의 일부분 일 때, 그것을 사용할지라도, 전역 공간외에서 선언을 유지하기 위해서 <placeholder-1/>를 고려하십시오."
+msgstr "public 중첩 클래스가 인터페이스의 일부분 일 때, 그것을 사용할지라도, 전역 공간외에서 선언을 유지하기 위해서는 <placeholder-1/>를 고려하십시오."
 
 #: cppguide.xml:641(SYNTAX)
 msgid "member class"
@@ -657,7 +657,7 @@ msgstr "클래스는 클래스내에 다른 클래스를 정의할 수 있습니
 
 #: cppguide.xml:654(PROS)
 msgid "This is useful when the nested (or member) class is only used by the enclosing class; making it a member puts it in the enclosing class scope rather than polluting the outer scope with the class name. Nested classes can be forward declared within the enclosing class and then defined in the <placeholder-1/> file to avoid including the nested class definition in the enclosing class declaration, since the nested class definition is usually only relevant to the implementation."
-msgstr "이것은 중첩된(혹은 멤버) 클래스가 그것을 포함하고 있는 클래스 내부에서만 사용된다는 점에서 유용합니다; 즉, 중첩된 클래스 이름을 바깥에 드러내지 않으면서 그것을 포함하는 클래스 범위 안에 그 멤버를 둘 수 있습니다. 중첩된 클래스 정의를 그것을 포함하는 클래스 선안안에 두지 않기 위해서 중첩된 클래스를 그것을 포함하는 클래스 안에서 전방 선언한 후에 <placeholder-1/> 파일에서 정의할 수 있습니다. 흔히 중첩 클래스 정의는 구현 관련해서만 의미가 있기 때문입니다."
+msgstr "이것은 중첩된(혹은 멤버) 클래스가 그것을 포함하고 있는 클래스 내부에서만 사용된다는 점에서 유용합니다; 즉, 중첩된 클래스 이름을 바깥에 드러내지 않으면서 그것을 포함하는 클래스 범위 안에 그 멤버를 둘 수 있습니다. 중첩된 클래스 정의를 그것을 포함하는 클래스 선언안에 두지 않기 위해서 중첩된 클래스를 그것을 포함하는 클래스 안에서 전방 선언한 후에 <placeholder-1/> 파일에서 정의할 수 있습니다. 흔히 중첩 클래스 정의는 구현 관련해서만 의미가 있기 때문입니다."
 
 #: cppguide.xml:668(code)
 msgid "Foo::Bar*"
@@ -669,7 +669,7 @@ msgstr "중첩된 클래스는 그것을 포함하는 클래스 정의 안에서
 
 #: cppguide.xml:671(DECISION)
 msgid "Do not make nested classes public unless they are actually part of the interface, e.g., a class that holds a set of options for some method."
-msgstr "중첩된 클래스가 실제 인터페이스의 일부가 아니라면 public으로 만들지 마십시오. 예를 들면, 몇개의 메소드에 대해서 옵션의 모음을 유지하는 클래스."
+msgstr "중첩된 클래스가 실제 인터페이스의 일부가 아니라면 public으로 만들지 마십시오. 예를 들면, 몇개의 메소드에 대해서 옵션의 모음을 유지하는 클래스의 경우입니다."
 
 #: cppguide.xml:681(SUMMARY)
 msgid "Prefer nonmember functions within a namespace or static member functions to global functions; use completely global functions rarely."
@@ -689,7 +689,7 @@ msgstr "namespaces"
 
 #: cppguide.xml:698(p)
 msgid "Sometimes it is useful, or even necessary, to define a function not bound to a class instance. Such a function can be either a static member or a nonmember function. Nonmember functions should not depend on external variables, and should nearly always exist in a namespace. Rather than creating classes only to group static member functions which do not share static data, use <placeholder-1/> instead."
-msgstr "때때로 함수를 클래스 인터페이스의 내부에 정의하지 않는 것이 유용하거나 심지어 필요한 경우도 있습니다. 그러한 함수는 static 멤버거나 비-멤버 함수가 될 수 있습니다. 비-멤버 함수는 외부 변수에 의존해서는 안되고 거의 항상 namespace내에 존재해야만 합니다. static 데이타를 공유하지 않는 static 멤버 함수들을 단지 묶기 위해서 클래스를 생성하기 보다는, 대신에 <placeholder-1/>를 사용하십시오."
+msgstr "때때로 함수를 클래스 인터페이스의 내부에 정의하지 않는 것이 유용하거나 심지어 필요한 경우도 있습니다. 그러한 함수는 static 멤버거나 비-멤버 함수가 될 수 있습니다. 비-멤버 함수는 외부 변수에 의존해서는 안되고 거의 항상 namespace내에 존재해야만 합니다. 단지 static 데이타를 공유하지 않는 static 멤버 함수들을 묶기 위해서 클래스를 생성하기 보다는, 대신에 <placeholder-1/>를 사용하십시오."
 
 #: cppguide.xml:708(p)
 msgid "Functions defined in the same compilation unit as production classes may introduce unnecessary coupling and link-time dependencies when directly called from other compilation units; static member functions are particularly susceptible to this. Consider extracting a new class, or placing the functions in a namespace possibly in a separate library."
@@ -773,7 +773,7 @@ msgstr ""
 
 #: cppguide.xml:773(p)
 msgid "It may be more efficient to declare such a variable used in a loop outside that loop:"
-msgstr "루프에서 사용되는 그러한 변수를 루프 바깥에서 선언하는 것이 더 효과적입니다."
+msgstr "루프에서 사용되는 그러한 변수는 루프 바깥에서 선언하는 것이 더 효과적입니다."
 
 #: cppguide.xml:777(CODE_SNIPPET)
 msgid "Foo f; // My ctor and dtor get called once each. for (int i = 0; i &lt; 1000000; ++i) { f.DoSomething(i); }"
@@ -785,11 +785,11 @@ msgstr "클래스 타입의 Static 혹은 global 변수는 금지되어 있습�
 
 #: cppguide.xml:793(p)
 msgid "Objects with static storage duration, including global variables, static variables, static class member variables, and function static variables, must be Plain Old Data (POD): only ints, chars, floats, or pointers, or arrays/structs of POD."
-msgstr "전역 변수, 정적 변수, 정적 클래스 멤버 변수, 그리고 함수의 정적 변수를 포함해서 정적 저장 공간을 가지는 객체는 Plain Old Data(POD)여야만 합니다. 즉 int, char, float, 포인터, 혹은 POD의 배열이나 구조체."
+msgstr "전역 변수, 정적 변수, 정적 클래스 멤버 변수, 그리고 함수의 정적 변수를 포함해서 정적 저장 공간을 가지는 객체는 Plain Old Data(POD)여야만 합니다. 즉 int, char, float, 포인터, 혹은 POD의 배열이나 구조체여야만 합니다."
 
 #: cppguide.xml:799(p)
 msgid "The order in which class constructors and initializers for static variables are called is only partially specified in C++ and can even change from build to build, which can cause bugs that are difficult to find. Therefore in addition to banning globals of class type, we do not allow static POD variables to be initialized with the result of a function, unless that function (such as getenv(), or getpid()) does not itself depend on any other globals."
-msgstr "정적 변수에 대한 클래스 생성자와 초기화 식을 호출하는 순서는 C++에서 단지 부분적으로만 정의되어있습니다. 심지어 빌드할 때마다 바뀔수도 있습니다. 따라서 찾아내기 힘든 버그를 야기할 수 있습니다. 그러므로 클래스 타입 전역 변수의 사용을 금지하는 것에 덧붙여서 함수(getenv()나 getpid()처럼)가 다른 전역변수에 의존한다면, 해당 함수의 결과를 가지고 초기화되는 정적 POD 변수의 사용을 허용하지 않습니다."
+msgstr "정적 변수에 대한 클래스 생성자와 초기화 식을 호출하는 순서는 C++에서 단지 부분적으로만 정의되어 있습니다. 심지어 빌드할 때마다 바뀔 수도 있습니다. 따라서 찾아내기 힘든 버그를 야기할 수 있습니다. 그러므로 클래스 타입의 전역 변수의 사용을 금지하는 것에 덧붙여서 함수(getenv()나 getpid()처럼)가 다른 전역변수에 의존한다면, 해당 함수의 결과를 가지고 초기화되는 정적 POD 변수의 사용을 허용하지 않습니다."
 
 #: cppguide.xml:808(p)
 msgid "Likewise, the order in which destructors are called is defined to be the reverse of the order in which the constructors were called. Since constructor order is indeterminate, so is destructor order. For example, at program-end time a static variable might have been destroyed, but code still running -- perhaps in another thread -- tries to access it and fails. Or the destructor for a static 'string' variable might be run prior to the destructor for another variable that contains a reference to that string."
@@ -813,7 +813,7 @@ msgstr "이 때문에 POD 데이타를 포함한 정적 변수만을 허용합�
 
 #: cppguide.xml:824(p)
 msgid "If you need a static or global variable of a class type, consider initializing a pointer (which will never be freed), from either your main() function or from pthread_once(). Note that this must be a raw pointer, not a \"smart\" pointer, since the smart pointer's destructor will have the order-of-destructor issue that we are trying to avoid."
-msgstr "만약 클래스 타입의 정적 혹은 전역 변수가 필요하다면, main() 함수나 pthread_once()함수에서 초기화하는 포인터(절대 free되지 않는)를 고려해 보십시오. 이것은 \"smart\" 포인터가 아닌 기본형(raw) 포인터여야만 하는 것을 주의하십시오. 왜냐하면 smart 포인터의 소멸자는 우리가 피하려고 했던 소멸자-순서 문제를 가지고 있기 때문입니다."
+msgstr "만약 클래스 타입의 정적 혹은 전역 변수가 필요하다면, main() 함수나 pthread_once() 함수에서 초기화하는 포인터(절대 free되지는 않는)를 고려해 보십시오. 이것은 \"smart\" 포인터가 아닌 기본형(raw) 포인터여야만 하는 것을 주의하십시오. 왜냐하면 smart 포인터의 소멸자는 우리가 피하려고 했던 소멸자-순서 문제를 가지고 있기 때문입니다."
 
 #: cppguide.xml:846(code)
 #: cppguide.xml:887(code)
@@ -823,11 +823,11 @@ msgstr "Init()"
 
 #: cppguide.xml:843(SUMMARY)
 msgid "In general, constructors should merely set member variables to their initial values. Any complex initialization should go in an explicit <placeholder-1/> method."
-msgstr "일반적으로, 생성자는 단지 멤버 변수를 그들의 초기값으로 설정하기만 합니다. 그리고 복잡한 초기화는 명시적으로 명시적인 <placeholder-1/> 메소드로 가야만 합니다."
+msgstr "일반적으로, 생성자는 단지 멤버 변수를 그들의 초기값으로 설정하기만 합니다. 그리고 복잡한 초기화는 명시적인 <placeholder-1/> 메소드로 가야만 합니다."
 
 #: cppguide.xml:849(DEFINITION)
 msgid "It is possible to perform initialization in the body of the constructor."
-msgstr "생성자의 몸체에서 초기화를 수행하는 것은 가능합니다."
+msgstr "생성자 몸체에서 초기화를 수행하는 것은 가능합니다."
 
 #: cppguide.xml:853(PROS)
 msgid "Convenience in typing. No need to worry about whether the class has been initialized or not."
@@ -847,7 +847,7 @@ msgstr "작업이 실패하면, 이제 초기화 코드가 실패한 객체를 �
 
 #: cppguide.xml:868(li)
 msgid "If the work calls virtual functions, these calls will not get dispatched to the subclass implementations. Future modification to your class can quietly introduce this problem even if your class is not currently subclassed, causing much confusion."
-msgstr "작업이 가상 함수를 호출한다면, 파생 클래스의 구현을 호출하지 못할 것입니다. 심지어 현재는 파생시키지 않았더라도, 나중에 클래스를 수정하게 되면, 모르는 사이에 이런 문제가 생겨서 매우 혼란스러울 수 있습니다."
+msgstr "작업이 가상 함수를 호출한다면, 파생 클래스의 구현을 호출하지 못할 것입니다. 심지어 현재는 파생시키지 않았더라도, 나중에 클래스를 수정하게 되면, 모르는 사이에 이런 문제가 생겨서 매우 혼란스러울수 있습니다."
 
 #: cppguide.xml:874(li)
 msgid "If someone creates a global variable of this type (which is against the rules, but still), the constructor code will be called before <placeholder-1/>, possibly breaking some implicit assumptions in the constructor code. For instance, <placeholder-2/> will not yet have been initialized."
@@ -863,7 +863,7 @@ msgstr "만약 객체가 사소하지 않은 초기화를 필요로 한다면, �
 
 #: cppguide.xml:895(SUMMARY)
 msgid "You must define a default constructor if your class defines member variables and has no other constructors. Otherwise the compiler will do it for you, badly."
-msgstr "클래스가 멤버 변수를 정의하고 어떤 다른 생성자도 없다면 기본 생성자를 정의해야만 합니다. 그렇지 않으면 컴파일러가 기본 생성자를 잘못된게 만들 것입니다."
+msgstr "클래스가 멤버 변수를 정의하고 어떤 다른 생성자도 없다면 기본 생성자를 정의해야만 합니다. 그렇지 않으면 컴파일러가 기본 생성자를 잘못되게 만들 것입니다."
 
 #: cppguide.xml:902(code)
 msgid "new"
@@ -875,7 +875,7 @@ msgstr "new[]"
 
 #: cppguide.xml:901(DEFINITION)
 msgid "The default constructor is called when we <placeholder-1/> a class object with no arguments. It is always called when calling <placeholder-2/> (for arrays)."
-msgstr "기본 생성자는 아규먼트 없이 클래스 오브젝트를 <placeholder-1/>할 때, 호출됩니다. (배열에 대해서)<placeholder-2/>를 호출할 때도 기본 생성자는 항상 호출됩니다."
+msgstr "기본 생성자는 아규먼트 없이 클래스 오브젝트를 <placeholder-1/>할 때, 호출됩니다. (배열에 대해서) <placeholder-2/>를 호출할 때도 기본 생성자는 항상 호출됩니다."
 
 #: cppguide.xml:906(PROS)
 msgid "Initializing structures by default, to hold \"impossible\" values, makes debugging much easier."
@@ -899,7 +899,7 @@ msgstr "클래스가 존재하는 클래스로부터 상속되었지만 새로�
 
 #: cppguide.xml:939(SUMMARY)
 msgid "Use the C++ keyword <placeholder-1/> for constructors with one argument."
-msgstr "하나의 아규먼트를 가진 생성자에 대해서 <placeholder-1/> C++ 키워드를 사용하십시오."
+msgstr "하나의 아규먼트를 가진 생성자에 대해서 C++ 키워드 <placeholder-1/>을 사용하십시오."
 
 #: cppguide.xml:947(code)
 msgid "Foo::Foo(string name)"
@@ -907,7 +907,7 @@ msgstr "Foo::Foo(string name)"
 
 #: cppguide.xml:944(DEFINITION)
 msgid "Normally, if a constructor takes one argument, it can be used as a conversion. For instance, if you define <placeholder-1/> and then pass a string to a function that expects a <placeholder-2/>, the constructor will be called to convert the string into a <placeholder-3/> and will pass the <placeholder-4/> to your function for you. This can be convenient but is also a source of trouble when things get converted and new objects created without you meaning them to. Declaring a constructor <placeholder-5/> prevents it from being invoked implicitly as a conversion."
-msgstr "일반적으로, 생성자가 하나의 아규먼트를 가진다면, 그 생성자를 변환으로 사용될 수 있습니다. 예를 들면 <placeholder-1/>를 정의하고 <placeholder-2/>를 기대하는 함수에 string을 전달한다면, string을 <placeholder-3/>로 변환하기 위해서 생성자가 호출될 것이며 함수에 <placeholder-4/>를 전달할 것입니다. 이것은 편리할 수 있습니다. 하지만 변환되어 의도하지 않는 새로운 객체가 생성될 때 문제의 원인이 되기도 합니다. 생성자를 <placeholder-5/>로 선언하는 것은 변환이 암시적으로 발생하는 것을 막아줍니다."
+msgstr "일반적으로, 생성자가 하나의 아규먼트를 가진다면, 그 생성자는 변환으로 사용될 수 있습니다. 예를 들면 <placeholder-1/>를 정의하고 <placeholder-2/>를 기대하는 함수에 string을 전달한다면, string을 <placeholder-3/>로 변환하기 위해서 생성자가 호출될 것이며 함수에 <placeholder-4/>를 전달할 것입니다. 이것은 편리할 수 있습니다. 하지만 변환되어 의도하지 않는 새로운 객체가 생성될 때 문제의 원인이 되기도 합니다. 생성자를 <placeholder-5/>로 선언하는 것은 변환이 암시적으로 발생하는 것을 막아줍니다."
 
 #: cppguide.xml:956(PROS)
 msgid "Avoids undesirable conversions."
@@ -923,11 +923,11 @@ msgstr "explicit Foo(string name);"
 
 #: cppguide.xml:963(p)
 msgid "We require all single argument constructors to be explicit. Always put <placeholder-1/> in front of one-argument constructors in the class definition: <placeholder-2/>"
-msgstr "하나의 아규먼트를 가진 모든 생성자가 explicit로 선언되어야 합니다. 클래스 정의에서 하나의 아규먼트를 가진 생성자의 앞에 항상 <placeholder-1/>를 넣으십시오: <placeholder-2/>"
+msgstr "하나의 아규먼트를 가진 모든 생성자는 explicit으로 선언되어야 합니다. 클래스 정의에서 하나의 아규먼트를 가진 생성자의 앞에 다음처럼 항상 <placeholder-1/>를 넣으십시오: <placeholder-2/>"
 
 #: cppguide.xml:969(p)
 msgid "The exception is copy constructors, which, in the rare cases when we allow them, should probably not be <placeholder-1/>. Classes that are intended to be transparent wrappers around other classes are also exceptions. Such exceptions should be clearly marked with comments."
-msgstr "The exception is copy constructors, which, in the rare cases when we allow them, should probably not be <placeholder-1/>. 다른 클래스를 두명하게 감쌀 의도의 클래스들도 예외입니다. 그러한 예외들은 명백하게 주석으로 명확하게 설명해야 합니다."
+msgstr "복사 생성자는 예외인데, 드물지만 사용을 허락할 때는 <placeholder-1/>으로 선언하지 않아야 합니다. 다른 클래스를 투명하게 감쌀 의도의 클래스들도 예외입니다. 그러한 예외들은 명확하게 주석으로 설명해야 합니다."
 
 #: cppguide.xml:986(code)
 #: cppguide.xml:1038(code)
@@ -937,11 +937,11 @@ msgstr "DISALLOW_COPY_AND_ASSIGN"
 
 #: cppguide.xml:984(SUMMARY)
 msgid "Provide a copy constructor and assignment operator only when necessary. Otherwise, disable them with <placeholder-1/>."
-msgstr "필요한 경우에만 복사 생성자와 대입 연산자를 제공하십시오. 다른 경우라면 <placeholder-1/>로 그것들은 비활성화하십시오."
+msgstr "필요한 경우에만 복사 생성자와 대입 연산자를 제공하십시오. 다른 경우라면 <placeholder-1/>로 그것들은 비활성화 하십시오."
 
 #: cppguide.xml:989(DEFINITION)
 msgid "The copy constructor and assignment operator are used to create copies of objects. The copy constructor is implicitly invoked by the compiler in some situations, e.g. passing objects by value."
-msgstr "복사 생성자와 대입 연산자는 객체의 사본을 생성하기 위해서 사용됩니다. 복사 생성자는 특정 상황에서 컴파일러에 의해서 암시적으로 호출됩니다. 예를 들면 값으로 객체가 전달될 경우에."
+msgstr "복사 생성자와 대입 연산자는 객체의 사본을 생성하기 위해서 사용됩니다. 복사 생성자는 특정 상황에서 컴파일러에 의해서 암시적으로 호출됩니다. 예를 들면 값으로 객체가 전달될 경우입니다."
 
 #: cppguide.xml:998(code)
 #: cppguide.xml:1020(code)
@@ -967,7 +967,7 @@ msgstr "Clone()"
 
 #: cppguide.xml:1018(p)
 msgid "If your class needs to be copyable, prefer providing a copy method, such as <placeholder-1/> or <placeholder-2/>, rather than a copy constructor, because such methods cannot be invoked implicitly. If a copy method is insufficient in your situation (e.g. for performance reasons, or because your class needs to be stored by value in an STL container), provide both a copy constructor and assignment operator."
-msgstr "클래스를 복사할 수 있어야 한다면 복사 생성자보다 <placeholder-1/>이나 <placeholder-2/>과 같은 복사 메소드를 제공하는게 더 좋습니다. 이런 메소드는 암시적으로 호출할 수 없기 때문입니다.(성능 문제나 클래스를 STL 컨테이너에 값으로 저장해야 하는 등의 이유로) 복사 메소드가 적합하지 않으면 복사 생성자와 대입 연산자 모두를 제공합니다."
+msgstr "클래스를 복사할 수 있어야 한다면 복사 생성자보다 <placeholder-1/>이나 <placeholder-2/>과 같은 복사 메소드를 제공하는게 더 좋습니다. 이런 메소드는 암시적으로 호출할 수 없기 때문입니다. (성능 문제나 클래스를 STL 컨테이너에 값으로 저장해야 하는 등의 이유로) 복사 메소드가 적합하지 않으면 복사 생성자와 대입 연산자 모두를 제공합니다."
 
 #: cppguide.xml:1033(code)
 #: cppguide.xml:1378(code)
@@ -979,7 +979,7 @@ msgstr "private:"
 
 #: cppguide.xml:1027(p)
 msgid "If your class does not need a copy constructor or assignment operator, you must explicitly disable them. To do so, add dummy declarations for the copy constructor and assignment operator in the <placeholder-1/> section of your class, but do not provide any corresponding definition (so that any attempt to use them results in a link error)."
-msgstr "복사 생성자나 대입 연산자가 필요없으면 명시적으로 비활성해야 합니다. 그렇게 하려면 클래스의 <placeholder-1/> 섹션에 더미의 복사 생성자와 대입 연산자 선언을 추가하고 정의는 하지 않도록 합니다.(그래서 사용하려고 시도하면 링크에러가 발생하게 합니다.)"
+msgstr "복사 생성자나 대입 연산자가 필요없으면 명시적으로 비활성해야 합니다. 그렇게 하려면 클래스의 <placeholder-1/> 섹션에 더미의 복사 생성자와 대입 연산자 선언을 추가하고 정의는 하지 않도록 합니다.(그래서 사용하려고 시도하면 링크에러가 발생하도록 합니다.)"
 
 #: cppguide.xml:1037(p)
 msgid "For convenience, a <placeholder-1/> macro can be used:"
@@ -1023,7 +1023,7 @@ msgstr "데이타를 전달하는 passive 객체에 대해서만 <placeholder-1/
 
 #: cppguide.xml:1074(p)
 msgid "The <placeholder-1/> and <placeholder-2/> keywords behave almost identically in C++. We add our own semantic meanings to each keyword, so you should use the appropriate keyword for the data-type you're defining."
-msgstr "C++에서 <placeholder-1/>와 <placeholder-2/> 키워드는 거의 동일하게 동작합니다. 따라서 각 키워드에 내포된 의미를 추가해 정의하는 데이터 타입에 따라 적절한 키워드를 사용합니다."
+msgstr "C++에서 <placeholder-1/>와 <placeholder-2/> 키워드는 거의 동일하게 동작합니다. 따라서 각 키워드에 내포된 의미를 추가해서 정의하는 데이터 타입에 따라 적절한 키워드를 사용합니다."
 
 #: cppguide.xml:1081(code)
 msgid "structs"
@@ -1043,15 +1043,15 @@ msgstr "Validate()"
 
 #: cppguide.xml:1080(p)
 msgid "<placeholder-1/> should be used for passive objects that carry data, and may have associated constants, but lack any functionality other than access/setting the data members. The accessing/setting of fields is done by directly accessing the fields rather than through method invocations. Methods should not provide behavior but should only be used to set up the data members, e.g., constructor, destructor, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>."
-msgstr ""
+msgstr "<placeholder-1/>는 데이터를 나르는 수동 객체에 사용하고, 관련 상수는 있을 수 있으나 데이터 멤버를 접근하거나 설정하는 것 외에 다른 기능은 없어야 합니다. 필드에 접근하거나 설정할 때는 메소드를 호출하지 말고 해당 필드에 직접 접근해 처리합니다. 메소드에서는 행위를 제공하지 않아야 하고, 생성자, 소멸자, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>등을 예로 든 것처럼 데이터 멤버를 설정하는 데만 써야 합니다."
 
 #: cppguide.xml:1091(p)
 msgid "If more functionality is required, a <placeholder-1/> is more appropriate. If in doubt, make it a <placeholder-2/>."
-msgstr ""
+msgstr "더 많은 기능이 필요하면 <placeholder-1/>가 더 적절합니다. 무엇을 써야 할지 모르겠으면 <placeholder-2/>로 합니다."
 
 #: cppguide.xml:1095(p)
 msgid "For consistency with STL, you can use <placeholder-1/> instead of <placeholder-2/> for functors and traits."
-msgstr ""
+msgstr "STL의 일관성에 대해서, 함수자와 특성(trait)에 대해 <placeholder-2/> 대신 <placeholder-1/>를 쓸 수 있습니다."
 
 #: cppguide.xml:1101(a)
 msgid "different naming rules"
@@ -1059,7 +1059,7 @@ msgstr ""
 
 #: cppguide.xml:1099(p)
 msgid "Note that member variables in structs and classes have <placeholder-1/>."
-msgstr ""
+msgstr "구조체와 클래스에서의 멤버 변수는 <placeholder-1/>를 가지는 것을 주의하십시오."
 
 #: cppguide.xml:1109(code)
 #: cppguide.xml:1141(code)
@@ -1074,23 +1074,23 @@ msgstr "합성(Composition)이 상속보다 종종 더 좋습니다. 상속을 �
 
 #: cppguide.xml:1117(A)
 msgid "interface inheritance"
-msgstr ""
+msgstr "인터페이스 상속"
 
 #: cppguide.xml:1112(DEFINITION)
 msgid "When a sub-class inherits from a base class, it includes the definitions of all the data and operations that the parent base class defines. In practice, inheritance is used in two major ways in C++: implementation inheritance, in which actual code is inherited by the child, and <placeholder-1/>, in which only method names are inherited."
-msgstr ""
+msgstr "하위 클래스에서 기초 클래스를 상속하면 부모인 기초 클래스에서 정의한 모든 데이터와 연산에 대한 정의를 하위 클래스에서 포함합니다. 실제로 C++에서 상속은 두 가지 주요한 방법으로 하는데, 실제 코드를 자식에서 상속하는 구현 상속과 메소드 이름만 상속하는 <placeholder-1/> 입니다."
 
 #: cppguide.xml:1120(PROS)
 msgid "Implementation inheritance reduces code size by re-using the base class code as it specializes an existing type. Because inheritance is a compile-time declaration, you and the compiler can understand the operation and detect errors. Interface inheritance can be used to programmatically enforce that a class expose a particular API. Again, the compiler can detect errors, in this case, when a class does not define a necessary method of the API."
-msgstr ""
+msgstr "구현 상속은 기존 타입을 구체화 하듯이, 기초 클래스 코드를 재사용해 코드 크기를 줄입니다. 상속은 컴파일 시점 선언이므로 컴파일러에서 연산을 이해하고 오류를 발견할 수 있습니다. 인터페이스 상속은 클래스에서 특정 API를 드러내도록 프로그램적으로 강제하는데 사용할 수 있습니다. 이 역시도 API 중 필요한 메소드를 클래스에서 정의하지 않으면 컴파일러에서 오류를 찾을 수 있습니다."
 
 #: cppguide.xml:1130(CONS)
 msgid "For implementation inheritance, because the code implementing a sub-class is spread between the base and the sub-class, it can be more difficult to understand an implementation. The sub-class cannot override functions that are not virtual, so the sub-class cannot change implementation. The base class may also define some data members, so that specifies physical layout of the base class."
-msgstr ""
+msgstr "구현 상속에서는 하위 클래스를 구현한 코드가 기초와 하위 클래스에 퍼져있으므로 구현 내용을 이해하기 더 어려울 수 있습니다. 함수가 가상이 아니면 하위 클래스에서 재정의할 수 없으므로 구현 내용을 하위 클래스에서 바꿀 수 없습니다. The base class may also define some data members, so that specifies physical layout of the base class."
 
 #: cppguide.xml:1140(p)
 msgid "All inheritance should be <placeholder-1/>. If you want to do private inheritance, you should be including an instance of the base class as a member instead."
-msgstr ""
+msgstr "모든 상속은 <placeholder-1/>이어야 합니다. private 상속을 하려면 그 대신 기초 클래스 인스턴스를 멤버로 포함해야 합니다."
 
 #: cppguide.xml:1148(code)
 #: cppguide.xml:1150(code)
@@ -1099,7 +1099,7 @@ msgstr "Bar"
 
 #: cppguide.xml:1145(p)
 msgid "Do not overuse implementation inheritance. Composition is often more appropriate. Try to restrict use of inheritance to the \"is-a\" case: <placeholder-1/> subclasses <placeholder-2/> if it can reasonably be said that <placeholder-3/> \"is a kind of\" <placeholder-4/>."
-msgstr ""
+msgstr "구현 상속을 지나치게 사용하지 말아야 합니다. 종종 포함이 더 낫습니다. 상속은 \"is-a\" 관계일 때로 한정해 사용하도록 합니다. 즉 <placeholder-3/>는 <placeholder-4/>의 \"한 종류이다(is a kind of)\"라고 말할 수 있으면 <placeholder-1/>가 <placeholder-2/>를 상속한 것이다."
 
 #: cppguide.xml:1153(code)
 #: cppguide.xml:1166(code)
@@ -1109,7 +1109,7 @@ msgstr "virtual"
 
 #: cppguide.xml:1152(p)
 msgid "Make your destructor <placeholder-1/> if necessary. If your class has virtual methods, its destructor should be virtual."
-msgstr ""
+msgstr "필요하면 소멸자를 virtual로 합니다. 클래스에 가상 메소드가 있으면 소멸자는 가상이어야 합니다."
 
 #: cppguide.xml:1159(code)
 #: cppguide.xml:1354(code)
@@ -1120,15 +1120,15 @@ msgstr "protected"
 
 #: cppguide.xml:1161(a)
 msgid "data members should be private"
-msgstr ""
+msgstr "데이타 멤버는 private여야만 합니다."
 
 #: cppguide.xml:1158(p)
 msgid "Limit the use of <placeholder-1/> to those member functions that might need to be accessed from subclasses. Note that <placeholder-2/>."
-msgstr ""
+msgstr "<placeholder-1/>는 하위 클래스에서 접근할 수도 있는 멤버 함수로 제한해 사용합니다. <placeholder-2/>."
 
 #: cppguide.xml:1164(p)
 msgid "When redefining an inherited virtual function, explicitly declare it <placeholder-1/> in the declaration of the derived class. Rationale: If <placeholder-2/> is omitted, the reader has to check all ancestors of the class in question to determine if the function is virtual or not."
-msgstr ""
+msgstr "상속한 가상 함수를 파생 클래스에서 재정의할 때는 명시적으로 <placeholder-1/>로 선언하십시오. 이유는 <placeholder-2/>을 생략하면 해당 클래스의 모든 조상을 확인해야 해당 함수가 가상인지 아닌지 알 수 있기 때문입니다."
 
 #: cppguide.xml:1181(A)
 msgid "pure interface"
