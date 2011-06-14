@@ -1161,20 +1161,20 @@ msgstr ""
 
 #: cppguide.xml:1185(DEFINITION)
 msgid "Multiple inheritance allows a sub-class to have more than one base class. We distinguish between base classes that are <placeholder-1/> and those that have an <placeholder-2/>."
-msgstr ""
+msgstr "다중 상속으로 하위 클래스에서는 기초 클래스를 하나 이상 상속할 수 있습니다. 여기서는 <placeholder-1/>인 기초 클래스와 <placeholder-2/>이 있는 것을 구분합니다."
 
 #: cppguide.xml:1193(a)
 #: cppguide.xml:1370(a)
 msgid "Inheritance"
-msgstr ""
+msgstr "상속"
 
 #: cppguide.xml:1191(PROS)
 msgid "Multiple implementation inheritance may let you re-use even more code than single inheritance (see <placeholder-1/>)."
-msgstr ""
+msgstr "다중 구현 상속은 단일 상속보다 더 많은 코드를 재사용 할 수 있습니다(<placeholder-1/>를 보십시오)."
 
 #: cppguide.xml:1195(CONS)
 msgid "Only very rarely is multiple <placeholder-1/> inheritance actually useful. When multiple implementation inheritance seems like the solution, you can usually find a different, more explicit, and cleaner solution."
-msgstr ""
+msgstr "다중 <placeholder-1/> 상속은 실제로 매우 드문 경우에만 유용합니다. 다중 구현 상속이 해결책인 것처럼 보일 때라도 흔히 더 분명하고 명확한 다른 해결책을 찾을 수 있습니다."
 
 #: cppguide.xml:1207(a)
 #: cppguide.xml:1836(a)
@@ -1183,11 +1183,11 @@ msgstr "exception"
 
 #: cppguide.xml:1206(SUBSECTION)
 msgid "There is an <placeholder-1/> to this rule on Windows."
-msgstr ""
+msgstr "Windows에서는 이 규칙에 <placeholder-1/>가 있습니다."
 
 #: cppguide.xml:1201(DECISION)
 msgid "Multiple inheritance is allowed only when all superclasses, with the possible exception of the first one, are <placeholder-1/>. In order to ensure that they remain pure interfaces, they must end with the <placeholder-2/> suffix. <placeholder-3/>"
-msgstr ""
+msgstr "다중 상속은 모든 상위 클래스가 <placeholder-1/>일 때(상위 클래스 중 최초 하나는 예외일 수 있습니다)만 허용합니다. 모두가 순수 인터페이스라는 것을 확인하기 위해 <placeholder-2/> 접미어를 붙여야 합니다. <placeholder-3/>"
 
 #: cppguide.xml:1215(SUMMARY)
 msgid "Classes that satisfy certain conditions are allowed, but not required, to end with an <placeholder-1/> suffix."
@@ -1195,7 +1195,7 @@ msgstr "특정 상황을 만족시키는 클래스는 필요하지는 않지만 
 
 #: cppguide.xml:1221(p)
 msgid "A class is a pure interface if it meets the following requirements:"
-msgstr ""
+msgstr "다음 조건을 만족하는 클래스는 순수 인터페이스입니다.:"
 
 #: cppguide.xml:1225(code)
 msgid "= 0"
@@ -1203,19 +1203,19 @@ msgstr "= 0"
 
 #: cppguide.xml:1225(li)
 msgid "It has only public pure virtual (\"<placeholder-1/>\") methods and static methods (but see below for destructor)."
-msgstr ""
+msgstr "public인 순수 가상(\"<placeholder-1/>\") 메소드와 정적 메소드만 있습니다 (그러나 소멸자에 대해서는 아래를 보십시오)."
 
 #: cppguide.xml:1228(li)
 msgid "It may not have non-static data members."
-msgstr ""
+msgstr "비정적 데이터 멤버는 없을 수 있습니다."
 
 #: cppguide.xml:1230(li)
 msgid "It need not have any constructors defined. If a constructor is provided, it must take no arguments and it must be protected."
-msgstr ""
+msgstr "생성자는 정의하지 않아도 됩니다. 생성자가 있으면 인자가 없어야 하고 protected여야 합니다."
 
 #: cppguide.xml:1233(li)
 msgid "If it is a subclass, it may only be derived from classes that satisfy these conditions and are tagged with the <placeholder-1/> suffix."
-msgstr ""
+msgstr "하위 클래스이면 위 조건을 만족하는 클래스만 상속해야 하고 <placeholder-1/> 접미어를 붙일 수 있습니다."
 
 #: cppguide.xml:1244(cite)
 msgid "The C++ Programming Language"
@@ -1223,23 +1223,23 @@ msgstr "The C++ 프로그래밍 언어"
 
 #: cppguide.xml:1238(p)
 msgid "An interface class can never be directly instantiated because of the pure virtual method(s) it declares. To make sure all implementations of the interface can be destroyed correctly, they must also declare a virtual destructor (in an exception to the first rule, this should not be pure). See Stroustrup, <placeholder-1/>, 3rd edition, section 12.4 for details."
-msgstr ""
+msgstr "인터페이스 클래스는 순수 가상 메소드 때문에 직접 인스턴스를 만들 수 없습니다. 해당 인터페이스에 대한 구현 내용이 모두 올바르게 소멸하도록 하려면 가상 소멸자도 선언해야 합니다. 더 자세한 내용은 스트롭스트룹이 지은 <placeholder-1/> 3판 12.4절을 참조하십시오."
 
 #: cppguide.xml:1252(A)
 msgid "multiple inheritance"
-msgstr ""
+msgstr "multiple inheritance"
 
 #: cppguide.xml:1248(PROS)
 msgid "Tagging a class with the <placeholder-1/> suffix lets others know that they must not add implemented methods or non static data members. This is particularly important in the case of <placeholder-2/>. Additionally, the interface concept is already well-understood by Java programmers."
-msgstr ""
+msgstr "클래스에 <placeholder-1/> 접미어를 붙이면 해당 클래스에 구현 메소드나 비정적 데이터 멤버를 추가하지 말아야 한다는 것을 알릴 수 있습니다. 이는 <placeholder-2/>을 할 때 특히 중요합니다. 게다가 인터페이스 개념은 자바 프로그래머 사이에 이미 잘 알려져 있습니다."
 
 #: cppguide.xml:1256(CONS)
 msgid "The <placeholder-1/> suffix lengthens the class name, which can make it harder to read and understand. Also, the interface property may be considered an implementation detail that shouldn't be exposed to clients."
-msgstr ""
+msgstr "<placeholder-1/> 접미어는 클래스 이름을 길게 하므로 읽고 이해하기 어려울 수 있습니다. 게다가 인터페이스 속성은 클라이언트에 드러내지 않아야 할 상세 구현 내용으로 간주할 수 있습니다."
 
 #: cppguide.xml:1262(DECISION)
 msgid "A class may end with <placeholder-1/> only if it meets the above requirements. We do not require the converse, however: classes that meet the above requirements are not required to end with <placeholder-2/>."
-msgstr ""
+msgstr "위 조건에 맞을 때만 클래스 이름 끝에 <placeholder-1/>를 붙일 수 있으나 역은 아니다. 즉 위 조건을 만족하는 클래스 이름이 <placeholder-2/>로 끝나지 않아도 된다."
 
 #: cppguide.xml:1272(SUMMARY)
 msgid "Do not overload operators except in rare, special circumstances."
@@ -1255,7 +1255,7 @@ msgstr "/"
 
 #: cppguide.xml:1276(DEFINITION)
 msgid "A class can define that operators such as <placeholder-1/> and <placeholder-2/> operate on the class as if it were a built-in type."
-msgstr ""
+msgstr "해당 클래스를 내장 타입처럼 연산하는 <placeholder-1/>와 <placeholder-2/> 같은 연산자는 중복 정의할 수 있습니다."
 
 #: cppguide.xml:1284(code)
 #: cppguide.xml:2182(code)
@@ -1280,11 +1280,11 @@ msgstr "Add()"
 
 #: cppguide.xml:1281(PROS)
 msgid "Can make code appear more intuitive because a class will behave in the same way as built-in types (such as <placeholder-1/>). Overloaded operators are more playful names for functions that are less-colorfully named, such as <placeholder-2/> or <placeholder-3/>. For some template functions to work correctly, you may need to define operators."
-msgstr ""
+msgstr "클래스를 내장 타입(<placeholder-1/> 같은)과 같은 방식으로 다루므로 코드를 더 직관적으로 만들 수 있습니다. 중복 정의한 연산자는 <placeholder-2/>이나 <placeholder-3/> 같이 딱딱해 보이는 이름의 함수에 비해 사용하기 더 좋습니다. 일부 템플릿 함수를 올바로 동작하게 하려면 연산자를 정의해야 할 수도 있습니다."
 
 #: cppguide.xml:1294(li)
 msgid "It can fool our intuition into thinking that expensive operations are cheap, built-in operations."
-msgstr ""
+msgstr "비용이 많이 드는 연산을 어리석게도 값싼 내장 연산으로 생각하게 만들 수 있습니다."
 
 #: cppguide.xml:1300(code)
 msgid "=="
@@ -1292,7 +1292,7 @@ msgstr "=="
 
 #: cppguide.xml:1297(li)
 msgid "It is much harder to find the call sites for overloaded operators. Searching for <placeholder-1/> is much easier than searching for relevant invocations of <placeholder-2/>."
-msgstr ""
+msgstr "중복 정의한 연산자를 어디서 호출하는지 더 알기 어렵습니다. 관련 있는 <placeholder-2/> 호출을 찾는 것보다 <placeholder-1/>를 찾는 것이 더 쉽습니다."
 
 #: cppguide.xml:1303(code)
 msgid "Foo + 4"
@@ -1304,7 +1304,7 @@ msgstr "&amp;Foo + 4"
 
 #: cppguide.xml:1302(li)
 msgid "Some operators work on pointers too, making it easy to introduce bugs. <placeholder-1/> may do one thing, while <placeholder-2/> does something totally different. The compiler does not complain for either of these, making this very hard to debug."
-msgstr ""
+msgstr "일부 연산자는 포인터에도 동작하므로 버그가 생기기 쉽습니다. <placeholder-1/>와 <placeholder-2/>는 전혀 다른 일을 하지만, 컴파일러에서는 어느 것도 문제 없으므로 디버그 하기 매우 어렵습니다."
 
 #: cppguide.xml:1310(code)
 #: cppguide.xml:1320(code)
@@ -1313,7 +1313,7 @@ msgstr "operator&amp;"
 
 #: cppguide.xml:1290(CONS)
 msgid "While operator overloading can make code more intuitive, it has several drawbacks: <ul><placeholder-1/><placeholder-2/><placeholder-3/></ul> Overloading also has surprising ramifications. For instance, if a class overloads unary <placeholder-4/>, it cannot safely be forward-declared."
-msgstr ""
+msgstr "연산자 중복 정의를 통해 코드를 더 직관적으로 만들 수 있으나 몇 가지 단점이 있습니다.: <ul><placeholder-1/><placeholder-2/><placeholder-3/></ul> 중복 정의 때문에 놀랄만한 결과가 생길 수 있습니다. 예를 들어 클래스에서 단일 연산자인 <placeholder-4/>를 중복 정의하면 그 클래스를 안전하게 전방 선언할 수 없게 됩니다."
 
 #: cppguide.xml:1316(code)
 msgid "operator="
@@ -1321,7 +1321,7 @@ msgstr "operator="
 
 #: cppguide.xml:1314(p)
 msgid "In general, do not overload operators. The assignment operator (<placeholder-1/>), in particular, is insidious and should be avoided. You can define functions like <placeholder-2/> and <placeholder-3/> if you need them. Likewise, avoid the dangerous unary <placeholder-4/> at all costs, if there's any possibility the class might be forward-declared."
-msgstr ""
+msgstr "일반적으로는 연산자 중복 정의를 사용하지 마십시오. 특히 대입 연산자(<placeholder-1/>)는 모르는 사이에 문제를 일으킬 수 있으므로 피해야 합니다. 이런 것이 필요하면 <placeholder-2/>과 <placeholder-3/> 같은 함수를 정의할 수 있습니다. 마찬가지로 클래스를 전방 선언해야 할 것 같으면 위험한 단일 연산자인 <placeholder-4/>는 절대로 중복 정의하지 않는다."
 
 #: cppguide.xml:1326(code)
 msgid "operator&lt;&lt;(ostream&amp;, const T&amp;)"
@@ -1338,11 +1338,11 @@ msgstr "operator&lt;"
 
 #: cppguide.xml:1323(p)
 msgid "However, there may be rare cases where you need to overload an operator to interoperate with templates or \"standard\" C++ classes (such as <placeholder-1/> for logging). These are acceptable if fully justified, but you should try to avoid these whenever possible. In particular, do not overload <placeholder-2/> or <placeholder-3/> just so that your class can be used as a key in an STL container; instead, you should create equality and comparison functor types when declaring the container."
-msgstr ""
+msgstr "드물지만 템플릿이나 로그 기록을 위한 <placeholder-1/>처럼 \"표준\" C++ 클래스와 함께 사용하기 위해 연산자를 중복 정의해야 하는 경우도 있습니다. 충분히 합당하면 그렇게 할 수 있으나 가능하면 피하는 게 좋습니다. 특히 STL 컨테이너에서 키로 사용할 수 있는 클래스에서는 <placeholder-2/>나 <placeholder-3/>를 중복 정의하지 않습니다. 대신 컨테이너를 선언할 때 동등과 비교 함수자 타입을 만들어야 합니다."
 
 #: cppguide.xml:1335(p)
 msgid "Some of the STL algorithms do require you to overload <placeholder-1/>, and you may do so in these cases, provided you document why."
-msgstr ""
+msgstr "일부 STL 알고리즘을 사용하려면 <placeholder-1/>를 중복 정의해야 하므로 그런 경우 이유를 문서화하고 그렇게 할 수 있습니다."
 
 #: cppguide.xml:1341(a)
 #: cppguide.xml:1404(a)
@@ -1397,7 +1397,7 @@ msgstr "데이타 멤버를 <placeholder-1/>으로 하십시오. 그리고 필�
 
 #: cppguide.xml:1365(p)
 msgid "The definitions of accessors are usually inlined in the header file."
-msgstr ""
+msgstr "접근자의 정의는 흔히 헤더 파일에 인라인으로 정의합니다."
 
 #: cppguide.xml:1370(a)
 #: cppguide.xml:2712(a)
@@ -1429,35 +1429,35 @@ msgstr "각 섹션속에서, 일반적으로 선언은 다음의 순서로 있�
 
 #: cppguide.xml:1393(li)
 msgid "Typedefs and Enums"
-msgstr "Typedefs and Enums"
+msgstr "Typedefs와 Enums"
 
 #: cppguide.xml:1394(li)
 msgid "Constants (<placeholder-1/> data members)"
-msgstr "Constants (<placeholder-1/> data members)"
+msgstr "상수 (<placeholder-1/> 데이타 멤버)"
 
 #: cppguide.xml:1395(li)
 msgid "Constructors"
-msgstr "Constructors"
+msgstr "생성자"
 
 #: cppguide.xml:1396(li)
 msgid "Destructor"
-msgstr "Destructor"
+msgstr "소멸자"
 
 #: cppguide.xml:1397(li)
 msgid "Methods, including static methods"
-msgstr "Methods, static methods 포함해서"
+msgstr "정적 메소드를 포함한 메소드들"
 
 #: cppguide.xml:1398(li)
 msgid "Data Members (except <placeholder-1/> data members)"
-msgstr "Data Members (<placeholder-1/> data members를 제외하고)"
+msgstr "데이타 멤버 (<placeholder-1/> 데이타 멤버를 제외하고)"
 
 #: cppguide.xml:1400(p)
 msgid "Friend declarations should always be in the private section, and the <placeholder-1/> macro invocation should be at the end of the <placeholder-2/> section. It should be the last thing in the class. See <placeholder-3/>."
-msgstr ""
+msgstr "프렌드 선언은 항상 private 구역에 두며 <placeholder-1/> 매크로는 <placeholder-2/> 구역 마지막에서 호출합니다. 즉 클래스에서 가장 마지막 내용이어야 합니다. 복사 생성자(Copy Constructors)를 참조합니다. <placeholder-3/>를 보십시오."
 
 #: cppguide.xml:1406(p)
 msgid "Method definitions in the corresponding <placeholder-1/> file should be the same as the declaration order, as much as possible."
-msgstr ""
+msgstr "<placeholder-1/> 파일에서 메소드를 정의할 때는 최대한 선언한 순서와 같도록 해야 합니다."
 
 #: cppguide.xml:1413(a)
 msgid "Inline Functions"
@@ -1481,7 +1481,7 @@ msgstr "긴 함수가 지금 완벽하게 동작하고, 몇달 후에 어떤 사
 
 #: cppguide.xml:1437(p)
 msgid "You could find long and complicated functions when working with some code. Do not be intimidated by modifying existing code: if working with such a function proves to be difficult, you find that errors are hard to debug, or you want to use a piece of it in several different contexts, consider breaking up the function into smaller and more manageable pieces."
-msgstr ""
+msgstr "어떤 코드로 작업하고 있을 때 길고 복잡한 함수를 만날 수도 있습니다. 기존 코드를 변경하는데 겁먹을 필요는 없습니다. 그런 함수를 다루거나 오류를 디버그 하는 게 어렵거나 그런 함수의 일부분을 다른 몇 곳에서 사용하고 싶으면 해당 함수를 더 작고 더 다루기 쉬운 조각으로 나누는 것을 고려하십시오."
 
 #: cppguide.xml:837(CATEGORY)
 msgid "Classes are the fundamental unit of code in C++. Naturally, we use them extensively. This section lists the main dos and don'ts you should follow when writing a class. <STYLEPOINT title=\"Doing Work in Constructors\"><placeholder-1/><BODY><placeholder-2/><placeholder-3/><placeholder-4/><placeholder-5/></BODY></STYLEPOINT><STYLEPOINT title=\"Default Constructors\"><placeholder-6/><BODY><placeholder-7/><placeholder-8/><placeholder-9/><DECISION><placeholder-10/><placeholder-11/><placeholder-12/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Explicit Constructors\"><placeholder-13/><BODY><placeholder-14/><placeholder-15/><placeholder-16/><DECISION><placeholder-17/><placeholder-18/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Copy Constructors\"><placeholder-19/><BODY><placeholder-20/><placeholder-21/><placeholder-22/><DECISION><placeholder-23/><placeholder-24/><placeholder-25/><placeholder-26/><placeholder-27/><placeholder-28/><placeholder-29/><placeholder-30/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Structs vs. Classes\"><placeholder-31/><BODY><placeholder-32/><placeholder-33/><placeholder-34/><placeholder-35/><placeholder-36/></BODY></STYLEPOINT><STYLEPOINT title=\"Inheritance\"><placeholder-37/><BODY><placeholder-38/><placeholder-39/><placeholder-40/><DECISION><placeholder-41/><placeholder-42/><placeholder-43/><placeholder-44/><placeholder-45/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Multiple Inheritance\"><placeholder-46/><BODY><placeholder-47/><placeholder-48/><placeholder-49/><placeholder-50/></BODY></STYLEPOINT><STYLEPOINT title=\"Interfaces\"><placeholder-51/><BODY><DEFINITION><placeholder-52/><ul><placeholder-53/><placeholder-54/><placeholder-55/><placeholder-56/></ul><placeholder-57/></DEFINITION><placeholder-58/><placeholder-59/><placeholder-60/></BODY></STYLEPOINT><STYLEPOINT title=\"Operator Overloading\"><placeholder-61/><BODY><placeholder-62/><placeholder-63/><placeholder-64/><DECISION><placeholder-65/><placeholder-66/><placeholder-67/><placeholder-68/></DECISION></BODY></STYLEPOINT><STYLEPOINT title=\"Access Control\"><placeholder-69/><BODY><placeholder-70/><placeholder-71/></BODY></STYLEPOINT><STYLEPOINT title=\"Declaration Order\"><placeholder-72/><BODY><placeholder-73/><placeholder-74/><ul><placeholder-75/><placeholder-76/><placeholder-77/><placeholder-78/><placeholder-79/><placeholder-80/></ul><placeholder-81/><placeholder-82/><placeholder-83/></BODY></STYLEPOINT><STYLEPOINT title=\"Write Short Functions\"><placeholder-84/><BODY><placeholder-85/><placeholder-86/><placeholder-87/></BODY></STYLEPOINT>"
@@ -1515,7 +1515,7 @@ msgstr "Smart 포인터는 메모리 릭을 방지하는데 극단적으로 유�
 
 #: cppguide.xml:1481(CONS)
 msgid "We prefer designs in which objects have single, fixed owners. Smart pointers which enable sharing or transfer of ownership can act as a tempting alternative to a careful design of ownership semantics, leading to confusing code and even bugs in which memory is never deleted. The semantics of smart pointers (especially <placeholder-1/>) can be nonobvious and confusing. The exception-safety benefits of smart pointers are not decisive, since we do not allow exceptions."
-msgstr ""
+msgstr "객체를 설계할 때는 소유자가 하나이며, 소유자 역시 고정하는 것을 우선으로 합니다. 스마트 포인터는 소유권을 공유하거나 옮길 수 있어, 마치 소유권을 의미적으로 유효하도록 조심스럽게 설계할 수 있는 유혹적인 대체 방안인 것처럼 보일 수 있습니다. 하지만 코드를 혼란스럽게 하고 심지어 메모리를 절대 삭제할 수 없는 버그가 생길 수 있습니다. 스마트 포인터(특히 <placeholder-1/>)의 실제 의미가 불명확하고 혼란스러울 수 있습니다. 스마트 포인터를 사용할 때 얻는 예외 안전성은 그리 중요하지 않습니다. 예외를 허용하지 않기 때문입니다."
 
 #: cppguide.xml:1494(dd)
 msgid "Straightforward and risk-free. Use wherever appropriate."
@@ -1554,11 +1554,11 @@ msgstr "// NOLINT"
 
 #: cppguide.xml:1517(p)
 msgid "<placeholder-1/> is a tool that reads a source file and identifies many style errors. It is not perfect, and has both false positives and false negatives, but it is still a valuable tool. False positives can be ignored by putting <placeholder-2/> at the end of the line."
-msgstr ""
+msgstr "<placeholder-1/>는 소스 파일을 읽어 많은 스타일 오류를 확인하는 도구입니다. 완벽하지 않으며 거짓 양성과 거짓 음성 결과를 모두 줄 수 있지만 여전히 가치가 있습니다. 거짓 양성 결과는 줄 끝에 <placeholder-2/>를 추가해 무시할 수 있습니다."
 
 #: cppguide.xml:1526(p)
 msgid "Some projects have instructions on how to run <placeholder-1/> from their project tools. If the project you are contributing to does not, you can download <A HREF=\"http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py\"><placeholder-2/></A> separately."
-msgstr ""
+msgstr "프로젝트 자체 툴에서 <placeholder-1/>를 실행하는 방법을 설명한 프로젝트도 일부 있습니다. 참여하고 있는 프로젝트가 그렇지 않으면 <A HREF=\"http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py\"><placeholder-2/></A>를 따로 받을 수도 있다."
 
 #: cppguide.xml:1539(SUMMARY)
 msgid "All parameters passed by reference must be labeled <placeholder-1/>."
