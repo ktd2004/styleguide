@@ -1574,7 +1574,7 @@ msgstr "int foo(int &amp;val)"
 
 #: cppguide.xml:1544(DEFINITION)
 msgid "In C, if a function needs to modify a variable, the parameter must use a pointer, eg <placeholder-1/>. In C++, the function can alternatively declare a reference parameter: <placeholder-2/>."
-msgstr ""
+msgstr "C에서는 함수에서 변수 내용을 바꿔야 하면 <placeholder-1/>처럼 매개변수를 포인터로 해야 합니다. C++에서는 다른 방법으로 <placeholder-2/>처럼 매개변수를 참조자로 선언할 수 있습니다."
 
 #: cppguide.xml:1553(code)
 msgid "(*pval)++"
@@ -1593,15 +1593,15 @@ msgstr "NULL"
 
 #: cppguide.xml:1551(PROS)
 msgid "Defining a parameter as reference avoids ugly code like <placeholder-1/>. Necessary for some applications like copy constructors. Makes it clear, unlike with pointers, that <placeholder-2/> is not a possible value."
-msgstr ""
+msgstr "매개변수를 참조자로 선언하면 <placeholder-1/>와 같이 깔끔하지 못한 코드를 피할 수 있습니다. 복사 생성자처럼 어떤 응용 프로그램에서는 필수이다. 포인터와 달리 <placeholder-2/>을 사용할 수 없다는 것을 명확히 할 수 있습니다."
 
 #: cppguide.xml:1557(CONS)
 msgid "References can be confusing, as they have value syntax but pointer semantics."
-msgstr ""
+msgstr "참조자는 문법적으로는 값처럼 보이지만 의미적으로는 포인터이므로 혼란스러울 수 있습니다."
 
 #: cppguide.xml:1562(p)
 msgid "Within function parameter lists all references must be <placeholder-1/>:"
-msgstr ""
+msgstr "함수 매개변수에서 모든 참조자는 <placeholder-1/>여야 한다."
 
 #: cppguide.xml:1566(CODE_SNIPPET)
 msgid "void Foo(const string &amp;in, string *out);"
@@ -1609,7 +1609,7 @@ msgstr ""
 
 #: cppguide.xml:1569(p)
 msgid "In fact it is a very strong convention in Google code that input arguments are values or <placeholder-1/> references while output arguments are pointers. Input parameters may be <placeholder-2/> pointers, but we never allow non-<placeholder-3/> reference parameters."
-msgstr ""
+msgstr "사실 구글 코드에서는 입력 인자를 값 또는 <placeholder-1/> 참조자로, 출력 인자를 포인터로 사용하는 것이 관례로 매우 강하게 굳어져 있습니다. 입력 매개변수로 <placeholder-2/> 포인터를 쓸 수는 있지만 <placeholder-2/>가 아닌 참조자 매개변수는 절대로 안 됩니다."
 
 #: cppguide.xml:1581(code)
 msgid "bind2nd"
@@ -1621,7 +1621,7 @@ msgstr "mem_fun"
 
 #: cppguide.xml:1576(p)
 msgid "One case when you might want an input parameter to be a <placeholder-1/> pointer is if you want to emphasize that the argument is not copied, so it must exist for the lifetime of the object; it is usually best to document this in comments as well. STL adapters such as <placeholder-2/> and <placeholder-3/> do not permit reference parameters, so you must declare functions with pointer parameters in these cases, too."
-msgstr ""
+msgstr "입력 매개변수로 <placeholder-1/> 포인터를 사용할 수도 있는 경우 중 하나는 그 인자를 복사할 수 없다는 것을 강조하고 싶을 때입니다. 그러므로 그 객체는 생명주기 동안 반드시 존재해야 합니다. 물론 이런 내용을 주석으로 기록하는 것 역시 좋습니다. <placeholder-2/>와 <placeholder-3/>과 같은 STL 어댑터는 참조 매개변수를 허용하지 않으므로 이 때는 포인터를 매개변수로 사용해 함수 선언을 해야 합니다."
 
 #: cppguide.xml:1591(SUMMARY)
 msgid "Use overloaded functions (including constructors) only if a reader looking at a call site can get a good idea of what is happening without having to first figure out exactly which overload is being called."
@@ -1637,7 +1637,7 @@ msgstr "const char*"
 
 #: cppguide.xml:1599(p)
 msgid "You may write a function that takes a <placeholder-1/> and overload it with another that takes <placeholder-2/>."
-msgstr ""
+msgstr "<placeholder-1/>를 취하는 함수를 만든 다음 <placeholder-2/>를 취하는 다른 함수를 중복 정의할 수 있습니다."
 
 #: cppguide.xml:1604(CODE_SNIPPET)
 msgid "class MyClass { public: void Analyze(const string &amp;text); void Analyze(const char *text, size_t textlen); };"
@@ -1645,11 +1645,11 @@ msgstr ""
 
 #: cppguide.xml:1612(PROS)
 msgid "Overloading can make code more intuitive by allowing an identically-named function to take different arguments. It may be necessary for templatized code, and it can be convenient for Visitors."
-msgstr ""
+msgstr "중복 정의를 사용하면 이름은 같으나 취하는 인자가 다른 함수를 만들 수 있어 코드를 더 직관적으로 만들 수 있습니다. 중복 정의는 템플릿 코드에서 사용할 수 있고 비지터(visitor) 패턴에서 편리합니다."
 
 #: cppguide.xml:1618(CONS)
 msgid "If a function is overloaded by the argument types alone, a reader may have to understand C++'s complex matching rules in order to tell what's going on. Also many people are confused by the semantics of inheritance if a derived class overrides only some of the variants of a function."
-msgstr ""
+msgstr "인자 타입만으로 함수를 중복 정의했을 때 어떤 일이 생기는지 알려면 복잡한 C++ 일치 규칙을 알아야 할 수 있습니다. 게다가 어떤 함수의 여러 변형 중 일부만을 파생 클래스에서 재정의(override)해 상속하면 많은 이들이 혼란스러워 합니다."
 
 #: cppguide.xml:1628(code)
 msgid "AppendString()"
@@ -1665,7 +1665,7 @@ msgstr "Append()"
 
 #: cppguide.xml:1625(DECISION)
 msgid "If you want to overload a function, consider qualifying the name with some information about the arguments, e.g., <placeholder-1/>, <placeholder-2/> rather than just <placeholder-3/>."
-msgstr ""
+msgstr "함수를 중복 정의하고 싶으면 <placeholder-3/>로만 쓰는 대신 <placeholder-3/>, <placeholder-3/>처럼 인자에 대한 정보를 이름에 붙이는 것을 고려해 봅니다."
 
 #: cppguide.xml:1636(SUMMARY)
 msgid "We do not allow default function parameters, except in a few uncommon situations explained below."
@@ -1673,19 +1673,19 @@ msgstr "아래에서 설명된 몇개의 일반적이지 않은 상황을 제외
 
 #: cppguide.xml:1641(PROS)
 msgid "Often you have a function that uses lots of default values, but occasionally you want to override the defaults. Default parameters allow an easy way to do this without having to define many functions for the rare exceptions."
-msgstr ""
+msgstr "기본값을 많이 사용하는 함수를 종종 사용하면서 때때로 그 기본값을 재정의하고 싶을 수 있습니다. 기본 매개변수를 사용하면 잘 쓰지 않는 많은 함수를 정의하지 않고도 그런 일을 쉽게 할 수 있습니다."
 
 #: cppguide.xml:1647(CONS)
 msgid "People often figure out how to use an API by looking at existing code that uses it. Default parameters are more difficult to maintain because copy-and-paste from previous code may not reveal all the parameters. Copy-and-pasting of code segments can cause major problems when the default arguments are not appropriate for the new code."
-msgstr ""
+msgstr "API를 어떻게 사용하는지 이해할 때는 흔히 그것을 사용하는 기존 코드를 살펴봅니다. 기본 매개변수를 사용하면 복사 후 붙여 넣기 할 때 이전 코드에 모든 매개변수가 나타나지 않을 수 있으므로 유지보수하기 더 어렵습니다. 기본 인자가 새 코드에 적절하지 않을 때 코드 조각을 복사 후 붙여 넣기 하면 큰 문제가 생길 수 있습니다."
 
 #: cppguide.xml:1657(p)
 msgid "Except as described below, we require all arguments to be explicitly specified, to force programmers to consider the API and the values they are passing for each argument rather than silently accepting defaults they may not be aware of."
-msgstr ""
+msgstr "아래 설명한 경우를 제외하고 모든 인자는 명시적으로 지정해, 프로그래머가 모르는 사이 기본 값을 적용하기보다 API와 각 인자에 전달하는 값에 주의할 수 있게 강제합니다."
 
 #: cppguide.xml:1663(p)
 msgid "One specific exception is when default arguments are used to simulate variable-length argument lists."
-msgstr ""
+msgstr "특정 예외 한가지는 변수 길이 인자 목록을 시뮬레이션 하는데 기본 인자를 사용할 때입니다."
 
 #: cppguide.xml:1667(CODE_SNIPPET)
 msgid "// Support up to 4 params by using a default empty AlphaNum. string StrCat(const AlphaNum &amp;a, const AlphaNum &amp;b = gEmptyAlphaNum, const AlphaNum &amp;c = gEmptyAlphaNum, const AlphaNum &amp;d = gEmptyAlphaNum);"
@@ -1702,11 +1702,11 @@ msgstr "variable-length arrays 혹은 <placeholder-1/>를 허용하지 않습니
 
 #: cppguide.xml:1683(PROS)
 msgid "Variable-length arrays have natural-looking syntax. Both variable-length arrays and <placeholder-1/> are very efficient."
-msgstr ""
+msgstr "Variable-length arrays는 문법이 자연스러워 보입니다. variable-length arrays와 <placeholder-1/>는 모두 매우 효율적입니다."
 
 #: cppguide.xml:1688(CONS)
 msgid "Variable-length arrays and alloca are not part of Standard C++. More importantly, they allocate a data-dependent amount of stack space that can trigger difficult-to-find memory overwriting bugs: \"It ran fine on my machine, but dies mysteriously in production\"."
-msgstr ""
+msgstr "Variable-length arrays과 alloca()는 표준 C++ 부분이 아닙니다. 더 중요한 것은, 데이터 크기에 의존해 스택에 공간을 할당하며 메모리를 덮어쓰는 찾기 어려운 버그를 일으킬 수 있다는 점입니다. 즉 다음과 같은 상황입니다. \"내 컴퓨터에서는 잘 동작하는데 실제 제품에서는 이상하게 종료됩니다.\""
 
 #: cppguide.xml:1698(code)
 msgid "scoped_array"
@@ -1714,7 +1714,7 @@ msgstr "scoped_array"
 
 #: cppguide.xml:1696(DECISION)
 msgid "Use a safe allocator instead, such as <placeholder-1/>/<placeholder-2/>."
-msgstr ""
+msgstr "대신 <placeholder-1/>/<placeholder-2/>처럼 안전한 할당자를 사용하십시오."
 
 #: cppguide.xml:1705(code)
 #: cppguide.xml:1713(code)
@@ -1731,11 +1731,11 @@ msgstr ""
 
 #: cppguide.xml:1709(p)
 msgid "Friends should usually be defined in the same file so that the reader does not have to look in another file to find uses of the private members of a class. A common use of <placeholder-1/> is to have a <placeholder-2/> class be a friend of <placeholder-3/> so that it can construct the inner state of <placeholder-4/> correctly, without exposing this state to the world. In some cases it may be useful to make a unittest class a friend of the class it tests."
-msgstr ""
+msgstr "일반적으로 프렌드는 같은 파일에서 정의하므로 다른 파일을 살펴보지 않아도 클래스에서 private 멤버를 사용하는 것을 알 수 있습니다. <placeholder-1/>를 사용하는 일반적인 방법은 <placeholder-2/> 클래스를 <placeholder-3/>의 프렌드로 만들어 <placeholder-3/>의 내부 상태를 밖으로 드러내지 않고도 그 상태를 올바르게 만들 수 있게 하는 것입니다. 때로는 단위 테스트 클래스를 테스트할 클래스의 프렌드로 만드는 것이 유용할 수도 있습니다."
 
 #: cppguide.xml:1719(p)
 msgid "Friends extend, but do not break, the encapsulation boundary of a class. In some cases this is better than making a member public when you want to give only one other class access to it. However, most classes should interact with other classes solely through their public members."
-msgstr ""
+msgstr "프렌드는 클래스의 캡슐화 범위를 넓히지만 망가뜨리지는 않습니다. 어떤 경우에는 멤버를 public으로 하는 것보다 다른 클래스 하나에서만 접근할 수 있게 하는 게 더 좋습니다. 하지만 대부분의 클래스에서는 public 멤버를 통해서 다른 클래스와 상호작용 하도록 하는 게 좋습니다."
 
 #: cppguide.xml:1730(SUMMARY)
 msgid "We do not use C++ exceptions."
@@ -1743,7 +1743,7 @@ msgstr "C++ 예외를 사용하지 않을 것입니다."
 
 #: cppguide.xml:1736(li)
 msgid "Exceptions allow higher levels of an application to decide how to handle \"can't happen\" failures in deeply nested functions, without the obscuring and error-prone bookkeeping of error codes."
-msgstr ""
+msgstr "예외를 사용하면 오류 코드를 사용할 때 생길 수 있는 불명확함이나 오류를 만들기 쉬운 문제 없이, 깊게 중첩된 함수에서 \"생기지 않아야 할\" 실패를 어떻게 처리할지 응용 프로그램의 더 상위 수준에서 결정할 수 있다."
 
 #: cppguide.xml:1743(li)
 msgid "Exceptions are used by most other modern languages. Using them in C++ would make it more consistent with Python, Java, and the C++ that others are familiar with."
