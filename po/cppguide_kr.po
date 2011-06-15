@@ -1747,19 +1747,19 @@ msgstr "예외를 사용하면 오류 코드를 사용할 때 생길 수 있는 
 
 #: cppguide.xml:1743(li)
 msgid "Exceptions are used by most other modern languages. Using them in C++ would make it more consistent with Python, Java, and the C++ that others are familiar with."
-msgstr ""
+msgstr "예외는 현대 언어 대부분에서 사용됩니다. C++에서 사용함으로써 파이썬, 자바와 더 일관성 있게 되고 다른 언어에서도 C++에 더 친숙하게 됩니다."
 
 #: cppguide.xml:1747(li)
 msgid "Some third-party C++ libraries use exceptions, and turning them off internally makes it harder to integrate with those libraries."
-msgstr ""
+msgstr "일부 서드 파티 C++ 라이브러리에서는 예외를 사용하므로 내부적으로 그 기능을 끄고 통합하기 더 어렵습니다."
 
 #: cppguide.xml:1751(li)
 msgid "Exceptions are the only way for a constructor to fail. We can simulate this with a factory function or an <placeholder-1/> method, but these require heap allocation or a new \"invalid\" state, respectively."
-msgstr ""
+msgstr "예외는 생성자에서 실패를 알리는 유일한 방법입니다. 이를 팩토리 함수나 <placeholder-1/> 메소드로 시뮬레이션 할 수 있지만 이 역시 각각 힙을 할당하거나 새로운 \"무효(invalid)\" 상태를 만들어야 합니다."
 
 #: cppguide.xml:1756(li)
 msgid "Exceptions are really handy in testing frameworks."
-msgstr ""
+msgstr "예외는 테스트 프레임워크에서 정말 간편합니다."
 
 #: cppguide.xml:1761(code)
 msgid "throw"
@@ -1791,39 +1791,39 @@ msgstr "g"
 
 #: cppguide.xml:1761(li)
 msgid "When you add a <placeholder-1/> statement to an existing function, you must examine all of its transitive callers. Either they must make at least the basic exception safety guarantee, or they must never catch the exception and be happy with the program terminating as a result. For instance, if <placeholder-2/> calls <placeholder-3/> calls <placeholder-4/>, and <placeholder-5/> throws an exception that <placeholder-6/> catches, <placeholder-7/> has to be careful or it may not clean up properly."
-msgstr ""
+msgstr "기존 함수에 <placeholder-1/> 문을 추가하면 중간에 호출하는 곳을 모두 살펴봐야 합니다. 호출하는 곳에서 적어도 기본 예외 안전성을 반드시 보장하도록 하든지 예외를 잡지 않아 결과적으로 프로그램을 종료하도록 해야 합니다. 예를 들어 <placeholder-2/>에서 <placeholder-3/>를 호출하고 <placeholder-4/>를 호출할 때, <placeholder-6/>에서 잡을 수 있는 예외를 <placeholder-5/>에서 발생하면 <placeholder-7/>에서는 조심스럽게 처리하든지 적절히 처리하지 못할 수 있습니다."
 
 #: cppguide.xml:1771(li)
 msgid "More generally, exceptions make the control flow of programs difficult to evaluate by looking at code: functions may return in places you don't expect. This causes maintainability and debugging difficulties. You can minimize this cost via some rules on how and where exceptions can be used, but at the cost of more that a developer needs to know and understand."
-msgstr ""
+msgstr "더 일반적으로 예외를 사용하면 코드를 살펴볼 때 프로그램 제어 흐름을 알기 어렵게 합니다. 생각하지 않은 곳에서 함수를 반환할 수 있기 때문입니다. 이 때문에 유지보수성과 디버깅이 어려워집니다. 예외를 어디서 어떻게 써야 하는지 규칙을 정해 이런 비용을 최소화할 수 있지만 개발자가 그 규칙을 알고 이해하는데 더 많은 비용이 듭니다."
 
 #: cppguide.xml:1779(li)
 msgid "Exception safety requires both RAII and different coding practices. Lots of supporting machinery is needed to make writing correct exception-safe code easy. Further, to avoid requiring readers to understand the entire call graph, exception-safe code must isolate logic that writes to persistent state into a \"commit\" phase. This will have both benefits and costs (perhaps where you're forced to obfuscate code to isolate the commit). Allowing exceptions would force us to always pay those costs even when they're not worth it."
-msgstr ""
+msgstr "예외 안전성은 RAII와 다른 코딩 사례 모두에서 필요합니다. 예외를 지원하는 많은 컴퓨터에서 예외 안전한 코드를 올바르고 쉽게 만들 수 있도록 해야 합니다. 더욱이 개발자가 전체 호출 경로를 이해하지 않아도 되도록 예외 안전한 코드에서는 로직을 영속적인 상태로 작성하고, \"발생(commit)\" 단계로 고립시켜야 합니다. 이렇게 함으로써 이점과 (어쩌면 발생 단계로 고립시켜 코드를 난해하게 만드는) 비용이 모두 생깁니다. 예외를 사용하면 그 것이 가치가 없을지라도 항상 그런 비용을 지불하도록 강제합니다."
 
 #: cppguide.xml:1790(li)
 msgid "Turning on exceptions adds data to each binary produced, increasing compile time (probably slightly) and possibly increasing address space pressure."
-msgstr ""
+msgstr "예외를 켜면 생성한 각 바이너리에 데이터를 추가해 컴파일 시간이 (아마도 약간) 늘어날 것이고 주소 공간에 대한 압박이 증가할 수 있습니다."
 
 #: cppguide.xml:1795(li)
 msgid "The availability of exceptions may encourage developers to throw them when they are not appropriate or recover from them when it's not safe to do so. For example, invalid user input should not cause exceptions to be thrown. We would need to make the style guide even longer to document these restrictions!"
-msgstr ""
+msgstr "예외를 사용할 수 있으면 예외를 발생하는 것이 적합하지 않거나 예외에서 회복하는 것이 안전하지 않을 때에도 개발자가 그렇게 하도록 할 수 있습니다. 예를 들어 사용자가 잘못 입력했을 때는 예외를 발생하지 않아야 합니다. 이러한 제한에 대해 더 길더라도 스타일 안내서를 문서화해야 합니다!"
 
 #: cppguide.xml:1804(p)
 msgid "On their face, the benefits of using exceptions outweigh the costs, especially in new projects. However, for existing code, the introduction of exceptions has implications on all dependent code. If exceptions can be propagated beyond a new project, it also becomes problematic to integrate the new project into existing exception-free code. Because most existing C++ code at Google is not prepared to deal with exceptions, it is comparatively difficult to adopt new code that generates exceptions."
-msgstr ""
+msgstr "각자 상황에서는 예외를 사용해 얻는 이점이 비용보다 더 크며 특히 새 프로젝트에서 더 그렇습니다. 하지만 기존 코드에 예외를 도입하면 의존하는 모든 코드에 영향을 미칩니다. 새 프로젝트에만 한정해 예외를 쓰는 게 아니라면 예외를 사용하지 않는 기존 코드에 새 프로젝트를 통합하는 것 역시 문제가 됩니다. 구글에서 만든 대부분의 C++ 코드는 예외를 처리할 수 있도록 되어 있지 않으므로 예외를 발생하는 새 코드를 도입하는 것이 상대적으로 어렵습니다."
 
 #: cppguide.xml:1815(p)
 msgid "Given that Google's existing code is not exception-tolerant, the costs of using exceptions are somewhat greater than the costs in a new project. The conversion process would be slow and error-prone. We don't believe that the available alternatives to exceptions, such as error codes and assertions, introduce a significant burden."
-msgstr ""
+msgstr "구글에서 만든 기존 코드는 예외와 잘 어울리지 않으므로 예외를 사용하는 비용이 새 프로젝트에서 드는 것보다 다소 더 클 수 있습니다. 또한 변환 과정 역시 느리고 오류도 발생하기 쉽습니다. 예외는 큰 부담이 생기지만 오류 코드와 단정문 정도로 예외를 대체할 수 있는 방법이 있다고는 생각하지 않습니다."
 
 #: cppguide.xml:1824(p)
 msgid "Our advice against using exceptions is not predicated on philosophical or moral grounds, but practical ones. Because we'd like to use our open-source projects at Google and it's difficult to do so if those projects use exceptions, we need to advise against exceptions in Google open-source projects as well. Things would probably be different if we had to do it all over again from scratch."
-msgstr ""
+msgstr "예외 사용에 대해 할 수 있는 조언은 철학이나 도덕에 근거한 것이 아니라 실용주의적입니다. 구글에서는 자체적으로 만든 오픈 소스 프로젝트를 사용하길 좋아하는데 그런 프로젝트에서 예외를 사용하면 그렇게 하기 어려우므로 구글 오픈 소스 프로젝트에서도 예외에 대한 조언이 필요합니다. 처음부터 다시 모든 것에 대해 그렇게 해 왔다면 아마 좀 달랐을 것입니다."
 
 #: cppguide.xml:1835(p)
 msgid "There is an <placeholder-1/> to this rule (no pun intended) for Windows code."
-msgstr ""
+msgstr "윈도 코드에서는 이 규칙에 <placeholder-1/>가 있습니다."
 
 #: cppguide.xml:1844(SUMMARY)
 msgid "We do not use Run Time Type Information (RTTI)."
@@ -1835,31 +1835,31 @@ msgstr "RTTI는 런타임시에 프로그래머가 객체의 C++ 클래스가 �
 
 #: cppguide.xml:1853(p)
 msgid "It is useful in some unittests. For example, it is useful in tests of factory classes where the test has to verify that a newly created object has the expected dynamic type."
-msgstr ""
+msgstr "일부 단위 테스트에서 유용합니다. 예를 들면 새로 생성한 객체가 기대한 동적 타입인지 검증하는 테스트를 실행하는 팩토리 클래스의 테스트에서 유용합니다."
 
 #: cppguide.xml:1858(p)
 msgid "In rare circumstances, it is useful even outside of tests."
-msgstr ""
+msgstr "드물게 심지어 테스트 외에도 유용합니다."
 
 #: cppguide.xml:1863(CONS)
 msgid "A query of type during run-time typically means a design problem. If you need to know the type of an object at runtime, that is often an indication that you should reconsider the design of your class."
-msgstr ""
+msgstr "실행 중에 타입을 확인해야 한다는 것은 설계에 문제가 있다는 걸 뜻합니다. 실행 중에 객체 타입을 알아야 한다면 종종 클래스 설계를 다시 해야 한다는 것을 나타냅니다."
 
 #: cppguide.xml:1870(p)
 msgid "Do not use RTTI, except in unittests. If you find yourself in need of writing code that behaves differently based on the class of an object, consider one of the alternatives to querying the type."
-msgstr ""
+msgstr "단위 테스트가 아니면 RTTI를 사용하지 않습니다. 해당 객체의 클래스에 따라 다르게 동작하는 코드를 만들어야 한다면 타입을 확인하는 다른 방법을 고려합니다."
 
 #: cppguide.xml:1876(p)
 msgid "Virtual methods are the preferred way of executing different code paths depending on a specific subclass type. This puts the work within the object itself."
-msgstr ""
+msgstr "가상 메소드는 특정 하위 클래스 타입에 따라 다른 코드를 실행할 수 있는 더 좋은 방법입니다. 이는 그런 동작을 객체 내에 넣습니다."
 
 #: cppguide.xml:1881(p)
 msgid "If the work belongs outside the object and instead in some processing code, consider a double-dispatch solution, such as the Visitor design pattern. This allows a facility outside the object itself to determine the type of class using the built-in type system."
-msgstr ""
+msgstr "만약 그런 동작이 객체에 속하지 않으나 대신 어떤 처리 코드(processing code)에 속한다면 비지터 디자인 패턴과 같은 이중 호출(double-dispatch) 해법을 고려합니다. 이를 사용하면 내장 타입 시스템을 사용하는 클래스 타입을 결정하는데 객체에 속하지 않는 방법을 사용할 수 있습니다."
 
 #: cppguide.xml:1888(p)
 msgid "If you think you truly cannot use those ideas, you may use RTTI. But think twice about it. :-) Then think twice again. Do not hand-implement an RTTI-like workaround. The arguments against RTTI apply just as much to workarounds like class hierarchies with type tags."
-msgstr ""
+msgstr "이런 아이디어를 정말로 사용할 수 없다고 생각하면 RTTI를 사용할 수도 있습니다. 하지만 그에 대해서는 두 배로 생각합니다. :-) 그런 다음 또 두 배 더 생각한다. Do not hand-implement an RTTI-like workaround. The arguments against RTTI apply just as much to workarounds like class hierarchies with type tags."
 
 #: cppguide.xml:1903(code)
 msgid "static_cast&lt;&gt;()"
@@ -1990,7 +1990,7 @@ msgstr "%1s"
 
 #: cppguide.xml:1973(CONS)
 msgid "Streams make it difficult to do functionality like <placeholder-1/>. Some formatting (particularly the common format string idiom <placeholder-2/>) is difficult if not impossible to do efficiently using streams without using <placeholder-3/>-like hacks. Streams do not support operator reordering (the <placeholder-4/> directive), which is helpful for internationalization."
-msgstr ""
+msgstr "스트림은 <placeholder-1/>처럼 다루기 어렵습니다. <placeholder-3/>를 사용하지 않고 스트림을 사용해 효율적으로 처리하는 게 불가능하지 않을지라도, 특히 일반적인 형식 문자열 관용구인 <placeholder-2/>처럼 어떤 형식 문자열은 어렵습니다. 국제화에 많이 도움되는 <placeholder-4/> 지시자 같은 재정렬 연산자를 스트림에서는 지원하지 않습니다."
 
 #: cppguide.xml:1984(p)
 msgid "Do not use streams, except where required by a logging interface. Use <placeholder-1/>-like routines instead."
@@ -1998,15 +1998,15 @@ msgstr "로깅 인터페이스에 의해서 필요로 하는 곳을 제외하고
 
 #: cppguide.xml:1988(p)
 msgid "There are various pros and cons to using streams, but in this case, as in many other cases, consistency trumps the debate. Do not use streams in your code."
-msgstr ""
+msgstr "스트림을 사용하는 데에는 다양한 장단점이 있으나 이 역시 다른 많은 경우에서처럼 일관성이 가장 중요합니다. 코드에 스트림을 사용하지 마십시오."
 
 #: cppguide.xml:1995(p)
 msgid "There has been debate on this issue, so this explains the reasoning in greater depth. Recall the Only One Way guiding principle: we want to make sure that whenever we do a certain type of I/O, the code looks the same in all those places. Because of this, we do not want to allow users to decide between using streams or using <placeholder-1/> plus Read/Write/etc. Instead, we should settle on one or the other. We made an exception for logging because it is a pretty specialized application, and for historical reasons."
-msgstr ""
+msgstr "여기에는 논쟁이 있으므로 그 논거를 더 깊게 설명합니다. 단 한 가지 방법을 사용한다는 지침을 떠 올려 봅시다. 즉 어떤 타입의 I/O를 처리하는 모든 곳에서 코드가 같게 보이도록 하고 싶습니다. 그러므로 스트림을 사용할지 <placeholder-1/>에 읽기/쓰기를 함께 사용할지 사용자가 선택하도록 하고 싶진 않으며, 대신 둘 중 하나를 선택해야 합니다. 이는 매우 특수한 경우이며 역사적인 이유로 로그를 기록하는 것은 예외로 했습니다."
 
 #: cppguide.xml:2007(p)
 msgid "Proponents of streams have argued that streams are the obvious choice of the two, but the issue is not actually so clear. For every advantage of streams they point out, there is an equivalent disadvantage. The biggest advantage is that you do not need to know the type of the object to be printing. This is a fair point. But, there is a downside: you can easily use the wrong type, and the compiler will not warn you. It is easy to make this kind of mistake without knowing when using streams."
-msgstr ""
+msgstr "스트림을 옹호하는 쪽에서는 둘 중 스트림을 선택하는 게 명확하다고 주장하지만 이 문제는 사실 그렇게 명확하지 않습니다. 스트림을 사용할 때 얻는 장점 각각에 대해 단점 역시 모두 있습니다. 가장 큰 장점은 출력할 객체 타입을 몰라도 된다는 것입니다. 이는 대단한 것입니다. 하지만 역으로 잘못된 타입을 사용하기 쉽고 컴파일러에서는 그에 대해 경고하지 않습니다. 즉 스트림을 사용할 때는 이런 실수를 모르고 하기 쉽습니다."
 
 #: cppguide.xml:2018(CODE_SNIPPET)
 msgid "cout &lt;&lt; this; // Prints the address cout &lt;&lt; *this; // Prints the contents"
@@ -2018,11 +2018,11 @@ msgstr "&lt;&lt;"
 
 #: cppguide.xml:2022(p)
 msgid "The compiler does not generate an error because <placeholder-1/> has been overloaded. We discourage overloading for just this reason."
-msgstr ""
+msgstr "<placeholder-1/>를 중복 정의했기 때문에 컴파일러에서는 오류를 발생하지 않는다. 이 때문에 중복 정의를 권하지 않는다."
 
 #: cppguide.xml:2027(p)
 msgid "Some say <placeholder-1/> formatting is ugly and hard to read, but streams are often no better. Consider the following two fragments, both with the same typo. Which is easier to discover?"
-msgstr ""
+msgstr "일부는 <placeholder-1/> 형식 문자열이 보기 안 좋고 읽기도 어렵다고 합니다. 하지만 스트림은 때때로 더 안 좋습니다. 다음 두 코드 조각을 살펴봅시다. 둘 모두 같은 의미입니다. 어느 것이 이해하기 더 쉬울까요? "
 
 #: cppguide.xml:2033(CODE_SNIPPET)
 msgid "cerr &lt;&lt; \"Error connecting to '\" &lt;&lt; foo-&gt;bar()-&gt;hostname.first &lt;&lt; \":\" &lt;&lt; foo-&gt;bar()-&gt;hostname.second &lt;&lt; \": \" &lt;&lt; strerror(errno); fprintf(stderr, \"Error connecting to '%s:%u: %s\", foo-&gt;bar()-&gt;hostname.first, foo-&gt;bar()-&gt;hostname.second, strerror(errno));"
@@ -2030,7 +2030,7 @@ msgstr ""
 
 #: cppguide.xml:2041(p)
 msgid "And so on and so forth for any issue you might bring up. (You could argue, \"Things would be better with the right wrappers,\" but if it is true for one scheme, is it not also true for the other? Also, remember the goal is to make the language smaller, not add yet more machinery that someone has to learn.)"
-msgstr ""
+msgstr "기타 등등의 다른 문제를 거론할 수도 있습니다 (\"올바른 래퍼를 사용하는 게 더 좋습니다.\"라고 주장할 수도 있습니다. 하지만 그게 한 경우에 맞다고 해서 다른 경우에도 그럴까요? 게다가 누구간 배워야 할 것을 더 추가하는 게 아니라 이 언어를 더 작게 만드는 게 목적이라는 걸 기억해야 합니다)."
 
 #: cppguide.xml:2054(code)
 msgid "read"
@@ -2042,7 +2042,7 @@ msgstr "write"
 
 #: cppguide.xml:2049(p)
 msgid "Either path would yield different advantages and disadvantages, and there is not a clearly superior solution. The simplicity doctrine mandates we settle on one of them though, and the majority decision was on <placeholder-1/> + <placeholder-2/>/<placeholder-3/>."
-msgstr ""
+msgstr "어느 것이든 서로 다른 장단점이 있으며 명확히 더 우월한 해결책은 없습니다. 단순주의에 따라 그 중 하나를 선택해야 하며 결정은 <placeholder-1/> + <placeholder-2/>/<placeholder-3/> 였습니다."
 
 #: cppguide.xml:2063(code)
 #: cppguide.xml:2068(code)
@@ -2069,11 +2069,11 @@ msgstr "i--"
 
 #: cppguide.xml:2067(DEFINITION)
 msgid "When a variable is incremented (<placeholder-1/> or <placeholder-2/>) or decremented (<placeholder-3/> or <placeholder-4/>) and the value of the expression is not used, one must decide whether to preincrement (decrement) or postincrement (decrement)."
-msgstr ""
+msgstr "변수를 증가(<placeholder-1/> 또는 <placeholder-2/>) 또는 감소(<placeholder-3/> 또는 <placeholder-4/>)할 때 그 값을 표현식에서 사용하지 않으면 전위 증가(감소) 또는 후위 증가(감소) 중 하나를 선택하면 됩니다."
 
 #: cppguide.xml:2074(PROS)
 msgid "When the return value is ignored, the \"pre\" form (<placeholder-1/>) is never less efficient than the \"post\" form (<placeholder-2/>), and is often more efficient. This is because post-increment (or decrement) requires a copy of <placeholder-3/> to be made, which is the value of the expression. If <placeholder-4/> is an iterator or other non-scalar type, copying <placeholder-5/> could be expensive. Since the two types of increment behave the same when the value is ignored, why not just always pre-increment?"
-msgstr ""
+msgstr "반환 값을 사용하지 않을 때 \"전위\"형(<placeholder-1/>)은 \"후위\"형(<placeholder-2/>)보다 효율이 떨어지지 않으며 종종 더 효율적입니다. 이는 후위 증가(또는 감소)를 할 때는 표현식에서 사용하기 위해 <placeholder-3/>에 대한 복사본을 만들어야 하기 때문입니다. <placeholder-4/>가 반복자나 스칼라(scalar)가 아닌 타입이면 <placeholder-5/>를 복사하는 데에 비용이 많이 듭니다. 두 가지 증가 형식은 그 값을 사용하지 않을 때 똑같이 동작하는데 항상 전위 증가를 사용하지 않을 이유가 있을까요?"
 
 #: cppguide.xml:2089(code)
 msgid "++"
@@ -2081,11 +2081,11 @@ msgstr "++"
 
 #: cppguide.xml:2085(CONS)
 msgid "The tradition developed, in C, of using post-increment when the expression value is not used, especially in <placeholder-1/> loops. Some find post-increment easier to read, since the \"subject\" (<placeholder-2/>) precedes the \"verb\" (<placeholder-3/>), just like in English."
-msgstr ""
+msgstr "전통적으로 C로 개발해 오면서 표현식 값을 사용하지 않을 때는 후위 증가를 사용했으며 특히 <placeholder-1/> 루프에서 그렇습니다. 일부는 후위 증가를 사용하는 게 더 읽기 쉽다는 것을 압니다. 영어처럼 \"주어\"(<placeholder-2/>)가 \"동사\"(<placeholder-3/>)보다 앞에 나오기 때문입니다."
 
 #: cppguide.xml:2092(DECISION)
 msgid "For simple scalar (non-object) values there is no reason to prefer one form and we allow either. For iterators and other template types, use pre-increment."
-msgstr ""
+msgstr "객체가 아닌 단순 스칼라 값일 때는 어느 것을 쓰든 괜찮습니다. 반복자와 템플릿 타입에 대해서는 전위 증가를 사용합니다"
 
 #: cppguide.xml:2101(SUMMARY)
 msgid "We strongly recommend that you use <placeholder-1/> whenever it makes sense to do so."
@@ -2101,31 +2101,31 @@ msgstr "class Foo { int Bar(char c) const; };"
 
 #: cppguide.xml:2106(DEFINITION)
 msgid "Declared variables and parameters can be preceded by the keyword <placeholder-1/> to indicate the variables are not changed (e.g., <placeholder-2/>). Class functions can have the <placeholder-3/> qualifier to indicate the function does not change the state of the class member variables (e.g., <placeholder-4/>)."
-msgstr ""
+msgstr "변수와 매개변수를 선언할 때 <placeholder-2/>처럼 <placeholder-1/>를 앞에 둬 그 변수가 바뀌지 않는다는 것을 나타낼 수 있습니다. <placeholder-4/>처럼 클래스 함수에 <placeholder-3/> 한정자를 사용해 그 함수에서 해당 클래스 멤버 변수 상태를 바꾸지 않는다는 것을 나타낼 수 있습니다."
 
 #: cppguide.xml:2115(PROS)
 msgid "Easier for people to understand how variables are being used. Allows the compiler to do better type checking, and, conceivably, generate better code. Helps people convince themselves of program correctness because they know the functions they call are limited in how they can modify your variables. Helps people know what functions are safe to use without locks in multi-threaded programs."
-msgstr ""
+msgstr "변수를 어떻게 사용하는지 더 쉽게 이해할 수 있습니다. 컴파일러에서 타입 검사를 더 잘 할 수 있으며 더 나은 코드를 만들게 합니다. 호출하는 함수에서 변수를 바꾸는데 제한이 있는지 알 수 있으므로 프로그램이 올바른지 파악하는데 도움이 됩니다. 다중 스레드 프로그램에서 어떤 함수를 잠김 현상 없이 사용할 수 있는지 아는데 도움이 됩니다."
 
 #: cppguide.xml:2124(CONS)
 msgid "<placeholder-1/> is viral: if you pass a <placeholder-2/> variable to a function, that function must have <placeholder-3/> in its prototype (or the variable will need a <placeholder-4/>). This can be a particular problem when calling library functions."
-msgstr ""
+msgstr "<placeholder-1/>는 바이러스같습니다. <placeholder-2/> 변수를 함수에 전달하면 그 함수 역시 원형 선언(prototype)에 <placeholder-3/>를 사용해야 합니다(또는 그 변수에 <placeholder-4/>를 해야 합니다). 이는 라이브러리 함수를 호출할 때 특별한 문제가 될 수 있습니다."
 
 #: cppguide.xml:2132(p)
 msgid "<placeholder-1/> variables, data members, methods and arguments add a level of compile-time type checking; it is better to detect errors as soon as possible. Therefore we strongly recommend that you use <placeholder-2/> whenever it makes sense to do so:"
-msgstr ""
+msgstr "<placeholder-1/> 변수, 데이터 멤버, 메소드, 인자는 컴파일 시점에 타입 검사를 합니다. 가능한 빨리 오류를 찾는 게 더 낫기 때문입니다. 그러므로 타당하다면 언제나 <placeholder-2/>를 사용하기를 강하게 권합니다."
 
 #: cppguide.xml:2140(li)
 msgid "If a function does not modify an argument passed by reference or by pointer, that argument should be <placeholder-1/>."
-msgstr ""
+msgstr "함수에서 참조나 포인터로 전달한 인자를 변경하지 않으면 그 인자는 <placeholder-1/>여야 합니다."
 
 #: cppguide.xml:2144(li)
 msgid "Declare methods to be <placeholder-1/> whenever possible. Accessors should almost always be <placeholder-2/>. Other methods should be const if they do not modify any data members, do not call any non-<placeholder-3/> methods, and do not return a non-<placeholder-4/> pointer or non-<placeholder-5/> reference to a data member."
-msgstr ""
+msgstr "가능하면 언제나 메소드는 <placeholder-1/>로 선언합니다. 접근자는 거의 언제나 <placeholder-2/>여야 합니다. 다른 메소드인 경우, 데이터 멤버를 전혀 변경하지 않고 <placeholder-3/> 메소드가 아닌 것은 호출하지 않으며 <placeholder-4/>가 아닌 포인터나 <placeholder-4/>가 아닌 참조자를 데이터 멤버에 반환하지 않으면 const여야 합니다."
 
 #: cppguide.xml:2152(li)
 msgid "Consider making data members <placeholder-1/> whenever they do not need to be modified after construction."
-msgstr ""
+msgstr "생성 후 변경하지 않아도 되는 데이터 멤버는 <placeholder-1/>로 만들 것을 고려합니다."
 
 #: cppguide.xml:2159(code)
 msgid "const int * const * const x;"
@@ -2137,7 +2137,7 @@ msgstr "const int** x"
 
 #: cppguide.xml:2157(p)
 msgid "However, do not go crazy with <placeholder-1/>. Something like <placeholder-2/> is likely overkill, even if it accurately describes how const x is. Focus on what's really useful to know: in this case, <placeholder-3/> is probably sufficient."
-msgstr ""
+msgstr "하지만 <placeholder-1/>에 빠져서는 안 됩니다. <placeholder-2/>와 같은 것은 비록 const x를 아주 정확히 표현한 것이라 해도 지나칩니다. 정말로 알아야 할 것에 집중하십시오. 이 경우 <placeholder-3/>면 충분합니다."
 
 #: cppguide.xml:2165(code)
 msgid "mutable"
@@ -2145,7 +2145,7 @@ msgstr "mutable"
 
 #: cppguide.xml:2164(p)
 msgid "The <placeholder-1/> keyword is allowed but is unsafe when used with threads, so thread safety should be carefully considered first."
-msgstr ""
+msgstr "<placeholder-1/> 키워드도 쓸 수 있으나 스레드에서는 안전하지 않으므로 스레드 안전성을 먼저 조심스레 생각해야 합니다."
 
 #: cppguide.xml:2172(code)
 msgid "int const *foo"
@@ -2157,11 +2157,11 @@ msgstr "const int* foo"
 
 #: cppguide.xml:2171(p)
 msgid "Some people favor the form <placeholder-1/> to <placeholder-2/>. They argue that this is more readable because it's more consistent: it keeps the rule that <placeholder-3/> always follows the object it's describing. However, this consistency argument doesn't apply in this case, because the \"don't go crazy\" dictum eliminates most of the uses you'd have to be consistent with. Putting the <placeholder-4/> first is arguably more readable, since it follows English in putting the \"adjective\" (<placeholder-5/>) before the \"noun\" (<placeholder-6/>)."
-msgstr ""
+msgstr "일부는 <placeholder-2/>보다 <placeholder-1/>를 지지합니다. 이것이 더 일관성이 있으므로 가독성이 더 좋다고 주장합니다. 즉 <placeholder-3/>는 설명하는 대상을 항상 따른다는 규칙을 유지하기 때문이다. 하지만 일관성을 따르기 위해 해야 하는 대부분을 \"빠져들지 말라\"는 격언으로 해소할 수 있으므로 그 일관성에 관한 논거는 이 경우에 적용되지 않는다. <placeholder-4/>를 먼저 두는 것은 \"명사\"(<placeholder-6/>) 앞에 \"형용사\"(<placeholder-5/>)를 두는 영어 어순을 따르기 때문에 가독성이 더 좋다고 할 수 있다."
 
 #: cppguide.xml:2184(p)
 msgid "That said, while we encourage putting <placeholder-1/> first, we do not require it. But be consistent with the code around you!"
-msgstr ""
+msgstr "<placeholder-1/>를 먼저 넣는 것을 권장하지만, 요구하지는 않습니다. 주변의 코드와 일관성을 유지하십시오!"
 
 #: cppguide.xml:2201(code)
 #: cppguide.xml:2220(code)
@@ -4178,7 +4178,7 @@ msgstr "이 스타일 가이드를 따르지 않는 코드를 다룰 때, 이 �
 
 #: cppguide.xml:4423(p)
 msgid "If you find yourself modifying code that was written to specifications other than those presented by this guide, you may have to diverge from these rules in order to stay consistent with the local conventions in that code. If you are in doubt about how to do this, ask the original author or the person currently responsible for the code. Remember that <placeholder-1/> includes local consistency, too."
-msgstr ""
+msgstr "이 안내문에 없는 규칙으로 만든 코드를 변경할 때는 해당 코드의 지역적인 관례를 일관되게 따르기 위해 이 규칙을 벗어날 수 있다. 어떻게 해야 할지 잘 모르겠으면 원저작자나 현재 그 코드를 담당하고 있는 개발자에게 문의한다. 지역적인 일관성을 비롯해 <placeholder-1/>을 기억해야 한다."
 
 #: cppguide.xml:4438(SUMMARY)
 msgid "Windows programmers have developed their own set of coding conventions, mainly derived from the conventions in Windows headers and other Microsoft code. We want to make it easy for anyone to understand your code, so we have a single set of guidelines for everyone writing C++ on any platform."
@@ -4214,7 +4214,7 @@ msgstr "LPCTSTR"
 
 #: cppguide.xml:4456(li)
 msgid "Windows defines many of its own synonyms for primitive types, such as <placeholder-1/>, <placeholder-2/>, etc. It is perfectly acceptable, and encouraged, that you use these types when calling Windows API functions. Even so, keep as close as you can to the underlying C++ types. For example, use <placeholder-3/> instead of <placeholder-4/>."
-msgstr ""
+msgstr "윈도에서는 <placeholder-1/>, <placeholder-2/> 등과 같이 기본 타입에 많은 동의어를 정의한다. 윈도 API 함수를 호출할 때 이런 타입을 사용하는 것은 전혀 문제 없으며 권장한다. 그렇다고 하더라도 해당 C++ 타입에 가능한 가깝게 유지해야 한다. 예를 들어 <placeholder-4/> 대신에 <placeholder-3/>를 사용한다."
 
 #: cppguide.xml:4463(li)
 msgid "When compiling with Microsoft Visual C++, set the compiler to warning level 3 or higher, and treat all warnings as errors."
@@ -4258,15 +4258,15 @@ msgstr "사실, 절대적으로 사용해야되는 것이 아니면, <placeholde
 
 #: cppguide.xml:4481(p)
 msgid "However, there are just a few rules that we occasionally need to break on Windows:"
-msgstr ""
+msgstr "하지만 윈도에서는 종종 어겨야 하는 규칙도 몇 가지 있다."
 
 #: cppguide.xml:4486(a)
 msgid "forbid the use of multiple implementation inheritance"
-msgstr ""
+msgstr "다중 구현 상속의 사용을 금지합니다"
 
 #: cppguide.xml:4486(li)
 msgid "Normally we <placeholder-1/>; however, it is required when using COM and some ATL/WTL classes. You may use multiple implementation inheritance to implement COM or ATL/WTL classes and interfaces."
-msgstr ""
+msgstr "일반적으로 <placeholder-1/>; 하지만 COM과 일부 ATL/WTL 클래스를 사용할 때는 필요하다. COM 또는 ATL/WTL 클래스와 인터페이스를 구현할 때는 다중 구현 상속을 사용할 수 있다."
 
 #: cppguide.xml:4495(code)
 msgid "_ATL_NO_EXCEPTIONS"
@@ -4274,7 +4274,7 @@ msgstr "_ATL_NO_EXCEPTIONS"
 
 #: cppguide.xml:4492(li)
 msgid "Although you should not use exceptions in your own code, they are used extensively in the ATL and some STLs, including the one that comes with Visual C++. When using the ATL, you should define <placeholder-1/> to disable exceptions. You should investigate whether you can also disable exceptions in your STL, but if not, it is OK to turn on exceptions in the compiler. (Note that this is only to get the STL to compile. You should still not write exception handling code yourself.)"
-msgstr ""
+msgstr "비록 코드에 예외를 사용해서는 안 되지만 ATL과 일부 STL, Visual C++에 포함된 코드 등에서는 예외를 상당히 많이 사용한다. ATL을 사용할 때는 <placeholder-1/>를 정의해 예외를 비활성화 해야 한다. 또한 STL에서 예외를 비활성화 할 수 있는지 살펴봐야 하고 그렇게 할 수 없을 때 컴파일러에서 예외를 켜는 것은 괜찮다(이는 STL을 컴파일할 때만이며 여전히 예외 처리 코드를 작성해서는 안 된다)."
 
 #: cppguide.xml:4504(code)
 msgid "StdAfx.h"
@@ -4294,7 +4294,7 @@ msgstr "/FI"
 
 #: cppguide.xml:4502(li)
 msgid "The usual way of working with precompiled headers is to include a header file at the top of each source file, typically with a name like <placeholder-1/> or <placeholder-2/>. To make your code easier to share with other projects, avoid including this file explicitly (except in <placeholder-3/>), and use the <placeholder-4/> compiler option to include the file automatically."
-msgstr ""
+msgstr "미리 컴파일한 헤더로 작업하는 일반적인 방법은 각 소스 파일 가장 위에 헤더 파일을 포함하는 것이다. 전형적으로 그 파일 이름은 <placeholder-1/> 또는 <placeholder-2/>이다. 다른 프로젝트와 코드를 쉽게 공유할 수 있도록 이 파일을 명시적으로 포함하지 말고 (<placeholder-3/>에서 포함하는 것은 제외) 자동으로 포함하도록 <placeholder-4/> 컴파일러 옵션을 사용한다."
 
 #: cppguide.xml:4512(code)
 msgid "resource.h"
