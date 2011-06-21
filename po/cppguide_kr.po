@@ -2192,15 +2192,15 @@ msgstr "long long"
 
 #: cppguide.xml:2204(DEFINITION)
 msgid "C++ does not specify the sizes of its integer types. Typically people assume that <placeholder-1/> is 16 bits, <placeholder-2/> is 32 bits, <placeholder-3/> is 32 bits and <placeholder-4/> is 64 bits."
-msgstr ""
+msgstr "C++에서는 정수형에 크기를 지정하지 않으며 일반적으로 <placeholder-1/>는 16비트, <placeholder-2/>는 32비트, <placeholder-3/>은 32비트, <placeholder-4/>은 64비트로 간주한다."
 
 #: cppguide.xml:2210(PROS)
 msgid "Uniformity of declaration."
-msgstr ""
+msgstr "선언이 일정하다."
 
 #: cppguide.xml:2213(CONS)
 msgid "The sizes of integral types in C++ can vary based on compiler and architecture."
-msgstr ""
+msgstr "C++에서 정수형 크기가 컴파일러와 구조에 따라 바뀔 수 있다."
 
 #: cppguide.xml:2221(code)
 #: cppguide.xml:2250(code)
@@ -2231,7 +2231,7 @@ msgstr "ptrdiff_t"
 
 #: cppguide.xml:2218(p)
 msgid "<placeholder-1/> defines types like <placeholder-2/>, <placeholder-3/>, <placeholder-4/>, etc. You should always use those in preference to <placeholder-5/>, <placeholder-6/> and the like, when you need a guarantee on the size of an integer. Of the C integer types, only <placeholder-7/> should be used. When appropriate, you are welcome to use standard types like <placeholder-8/> and <placeholder-9/>."
-msgstr ""
+msgstr "<placeholder-1/>에서는 <placeholder-2/>, <placeholder-3/>, <placeholder-4/>등을 정의한다. 정수 크기를 보장해야 할 때는 <placeholder-5/>, <placeholder-6/> 대신 항상 사용한다. C 정수형에서는 <placeholder-7/>만 사용한다. 적절한 경우에는 <placeholder-8/>와 <placeholder-9/>와 같은 표준 타입을 사용해도 좋다."
 
 #: cppguide.xml:2240(code)
 #: cppguide.xml:2349(code)
@@ -2241,19 +2241,19 @@ msgstr "uint64_t"
 
 #: cppguide.xml:2230(p)
 msgid "We use <placeholder-1/> very often, for integers we know are not going to be too big, e.g., loop counters. Use plain old <placeholder-2/> for such things. You should assume that an <placeholder-3/> is at least 32 bits, but don't assume that it has more than 32 bits. If you need a 64-bit integer type, use <placeholder-4/> or <placeholder-5/>."
-msgstr ""
+msgstr "<placeholder-1/>는 루프 카운터처럼 너무 커지지 않는 정수에 대해 매우 자주 사용한다. 이런 일반적인 상황에는 평범하고 오래된 <placeholder-2/>를 사용한다. <placeholder-3/>는 적어도 32비트라고 가정할 수는 있으나 32비트보다 크다고 가정해서는 안 된다. 64비트 정수형이 필요하면 <placeholder-4/> 또는 <placeholder-5/>를 사용한다."
 
 #: cppguide.xml:2242(p)
 msgid "For integers we know can be \"big\", use <placeholder-1/>."
-msgstr ""
+msgstr "\"크다고\" 할 수 있는 정수에는 <placeholder-1/>를 사용한다."
 
 #: cppguide.xml:2248(p)
 msgid "You should not use the unsigned integer types such as <placeholder-1/>, unless the quantity you are representing is really a bit pattern rather than a number, or unless you need defined twos-complement overflow. In particular, do not use unsigned types to say a number will never be negative. Instead, use assertions for this."
-msgstr ""
+msgstr "표현하려는 내용이 비트 패턴이 아니거나 2의 보수를 정의하는 것이 아니라면 <placeholder-1/>와 같은 부호 없는 정수형을 사용해서는 안 된다. 특히 절대 음수가 아닌 수를 표현하는데 부호 없는 정수형을 사용하지 않는다. 대신 이럴 때는 단정문을 사용한다."
 
 #: cppguide.xml:2262(p)
 msgid "Some people, including some textbook authors, recommend using unsigned types to represent numbers that are never negative. This is intended as a form of self-documentation. However, in C, the advantages of such documentation are outweighed by the real bugs it can introduce. Consider:"
-msgstr ""
+msgstr "교과서 저자를 포함해 일부는 부호 없는 정수형을 사용해 절대 음수가 아닌 수를 표현하는 것을 권한다. 이는 코드 자체로 문서화를 하기 위한 의도이다. 하지만 C에서 그런 문서화 이점보다 이 때문에 생기는 버그가 더 중요하다. 다음을 보자."
 
 #: cppguide.xml:2269(CODE_SNIPPET)
 msgid "for (unsigned int i = foo.Length()-1; i &gt;= 0; --i) ..."
@@ -2261,11 +2261,11 @@ msgstr ""
 
 #: cppguide.xml:2272(p)
 msgid "This code will never terminate! Sometimes gcc will notice this bug and warn you, but often it will not. Equally bad bugs can occur when comparing signed and unsigned variables. Basically, C's type-promotion scheme causes unsigned types to behave differently than one might expect."
-msgstr ""
+msgstr "이 코드는 절대 종료하지 않는다. 간혹 gcc에서는 이 버그를 알고 경고하지만 대부분은 그렇지 않다. 이와 같은 버그가 부호와 부호 없는 변수를 비교할 때도 생길 수 있다. 기본적으로 C에서 타입 승격은 부호 없는 정수형을 기대한 것과 다르게 동작하게 한다."
 
 #: cppguide.xml:2279(p)
 msgid "So, document that a variable is non-negative using assertions. Don't use an unsigned type."
-msgstr ""
+msgstr "그러므로 변수를 문서화할 때는 단정문을 사용해 음수가 아니라는 것을 나타낸다. 부호 없는 형을 사용하지 않는다."
 
 #: cppguide.xml:2289(SUMMARY)
 msgid "Code should be 64-bit and 32-bit friendly. Bear in mind problems of printing, comparisons, and structure alignment."
@@ -2273,7 +2273,7 @@ msgstr "코드는 64-bit와 32-bit에 접합해야 합니다. printing, 비교 �
 
 #: cppguide.xml:2304(code)
 msgid "inttypes.h"
-msgstr ""
+msgstr "inttypes.h"
 
 #: cppguide.xml:2296(p)
 msgid "<placeholder-1/> specifiers for some types are not cleanly portable between 32-bit and 64-bit systems. C99 defines some portable format specifiers. Unfortunately, MSVC 7.1 does not understand some of these specifiers and the standard is missing a few, so we have to define our own ugly versions in some cases (in the style of the standard include file <placeholder-2/>):"
@@ -3554,11 +3554,11 @@ msgstr "이 규칙의 논쟁의 여지가 있다는 것을 알고 있습니다. 
 
 #: cppguide.xml:3572(PROS)
 msgid "Those who favor this rule argue that it is rude to force them to resize their windows and there is no need for anything longer. Some folks are used to having several code windows side-by-side, and thus don't have room to widen their windows in any case. People set up their work environment assuming a particular maximum window width, and 80 columns has been the traditional standard. Why change it?"
-msgstr ""
+msgstr "이 규칙을 지지하는 이들은 창 크기를 조절하도록 강제하고 어느 것도 그 제한을 넘지 않도록 하는 게 간편하다고 주장한다. 일부는 코드 창을 나란히 띄워 사용하므로 창을 더 넓게 배치할 공간이 없다. 사람들은 자신의 작업 환경을 구성할 때 최대 창 폭을 특정 값으로 가정하며 80 열은 전통적으로 표준이다. 바꿀 이유가 있을까?"
 
 #: cppguide.xml:3583(CONS)
 msgid "Proponents of change argue that a wider line can make code more readable. The 80-column limit is an hidebound throwback to 1960s mainframes; modern equipment has wide screens that can easily show longer lines."
-msgstr ""
+msgstr "바꿀 것을 지지하는 쪽은 줄 폭이 더 넓으면 가독성이 더 좋아진다고 주장한다. 80 열 제한은 완고했던 1960년대 메인프레임 시절로 돌아가는 것이다. 현대 장비에는 더 긴 줄 내용을 넓은 화면에 쉽게 보여줄 수 있는 넓은 화면이 있다."
 
 #: cppguide.xml:3592(p)
 msgid "80 characters is the maximum."
@@ -3590,7 +3590,7 @@ msgstr "\"\\xEF\\xBB\\xBF\""
 
 #: cppguide.xml:3621(p)
 msgid "You shouldn't hard-code user-facing text in source, even English, so use of non-ASCII characters should be rare. However, in certain cases it is appropriate to include such words in your code. For example, if your code parses data files from foreign sources, it may be appropriate to hard-code the non-ASCII string(s) used in those data files as delimiters. More commonly, unittest code (which does not need to be localized) might contain non-ASCII strings. In such cases, you should use UTF-8, since that is an encoding understood by most tools able to handle more than just ASCII. Hex encoding is also OK, and encouraged where it enhances readability - for example, <placeholder-1/> is the Unicode zero-width no-break space character, which would be invisible if included in the source as straight UTF-8."
-msgstr ""
+msgstr "사용자가 보는 내용이 영어라 하더라도 소스 코드에 직접 넣지 말아야 한다. 그러므로 비아스키 문자는 극히 사용하지 말아야 한다. 하지만 어떤 경우엔 코드에 그런 단어를 넣어야 할 수도 있다. 예를 들어 외국어로 된 내용에서 데이터를 파싱하는 코드가 있을 때 구분자로 사용할 비아스키 문자를 코드에 직접 입력하는 게 적절할 수도 있다. 더 일반적으로는 (지역화할 필요가 없는) 단위 테스트 코드에 비아스키 문자열이 있을 수도 있다. 그런 경우에는 UTF-8을 사용해야 한다. UTF-8은 아스키 외 문자도 처리할 수 있는 툴 대부분에서 인식하는 인코딩이기 때문이다. 16 진수 인코딩 역시 좋으며 가독성을 높일 수 있을 때는 사용하길 권한다. 예를 들어 <placeholder-1/>는 유니코드 BOM 문자로 UTF-8 인코딩 문서에서 그 문자는 보이지 않는다."
 
 #: cppguide.xml:3644(SUMMARY)
 msgid "Use only spaces, and indent 2 spaces at a time."
