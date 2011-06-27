@@ -2269,7 +2269,7 @@ msgstr "그러므로 변수를 문서화할 때는 단정문을 사용해 음수
 
 #: cppguide.xml:2289(SUMMARY)
 msgid "Code should be 64-bit and 32-bit friendly. Bear in mind problems of printing, comparisons, and structure alignment."
-msgstr "코드는 64-bit와 32-bit에 접합해야 합니다. printing, 비교 그리고 구조체 정렬의 문제를 명심하십시오."
+msgstr "코드는 64-bit와 32-bit에 적합해야 합니다. printing, 비교 그리고 구조체 정렬의 문제를 명심하십시오."
 
 #: cppguide.xml:2304(code)
 msgid "inttypes.h"
@@ -2491,7 +2491,7 @@ msgstr "매크로 사용에 매우 주의하십시오. 매크로 대신에 인�
 
 #: cppguide.xml:2439(p)
 msgid "Macros mean that the code you see is not the same as the code the compiler sees. This can introduce unexpected behavior, especially since macros have global scope."
-msgstr "매크로는 여러분이 보는 코드와 컴파일러가 보는 코드가 다르다는 것을 뜻한다. 이 때문에 예상하지 못한 결과가 생길 수 있는데 특히 매크가 전역 범위일 때 더욱 그렇다."
+msgstr "매크로는 여러분이 보는 코드와 컴파일러가 보는 코드가 다르다는 것을 뜻합니다. 이 때문에 예상하지 못한 결과가 생길 수 있는데 특히 매크로가 전역 범위일 때 더욱 그렇습니다."
 
 #: cppguide.xml:2444(p)
 msgid "Luckily, macros are not nearly as necessary in C++ as they are in C. Instead of using a macro to inline performance-critical code, use an inline function. Instead of using a macro to store a constant, use a <placeholder-1/> variable. Instead of using a macro to \"abbreviate\" a long variable name, use a reference. Instead of using a macro to conditionally compile code ... well, don't do that at all (except, of course, for the <placeholder-2/> guards to prevent double inclusion of header files). It makes testing much more difficult."
@@ -4094,7 +4094,7 @@ msgstr ""
 
 #: cppguide.xml:4250(SUMMARY)
 msgid "The contents of namespaces are not indented."
-msgstr "namespace의 내용들은 index되지 않습니다."
+msgstr "namespace의 내용들은 indent되지 않습니다."
 
 #: cppguide.xml:4254(p)
 msgid "<placeholder-1/> do not add an extra level of indentation. For example, use:"
