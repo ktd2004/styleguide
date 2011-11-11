@@ -12,7 +12,7 @@ msgstr ""
 #: cppguide.xml:5(p)
 #: cppguide.xml:4567(p)
 msgid "Revision 3.199"
-msgstr ""
+msgstr "리비전 3.199"
 
 #: cppguide.xml:12(address)
 #: cppguide.xml:4573(address)
@@ -2751,7 +2751,7 @@ msgstr "코드를 읽고 유지할지도 모를 모든 기부자들에 대해서
 
 #: cppguide.xml:2619(SUMMARY)
 msgid "Use only approved libraries and language extensions from C++11 (formerly known as C++0x). Currently, none are approved."
-msgstr ""
+msgstr "C++11(이전에 C++0x로 알려져 있던)에서 승인된 라이브러리와 언어 확장만을 사용하십시오. 현재는 승인된 것이 없습니다."
 
 #: cppguide.xml:2628(a)
 msgid "significant changes"
@@ -2759,15 +2759,15 @@ msgstr "중대한 변경들"
 
 #: cppguide.xml:2625(DEFINITION)
 msgid "C++11 is the latest ISO C++ standard. It contains <placeholder-1/> both to the language and libraries."
-msgstr ""
+msgstr "C++11은 마지막 ISO C++ 표준입니다. 그것은 언어와 라이브러리 둘 다에서 <placeholder-1/>을 포함하고 있습니다."
 
 #: cppguide.xml:2632(PROS)
 msgid "C++11 has become the official standard, and eventually will be supported by most C++ compilers. It standardizes some common C++ extensions that we use already, allows shorthands for some operations, and has some performance and safety improvements."
-msgstr ""
+msgstr "C++11은 공식적인 표준이 되었습니다. 그리고 최종적으로 대부분의 C++ 컴파일러에 의해서 지원될 것입니다. 그것은 이미 사용하고 있던 몇개의 일반적인 C++ 확장을 표준화시켰습니다. 그리고 몇개의 동작에 대해서 shorthands를 허용합니다. 그리고 몇개의 성능과 안전성의 개선이 있습니다."
 
 #: cppguide.xml:2639(p)
 msgid "The C++11 standard is substantially more complex than its predecessor (1,300 pages versus 800 pages), and is unfamilar to many developers. The long-term effects of some features on code readability and maintenance are unknown. We cannot predict when its various features will be implemented uniformly by tools that may be of interest (gcc, icc, clang, Eclipse, etc.)."
-msgstr ""
+msgstr "C++11 표준은 대체적으로 이전 표준보다 더 복잡하다(1,300 페이지 대 800 페이지). 그리고 많은 개발자들에게 익숙하지 않다. 코드의 가독성과 유지보수성에 대해서 일부 기능이 장기적으로 어떤 영향을 미칠지 알 수 없다. 또한 gcc, icc, clang, Eclipse 등 관심 가질만한 많은 툴에서 다양한 기능들이 언제 구현될지 예상할 수 없다."
 
 #: cppguide.xml:2648(a)
 msgid "Boost"
@@ -2775,11 +2775,11 @@ msgstr "Boost"
 
 #: cppguide.xml:2647(p)
 msgid "As with <placeholder-1/>, some C++11 extensions encourage coding practices that hamper readability—for example by removing checked redundancy (such as type names) that may be helpful to readers, or by encouraging template metaprogramming. Other extensions duplicate functionality available through existing mechanisms, which may lead to confusion and conversion costs."
-msgstr ""
+msgstr "<placeholder-1/>와 마찬가지로, 일부 C++11 확장에서 사용하는 코드 작성 방법은 가독성을 떨어뜨린다. for example by removing checked redundancy (such as type names) that may be helpful to readers, or by encouraging template metaprogramming. 기존 구조로 사용할 수 있는 기능과 중복된 것도 있으며 이 때문에 혼란스럽거나 변환 비용이 생길 수 있다."
 
 #: cppguide.xml:2657(DECISION)
 msgid "Use only C++11 libraries and language features that have been approved for use. Currently, no such features are approved. Features will be approved individually as appropriate. Avoid writing code that is incompatible with C++11 (even though it works in C++03)."
-msgstr ""
+msgstr "사용이 승인된 C++11의 라이브러리와 언어 특징만 사용하십시오. 현재는 승인된 그러한 특징이 없습니다. 특징들은 편리한대로 개별적으로 승인될 것입니다. C++11과 호환되지 않는 코드를 작성하는 것을 피하십시오(심지어 그 코드가 C++03에서 동작할지라도)"
 
 #: cppguide.xml:2671(p)
 msgid "The most important consistency rules are those that govern naming. The style of a name immediately informs us what sort of thing the named entity is: a type, a variable, a function, a constant, a macro, etc., without requiring us to search for the declaration of that entity. The pattern-matching engine in our brains relies a great deal on these naming rules."
