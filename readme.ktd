@@ -5,3 +5,7 @@ xml2po -e -o po/cppguide.pot cppguide.xml
  {{{
 xml2po -p po/cppguide_kr.po cppguide.xml > cppguide.kr.xml
  }}}
+
+ {{{
+msgmerge --update --backup=none --no-wrap --quiet --no-fuzzy-matching --sort-output cppguide_kr.po cppguide.pot
+ }}}
