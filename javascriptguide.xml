@@ -3,14 +3,14 @@
 <GUIDE title="Google JavaScript Style Guide">
   <p class="revision">
     
-    Revision 2.64
+    Revision 2.93
   </p>
   
   <address>
     Aaron Whyte<br/>
     Bob Jervis<br/>
     Dan Pupius<br/>
-    Eric Arvidsson<br/>
+    Erik Arvidsson<br/>
     Fritz Schneider<br/>
     Robby Walker<br/>
   </address>
@@ -78,7 +78,7 @@
           <li>Never use the
             <a href="https://developer.mozilla.org/en/JavaScript/Reference/Statements/const">
               <code>const</code> keyword</a>
-            as it not supported in Internet Explorer.</li>
+            as it's not supported in Internet Explorer.</li>
         </ul>
       </SUMMARY>
       <BODY>
@@ -96,8 +96,8 @@
              <code>boolean</code>) are constant values.</p>
 
            <p><code>Objects</code>'
-             immutabilty is more subjective &#8212; objects should be
-             considered immutable only if they do not demonstrate obeserverable
+             immutability is more subjective — objects should be
+             considered immutable only if they do not demonstrate observable
              state change.  This is not enforced by the compiler.</p>
 
            
@@ -112,7 +112,13 @@
               lack of support in Internet Explorer).</p>
 
             <p>A <code>@const</code> annotation on a method additionally
-              implies that the method should not be overriden in subclasses.</p>
+              implies that the method cannot not be overridden in subclasses.
+            </p>
+
+            <p>A <code>@const</code> annotation on a constructor implies the
+              class cannot be subclassed (akin to <code>final</code> in Java).
+            </p>
+
           </SUBSECTION>
 
           <SUBSECTION title="Examples">
@@ -138,7 +144,7 @@
               overwritten.
             </p>
 
-            <p>The open source compiler will allow the symbol it to be
+            <p>The open source compiler will allow the symbol to be
               overwritten because the constant is
               <em>not</em> marked as <code>@const</code>.</p>
 
@@ -148,6 +154,15 @@
                * @const
                */
               MyClass.fetchedUrlCache_ = new goog.structs.Map();
+            </CODE_SNIPPET>
+
+            <CODE_SNIPPET>
+              /**
+               * Class that cannot be subclassed.
+               * @const
+               * @constructor
+               */
+              sloth.MyFinalClass = function() {};
             </CODE_SNIPPET>
 
             <p>In this case, the pointer can never be overwritten, but
@@ -186,7 +201,7 @@
 
           // 2.  Trying to do one thing on Internet Explorer and another on Firefox.
           // I know you'd never write code like this, but throw me a bone.
-          [normalVersion, ffVersion][isIE]();
+          [ffVersion, ieVersion][isIE]();
 
 
           var THINGS_TO_EAT = [apples, oysters, sprayOnCheese]  // No semicolon here.
@@ -201,20 +216,21 @@
               "called" resulting in an error.</li>
             <li>You will most likely get a 'no such property in undefined'
               error at runtime as it tries to call
-              <code>x[ffVersion][isIE]()</code>.</li>
-            <li><code>die</code> is called unless
-              <code>resultOfOperation()</code> is <code>NaN</code> and
-            <code>THINGS_TO_EAT</code> gets assigned the result of
-            <code>die()</code>.</li>
+              <code>x[ffVersion, ieVersion][isIE]()</code>.</li>
+            <li><code>die</code> is always called since the array minus 1 is
+              <code>NaN</code> which is never equal to anything (not even if
+              <code>resultOfOperation()</code> returns <code>NaN</code>) and
+              <code>THINGS_TO_EAT</code> gets assigned the result of
+              <code>die()</code>.</li>
           </ol>
         </SUBSECTION>
         <SUBSECTION title="Why?">
-          <p>JavaScript requires statements to end with a semicolon,
-            except when it thinks it can safely infer their existence. In each
-            of these examples, a function declaration or object or array literal
-            is used inside a statement. The closing brackets are not enough to
-            signal the end of the statement. Javascript never ends a statement
-            if the next token is an infix or bracket operator.</p>
+          <p>JavaScript requires statements to end with a semicolon, except when
+            it thinks it can safely infer their existence. In each of these
+            examples, a function declaration or object or array literal is used
+            inside a statement. The closing brackets are not enough to signal
+            the end of the statement. Javascript never ends a statement if the
+            next token is an infix or bracket operator.</p>
           <p>This has really surprised people, so make sure your assignments end
             with semicolons.</p>
         </SUBSECTION>
@@ -264,7 +280,7 @@
           Expression to define a function within a block:</p>
         <CODE_SNIPPET>
            if (x) {
-             var foo = function() {}
+             var foo = function() {};
            }
         </CODE_SNIPPET>
       </BODY>
@@ -342,8 +358,7 @@
           <a href="http://code.google.com/closure/library/">
             the Closure Library
           </a>
-           or something similar.
-          
+          or a similar library function.
         </p>
         <CODE_SNIPPET>
           function D() {
@@ -419,8 +434,7 @@
         <p>The ability to create closures is perhaps the most useful and often
           overlooked feature of JS. Here is
           <a href="http://jibbering.com/faq/faq_notes/closures.html">
-            a good description of how closures work
-          </a>.</p>
+            a good description of how closures work</a>.</p>
         <p>One thing to keep in mind, however, is that a closure keeps a pointer
           to its enclosing scope. As a result, attaching a closure to a DOM
           element can create a circular reference and thus, a memory leak. For
@@ -442,7 +456,7 @@
           }
 
           function bar(a, b) {
-            return function() { /* uses a and b */ }
+            return function() { /* uses a and b */ };
           }
         </CODE_SNIPPET>
       </BODY>
@@ -450,53 +464,43 @@
 
     <STYLEPOINT title="eval()">
       <SUMMARY>
-        Only for deserialization (e.g. evaluating RPC responses)
+        Only for code loaders and REPL (Read–eval–print loop)
       </SUMMARY>
       <BODY>
         <p><code>eval()</code> makes for confusing semantics and is dangerous
           to use if the string being <code>eval()</code>'d contains user input.
-          There's usually a better, more clear, safer way to write your code, so
-          its use is generally not permitted. However <code>eval</code> makes
-          deserialization considerably easier than the non-<code>eval</code>
-          alternatives, so its use is acceptable for this task (for example, to
-          evaluate RPC responses).</p>
-        <p>Deserialization is the process of transforming a series of bytes into
-          an in-memory data structure. For example, you might write objects out
-          to a file as:</p>
+          There's usually a better, clearer, and safer way to write your code,
+          so its use is generally not permitted.</p>
+
+        <p>For RPC you can always use JSON and read the result using
+          <code>JSON.parse()</code> instead of <code>eval()</code>.</p>
+
+        <p>Let's assume we have a server that returns something like this:</p>
+
         <CODE_SNIPPET>
-          users = [
-            {
-              name: 'Eric',
-              id: 37824,
-              email: 'jellyvore@myway.com'
-            },
-            {
-              name: 'xtof',
-              id: 31337,
-              email: 'b4d455h4x0r@google.com'
-            },
-            ...
-          ];
-        </CODE_SNIPPET>
-        <p>Reading these data back into memory is as simple as
-          <code>eval</code>ing the string representation of the file.</p>
-        <p>Similarly, <code>eval()</code> can simplify decoding RPC return
-          values. For example, you might use an <code>XMLHttpRequest</code>
-          to make an RPC, and in its response the server can return
-          JavaScript:</p>
-        <CODE_SNIPPET>
-          var userOnline = false;
-          var user = 'nusrat';
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.open('GET', 'http://chat.google.com/isUserOnline?user=' + user, false);
-          xmlhttp.send('');
-          // Server returns:
-          // userOnline = true;
-          if (xmlhttp.status == 200) {
-            eval(xmlhttp.responseText);
+          {
+            "name": "Alice",
+            "id": 31502,
+            "email": "looking_glass@example.com"
           }
-          // userOnline is now true.
         </CODE_SNIPPET>
+
+        <BAD_CODE_SNIPPET>
+          var userInfo = eval(feed);
+          var email = userInfo['email'];
+        </BAD_CODE_SNIPPET>
+
+        <p>If the feed was modified to include malicious JavaScript code, then
+          if we use <code>eval</code> then that code will be executed.</p>
+
+        <CODE_SNIPPET>
+          var userInfo = JSON.parse(feed);
+          var email = userInfo['email'];
+        </CODE_SNIPPET>
+
+        <p>With <code>JSON.parse</code>, invalid JSON (including all executable
+          JavaScript) will cause an exception to be thrown.</p>
+
       </BODY>
     </STYLEPOINT>
 
@@ -729,11 +733,10 @@
       <BODY>
         <SUBSECTION title="Properties and methods">
           <ul>
-            <li><em>Private</em> properties, variables, and methods (in files
-              or classes) should be named with a trailing
-              underscore.
+            <li><em>Private</em> properties and methods should be named with a
+              trailing underscore.
               </li>
-            <li><em>Protected</em> properties, variables, and methods should be
+            <li><em>Protected</em> properties and methods should be
               named without a trailing underscore (like public ones).</li>
           </ul>
           <p>For more information on <em>private</em> and <em>protected</em>,
@@ -768,7 +771,6 @@
                * WRONG -- Do NOT do this.
                */
               var foo = { get next() { return this.nextId++; } };
-              };
             </BAD_CODE_SNIPPET>
         </SUBSECTION>
 
@@ -892,7 +894,8 @@
                 staticHelper(new MyClass());
               };
             </CODE_SNIPPET>
-            <p>Do not alias namespaces.</p>
+            <p>Do not create local aliases of namespaces. Namespaces should only
+              be aliased using <a href="#goog-scope">goog.scope</a>.</p>
             <BAD_CODE_SNIPPET>
               myapp.main = function() {
                 var namespace = some.long.namespace;
@@ -999,7 +1002,7 @@
             var obj = {a: 1, b: 2, c: 3};  // No space after { or before }.
           </CODE_SNIPPET>
           <p>Multiline array initializers and object initializers are indented
-            2 spaces, just like blocks.</p>
+            2 spaces, with the braces on their own line, just like blocks.</p>
           <CODE_SNIPPET>
             // Object initializer.
             var inset = {
@@ -1079,8 +1082,8 @@
               // ...
             }
 
-            // Parenthesis-aligned, one argument per line.  Visually groups and
-            // emphasizes each individual argument.
+            // Parenthesis-aligned, one argument per line.  Emphasizes each
+            // individual argument.
             function bar(veryDescriptiveArgumentNumberOne,
                          veryDescriptiveArgumentTwo,
                          tableModelEventHandlerProxy,
@@ -1127,6 +1130,7 @@
           </CODE_SNIPPET>
         </SUBSECTION>
         <SUBSECTION title="Aliasing with goog.scope">
+          <a name="goog-scope"/>
           <p>
             <a href="https://docs.google.com/document/pub?id=1ETFAuh2kaXMVL-vafUYhaWlhl6b5D9TOvboVg7Zl68Y"><code>goog.scope</code></a>
             may be used to shorten references to
@@ -1146,7 +1150,7 @@
             declarations. Instead, continue from the 0 column.</p>
           <p>Only alias names that will not be re-assigned to another object
             (e.g., most constructors, enums, and namespaces). Do not do
-            this:</p>
+            this (see below for how to alias a constructor):</p>
 
           <BAD_CODE_SNIPPET>
             goog.scope(function() {
@@ -1160,7 +1164,7 @@
             are aliasing.</p>
 
           <CODE_SNIPPET>
-            goog.provide('my.module');
+            goog.provide('my.module.SomeType');
 
             goog.require('goog.dom');
             goog.require('goog.ui.Button');
@@ -1168,20 +1172,28 @@
             goog.scope(function() {
             var Button = goog.ui.Button;
             var dom = goog.dom;
-            var module = my.module;
 
-            module.button = new Button(dom.$('my-button'));
+            // Alias new types <b>after</b> the constructor declaration.
+            my.module.SomeType = function() { ... };
+            var SomeType = my.module.SomeType;
+
+            // Declare methods on the prototype as usual:
+            SomeType.prototype.findButton = function() {
+              // Button as aliased above.
+              this.button = new Button(dom.getElement('my-button'));
+            };
             ...
             });  // goog.scope
           </CODE_SNIPPET>
         </SUBSECTION>
-        <SUBSECTION title="More Indentation">
-          <p>In fact, except for
-            <a href="#Array_and_Object_literals">
-              array and object initializers
-            </a>, and passing anonymous functions, all wrapped lines
-            should be indented either left-aligned to the expression above, or
-            indented four spaces, not indented two spaces.</p>
+        <SUBSECTION title="Indenting wrapped lines">
+          <p>Except for <a href="#Array_and_Object_literals">array literals,
+            object literals</a>, and anonymous functions, all wrapped lines
+            should be indented either left-aligned to a sibling expression
+            above, or four spaces (not two spaces) deeper than a parent
+            expression (where "sibling" and "parent" refer to parenthesis
+            nesting level).
+          </p>
 
           <CODE_SNIPPET>
             someWonderfulHtml = '<div class="' + getClassesForWonderfulHtml()'">' +
@@ -1193,8 +1205,13 @@
             thisIsAVeryLongVariableName =
                 hereIsAnEvenLongerOtherFunctionNameThatWillNotFitOnPrevLine();
 
-            thisIsAVeryLongVariableName = 'expressionPartOne' + someMethodThatIsLong() +
-                thisIsAnEvenLongerOtherFunctionNameThatCannotBeIndentedMore();
+            thisIsAVeryLongVariableName = siblingOne + siblingTwo + siblingThree +
+                siblingFour + siblingFive + siblingSix + siblingSeven +
+                moreSiblingExpressions + allAtTheSameIndentationLevel;
+
+            thisIsAVeryLongVariableName = operandOne + operandTwo + operandThree +
+                operandFour + operandFive * (
+                    aNestedChildExpression + shouldBeIndentedMore);
 
             someValue = this.foo(
                 shortArg,
@@ -1223,10 +1240,12 @@
           </CODE_SNIPPET>
         </SUBSECTION>
         <SUBSECTION title="Binary and Ternary Operators">
-          <p>Always put the operator on the preceding line, so that you don't
-            have to think about implicit semi-colon insertion issues. Otherwise,
+          <p>Always put the operator on the preceding line. Otherwise,
             line breaks and indentation follow the same rules as in other
-            Google style guides.</p>
+            Google style guides. This operator placement was initially agreed
+            upon out of concerns about automatic semicolon insertion. In fact,
+            semicolon insertion cannot happen before a binary operator, but new
+            code should stick to this style for consistency.</p>
           <CODE_SNIPPET>
             var x = a ? b : c;  // All on one line if it will fit.
 
@@ -1324,7 +1343,7 @@
         <p>Note that these semantics differ from those of C++ and Java, in that
           they grant private and protected access to all code in the same file,
           not just in the same class or class hierarchy. Also, unlike in C++,
-          private properties cannot be overriden by a subclass.
+          private properties cannot be overridden by a subclass.
         </p>
         <CODE_SNIPPET>
           // File 1.
@@ -1891,12 +1910,12 @@
                   </CODE_SNIPPET>
                 </td>
                 <td>
-                  An Object in which the keys are numbers and the values
-                  are strings.  <p/>Note that in JavaScript, the keys are always
+                  An Object in which the keys are numbers and the values are
+                  strings.  <p/>Note that in JavaScript, the keys are always
                   implicitly converted to strings, so
                   <code>obj['1'] == obj[1]</code>.
-                  So the key wil always be a string in for...in loops. But the
-                  compiler will verify the type if the key when indexing into
+                  So the key will always be a string in for...in loops. But the
+                  compiler will verify the type of the key when indexing into
                   the object.
                 </td>
               </tr>
@@ -2197,26 +2216,28 @@
         <p>
           We follow the
           <a href="cppguide.xml#Comments">
-            C++ style for comments
-          </a> in spirit.
+            C++ style for comments</a> in spirit.
         </p>
 
         <p>All files, classes, methods and properties should be documented with
           <a href="http://code.google.com/p/jsdoc-toolkit/">JSDoc</a>
           comments with the appropriate <a href="#JSDoc_Tag_Reference">tags</a>
-          and <a href="#JsTypes">types</a>.</p>
+          and <a href="#JsTypes">types</a>. Textual descriptions for properties,
+          methods, method parameters and method return values should be included
+          unless obvious from the property, method, or parameter name.
+        </p>
 
         <p>Inline comments should be of the <code>//</code> variety.</p>
 
-        <p>Avoid sentence fragments. Start sentences with a properly
-        capitalized word, and end them with punctuation.</p>
+        <p>Complete sentences are recommended but not required.
+        Complete sentences should use appropriate capitalization
+        and punctuation.</p>
 
         <SUBSECTION title="Comment Syntax">
           <p>The JSDoc syntax is based on
           <a href="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html">
-          JavaDoc
-          </a>. Many tools extract metadata from JSDoc comments to perform
-          code validation and optimizations. These comments must be
+          JavaDoc</a>. Many tools extract metadata from JSDoc comments to
+          perform code validation and optimizations. These comments must be
           well-formed.</p>
 
           <CODE_SNIPPET>
@@ -2245,7 +2266,8 @@
             };
           </CODE_SNIPPET>
 
-          <p>You should not indent the <code>@fileoverview</code> command.</p>
+          <p>You should not indent the <code>@fileoverview</code> command. You do not have to
+            indent the <code>@desc</code> command.</p>
 
           <p>Even though it is not preferred, it is also acceptable to line up
              the description.</p>
@@ -2284,7 +2306,7 @@
           <p>It'll come out like this:</p>
 
           <BAD_CODE_SNIPPET>
-          Computes weight based on three factors: items sent items received items received
+          Computes weight based on three factors: items sent items received last timestamp
           </BAD_CODE_SNIPPET>
 
           <p>Instead, do this:</p>
@@ -2309,10 +2331,13 @@
           <p>
             
             A <a href="copyright.html">copyright notice</a> and author information are optional.
-            The top level comment is designed
-            to orient readers unfamiliar with the code to what is in this file.
-            It should provide a description of the file's contents and any
-            dependencies or compatibility information. As an example:</p>
+            File overviews are generally recommended whenever a file consists of
+            more than a single class definition. The top level comment is
+            designed to orient readers unfamiliar with the code to what is in
+            this file.  If present, it should provide a description of the
+            file's contents and any dependencies or compatibility information.
+            As an example:
+          </p>
 
           <CODE_SNIPPET>
             /**
@@ -2355,7 +2380,7 @@
              * Operates on an instance of MyClass and returns something.
              * @param {project.MyClass} obj Instance of MyClass which leads to a long
              *     comment that needs to be wrapped to two lines.
-             * @return {boolean} Whether something occured.
+             * @return {boolean} Whether something occurred.
              */
             function PR_someMethod(obj) {
               // ...
@@ -2438,15 +2463,15 @@
               <tr>
                 <td><a name="tag-const">@const</a></td>
                 <td>
-                  <code>@const</code>
+                  <code>@const</code><br/>
+                  <code>@const {type}</code>
                   <p><i>For example:</i></p>
                   <CODE_SNIPPET>
                     /** @const */ var MY_BEER = 'stout';
 
                     /**
                      * My namespace's favorite kind of beer.
-                     * @const
-                     * @type {string}
+                     * @const {string}
                      */
                     mynamespace.MY_BEER = 'stout';
 
@@ -2457,15 +2482,15 @@
                      * @const
                      */
                     mynamespace.Request.prototype.initialize = function() {
-                      // This method cannot be overriden in a subclass.
-                    }
+                      // This method cannot be overridden in a subclass.
+                    };
                   </CODE_SNIPPET>
                 </td>
                 <td>
                   <p>Marks a variable (or property) as read-only and suitable
                   for inlining.</p>
 
-                  <p>A <code>@const</code> variable is a immutable pointer to
+                  <p>A <code>@const</code> variable is an immutable pointer to
                   a value.  If a variable or property marked as
                   <code>@const</code> is overwritten, JSCompiler will give
                   warnings.</p>
@@ -2476,7 +2501,7 @@
 
                   <p>When <code>@const</code> is applied to a method, it
                     implies the method is not only not overwritable, but also
-                    that the method is <em>finalized</em> &#8212;
+                    that the method is <em>finalized</em> —
                     not overridable in subclasses.</p>
 
                   <p>For more on <code>@const</code>, see the
@@ -2514,7 +2539,10 @@
                     /** @define {boolean} */
                     var TR_FLAGS_ENABLE_DEBUG = true;
 
-                    /** @define {boolean} */
+                    /**
+                     * @define {boolean} Whether we know at compile-time that
+                     *     the browser is IE.
+                     */
                     goog.userAgent.ASSUME_IE = false;
                   </CODE_SNIPPET>
                 </td>
@@ -2802,7 +2830,9 @@
                     Polygon.prototype.getSides = function() {};
                   </CODE_SNIPPET>
                 </td>
-                <td>Used to indicate that the function defines an inteface.</td>
+                <td>
+                  Used to indicate that the function defines an interface.
+                </td>
               </tr>
 
               <tr>
@@ -2861,6 +2891,10 @@
                 </td>
               </tr>
 
+              
+
+              
+
               <tr>
                 <td><a name="tag-noalias">@noalias</a></td>
                 <td>
@@ -2879,6 +2913,27 @@
               </tr>
 
               <tr>
+                <td><a name="tag-nocompile">@nocompile</a></td>
+                <td>
+                  <code>@nocompile</code>
+                  <p><i>For example:</i></p>
+                  <CODE_SNIPPET>
+                    /** @nocompile */
+
+                    // JavaScript code
+                  </CODE_SNIPPET>
+                </td>
+                <td>
+                  Used at the top of a file to tell the compiler to parse this
+                  file but not compile it.
+                  Code that is not meant for compilation and should be omitted
+                  from compilation tests (such as bootstrap code) uses this
+                  annotation.
+                  Use sparingly.
+                </td>
+              </tr>
+
+              <tr>
                 <td><a name="tag-nosideeffects">@nosideeffects</a></td>
                 <td>
                   <code>@nosideeffects</code>
@@ -2887,7 +2942,7 @@
                     /** @nosideeffects */
                     function noSideEffectsFn1() {
                       // ...
-                    };
+                    }
 
                     /** @nosideeffects */
                     var noSideEffectsFn2 = function() {
@@ -2919,7 +2974,7 @@
                      * @return {string} Human-readable representation of project.SubClass.
                      * @override
                      */
-                    project.SubClass.prototype.toString() {
+                    project.SubClass.prototype.toString = function() {
                       // ...
                     };
                   </CODE_SNIPPET>
@@ -2962,13 +3017,13 @@
               <tr>
                 <td><a name="tag-private">@private</a></td>
                 <td>
-                  <code>@private</code>
+                  <code>@private</code><br/>
+                  <code>@private {type}</code>
                   <p><i>For example:</i></p>
                   <CODE_SNIPPET>
                     /**
                      * Handlers that are listening to this logger.
-                     * @type Array.&lt;Function&gt;
-                     * @private
+                     * @private {!Array.&lt;Function&gt;}
                      */
                     this.handlers_ = [];
                   </CODE_SNIPPET>
@@ -2976,21 +3031,19 @@
                 <td>
                   Used in conjunction with a trailing underscore on the method
                   or property name to indicate that the member is
-                  <a href="#Visibility__private_and_protected_fields_">private</a>.
-                  Trailing underscores may eventually be deprecated as tools are
-                  updated to enforce <code>@private</code>.
+                  <a href="#Visibility__private_and_protected_fields_">private</a> and final.
                 </td>
               </tr>
 
               <tr>
                 <td><a name="tag-protected">@protected</a></td>
                 <td>
-                  <code>@protected</code>
+                  <code>@protected</code><br/>
+                  <code>@protected {type}</code>
                   <p><i>For example:</i></p>
                   <CODE_SNIPPET>
                     /**
-                     * Sets the component's root element to the given element.  Considered
-                     * protected and final.
+                     * Sets the component's root element to the given element.
                      * @param {Element} element Root element for the component.
                      * @protected
                      */
@@ -3004,6 +3057,30 @@
                   <a href="#Visibility__private_and_protected_fields_">protected</a>.
                   Should be used in conjunction with names with no trailing
                   underscore.
+                </td>
+              </tr>
+
+              <tr>
+                <td><a name="tag-public">@public</a></td>
+                <td>
+                  <code>@public</code><br/>
+                  <code>@public {type}</code>
+                  <p><i>For example:</i></p>
+                  <CODE_SNIPPET>
+                    /**
+                     * Whether to cancel the event in internal capture/bubble processing.
+                     * @public {boolean}
+                     * @suppress {visiblity} Referencing this outside this package is strongly
+                     * discouraged.
+                     */
+                     goog.events.Event.prototype.propagationStopped_ = false;
+                  </CODE_SNIPPET>
+                </td>
+                <td>
+                  Used to indicate that the member or property is public. Variables and
+                  properties are public by default, so this annotation is rarely necessary.
+                  Should only be used in legacy code that cannot be easily changed to
+                  override the visibility of members that were named as private variables.
                 </td>
               </tr>
 
@@ -3111,6 +3188,9 @@
                   <code>
                     @suppress {warning1|warning2}
                   </code>
+                  <code>
+                    @suppress {warning1,warning2}
+                  </code>
                   <p><i>For example:</i></p>
                   <CODE_SNIPPET>
                     /**
@@ -3123,7 +3203,7 @@
                 </td>
                 <td>
                   Suppresses warnings from tools. Warning categories are
-                  separated by <code>|</code>.
+                  separated by <code>|</code> or <code>,</code>.
                   
                 </td>
               </tr>
@@ -3141,7 +3221,7 @@
                      * @template T
                      */
                     goog.bind = function(fn, thisObj, var_args) {
-                    ...
+                       ...
                     };
                   </CODE_SNIPPET>
                 </td>
@@ -3195,10 +3275,10 @@
                   </CODE_SNIPPET>
                 </td>
                 <td>
-                  Identifies the <a href="#JsTypes">type</a>
-                  of a variable, property, or expression.
-                  Curly braces are not required around most types, but some
-                  projects mandate them for all types, for consistency.
+                  Identifies the <a href="#JsTypes">type</a> of a variable,
+                  property, or expression. Curly braces are not required around
+                  most types, but some projects mandate them for all types, for
+                  consistency.
                 </td>
               </tr>
 
@@ -3222,8 +3302,13 @@
                   <a href="#Typedefs">complex type</a>.
                 </td>
               </tr>
+
+              
+
             </tbody>
           </table>
+
+          
 
           <p>
             You may also see other types of JSDoc annotations in third-party
@@ -3383,7 +3468,7 @@
         <SUBSECTION title="Conditional (Ternary) Operator (?:)">
           <p>Instead of this:</p>
           <CODE_SNIPPET>
-            if (val != 0) {
+            if (val) {
               return foo();
             } else {
               return bar();
@@ -3527,7 +3612,7 @@
   </PARTING_WORDS>
 
   <p align="right">
-    Revision 2.64
+    Revision 2.93
   </p>
 
   
